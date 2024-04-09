@@ -16,6 +16,8 @@ class AppImages {
   static const person = "assets/images/person.png";
   static const search = "assets/images/search.png";
   static const chanelLogoJfif = "assets/images/chanel.jfif";
+  static const categories = "assets/images/categories.png";
+  static const tempPerson = "assets/images/temp-person.png";
 
   static const facebook = "assets/images/facebook.png";
   static const google = "assets/images/google.png";
