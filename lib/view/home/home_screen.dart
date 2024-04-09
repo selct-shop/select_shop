@@ -1,16 +1,19 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:anim_search_bar/anim_search_bar.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:select_shop/core/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constans/app_images.dart';
 import 'package:select_shop/core/functions/functions.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/categories/categories_screen.dart';
+import 'package:select_shop/view/home/bloc/home_bloc.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,
@@ -40,6 +43,205 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       // top: false,
       child: Scaffold(
+        drawer: Drawer(
+          backgroundColor: Colors.white,
+          child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            color: Colors.white,
+            child: ListView(
+              padding: EdgeInsets.all(15),
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  height: 50,
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+
+                          // image: DecorationImage(image: CachedNetworkImage(imageUrl:"+" ,))
+                          image: DecorationImage(
+                              image: AssetImage(AppImages.tempPerson)),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Text(style: _customTitleTextStyle, "user name"),
+                          Text(
+                              style: _customLocalTextStyle,
+                              "mhli.ouutlook.sa@gmail.com"),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 45,
+                  margin: EdgeInsets.only(
+                    bottom: 15,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.mainGreyColor.withOpacity(.2),
+                        blurRadius: 5,
+                        offset: Offset(3, 5),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Image.asset(
+                        width: 22,
+                        height: 22,
+                        AppImages.home,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                          style: TextStyle(
+                              color: AppColors.mainGreyColor, fontSize: 18),
+                          "home page"),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                ),
+
+                ///
+                ///
+                ///
+
+                Container(
+                  width: double.infinity,
+                  height: 45,
+                  margin: EdgeInsets.only(
+                    bottom: 15,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.white,
+                    boxShadow: [
+                      // BoxShadow(
+                      //   color: AppColors.mainGreyColor.withOpacity(.2),
+                      //   blurRadius: 5,
+                      //   offset: Offset(3, 5),
+                      // ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      SizedBox(
+                        width: 22,
+                        height: 22,
+                        // child: Image.asset(
+                        //   width: 22,
+                        //   height: 22,
+                        //   AppImages.home,
+                        // ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                          style: TextStyle(
+                              color: AppColors.mainGreyColor, fontSize: 18),
+                          "home page"),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                ),
+
+                ///
+                ///
+                ///
+
+                Container(
+                  width: double.infinity,
+                  height: 45,
+                  margin: EdgeInsets.only(
+                    bottom: 15,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.white,
+                    boxShadow: [
+                      // BoxShadow(
+                      //   color: AppColors.mainGreyColor.withOpacity(.2),
+                      //   blurRadius: 5,
+                      //   offset: Offset(3, 5),
+                      // ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      SizedBox(
+                        width: 22,
+                        height: 22,
+                        // child: Image.asset(
+                        //   width: 22,
+                        //   height: 22,
+                        //   AppImages.home,
+                        // ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                          style: TextStyle(
+                              color: AppColors.mainGreyColor, fontSize: 18),
+                          "home page"),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                ),
+
+                ///
+                ///
+                ///
+              ],
+            ),
+          ),
+        ),
         appBar: CustomAppBar(),
 
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -54,161 +256,172 @@ class _HomeScreenState extends State<HomeScreen> {
             AppImages.cartBig,
           ),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
+        body: homeBody(context),
+        // body: CategoriesScreen(),
+
+        bottomNavigationBar: _CustomBottomNavBar(),
+
+        resizeToAvoidBottomInset: false, // Set this to false
+      ),
+    );
+  }
+
+  SingleChildScrollView homeBody(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            Stack(
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: 170,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15)),
-                      clipBehavior: Clip.hardEdge,
-                      child: CarouselSlider(
-                        options: CarouselOptions(
-                          viewportFraction: 1,
-                          // height: 75,
-
-                          scrollDirection: Axis.vertical,
-                          autoPlay: true,
-                          autoPlayInterval: Duration(seconds: 3),
-
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                              _currentIndex = index;
-                            });
-                          },
-                        ),
-                        items: [1, 2, 3].map((i) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              // return Container(
-                              //   height: 170,
-
-                              //   width: MediaQuery.of(context).size.width - 30,
-
-                              //   decoration: BoxDecoration(
-                              //     color: Colors.amber,
-                              //     image: DecorationImage(
-                              //       image: AssetImage(
-                              //         AppImages.mainCarouselSlider,
-                              //       ),
-                              //     ),
-                              //   ),
-                              //   // child: Image.asset(
-                              //   //     fit: BoxFit.fill,
-                              //   //     height: 170,
-                              //   //     // width: double.infinity,
-                              //   //     // height: double.infinity,
-                              //   //     AppImages.mainCarouselSlider),
-                              // );
-
-                              return Image(
-                                  height: 170,
-                                  width: double.infinity,
-                                  fit: BoxFit.fill,
-                                  image: AssetImage(
-                                    AppImages.mainCarouselSlider,
-                                  ));
-                            },
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                    Positioned(
-                      left: 10,
-                      top: 46,
-                      child: SizedBox(
-                        height: 80,
-                        // width: 5,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            for (int i = 0; i < 3; i++)
-                              AnimatedContainer(
-                                duration: Duration(seconds: 1),
-                                // width: _currentIndex == i ? 20 : 8.0,
-                                width: 5,
-                                height: 20,
-                                margin: EdgeInsets.symmetric(horizontal: 2.0),
-                                decoration: BoxDecoration(
-                                  // shape: BoxShape.circle,
-                                  color: _currentIndex == i
-                                      ? AppColors.mainColor
-                                      : Colors.grey,
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
                 Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 5,
-                            offset: Offset(3, 4),
-                            color: AppColors.mainGreyColor.withOpacity(.2))
-                      ],
-                      borderRadius: BorderRadius.circular(6)),
-                  child: Row(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return UnderDevScreen();
-                          }));
+                  width: double.infinity,
+                  height: 170,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(15)),
+                  clipBehavior: Clip.hardEdge,
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                      viewportFraction: 1,
+                      // height: 75,
+
+                      scrollDirection: Axis.vertical,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _currentIndex = index;
+                        });
+                      },
+                    ),
+                    items: [1, 2, 3].map((i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          // return Container(
+                          //   height: 170,
+
+                          //   width: MediaQuery.of(context).size.width - 30,
+
+                          //   decoration: BoxDecoration(
+                          //     color: Colors.amber,
+                          //     image: DecorationImage(
+                          //       image: AssetImage(
+                          //         AppImages.mainCarouselSlider,
+                          //       ),
+                          //     ),
+                          //   ),
+                          //   // child: Image.asset(
+                          //   //     fit: BoxFit.fill,
+                          //   //     height: 170,
+                          //   //     // width: double.infinity,
+                          //   //     // height: double.infinity,
+                          //   //     AppImages.mainCarouselSlider),
+                          // );
+
+                          return Image(
+                              height: 170,
+                              width: double.infinity,
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                AppImages.mainCarouselSlider,
+                              ));
                         },
-                        child: Container(
-                          width: 130,
-                          height: 40,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: AppColors.mainColor,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(6),
-                                topRight: Radius.circular(6),
-                                bottomLeft: Radius.circular(6),
-                              )),
-                          child: Text(
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                              "categorys"),
-                        ),
-                      ),
+                      );
+                    }).toList(),
+                  ),
+                ),
+                Positioned(
+                  left: 10,
+                  top: 46,
+                  child: SizedBox(
+                    height: 80,
+                    // width: 5,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        for (int i = 0; i < 3; i++)
+                          AnimatedContainer(
+                            duration: Duration(seconds: 1),
+                            // width: _currentIndex == i ? 20 : 8.0,
+                            width: 5,
+                            height: 20,
+                            margin: EdgeInsets.symmetric(horizontal: 2.0),
+                            decoration: BoxDecoration(
+                              // shape: BoxShape.circle,
+                              color: _currentIndex == i
+                                  ? AppColors.mainColor
+                                  : Colors.grey,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 5,
+                        offset: Offset(3, 4),
+                        color: AppColors.mainGreyColor.withOpacity(.2))
+                  ],
+                  borderRadius: BorderRadius.circular(6)),
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return UnderDevScreen();
+                      }));
+                    },
+                    child: Container(
+                      width: 130,
+                      height: 40,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: AppColors.mainColor,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(6),
+                            topRight: Radius.circular(6),
+                            bottomLeft: Radius.circular(6),
+                          )),
+                      child: Text(
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                          "categorys"),
+                    ),
+                  ),
 
 // ##### this FormBuilder is casuing problems ##### //
 
-                      // FormBuilder(
-                      //   child: FormBuilderTextField(
-                      //     name: "Search",
-                      //     // style: _customLocalTextStyle,
+                  // FormBuilder(
+                  //   child: FormBuilderTextField(
+                  //     name: "Search",
+                  //     // style: _customLocalTextStyle,
 
-                      //     // controller: TextEditingController?,
+                  //     // controller: TextEditingController?,
 
-                      //     decoration: InputDecoration(
-                      //       hintText: "Search...",
-                      //       // hintStyle: _customLocalTextStyle,
-                      //       border: InputBorder.none,
-                      //       contentPadding: EdgeInsetsDirectional.symmetric(
-                      //         horizontal: 20,
-                      //       ),
-                      //     ),
-                      //   ),
-                      // )
+                  //     decoration: InputDecoration(
+                  //       hintText: "Search...",
+                  //       // hintStyle: _customLocalTextStyle,
+                  //       border: InputBorder.none,
+                  //       contentPadding: EdgeInsetsDirectional.symmetric(
+                  //         horizontal: 20,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // )
 
 // #####  ##### //
 
@@ -218,194 +431,178 @@ class _HomeScreenState extends State<HomeScreen> {
 // // textStyle: TextStyle(color: ),
 //                       ),
 
-                      // AnimSearchBar(
-                      //   width: 400,
-                      //   textController: _searchTextEditingController,
-                      //   onSuffixTap: () {
-                      //     setState(() {
-                      //       _searchTextEditingController.clear();
-                      //     });
-                      //   },
-                      //   onSubmitted: (value) {},
-                      // ),
+                  // AnimSearchBar(
+                  //   width: 400,
+                  //   textController: _searchTextEditingController,
+                  //   onSuffixTap: () {
+                  //     setState(() {
+                  //       _searchTextEditingController.clear();
+                  //     });
+                  //   },
+                  //   onSubmitted: (value) {},
+                  // ),
 
-                      // FormField(builder: (context) {
-                      //   return Text('search');
-                      // },
-                      // ),
-                      //
-                      //
+                  // FormField(builder: (context) {
+                  //   return Text('search');
+                  // },
+                  // ),
+                  //
+                  //
 
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Icon(
-                        Icons.search,
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Icon(
+                    Icons.search,
+                    color: AppColors.mainGreyColor.withOpacity(.3),
+                    size: 26,
+                  ),
+
+                  Text(
+                    style: _customLocalTextStyle.copyWith(
+                        fontSize: 18,
                         color: AppColors.mainGreyColor.withOpacity(.3),
-                        size: 26,
-                      ),
+                        backgroundColor: Colors.white),
+                    "Search...",
+                  ),
+                ],
+              ),
+            ),
 
-                      Text(
-                        style: _customLocalTextStyle.copyWith(
-                            fontSize: 18,
-                            color: AppColors.mainGreyColor.withOpacity(.3),
-                            backgroundColor: Colors.white),
-                        "Search...",
-                      ),
-                    ],
+            ////////////////////////////////
+            ///
+            ///
+            ///
+            ////////////////////////////////
+
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                Text(
+                  style: _customTitleTextStyle,
+                  "Categories: ",
+                ),
+                Spacer(),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return UnderDevScreen();
+                    }));
+                  },
+                  child: Text(
+                    style: _customTitleTextStyle.copyWith(
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.mainColor),
+                    "show all:",
                   ),
                 ),
-
-                ////////////////////////////////
-                ///
-                ///
-                ///
-                ////////////////////////////////
-
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      style: _customTitleTextStyle,
-                      "Categories: ",
-                    ),
-                    Spacer(),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return UnderDevScreen();
-                        }));
-                      },
-                      child: Text(
-                        style: _customTitleTextStyle.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.normal,
-                            decoration: TextDecoration.underline,
-                            decorationColor: AppColors.mainColor),
-                        "show all:",
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  // height: 140,
-                  height: 170,
-
-                  width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  decoration: BoxDecoration(
-                    color: AppColors.mainColor.withOpacity(.2),
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: ListView(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      for (int i = 0; i < 10; i++)
-                        Column(
-                          children: [
-                            Container(
-                              width: 100,
-                              height: 100,
-                              margin: EdgeInsets.symmetric(horizontal: 8),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: AppColors.mainGreyColor
-                                          .withOpacity(.3),
-                                      blurRadius: 3,
-                                      offset: Offset(3, 3),
-                                    ),
-                                  ],
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(
-                                      AppImages.mainCarouselSlider,
-                                    ),
-                                  )),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              style: _customTitleTextStyle.copyWith(
-                                fontWeight: FontWeight.normal,
-                              ),
-                              "Categories ",
-                            ),
-                          ],
-                        ),
-                    ],
-                  ),
-                ),
-
-                ////////////////////////////////
-                ///
-                ///
-                ///
-                ////////////////////////////////
-
-                ////////////////////////////
-                ///
-                ///
-                ///////////////////////////
-
-                CustomBanar(),
-
-                ////////////////////////////
-                ///
-                ///
-                ///////////////////////////
-                CustomBanar(),
-
-                ////////////////////////////
-                ///
-                ///
-                ///////////////////////////
-                CustomBanar(),
-
-                ////////////////////////////
-                ///
-                ///
-                ///////////////////////////
-                CustomBanar(),
-
-                ////////////////////////////
-                ///
-                ///
-                ///////////////////////////
               ],
             ),
-          ),
-        ),
-        // bottomNavigationBar: ConvexAppBar(
-        //   style: TabStyle.react,
-        //   items: [
-        //     TabItem(icon: Icons.list),
-        //     TabItem(icon: Icons.calendar_today),
-        //     TabItem(icon: Icons.assessment),
-        //   ],
-        //   initialActiveIndex: 1,
-        //   onTap: (int i) => print('click index=$i'),
-        // ),
 
-        bottomNavigationBar: _CustomBottomNavBar(),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              // height: 140,
+              height: 170,
+
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 15),
+              decoration: BoxDecoration(
+                color: AppColors.mainColor.withOpacity(.2),
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: ListView(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                scrollDirection: Axis.horizontal,
+                children: [
+                  for (int i = 0; i < 10; i++)
+                    Column(
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 100,
+                          margin: EdgeInsets.symmetric(horizontal: 8),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color:
+                                      AppColors.mainGreyColor.withOpacity(.3),
+                                  blurRadius: 3,
+                                  offset: Offset(3, 3),
+                                ),
+                              ],
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                  AppImages.mainCarouselSlider,
+                                ),
+                              )),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          style: _customTitleTextStyle.copyWith(
+                            fontWeight: FontWeight.normal,
+                          ),
+                          "Categories ",
+                        ),
+                      ],
+                    ),
+                ],
+              ),
+            ),
+
+            ////////////////////////////////
+            ///
+            ///
+            ///
+            ////////////////////////////////
+
+            ////////////////////////////
+            ///
+            ///
+            ///////////////////////////
+
+            CustomBanar(),
+
+            ////////////////////////////
+            ///
+            ///
+            ///////////////////////////
+            CustomBanar(),
+
+            ////////////////////////////
+            ///
+            ///
+            ///////////////////////////
+            CustomBanar(),
+
+            ////////////////////////////
+            ///
+            ///
+            ///////////////////////////
+            CustomBanar(),
+
+            ////////////////////////////
+            ///
+            ///
+            ///////////////////////////
+          ],
+        ),
       ),
     );
   }
 }
 
 class _CustomBottomNavBar extends StatelessWidget {
-
-  
   const _CustomBottomNavBar({
     super.key,
   });
@@ -429,7 +626,10 @@ class _CustomBottomNavBar extends StatelessWidget {
       child: Row(
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
+              // print('homeme tappppppppppppppppppppppppppppppppppppppppp');
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -443,7 +643,7 @@ class _CustomBottomNavBar extends StatelessWidget {
                 Text(
                   "Home",
                   style:
-                      TextStyle(color: Color.fromARGB(255, 0, 255, 221), fontSize: 10),
+                      TextStyle(color: AppColors.mainGreyColor, fontSize: 10),
                 )
               ],
             ),
@@ -831,9 +1031,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return UnderDevScreen();
-                }));
+                Scaffold.of(context).openDrawer();
               },
               child: Image(
                 image: AssetImage(
