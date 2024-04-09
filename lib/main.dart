@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:select_shop/core/theme/light.dart';
 import 'package:select_shop/test.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
+import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
-
-  int activeScreenNumber = 1;
 }
 
 class MyApp extends StatelessWidget {
@@ -16,12 +16,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: customLightTheme,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<HomeBloc>(create: (context) => HomeBloc()),
+          // BlocProvider(create:(context) => HomeBloc()..add(HomeGetItemsEvent( ))),
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: customLightTheme,
+          home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        ));
   }
 }
 
@@ -37,9 +42,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    // return const LogInScreen();
+    return const LogInScreen();
     // return const SignupScreen();
-    return const HomeScreen();
+    // return const HomeScreen();
     // return CarouselWithIndicator();
   }
 }
