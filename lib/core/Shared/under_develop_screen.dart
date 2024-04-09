@@ -14,8 +14,8 @@ class UnderDevScreen extends StatelessWidget {
       children: [
         const BublesBackground(),
         Positioned(
-            left: 30,
-            top: 60,
+            left: 20,
+            top: 20,
             child: InkWell(
               borderRadius: BorderRadius.circular(50),
               onTap: () {

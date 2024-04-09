@@ -9,6 +9,7 @@ import 'package:select_shop/core/constans/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/core/theme/light.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
+import 'package:select_shop/view/home/home_screen.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,
@@ -223,12 +224,16 @@ class _LogInScreenState extends State<LogInScreen> {
                           50,
                         ),
                         onTap: () {
-                          print("teeeeeeeeeeeeeeest");
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const UnderDevScreen()));
+                          
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) =>
+                          //             const UnderDevScreen()));
+Navigator.of(context).push(MaterialPageRoute(builder: (context) { 
+  return HomeScreen(); 
+}));
+
                         },
                         child: Container(
                           height: 40,
