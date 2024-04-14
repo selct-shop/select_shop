@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:select_shop/core/Shared/error_screen.dart';
 import 'package:select_shop/core/Shared/loading_screen.dart';
 import 'package:select_shop/core/theme/light.dart';
 import 'package:select_shop/test.dart';
@@ -45,7 +46,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // return  Scaffold(body: SafeArea(child:  LogInScreen()));
     // return  Scaffold(body: SafeArea(child:  CustomLoadingScreen()));
-    // return  Scaffold(body: SafeArea(child:  SignupScreen()));
-    return Scaffold(body: SafeArea(child: HomeScreen()));
+    return Scaffold(
+        body: SafeArea(
+            child: ErrorScreen(
+      errorMessage: 'test',
+    )));
+    // return Scaffold(body: SafeArea(child: HomeScreen()));
   }
 }
