@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:select_shop/core/Shared/loading_screen.dart';
 import 'package:select_shop/core/theme/light.dart';
 import 'package:select_shop/test.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
@@ -43,8 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     // return const LogInScreen();
+    return const CustomLoadingScreen();
     // return const SignupScreen();
-    return const HomeScreen();
+    // return const HomeScreen();
     // return CarouselWithIndicator();
   }
 }
