@@ -13,8 +13,11 @@ import 'package:select_shop/core/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constans/app_images.dart';
 import 'package:select_shop/core/functions/functions.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
+import 'package:select_shop/view/favourite/favourite_screen.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
+import 'package:select_shop/view/personal/personal_screen.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,
@@ -215,13 +218,15 @@ class _HomeScreenState extends State<HomeScreen> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return UnderDevScreen();
+              return CartScreen();
             }));
           },
           backgroundColor: AppColors.mainColor,
-          child: Image.asset(
-            AppImages.cartBig,
-          ),
+          // child: Image.asset(
+          //   AppImages.cartBig,
+          // ),
+
+          child: Icon(size: 35, Icons.shopping_cart_rounded),
         ),
         // body: homeBody(context),
 
@@ -245,9 +250,9 @@ class _HomeScreenState extends State<HomeScreen> {
             } else if (context.read<HomeBloc>().activePageNumber == 2) {
               return CategoriesScreen();
             } else if (context.read<HomeBloc>().activePageNumber == 3) {
-              return CustomLoadingScreen();
+              return FavoureitesScreen();
             } else if (context.read<HomeBloc>().activePageNumber == 4) {
-              return CustomLoadingScreen();
+              return PersonalScreen();
             } else {
               return CustomLoadingScreen();
             }
