@@ -656,12 +656,18 @@ class _CustomBottomNavBar extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                  width: 34,
-                  height: 34,
-                  image: AssetImage(
-                    AppImages.home,
-                  ),
+                // Image(
+                //   width: 34,
+                //   height: 34,
+                //   image: AssetImage(
+                //     AppImages.home,
+                //   ),
+                // ),
+
+                Icon(
+                  color: AppColors.mainColor,
+                  size: 35,
+                  Icons.home_rounded,
                 ),
                 Text(
                   "Home",
@@ -687,12 +693,18 @@ class _CustomBottomNavBar extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                  width: 34,
-                  height: 34,
-                  image: AssetImage(
-                    AppImages.catigeores,
-                  ),
+                // Image(
+                //   width: 34,
+                //   height: 34,
+                //   image: AssetImage(
+                //     AppImages.catigeores,
+                //   ),
+                // ),
+
+                Icon(
+                  color: AppColors.mainColor,
+                  size: 35,
+                  Icons.category_rounded,
                 ),
                 Text(
                   "categories",
@@ -722,12 +734,18 @@ class _CustomBottomNavBar extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                  width: 34,
-                  height: 34,
-                  image: AssetImage(
-                    AppImages.favFilled,
-                  ),
+                // Image(
+                //   width: 34,
+                //   height: 34,
+                //   image: AssetImage(
+                //     AppImages.favFilled,
+                //   ),
+                // ),
+
+                Icon(
+                  color: AppColors.mainColor,
+                  size: 35,
+                  Icons.favorite_rounded,
                 ),
                 Text(
                   "favourite",
@@ -752,12 +770,18 @@ class _CustomBottomNavBar extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                  width: 34,
-                  height: 34,
-                  image: AssetImage(
-                    AppImages.person,
-                  ),
+                // Image(
+                //   width: 34,
+                //   height: 34,
+                //   image: AssetImage(
+                //     AppImages.person,
+                //   ),
+                // ),
+
+                Icon(
+                  color: AppColors.mainColor,
+                  size: 35,
+                  Icons.person_rounded,
                 ),
                 Text(
                   "personal",
@@ -1056,10 +1080,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               onTap: () {
                 Scaffold.of(context).openDrawer();
               },
-              child: Image(
-                image: AssetImage(
-                  AppImages.menu,
-                ),
+              // child: Image(
+              //   image: AssetImage(
+              //     AppImages.menu,
+              //   ),
+              // ),
+
+              child: Icon(
+                color: AppColors.mainColor,
+                size: 30,
+                Icons.menu_rounded,
               ),
             ),
             Row(
@@ -1085,11 +1115,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   return UnderDevScreen();
                 }));
               },
-              child: Image(
-                image: AssetImage(
-                  AppImages.notification,
-                ),
-              ),
+              // child: Image(
+              //   image: AssetImage(
+              //     AppImages.notification,
+              //   ),
+              // ),
+
+              child: Icon(
+                  color: AppColors.mainColor,
+                  size: 30,
+                  Icons.notifications_rounded),
             )
           ],
         ),
