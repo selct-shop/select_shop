@@ -96,45 +96,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 40,
                 ),
-                Container(
-                  width: double.infinity,
-                  height: 45,
-                  margin: EdgeInsets.only(
-                    bottom: 15,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.mainGreyColor.withOpacity(.2),
-                        blurRadius: 5,
-                        offset: Offset(3, 5),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Image.asset(
-                        width: 22,
-                        height: 22,
-                        AppImages.home,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                          style: TextStyle(
-                              color: AppColors.mainGreyColor, fontSize: 18),
-                          "home page"),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                    ],
-                  ),
+                _CustomDrawerListTile(
+                  onTap: () {},
+                  isActive: true,
                 ),
 
                 ///
@@ -560,12 +524,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            ////////////////////////////////
-            ///
-            ///
-            ///
-            ////////////////////////////////
-
             ////////////////////////////
             ///
             ///
@@ -595,6 +553,71 @@ class _HomeScreenState extends State<HomeScreen> {
             ///
             ///
             ///////////////////////////
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CustomDrawerListTile extends StatelessWidget {
+  final void Function()? onTap;
+  final bool isActive;
+  _CustomDrawerListTile({
+    //  @required this.onTap,
+    super.key,
+    required this.onTap,
+    required this.isActive,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        print("teeeeeeeeeeeeeest");
+      },
+      child: Container(
+        width: double.infinity,
+        height: 45,
+        margin: EdgeInsets.only(
+          bottom: 15,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: isActive == true ? AppColors.mainColor : Colors.white,
+          boxShadow: isActive == true
+              ? [
+                  BoxShadow(
+                    color: AppColors.mainGreyColor.withOpacity(.2),
+                    blurRadius: 5,
+                    offset: Offset(3, 5),
+                  ),
+                ]
+              : [],
+        ),
+        child: Row(
+          children: [
+            const SizedBox(
+              width: 20,
+            ),
+            // Image.asset(
+            //   width: 22,
+            //   height: 22,
+            //   AppImages.home,
+            // ),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+                style: TextStyle(
+                    color: isActive == true
+                        ? Colors.white
+                        : AppColors.mainGreyColor,
+                    fontSize: 18),
+                "home page"),
+            const SizedBox(
+              width: 20,
+            ),
           ],
         ),
       ),
