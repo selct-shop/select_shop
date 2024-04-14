@@ -242,15 +242,18 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context, state) {
             if (context.read<HomeBloc>().activePageNumber == 1) {
               return homeBody(context);
+            } else if (context.read<HomeBloc>().activePageNumber == 2) {
+              return CategoriesScreen();
+            } else if (context.read<HomeBloc>().activePageNumber == 3) {
+              return CustomLoadingScreen();
+            } else if (context.read<HomeBloc>().activePageNumber == 4) {
+              return CustomLoadingScreen();
             } else {
               return CustomLoadingScreen();
             }
           },
         ),
-        // body: CategoriesScreen(),
-
         bottomNavigationBar: _CustomBottomNavBar(),
-
         resizeToAvoidBottomInset: false, // Set this to false
       ),
     );
