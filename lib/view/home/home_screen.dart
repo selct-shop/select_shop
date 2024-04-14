@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:select_shop/core/Shared/loading_screen.dart';
 import 'package:select_shop/core/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constans/app_images.dart';
 import 'package:select_shop/core/functions/functions.dart';
@@ -40,6 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // final homeBloc = BlocProvider.of<HomeBloc>(context);
+
     return SafeArea(
       // top: false,
       child: Scaffold(
@@ -220,7 +223,30 @@ class _HomeScreenState extends State<HomeScreen> {
             AppImages.cartBig,
           ),
         ),
-        body: homeBody(context),
+        // body: homeBody(context),
+
+// body: BlocConsumer<HomeBloc, HomeState>(
+//   listener: (context, state) {
+
+//   },
+//   // bloc: homeBloc ,
+//   builder: (context, state) {
+//   return homeBody(context);
+// },),
+
+        body: BlocBuilder<HomeBloc, HomeState>(
+          // listener: (context, state) {
+
+          // },
+          // bloc: homeBloc ,
+          builder: (context, state) {
+            if (context.read<HomeBloc>().activePageNumber == 1) {
+              return homeBody(context);
+            } else {
+              return CustomLoadingScreen();
+            }
+          },
+        ),
         // body: CategoriesScreen(),
 
         bottomNavigationBar: _CustomBottomNavBar(),
@@ -649,9 +675,12 @@ class _CustomBottomNavBar extends StatelessWidget {
       child: Row(
         children: [
           InkWell(
-            onTap: () {
-              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
-              // print('homeme tappppppppppppppppppppppppppppppppppppppppp');
+            onTap: () async {
+              await context.read<HomeBloc>().bottomNavBarTapded(1);
+
+              context.read<HomeBloc>().add(BottomNavBarTapdedEvent(
+                  // tappdedPageNumber: 1
+                  ));
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -689,7 +718,11 @@ class _CustomBottomNavBar extends StatelessWidget {
             width: 10,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () async {
+              await context.read<HomeBloc>().bottomNavBarTapded(2);
+
+              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -730,7 +763,11 @@ class _CustomBottomNavBar extends StatelessWidget {
           ///
 
           InkWell(
-            onTap: () {},
+            onTap: () async {
+              await context.read<HomeBloc>().bottomNavBarTapded(3);
+
+              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -766,7 +803,11 @@ class _CustomBottomNavBar extends StatelessWidget {
             width: 10,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () async {
+              await context.read<HomeBloc>().bottomNavBarTapded(4);
+
+              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

@@ -4,12 +4,14 @@ part of 'home_bloc.dart';
 sealed class HomeEvent {
 // sealed class HomeEvent extends Equatable {
 }
- class BottomNavBarTapdedEvent extends HomeEvent { 
+ final class BottomNavBarTapdedEvent extends HomeEvent { 
 
-// final int tappdedPageNumber;
+//  int tappdedPageNumber = 1;
 
 // BottomNavBarTapdedEvent({
 //   required this.tappdedPageNumber,
-// })
+// });
+
+
 
   }
