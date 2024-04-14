@@ -43,11 +43,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-
-    // return const LogInScreen();
-    // return const CustomLoadingScreen();
-    // return const SignupScreen();
-    return const HomeScreen();
-    // return CarouselWithIndicator();
+    // return  Scaffold(body: SafeArea(child:  LogInScreen()));
+    // return  Scaffold(body: SafeArea(child:  CustomLoadingScreen()));
+    // return  Scaffold(body: SafeArea(child:  SignupScreen()));
+    return Scaffold(body: SafeArea(child: HomeScreen()));
   }
 }
