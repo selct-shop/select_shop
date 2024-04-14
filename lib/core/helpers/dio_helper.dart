@@ -1,5 +1,6 @@
+
+
 import 'package:dio/dio.dart';
-import 'package:special_line_rider/shared/constants.dart';
 
 class DioHelper {
   static String baseUrl = 'https://crm.specialline.info/api/';
@@ -25,7 +26,14 @@ class DioHelper {
     print(url);
     dio!.options.headers = {
       //'lang': lang,
-      'Authorization': 'Bearer $token' // ?? CacheHelper.getData(key: "token"),
+
+      // #### //
+      // 'Authorization': 'Bearer $token'
+
+      // #### //
+
+
+      // ?? CacheHelper.getData(key: "token"),
       //'Content-Type': 'application/json',
     };
     print(dio!.options.headers);
@@ -44,7 +52,13 @@ class DioHelper {
     //String? token,
   }) async {
     dio!.options.headers = {
-      'Authorization': 'Bearer $token',
+
+      // #### //
+
+      // 'Authorization': 'Bearer $token',
+      // #### //
+
+
       //'Accept': 'application/json',
     };
     // print('url->$url\n data->$data');
@@ -92,10 +106,22 @@ class DioHelper {
     dio!.options.headers = {
       'lang': lang,
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer $token'
+
+      // #### //
+
+      // 'Authorization': 'Bearer $token'
+
+      // #### //
+
     };
     print('data ${data}');
-    print('token ${token}');
+
+      // #### //
+
+    // print('token ${token}');
+
+      // #### //
+
     return await dio!.put(
       url,
       //queryParameters: queryParameters,
