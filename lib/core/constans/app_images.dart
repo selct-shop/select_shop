@@ -6,6 +6,7 @@ class AppImages {
   static const notification = "assets/images/notifiation.png";
   static const selectShopText = "assets/images/select_shop_text.png";
   static const mainCarouselSlider = "assets/images/main_carousel_slider.png";
+  static const girlLoginScreen = "assets/images/girlLoginScreen.png";
 
   static const cartBig = "assets/images/cart_big.png";
   static const cartSmall = "assets/images/cart_small.png";
