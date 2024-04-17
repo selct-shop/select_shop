@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:select_shop/core/Shared/error_screen.dart';
 import 'package:select_shop/core/Shared/loading_screen.dart';
@@ -18,10 +19,14 @@ void main() async {
   // runApp(const MyApp());
 
   WidgetsFlutterBinding.ensureInitialized();
+
+   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top], );
   await CacheHelper.init();
   await DioHelper.init();
 
   // token = CacheHelper.getData(key: 'token') ?? '';
+
+
   runApp(const MyApp());
 }
 
