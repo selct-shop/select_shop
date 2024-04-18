@@ -1,3 +1,18 @@
 {
-    "helloWorld": "Hello World!"
-  }
+    "selectShop":"select shop", 
+    "resetPassword": "reset password", 
+    "enterEmailToResetOne": "enter your email to reset", 
+    "enterEmailToResetTwo": "your password", 
+    "email": "email", 
+    "sendCode": "send code", 
+    "backToSignIn": "back to signin", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "noDataLikeThis":"لا يوجد بيانات"
+}
+
+  

@@ -70,10 +70,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(body: SafeArea(child: LogInScreen()));
-    // return const Scaffold(body: SafeArea(child: ForgotPasswordScreen()));
-    return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
 
+// AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
+
+    // return Scaffold(body: SafeArea(child: LogInScreen()));
+    return const Scaffold(body: SafeArea(child: ForgotPasswordScreen()));
+    // return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
     // return Scaffold(body: SafeArea(child: HomeScreen()));
   }

@@ -93,11 +93,59 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
+  /// No description provided for @selectShop.
+  ///
+  /// In en, this message translates to:
+  /// **'select shop'**
+  String get selectShop;
+
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'reset password'**
+  String get resetPassword;
+
+  /// No description provided for @enterEmailToResetOne.
+  ///
+  /// In en, this message translates to:
+  /// **'enter your email to reset'**
+  String get enterEmailToResetOne;
+
+  /// No description provided for @enterEmailToResetTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'your password'**
+  String get enterEmailToResetTwo;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'email'**
+  String get email;
+
+  /// No description provided for @sendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'send code'**
+  String get sendCode;
+
+  /// No description provided for @backToSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'back to signin'**
+  String get backToSignIn;
+
   /// No description provided for @helloWorld.
   ///
   /// In en, this message translates to:
-  /// **'Hello World!'**
+  /// **''**
   String get helloWorld;
+
+  /// No description provided for @noDataLikeThis.
+  ///
+  /// In en, this message translates to:
+  /// **'لا يوجد بيانات'**
+  String get noDataLikeThis;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

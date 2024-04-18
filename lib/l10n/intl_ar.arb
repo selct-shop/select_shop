@@ -1,3 +1,16 @@
 {
-    "helloWorld": "مرحبا بالعالم!"
+    "selectShop": "سيلكت شوب", 
+    "resetPassword": "إعادة تعيين كلمة المرور", 
+    "enterEmailToResetOne": "أدخل بريدك الإلكتروني لإعادة تعيين", 
+    "enterEmailToResetTwo": "كلمة المرور الخاصة بك", 
+    "email": "البريد الإلكتروني", 
+    "sendCode": "إرسال الرمز", 
+    "backToSignIn": "العودة إلى تسجيل الدخول", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "noDataLikeThis":"no data"
   }

@@ -440,7 +440,7 @@ class _AuthCustomIcon extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  width: AppConstants.theDefBadding,
+                  width: AppConstants.theDefBaddingFifteenPixl,
                 )
               ],
             ),
