@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:select_shop/core/Shared/under_develop_screen.dart';
+import 'package:select_shop/view/Shared/under_develop_screen.dart';
 
 
   // goToDevScreen(BuildContext context) {

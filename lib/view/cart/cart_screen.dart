@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:select_shop/core/Shared/under_develop_screen.dart';
+import 'package:select_shop/view/Shared/under_develop_screen.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});

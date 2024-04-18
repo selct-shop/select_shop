@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:select_shop/core/Shared/error_screen.dart';
-import 'package:select_shop/core/Shared/loading_screen.dart';
+import 'package:select_shop/view/Shared/error_screen.dart';
+import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/core/constans/app_images.dart';
 import 'package:select_shop/core/helpers/cache_helper.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
@@ -15,6 +15,7 @@ import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/home_screen.dart';
+import 'package:select_shop/view/language/chose_language_screen.dart';
 
 void main() async {
   // runApp(const MyApp());
@@ -70,7 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     // return Scaffold(body: SafeArea(child: LogInScreen()));
-    return const Scaffold(body: SafeArea(child: ForgotPasswordScreen()));
+    // return const Scaffold(body: SafeArea(child: ForgotPasswordScreen()));
+    return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
+
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
     // return Scaffold(body: SafeArea(child: HomeScreen()));
   }

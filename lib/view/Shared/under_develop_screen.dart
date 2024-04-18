@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:select_shop/core/Shared/bubles_background.dart';
+import 'package:select_shop/view/Shared/bubles_background.dart';
 import 'package:select_shop/core/theme/colors.dart';
 
 class UnderDevScreen extends StatelessWidget {
