@@ -9,6 +9,7 @@ import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/theme/light.dart';
 import 'package:select_shop/test.dart';
 import 'package:select_shop/view/Auth/bloc/auth_bloc.dart';
+import 'package:select_shop/view/Auth/forget_password_screen.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
@@ -20,12 +21,14 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top], );
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top],
+  );
   await CacheHelper.init();
   await DioHelper.init();
 
   // token = CacheHelper.getData(key: 'token') ?? '';
-
 
   runApp(const MyApp());
 }
@@ -82,8 +85,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: LogInScreen()));
-    // return  Scaffold(body: SafeArea(child:  CustomLoadingScreen()));
+    // return Scaffold(body: SafeArea(child: LogInScreen()));
+    return Scaffold(body: SafeArea(child: ForgotPasswordScreen()));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
     // return Scaffold(body: SafeArea(child: HomeScreen()));
   }

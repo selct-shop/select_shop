@@ -9,9 +9,11 @@ import 'package:select_shop/core/Shared/loading_screen.dart';
 import 'package:select_shop/core/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constans/app_constants.dart';
 import 'package:select_shop/core/constans/app_images.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/core/theme/light.dart';
 import 'package:select_shop/view/Auth/bloc/auth_bloc.dart';
+import 'package:select_shop/view/Auth/forget_password_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 
@@ -184,10 +186,8 @@ class _LoginBody extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const UnderDevScreen()));
+                    navigateToWithReplacement(
+                        context, const ForgotPasswordScreen());
                   },
                   child: const Text(
                     style: TextStyle(

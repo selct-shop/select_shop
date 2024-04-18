@@ -12,6 +12,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       if (event is AuthLogInEvent) {
         // DioHelper.getData(url: DioHelper.baseUrl);
+        emit(AuthLoadingState());
         await DioHelper.login(phoneNumber: '971542287649', password: '19961996');
       }
 
