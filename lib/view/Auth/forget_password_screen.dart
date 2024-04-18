@@ -7,6 +7,7 @@ import 'package:select_shop/core/constans/app_constants.dart';
 import 'package:select_shop/core/constans/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 
 TextStyle _customTitleTextStyle = TextStyle(
@@ -65,6 +66,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         fontSize: 14,
                       ),
                       'العودة إلى تسجيل الدخول')),
+              // Text(AppLocalizations.of(context)!.helloWorld),
             ],
           ),
         )),

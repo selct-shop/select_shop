@@ -64,16 +64,12 @@ dependencies:
 
   #### splash screen ####
   flutter_native_splash: ^2.4.0
-# flutter_native_splash:
-#   android: true
-#   ios: true
-#   web: false
-#   color: "#FFFFFF"
-#   image: "assets/images/logo.png"
   flutter_localizations:
     sdk: flutter
+  # localization: ^2.1.1
+  intl: ^0.18.1
 
-  another_flutter_splash_screen: ^1.2.0
+  # another_flutter_splash_screen: ^1.2.0
 
 
   #### the dev dependencies ####
@@ -100,6 +96,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  generate: true
+  # Other config...
 
   # To add assets to your application, add an assets section, like this:
   assets:
