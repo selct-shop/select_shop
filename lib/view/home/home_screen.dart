@@ -957,7 +957,7 @@ class CustomBanar extends StatelessWidget {
                                         borderRadius: BorderRadius.only(
                                           bottomRight: Radius.circular(8),
                                         ),
-                                        color: AppColors.kyellowColor,
+                                        color: Colors.yellow,
                                       ),
                                       child: Text(
                                         "new",

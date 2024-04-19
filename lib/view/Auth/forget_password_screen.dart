@@ -10,9 +10,12 @@ import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
+import 'package:select_shop/view/Shared/app_text_form_field.dart';
 
 TextStyle _customTitleTextStyle = TextStyle(
     color: AppColors.mainColor, fontWeight: FontWeight.bold, fontSize: 20);
+
+TextEditingController _emailTextEditingContorller = TextEditingController();
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -59,6 +62,18 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     fontSize: 14,
                   ),
                   AppLocalizations.of(context)!.enterEmailToResetTwo,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Form(
+                  child: AppTextFormField(
+                    controller: _emailTextEditingContorller,
+                    onChanged: (p0) {},
+                    validator: (p0) {},
+shadow: true ,
+                    hintText: AppLocalizations.of(context)!.email,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
