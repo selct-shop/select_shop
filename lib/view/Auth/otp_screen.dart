@@ -1,8 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:select_shop/core/constans/app_constants.dart';
 import 'package:select_shop/core/constans/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
@@ -10,18 +6,11 @@ import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
-import 'package:select_shop/view/Shared/app_text_form_field.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
-TextEditingController _emailTextEditingContorller = TextEditingController();
+class OtpScreen extends StatelessWidget {
+  const OtpScreen({super.key});
 
-class ForgotPasswordScreen extends StatefulWidget {
-  const ForgotPasswordScreen({super.key});
-
-  @override
-  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
-}
-
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,26 +40,41 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     color: AppColors.mainGreyColor,
                     fontSize: 20,
                   ),
-                  AppLocalizations.of(context)!.enterEmailToResetOne,
+                  AppLocalizations.of(context)!.otpCodeSended,
                 ),
                 Text(
-                  style: TextStyle(
-                    color: AppColors.mainGreyColor,
-                    fontSize: 20,
-                  ),
-                  AppLocalizations.of(context)!.enterEmailToResetTwo,
-                ),
+                    style: TextStyle(
+                      color: AppColors.mainGreyColor,
+                      fontSize: 20,
+                    ),
+                    'mhli.outlook.sa@gmail.com'),
                 const SizedBox(
                   height: 20,
                 ),
-                Form(
-                  child: AppTextFormField(
-                    controller: _emailTextEditingContorller,
-                    onChanged: (p0) {},
-                    validator: (p0) {},
-                    shadow: true,
-                    hintText: AppLocalizations.of(context)!.email,
-                  ),
+                OtpTextField(
+                  numberOfFields: 4,
+                  // borderColor: AppColors.grey2Color,454
+                  showFieldAsBox: true,
+                  borderRadius: BorderRadius.circular(15),
+                  fieldHeight: 60,
+                  fieldWidth: 60,
+                  enabledBorderColor: AppColors.greyColor,
+                  focusedBorderColor: AppColors.mainColor,
+
+                  onCodeChanged: (String code) {
+                    //handle validation or checks here
+                  },
+                  //runs when every textfield is filled
+                  onSubmit: (String verificationCode) {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Verification Code"),
+                            content: Text('Code entered is $verificationCode'),
+                          );
+                        });
+                  }, // end onSubmit
                 ),
                 const SizedBox(
                   height: 20,
@@ -82,7 +86,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   backgroundColor: AppColors.mainColor,
                   onTap: () {
                     // validate
-                    // contorller.resetpassword
+                    // make sure the otp length is 4, if it's not then show custom
+                    // toast saying the otp is shorter
+                    // contorller.check otp
                   },
                 ),
                 const SizedBox(
@@ -95,7 +101,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     child: Text(
                       style: AppConstants.customTitleTextStyle.copyWith(
                         color: AppColors.mainGreyColor,
-                        fontSize: 20,
+                        fontSize: 14,
                       ),
                       AppLocalizations.of(context)!.backToSignIn,
                     )),

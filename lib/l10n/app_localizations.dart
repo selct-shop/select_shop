@@ -135,6 +135,12 @@ abstract class AppLocalizations {
   /// **'back to signin'**
   String get backToSignIn;
 
+  /// No description provided for @otpCodeSended.
+  ///
+  /// In en, this message translates to:
+  /// **'otp code is sended to'**
+  String get otpCodeSended;
+
   /// No description provided for @helloWorld.
   ///
   /// In en, this message translates to:

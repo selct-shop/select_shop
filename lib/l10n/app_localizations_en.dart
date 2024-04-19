@@ -26,6 +26,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backToSignIn => 'back to signin';
 
   @override
+  String get otpCodeSended => 'otp code is sended to';
+
+  @override
   String get helloWorld => '';
 
   @override

@@ -8,6 +8,12 @@ class AppConstants {
   static const double emptySpaceTenPixl = 10;
 
   // TextStyle
-  TextStyle customTitleTextStyle = const TextStyle(
+  static  TextStyle customTitleTextStyle = const TextStyle(
       color: AppColors.mainColor, fontWeight: FontWeight.bold, fontSize: 20);
+
+// TextStyle _customTitleTextStyle = TextStyle(
+//     color: AppColors.mainColor, fontWeight: FontWeight.bold, fontSize: 20);
+
+
+
 }

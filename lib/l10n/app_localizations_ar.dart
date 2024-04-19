@@ -26,6 +26,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backToSignIn => 'العودة إلى تسجيل الدخول';
 
   @override
+  String get otpCodeSended => 'تم إرسال رمز المصادقة إلى';
+
+  @override
   String get helloWorld => '';
 
   @override
