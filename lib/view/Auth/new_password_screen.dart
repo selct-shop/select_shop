@@ -1,8 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:select_shop/core/constans/app_constants.dart';
 import 'package:select_shop/core/constans/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
@@ -13,16 +9,14 @@ import 'package:select_shop/view/Auth/otp_screen.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/app_text_form_field.dart';
 
-TextEditingController _emailTextEditingContorller = TextEditingController();
+TextEditingController _newPasswordTextEditingContorller =
+    TextEditingController();
+TextEditingController _confermNewPasswordTextEditingContorller =
+    TextEditingController();
 
-class ForgotPasswordScreen extends StatefulWidget {
-  const ForgotPasswordScreen({super.key});
+class NewPasswordScreen extends StatelessWidget {
+  const NewPasswordScreen({super.key});
 
-  @override
-  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
-}
-
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +24,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         child: SingleChildScrollView(
             child: SizedBox(
           width: double.infinity,
-          height: 600,
+          height: 800,
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -47,44 +41,43 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                Text(
-                  style: TextStyle(
-                    color: AppColors.mainGreyColor,
-                    fontSize: 20,
-                  ),
-                  AppLocalizations.of(context)!.enterEmailToResetOne,
-                ),
-                Text(
-                  style: TextStyle(
-                    color: AppColors.mainGreyColor,
-                    fontSize: 20,
-                  ),
-                  AppLocalizations.of(context)!.enterEmailToResetTwo,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
                 Form(
-                  child: AppTextFormField(
-                    controller: _emailTextEditingContorller,
-                    onChanged: (p0) {},
-                    validator: (p0) {},
-                    shadow: true,
-                    hintText: AppLocalizations.of(context)!.email,
+                  child: Column(
+                    children: [
+                      AppTextFormField(
+                        controller: _newPasswordTextEditingContorller,
+                        onChanged: (p0) {},
+                        validator: (p0) {},
+                        shadow: true,
+                        hintText: AppLocalizations.of(context)!.newPassword,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      AppTextFormField(
+                        controller: _confermNewPasswordTextEditingContorller,
+                        onChanged: (p0) {},
+                        validator: (p0) {},
+                        shadow: true,
+                        hintText:
+                            AppLocalizations.of(context)!.confirmNewPassword,
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 AppButton(
-                  title: AppLocalizations.of(context)!.sendCode,
+                  title: AppLocalizations.of(context)!.confirm,
                   textColor: Colors.white,
                   width: double.infinity,
                   backgroundColor: AppColors.mainColor,
                   onTap: () {
                     // validate
+                    // if not valid show toast
                     // contorller.resetpassword
-
+                    // clear controller or the textEditingControllers
                     navigateToWithReplacement(context, const OtpScreen());
                   },
                 ),

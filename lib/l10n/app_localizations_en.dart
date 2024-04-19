@@ -29,6 +29,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get otpCodeSended => 'otp code is sended to';
 
   @override
+  String get newPassword => 'new password';
+
+  @override
+  String get confirmNewPassword => 'confirm new password';
+
+  @override
+  String get confirm => 'confirm';
+
+  @override
   String get helloWorld => '';
 
   @override

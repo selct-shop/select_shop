@@ -7,9 +7,9 @@
     "sendCode": "send code", 
     "backToSignIn": "back to signin", 
     "otpCodeSended": "otp code is sended to", 
-    "helloWorld": "", 
-    "helloWorld": "", 
-    "helloWorld": "", 
+    "newPassword": "new password", 
+    "confirmNewPassword": "confirm new password", 
+    "confirm": "confirm", 
     "helloWorld": "", 
     "helloWorld": "", 
     "noDataLikeThis":"لا يوجد بيانات"

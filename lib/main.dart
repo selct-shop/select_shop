@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:select_shop/view/Auth/new_password_screen.dart';
 import 'package:select_shop/view/Auth/otp_screen.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
     // return Scaffold(body: SafeArea(child: LogInScreen()));
-    return const Scaffold(body: SafeArea(child: OtpScreen()));
+    return const Scaffold(body: SafeArea(child: NewPasswordScreen()));
     // return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
     // return Scaffold(body: SafeArea(child: HomeScreen()));

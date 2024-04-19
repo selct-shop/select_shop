@@ -29,6 +29,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get otpCodeSended => 'تم إرسال رمز المصادقة إلى';
 
   @override
+  String get newPassword => 'كلمة المرور الجديده';
+
+  @override
+  String get confirmNewPassword => 'تاكيد كلمة المرور';
+
+  @override
+  String get confirm => 'تاكيد';
+
+  @override
   String get helloWorld => '';
 
   @override

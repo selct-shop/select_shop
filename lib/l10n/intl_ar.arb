@@ -7,9 +7,9 @@
     "sendCode": "إرسال الرمز", 
     "backToSignIn": "العودة إلى تسجيل الدخول", 
     "otpCodeSended": "تم إرسال رمز المصادقة إلى", 
-    "helloWorld": "", 
-    "helloWorld": "", 
-    "helloWorld": "", 
+    "newPassword": "كلمة المرور الجديده", 
+    "confirmNewPassword": "تاكيد كلمة المرور", 
+    "confirm": "تاكيد", 
     "helloWorld": "", 
     "helloWorld": "", 
     "noDataLikeThis":"no data"

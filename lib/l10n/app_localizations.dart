@@ -141,6 +141,24 @@ abstract class AppLocalizations {
   /// **'otp code is sended to'**
   String get otpCodeSended;
 
+  /// No description provided for @newPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'new password'**
+  String get newPassword;
+
+  /// No description provided for @confirmNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'confirm new password'**
+  String get confirmNewPassword;
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'confirm'**
+  String get confirm;
+
   /// No description provided for @helloWorld.
   ///
   /// In en, this message translates to:

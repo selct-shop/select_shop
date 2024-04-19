@@ -199,10 +199,8 @@ class _LoginBody extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const UnderDevScreen()));
+                    navigateToWithReplacement(
+                        context, const ForgotPasswordScreen());
                   },
                   child: const Text(
                     style: TextStyle(
