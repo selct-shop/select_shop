@@ -43,7 +43,7 @@ class AppTextFormField extends StatelessWidget {
             ? <BoxShadow>[
                 BoxShadow(
                   color: Colors.grey.withOpacity(.5),
-                  offset: const  Offset(0.0, 2.0),
+                  offset: const Offset(0.0, 2.0),
                   blurRadius: 3.0,
                 ),
               ]
@@ -54,6 +54,7 @@ class AppTextFormField extends StatelessWidget {
         validator: validator,
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,
+        // textAlignVertical: TextAlignVertical.center,
         style: const TextStyle(
           decoration: TextDecoration.none,
           decorationThickness: 0,
@@ -79,7 +80,6 @@ class AppTextFormField extends StatelessWidget {
           //     color: borderColor ?? AppColors.mainColor,
           //   ),
           // ),
-
           border: InputBorder.none,
           // focusedBorder: InputBorder.none,
           errorBorder: OutlineInputBorder(
@@ -90,7 +90,6 @@ class AppTextFormField extends StatelessWidget {
           ),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 15,
-            vertical: 15,
           ),
 
           hintText: hintText,

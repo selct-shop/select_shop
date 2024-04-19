@@ -71,7 +71,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     controller: _emailTextEditingContorller,
                     onChanged: (p0) {},
                     validator: (p0) {},
-shadow: true ,
+                    shadow: true,
                     hintText: AppLocalizations.of(context)!.email,
                   ),
                 ),
@@ -83,6 +83,10 @@ shadow: true ,
                   textColor: Colors.white,
                   width: double.infinity,
                   backgroundColor: AppColors.mainColor,
+                  onTap: () {
+                    // validate
+                    // contorller.resetpassword
+                  },
                 ),
                 const SizedBox(
                   height: 20,
