@@ -258,7 +258,7 @@ class _CustomDrawerListTile extends StatelessWidget {
                 : Divider(
                     endIndent: 10,
                     indent: 10,
-                    color: AppColors.greyColor,
+                    color: AppColors.greyColor.withOpacity(.15),
                   ),
             // Divider(
             //   color: AppColors.greyColor,
