@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:select_shop/core/constans/app_images.dart';
+import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 

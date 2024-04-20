@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:select_shop/core/constans/app_constants.dart';
-import 'package:select_shop/core/constans/app_images.dart';
+import 'package:select_shop/core/constants/app_constants.dart';
+import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
@@ -8,6 +8,7 @@ import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/otp_screen.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/app_text_form_field.dart';
+import 'package:select_shop/view/home/home_screen.dart';
 
 TextEditingController _newPasswordTextEditingContorller =
     TextEditingController();
@@ -78,7 +79,7 @@ class NewPasswordScreen extends StatelessWidget {
                     // if not valid show toast
                     // contorller.resetpassword
                     // clear controller or the textEditingControllers
-                    navigateToWithReplacement(context, const OtpScreen());
+                    navigateToWithReplacement(context, const HomeScreen());
                   },
                 ),
                 const SizedBox(

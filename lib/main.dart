@@ -5,7 +5,7 @@ import 'package:select_shop/view/Auth/new_password_screen.dart';
 import 'package:select_shop/view/Auth/otp_screen.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
-import 'package:select_shop/core/constans/app_images.dart';
+import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/helpers/cache_helper.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/theme/light.dart';
