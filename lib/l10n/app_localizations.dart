@@ -159,17 +159,95 @@ abstract class AppLocalizations {
   /// **'confirm'**
   String get confirm;
 
+  /// No description provided for @noDataLikeThis.
+  ///
+  /// In en, this message translates to:
+  /// **'no data like this'**
+  String get noDataLikeThis;
+
   /// No description provided for @helloWorld.
   ///
   /// In en, this message translates to:
   /// **''**
   String get helloWorld;
 
-  /// No description provided for @noDataLikeThis.
+  /// No description provided for @userName.
   ///
   /// In en, this message translates to:
-  /// **'لا يوجد بيانات'**
-  String get noDataLikeThis;
+  /// **'user name'**
+  String get userName;
+
+  /// No description provided for @userEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'mhli.ouutlook.sa@gmail.com'**
+  String get userEmail;
+
+  /// No description provided for @homePage.
+  ///
+  /// In en, this message translates to:
+  /// **'home Page'**
+  String get homePage;
+
+  /// No description provided for @products.
+  ///
+  /// In en, this message translates to:
+  /// **'products'**
+  String get products;
+
+  /// No description provided for @tradeMark.
+  ///
+  /// In en, this message translates to:
+  /// **'trad marks'**
+  String get tradeMark;
+
+  /// No description provided for @specialproducts.
+  ///
+  /// In en, this message translates to:
+  /// **'special products'**
+  String get specialproducts;
+
+  /// No description provided for @favourts.
+  ///
+  /// In en, this message translates to:
+  /// **'favourts'**
+  String get favourts;
+
+  /// No description provided for @mycart.
+  ///
+  /// In en, this message translates to:
+  /// **'my cart'**
+  String get mycart;
+
+  /// No description provided for @orders.
+  ///
+  /// In en, this message translates to:
+  /// **'orders'**
+  String get orders;
+
+  /// No description provided for @personalPage.
+  ///
+  /// In en, this message translates to:
+  /// **'personal page'**
+  String get personalPage;
+
+  /// No description provided for @suppourt.
+  ///
+  /// In en, this message translates to:
+  /// **'suppourt'**
+  String get suppourt;
+
+  /// No description provided for @contactUs.
+  ///
+  /// In en, this message translates to:
+  /// **'contact us'**
+  String get contactUs;
+
+  /// No description provided for @signOut.
+  ///
+  /// In en, this message translates to:
+  /// **'sign out'**
+  String get signOut;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

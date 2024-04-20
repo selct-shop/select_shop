@@ -10,9 +10,41 @@
     "newPassword": "new password", 
     "confirmNewPassword": "confirm new password", 
     "confirm": "confirm", 
+    "noDataLikeThis":"no data like this",
+    
+
     "helloWorld": "", 
     "helloWorld": "", 
-    "noDataLikeThis":"لا يوجد بيانات"
+
+
+
+
+    
+    "userName": "user name", 
+    "userEmail": "mhli.ouutlook.sa@gmail.com", 
+    "homePage": "home Page", 
+    "products": "products", 
+    "tradeMark": "trad marks", 
+    "specialproducts": "special products", 
+    "favourts": "favourts", 
+    "mycart": "my cart", 
+    "orders": "orders", 
+    "personalPage": "personal page", 
+    "suppourt": "suppourt", 
+    "contactUs": "contact us", 
+    "signOut": "sign out",
+    
+    
+    
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": ""
+  
 }
 
   

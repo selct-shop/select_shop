@@ -75,9 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
     // return Scaffold(body: SafeArea(child: LogInScreen()));
-    return const Scaffold(body: SafeArea(child: NewPasswordScreen()));
+    // return const Scaffold(body: SafeArea(child: NewPasswordScreen()));
     // return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    // return Scaffold(body: SafeArea(child: HomeScreen()));
+    return const Scaffold(body: SafeArea(child: HomeScreen()));
   }
 }

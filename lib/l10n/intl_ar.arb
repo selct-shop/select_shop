@@ -10,7 +10,37 @@
     "newPassword": "كلمة المرور الجديده", 
     "confirmNewPassword": "تاكيد كلمة المرور", 
     "confirm": "تاكيد", 
+    "noDataLikeThis":"no data", 
+    
     "helloWorld": "", 
     "helloWorld": "", 
-    "noDataLikeThis":"no data"
+
+
+
+
+    
+    "userName": "اسم المستخدم", 
+    "userEmail": "mhli.ouutlook.sa@gmail.com", 
+    "homePage": "الصفحه الرئسيه", 
+    "products": "المنتجات", 
+    "tradeMark": "العلامات التجاريه", 
+    "specialproducts": "منتجات مميزه", 
+    "favourts": "المفضله", 
+    "mycart": "عربتي", 
+    "orders": "الطلبات", 
+    "personalPage": "الملف الشخصي", 
+    "suppourt": "الدعم", 
+    "contactUs": "تواصل معنا", 
+    "signOut": "تسجيل خروج",
+    
+    
+
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": "", 
+    "helloWorld": ""
   }

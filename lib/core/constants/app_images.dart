@@ -23,4 +23,22 @@ class AppImages {
 
   static const facebook = "assets/images/facebook.png";
   static const google = "assets/images/google.png";
+
+  //   ####   //
+  //  SVG Images  //
+
+
+  static const homeSvg = "assets/svg images/home_svg.svg";
+  static const productsSvg = "assets/svg images/products.svg";
+  static const tradeMarkSvg = "assets/svg images/tradeMark.svg";
+  static const specialproductsSvg = "assets/svg images/specialproducts.svg";
+  static const favourtsStorkSvg = "assets/svg images/favourts_stork.svg";
+  static const mycartSvg  = "assets/svg images/mycart.svg";
+  static const ordersSvg = "assets/svg images/orders.svg";
+  static const personalPageSvg = "assets/svg images/personalPage.svg";
+  static const suppourtSvg = "assets/svg images/suppourt.svg";
+  static const contactUsSvg = "assets/svg images/contactUs.svg";
+  static const signOutSvg = "assets/svg images/signOut.svg";
+
+
 }

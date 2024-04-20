@@ -38,8 +38,47 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirm => 'confirm';
 
   @override
+  String get noDataLikeThis => 'no data like this';
+
+  @override
   String get helloWorld => '';
 
   @override
-  String get noDataLikeThis => 'لا يوجد بيانات';
+  String get userName => 'user name';
+
+  @override
+  String get userEmail => 'mhli.ouutlook.sa@gmail.com';
+
+  @override
+  String get homePage => 'home Page';
+
+  @override
+  String get products => 'products';
+
+  @override
+  String get tradeMark => 'trad marks';
+
+  @override
+  String get specialproducts => 'special products';
+
+  @override
+  String get favourts => 'favourts';
+
+  @override
+  String get mycart => 'my cart';
+
+  @override
+  String get orders => 'orders';
+
+  @override
+  String get personalPage => 'personal page';
+
+  @override
+  String get suppourt => 'suppourt';
+
+  @override
+  String get contactUs => 'contact us';
+
+  @override
+  String get signOut => 'sign out';
 }
