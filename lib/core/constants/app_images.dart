@@ -41,4 +41,24 @@ class AppImages {
   static const signOutSvg = "assets/svg images/signOut.svg";
 
 
+
+  //   ####   //
+  //  SVG Images  //
+
+
+
+  static const locationFilledSvg = "assets/svg images/location.svg";
+  static const menuSvg = "assets/svg images/menu.svg";
+  static const creditCardsSvg = "assets/svg images/credit_cards.svg";
+
+  ///
+  ///
+  ///
+  static const favourFilledSvg = "assets/svg images/fav_filled.svg";
+  static const categorisSvg = "assets/svg images/categoris.svg";
+  // static const locationFilled = "assets/svg images/location_filled.svg";
+  // static const locationFilled = "assets/svg images/location_filled.svg";
+
+
+
 }

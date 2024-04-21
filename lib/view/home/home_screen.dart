@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:select_shop/core/constants/app_constants.dart';
+import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constants/app_images.dart';
@@ -16,9 +19,13 @@ import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/favourite/favourite_screen.dart';
+import 'package:select_shop/view/home/appbar.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
-import 'package:select_shop/view/home/drawer.dart';
 import 'package:select_shop/view/personal/personal_screen.dart';
+//
+//
+part 'bottom_nav_bar.dart';
+part 'drawer.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,
@@ -29,6 +36,8 @@ TextStyle _customTitleTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 18,
 );
+
+
 
 TextEditingController _searchTextEditingController =
     new TextEditingController();
@@ -434,199 +443,6 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 
-class _CustomBottomNavBar extends StatelessWidget {
-  const _CustomBottomNavBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 15,
-        // vertical: 10,
-      ),
-      width: double.infinity,
-      height: 60,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          color: AppColors.mainGreyColor.withOpacity(.1),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(8),
-            topRight: Radius.circular(8),
-          )),
-      child: Row(
-        children: [
-          InkWell(
-            onTap: () async {
-              await context.read<HomeBloc>().bottomNavBarTapded(1);
-
-              context.read<HomeBloc>().add(BottomNavBarTapdedEvent(
-                  // tappdedPageNumber: 1
-                  ));
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image(
-                //   width: 34,
-                //   height: 34,
-                //   image: AssetImage(
-                //     AppImages.home,
-                //   ),
-                // ),
-
-                Icon(
-                  color: AppColors.mainColor,
-                  size: 35,
-                  Icons.home_rounded,
-                ),
-                Text(
-                  "Home",
-                  style:
-                      TextStyle(color: AppColors.mainGreyColor, fontSize: 10),
-                )
-              ],
-            ),
-          ),
-
-          //////
-          ///
-          ///
-          ///
-          ///
-          Spacer(),
-
-          const SizedBox(
-            width: 10,
-          ),
-          InkWell(
-            onTap: () async {
-              await context.read<HomeBloc>().bottomNavBarTapded(2);
-
-              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image(
-                //   width: 34,
-                //   height: 34,
-                //   image: AssetImage(
-                //     AppImages.catigeores,
-                //   ),
-                // ),
-
-                Icon(
-                  color: AppColors.mainColor,
-                  size: 35,
-                  Icons.category_rounded,
-                ),
-                Text(
-                  "categories",
-                  style:
-                      TextStyle(color: AppColors.mainGreyColor, fontSize: 10),
-                )
-              ],
-            ),
-          ),
-
-          //////
-          ///
-          ///
-          ///
-          ///
-          Spacer(),
-          Spacer(),
-          Spacer(),
-          //////
-          ///
-          ///
-          ///
-          ///
-
-          InkWell(
-            onTap: () async {
-              await context.read<HomeBloc>().bottomNavBarTapded(3);
-
-              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image(
-                //   width: 34,
-                //   height: 34,
-                //   image: AssetImage(
-                //     AppImages.favFilled,
-                //   ),
-                // ),
-
-                Icon(
-                  color: AppColors.mainColor,
-                  size: 35,
-                  Icons.favorite_rounded,
-                ),
-                Text(
-                  "favourite",
-                  style:
-                      TextStyle(color: AppColors.mainGreyColor, fontSize: 10),
-                )
-              ],
-            ),
-          ),
-
-          //////
-          ///
-          ///
-          ///
-          ///
-          Spacer(),
-          const SizedBox(
-            width: 10,
-          ),
-          InkWell(
-            onTap: () async {
-              await context.read<HomeBloc>().bottomNavBarTapded(4);
-
-              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image(
-                //   width: 34,
-                //   height: 34,
-                //   image: AssetImage(
-                //     AppImages.person,
-                //   ),
-                // ),
-
-                Icon(
-                  color: AppColors.mainColor,
-                  size: 35,
-                  Icons.person_rounded,
-                ),
-                Text(
-                  "personal",
-                  style:
-                      TextStyle(color: AppColors.mainGreyColor, fontSize: 10),
-                )
-              ],
-            ),
-          ),
-
-          //////
-          ///
-          ///
-          ///
-          ///
-        ],
-      ),
-    );
-  }
-}
-
 class CustomBanar extends StatelessWidget {
   const CustomBanar({
     super.key,
@@ -865,99 +681,4 @@ class CustomBanar extends StatelessWidget {
       ],
     );
   }
-}
-
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
-    Key? key,
-
-    // this.height = kToolbarHeight,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return PreferredSize(
-      preferredSize: Size.fromHeight(155),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        // height: 55,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15),
-          ),
-          boxShadow: [
-            BoxShadow(
-              // color: Colors.grey.withOpacity(0.5),
-              color: Color(0xff000000).withOpacity(.16),
-              blurRadius: 7,
-              offset: Offset(0, 3),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            InkWell(
-              onTap: () {
-                Scaffold.of(context).openDrawer();
-              },
-              // child: Image(
-              //   image: AssetImage(
-              //     AppImages.menu,
-              //   ),
-              // ),
-
-              child: Icon(
-                color: AppColors.mainColor,
-                size: 30,
-                Icons.menu_rounded,
-              ),
-            ),
-            Row(
-              children: [
-                Image(
-                  height: 40,
-                  width: 40,
-                  image: AssetImage(
-                    AppImages.logoSmall,
-                  ),
-                ),
-                Image(
-                  image: AssetImage(
-                    AppImages.selectShopText,
-                  ),
-                ),
-              ],
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return UnderDevScreen();
-                }));
-              },
-              // child: Image(
-              //   image: AssetImage(
-              //     AppImages.notification,
-              //   ),
-              // ),
-
-              child: Icon(
-                  color: AppColors.mainColor,
-                  size: 30,
-                  Icons.notifications_rounded),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  @override
-  Size get preferredSize => Size.fromHeight(
-        55,
-      );
 }

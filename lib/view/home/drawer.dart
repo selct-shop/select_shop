@@ -1,20 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:select_shop/core/constants/app_constants.dart';
-import 'package:select_shop/core/constants/app_images.dart';
-import 'package:select_shop/core/theme/colors.dart';
-import 'package:select_shop/l10n/app_localizations.dart';
-
-TextStyle _customLocalTextStyle = const TextStyle(
-  color: AppColors.mainGreyColor,
-);
-
-TextStyle _customTitleTextStyle = const TextStyle(
-  color: AppColors.mainColor,
-  fontWeight: FontWeight.bold,
-  fontSize: 18,
-);
+part of "home_screen.dart";
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
