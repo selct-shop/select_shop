@@ -6,10 +6,13 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   int activePageNumber = 1;
+  int currentCarouselSliderIndex = 0;
 
-  bottomNavBarTapded({
-    required int newPageNumber,
-  }) {
+  onCarouselSliderPageChanged({required int index}) {
+    currentCarouselSliderIndex = index;
+  }
+
+  bottomNavBarTapded({required int newPageNumber}) {
     activePageNumber = newPageNumber;
   }
 

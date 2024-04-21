@@ -81,4 +81,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signOut => 'sign out';
+
+  @override
+  String get most_wanted => 'most wanted';
+
+  @override
+  String get show_all => 'show all';
+
+  @override
+  String get search => 'search';
+
+  @override
+  String get theNew => 'new';
+
+  @override
+  String get discaount => 'discaount';
 }

@@ -54,7 +54,6 @@ class AppTextFormField extends StatelessWidget {
         validator: validator,
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,
-        // textAlignVertical: TextAlignVertical.center,
         style: const TextStyle(
           decoration: TextDecoration.none,
           decorationThickness: 0,
@@ -62,26 +61,8 @@ class AppTextFormField extends StatelessWidget {
         cursorColor: AppColors.mainColor,
         obscureText: isPassword ?? false,
         maxLines: maxLines,
-        // obscuringCharacter: '*',
         decoration: InputDecoration(
-          // border: OutlineInputBorder(
-          //   borderRadius: BorderRadius.circular(
-          //     15,
-          //   ),
-          //   // borderSide: BorderSide(
-          //   //     color:
-          //   //         cubit.isDark ? AppColors.bgColor : AppColors.greyColor),
-          // ),
-          // enabledBorder: OutlineInputBorder(
-          //   borderRadius: BorderRadius.circular(
-          //     15,
-          //   ),
-          //   borderSide: BorderSide(
-          //     color: borderColor ?? AppColors.mainColor,
-          //   ),
-          // ),
           border: InputBorder.none,
-          // focusedBorder: InputBorder.none,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
               15,

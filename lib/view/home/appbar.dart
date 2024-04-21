@@ -1,15 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:select_shop/core/constants/app_images.dart';
-import 'package:select_shop/core/theme/colors.dart';
-import 'package:select_shop/view/Shared/under_develop_screen.dart';
-
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+part of 'home_screen.dart';
+class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(
         55,
       );
-  CustomAppBar({
+  _CustomAppBar({
     Key? key,
 
     // this.height = kToolbarHeight,

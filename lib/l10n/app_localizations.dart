@@ -248,6 +248,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'sign out'**
   String get signOut;
+
+  /// No description provided for @most_wanted.
+  ///
+  /// In en, this message translates to:
+  /// **'most wanted'**
+  String get most_wanted;
+
+  /// No description provided for @show_all.
+  ///
+  /// In en, this message translates to:
+  /// **'show all'**
+  String get show_all;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'search'**
+  String get search;
+
+  /// No description provided for @theNew.
+  ///
+  /// In en, this message translates to:
+  /// **'new'**
+  String get theNew;
+
+  /// No description provided for @discaount.
+  ///
+  /// In en, this message translates to:
+  /// **'discaount'**
+  String get discaount;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

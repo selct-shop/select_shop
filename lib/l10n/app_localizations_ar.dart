@@ -81,4 +81,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get signOut => 'تسجيل خروج';
+
+  @override
+  String get most_wanted => 'الاكثر طلبا';
+
+  @override
+  String get show_all => 'عرض الكل';
+
+  @override
+  String get search => 'ابحث';
+
+  @override
+  String get theNew => 'جديد';
+
+  @override
+  String get discaount => 'خصم';
 }
