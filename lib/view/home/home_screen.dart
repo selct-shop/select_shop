@@ -22,6 +22,7 @@ import 'package:select_shop/view/favourite/favourite_screen.dart';
 import 'package:select_shop/view/home/appbar.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/personal/personal_screen.dart';
+import 'dart:math' as math;
 //
 //
 part 'bottom_nav_bar.dart';
@@ -62,18 +63,27 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: CustomAppBar(),
 
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return CartScreen();
-            }));
-          },
-          backgroundColor: AppColors.mainColor,
-          
+        floatingActionButton: Transform.rotate(
+          // angle: 45,
 
-          child: Icon(size: 35, Icons.shopping_cart_rounded),
+          angle: math.pi / 4,
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return CartScreen();
+              }));
+            },
+            backgroundColor: AppColors.mainColor,
+            child: Transform.rotate(
+                angle: -(math.pi / 4),
+                child: SvgPicture.asset(
+                  color: Colors.white,
+                  width: 30,
+                  height: 30,
+                  AppImages.mycartSvg,
+                )),
+          ),
         ),
-   
 
         body: BlocBuilder<HomeBloc, HomeState>(
           // listener: (context, state) {

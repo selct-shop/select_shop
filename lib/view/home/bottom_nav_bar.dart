@@ -44,7 +44,6 @@ class _CustomBottomNavBar extends StatelessWidget {
           ///
           Spacer(),
           Spacer(),
-          Spacer(),
           //////
           ///
           ///
@@ -88,8 +87,8 @@ class _bottomNavBarIcon extends StatelessWidget {
       },
       builder: (context, state) {
         return InkWell(
-          onTap: ()  {
-             context
+          onTap: () {
+            context
                 .read<HomeBloc>()
                 .add(BottomNavBarTapdedEvent(tappdedPageNumber: screenNumber));
 
