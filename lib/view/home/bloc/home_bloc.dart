@@ -7,12 +7,12 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   int activePageNumber = 1;
 
-  bottomNavBarTapded(
-    int newPageNumber
-    ) {
-          activePageNumber = newPageNumber;
+  bottomNavBarTapded({
+    required int newPageNumber,
+  }) {
+    activePageNumber = newPageNumber;
+  }
 
-        }
   HomeBloc() : super(HomeInitialState()) {
     on<HomeEvent>(
       (event, emit) {
@@ -23,11 +23,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
         if (event is BottomNavBarTapdedEvent) {
           emit(HomeLoadingState());
+
           // print("botttttttttttttttttttttom nav bar tapped  ");
 
-          // bottomNavBarTapded(
-          //   // newPageNumber
-          //   )
+          // bottomNavBarTapded(newPageNumber) {
+          // activePageNumber == newPageNumber;
+          // activePageNumber == BottomNavBarTapdedEvent. ;
+          // }
+
+          bottomNavBarTapded(newPageNumber: event.tappdedPageNumber);
 
           // activePageNumber = BottomNavBarTapdedEvent(tappdedPageNumber: tappdedPageNumber)
 

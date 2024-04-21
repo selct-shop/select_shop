@@ -23,83 +23,23 @@ class _CustomBottomNavBar extends StatelessWidget {
           )),
       child: Row(
         children: [
-          InkWell(
-            onTap: () async {
-              await context.read<HomeBloc>().bottomNavBarTapded(1);
+          AppConstants.emptySpaceTenPixl,
 
-              context.read<HomeBloc>().add(BottomNavBarTapdedEvent(
-                  // tappdedPageNumber: 1
-                  ));
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image(
-                //   width: 34,
-                //   height: 34,
-                //   image: AssetImage(
-                //     AppImages.home,
-                //   ),
-                // ),
-
-                Icon(
-                  color: AppColors.mainColor,
-                  size: 35,
-                  Icons.home_rounded,
-                ),
-                Text(
-                  "Home",
-                  style:
-                      TextStyle(color: AppColors.mainGreyColor, fontSize: 10),
-                )
-              ],
-            ),
+          _bottomNavBarIcon(
+            title: "Home",
+            svgImageName: AppImages.homeSvg,
+            screenNumber: 1,
+            // isActive: context.read<HomeBloc>().activePageNumber == ,
           ),
-
-          //////
-          ///
-          ///
-          ///
-          ///
           Spacer(),
 
-          const SizedBox(
-            width: 10,
-          ),
-          InkWell(
-            onTap: () async {
-              await context.read<HomeBloc>().bottomNavBarTapded(2);
-
-              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image(
-                //   width: 34,
-                //   height: 34,
-                //   image: AssetImage(
-                //     AppImages.catigeores,
-                //   ),
-                // ),
-
-                Icon(
-                  color: AppColors.mainColor,
-                  size: 35,
-                  Icons.category_rounded,
-                ),
-                Text(
-                  "categories",
-                  style:
-                      TextStyle(color: AppColors.mainGreyColor, fontSize: 10),
-                )
-              ],
-            ),
+          _bottomNavBarIcon(
+            title: "Categoris",
+            svgImageName: AppImages.categorisSvg,
+            screenNumber: 2,
           ),
 
           //////
-          ///
-          ///
           ///
           ///
           Spacer(),
@@ -108,87 +48,81 @@ class _CustomBottomNavBar extends StatelessWidget {
           //////
           ///
           ///
-          ///
-          ///
-
-          InkWell(
-            onTap: () async {
-              await context.read<HomeBloc>().bottomNavBarTapded(3);
-
-              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image(
-                //   width: 34,
-                //   height: 34,
-                //   image: AssetImage(
-                //     AppImages.favFilled,
-                //   ),
-                // ),
-
-                Icon(
-                  color: AppColors.mainColor,
-                  size: 35,
-                  Icons.favorite_rounded,
-                ),
-                Text(
-                  "favourite",
-                  style:
-                      TextStyle(color: AppColors.mainGreyColor, fontSize: 10),
-                )
-              ],
-            ),
+          _bottomNavBarIcon(
+            title: "Favourite",
+            svgImageName: AppImages.favourtsStorkSvg,
+            screenNumber: 3,
           ),
-
-          //////
-          ///
-          ///
-          ///
-          ///
           Spacer(),
-          const SizedBox(
-            width: 10,
-          ),
-          InkWell(
-            onTap: () async {
-              await context.read<HomeBloc>().bottomNavBarTapded(4);
 
-              context.read<HomeBloc>().add(BottomNavBarTapdedEvent());
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image(
-                //   width: 34,
-                //   height: 34,
-                //   image: AssetImage(
-                //     AppImages.person,
-                //   ),
-                // ),
-
-                Icon(
-                  color: AppColors.mainColor,
-                  size: 35,
-                  Icons.person_rounded,
-                ),
-                Text(
-                  "personal",
-                  style:
-                      TextStyle(color: AppColors.mainGreyColor, fontSize: 10),
-                )
-              ],
-            ),
+          _bottomNavBarIcon(
+            title: "Personal",
+            svgImageName: AppImages.personalPageSvg,
+            screenNumber: 4,
           ),
 
-          //////
-          ///
-          ///
-          ///
-          ///
+          AppConstants.emptySpaceTenPixl,
         ],
       ),
+    );
+  }
+}
+
+class _bottomNavBarIcon extends StatelessWidget {
+  final String svgImageName, title;
+  final int screenNumber;
+  // final bool isActive;
+  _bottomNavBarIcon({
+    super.key,
+    required this.svgImageName,
+    required this.title,
+    required this.screenNumber,
+    //  required this.isActive,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<HomeBloc, HomeState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return InkWell(
+          onTap: ()  {
+             context
+                .read<HomeBloc>()
+                .add(BottomNavBarTapdedEvent(tappdedPageNumber: screenNumber));
+
+            // context.read<HomeBloc>().add(BottomNavBarTapdedEvent(
+            //     tappdedPageNumber: screenNumber
+            //     ));
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                height: 30, width: 30,
+                svgImageName,
+
+                // color: isActive ? AppColors.mainColor: AppColors.grey2Color,
+
+                color: context.read<HomeBloc>().activePageNumber == screenNumber
+                    ? AppColors.mainColor
+                    : AppColors.greyColor,
+              ),
+              Text(
+                title,
+                style: TextStyle(
+                    color: context.read<HomeBloc>().activePageNumber ==
+                            screenNumber
+                        ? AppColors.mainColor
+                        : AppColors.greyColor,
+                    fontSize: 10),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

@@ -26,6 +26,7 @@ import 'package:select_shop/view/personal/personal_screen.dart';
 //
 part 'bottom_nav_bar.dart';
 part 'drawer.dart';
+part 'custom_paner.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,
@@ -36,8 +37,6 @@ TextStyle _customTitleTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 18,
 );
-
-
 
 TextEditingController _searchTextEditingController =
     new TextEditingController();
@@ -70,22 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
             }));
           },
           backgroundColor: AppColors.mainColor,
-          // child: Image.asset(
-          //   AppImages.cartBig,
-          // ),
+          
 
           child: Icon(size: 35, Icons.shopping_cart_rounded),
         ),
-        // body: homeBody(context),
-
-// body: BlocConsumer<HomeBloc, HomeState>(
-//   listener: (context, state) {
-
-//   },
-//   // bloc: homeBloc ,
-//   builder: (context, state) {
-//   return homeBody(context);
-// },),
+   
 
         body: BlocBuilder<HomeBloc, HomeState>(
           // listener: (context, state) {
@@ -144,27 +132,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     items: [1, 2, 3].map((i) {
                       return Builder(
                         builder: (BuildContext context) {
-                          // return Container(
-                          //   height: 170,
-
-                          //   width: MediaQuery.of(context).size.width - 30,
-
-                          //   decoration: BoxDecoration(
-                          //     color: Colors.amber,
-                          //     image: DecorationImage(
-                          //       image: AssetImage(
-                          //         AppImages.mainCarouselSlider,
-                          //       ),
-                          //     ),
-                          //   ),
-                          //   // child: Image.asset(
-                          //   //     fit: BoxFit.fill,
-                          //   //     height: 170,
-                          //   //     // width: double.infinity,
-                          //   //     // height: double.infinity,
-                          //   //     AppImages.mainCarouselSlider),
-                          // );
-
                           return Image(
                               height: 170,
                               width: double.infinity,
@@ -411,25 +378,25 @@ class _HomeScreenState extends State<HomeScreen> {
             ///
             ///////////////////////////
 
-            CustomBanar(),
+            _CustomBanar(),
 
             ////////////////////////////
             ///
             ///
             ///////////////////////////
-            CustomBanar(),
+            _CustomBanar(),
 
             ////////////////////////////
             ///
             ///
             ///////////////////////////
-            CustomBanar(),
+            _CustomBanar(),
 
             ////////////////////////////
             ///
             ///
             ///////////////////////////
-            CustomBanar(),
+            _CustomBanar(),
 
             ////////////////////////////
             ///
@@ -438,247 +405,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-    );
-  }
-}
-
-
-class CustomBanar extends StatelessWidget {
-  const CustomBanar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 20,
-        ),
-        Row(
-          children: [
-            Text(
-              style: _customTitleTextStyle,
-              "Most Wanted: ",
-            ),
-            Spacer(),
-            InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return UnderDevScreen();
-                }));
-              },
-              child: Text(
-                style: _customTitleTextStyle.copyWith(
-                    fontSize: 12,
-                    fontWeight: FontWeight.normal,
-                    decoration: TextDecoration.underline,
-                    decorationColor: AppColors.mainColor),
-                "show all:",
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        InkWell(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return UnderDevScreen();
-            }));
-          },
-          child: Container(
-            // height: 140,
-            height: 280,
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 10),
-            decoration: BoxDecoration(
-              color: AppColors.mainGreyColor.withOpacity(.1),
-              borderRadius: BorderRadius.circular(6),
-            ),
-            child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              scrollDirection: Axis.horizontal,
-              children: [
-                for (int i = 0; i < 10; i++)
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return UnderDevScreen();
-                      }));
-                    },
-                    child: Container(
-                      width: 180,
-                      height: 170,
-                      margin: EdgeInsets.only(right: 10),
-                      clipBehavior: Clip.hardEdge,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(
-                            8,
-                          )),
-                      child: Column(
-                        children: [
-                          Flexible(
-                            flex: 3,
-                            child: Stack(
-                              children: [
-                                Container(
-                                  // margin: EdgeInsets.symmetric(horizontal: 8),
-                                  decoration: BoxDecoration(
-                                    color: Colors.red,
-                                    image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      // fit: BoxFit.none,
-                                      image: AssetImage(
-                                        AppImages.mainCarouselSlider,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      width: 45,
-                                      height: 25,
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          bottomRight: Radius.circular(8),
-                                        ),
-                                        color: Colors.yellow,
-                                      ),
-                                      child: Text(
-                                        "new",
-                                        style: _customTitleTextStyle.copyWith(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: Padding(
-                              padding: const EdgeInsets.all(
-                                5,
-                              ),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                          style: TextStyle(fontSize: 10),
-                                          "Category:"),
-                                      Text(
-                                          style: TextStyle(
-                                              fontSize: 10,
-                                              color: AppColors.mainColor),
-                                          "home"),
-                                      Spacer(),
-                                      Row(
-                                        children: [
-                                          for (int i = 1; i <= 5; i++)
-                                            Icon(
-                                              size: 12,
-                                              color: AppColors.mainColor,
-                                              Icons.star_rounded,
-                                            )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                          style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          "women sport shose"),
-                                      Spacer(),
-                                      Text(
-                                        "chanel".toUpperCase(),
-                                        style: _customTitleTextStyle.copyWith(
-                                          fontSize: 10,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 3,
-                                      ),
-                                      Image.asset(
-                                        AppImages.chanelLogoJfif,
-                                        width: 12,
-                                        height: 12,
-                                      )
-                                    ],
-                                  ),
-
-                                  ///
-                                  ///
-                                  ///
-                                  ///
-
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          "AED 350"),
-                                      const SizedBox(
-                                        width: 3,
-                                      ),
-                                      Text(
-                                        "AED 266".toUpperCase(),
-                                        style: _customTitleTextStyle.copyWith(
-                                          fontSize: 10,
-                                        ),
-                                      ),
-                                      Spacer(),
-                                      Container(
-                                        width: 38,
-                                        height: 15,
-                                        decoration: BoxDecoration(
-                                          color: AppColors.mainColor
-                                              .withOpacity(.1),
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Image.asset(
-                                          height: 10,
-                                          width: 510,
-                                          AppImages.cartSmall,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

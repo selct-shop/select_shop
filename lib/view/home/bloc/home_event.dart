@@ -7,11 +7,10 @@ sealed class HomeEvent {
  final class BottomNavBarTapdedEvent extends HomeEvent { 
 
 //  int tappdedPageNumber = 1;
+ int tappdedPageNumber ;
 
-// BottomNavBarTapdedEvent({
-//   required this.tappdedPageNumber,
-// });
-
-
+BottomNavBarTapdedEvent({
+  required this.tappdedPageNumber,
+});
 
   }
