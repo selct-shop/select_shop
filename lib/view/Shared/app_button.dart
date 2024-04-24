@@ -20,6 +20,8 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      // radius: 15,
+      borderRadius: BorderRadius.circular(15),
       onTap: onTap,
       child: Container(
         width: width ?? 200,

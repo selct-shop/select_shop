@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:select_shop/core/functions/localization.dart';
 import 'package:select_shop/view/Auth/new_password_screen.dart';
 import 'package:select_shop/view/Auth/otp_screen.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
@@ -28,8 +29,10 @@ void main() async {
   );
   await CacheHelper.init();
   await DioHelper.init();
-  // await CacheHelper.get
+  // Locale myLocal = await getLocal();
+  // HomeBloc;
 
+  // await CacheHelper.get
 
   // token = CacheHelper.getData(key: 'token') ?? '';
 
@@ -52,20 +55,26 @@ class MyApp extends StatelessWidget {
             // ...
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
+            // locale: Locale('en'),
+            // locale: context.read<HomeBloc>().initalLang  ,
+            locale: CacheHelper.getData(key: 'lang') == 'en'
+                ? Locale('en')
+                : Locale('ar'),
             // ...
             debugShowCheckedModeBanner: false,
             title: 'Select Shop',
             theme: customLightTheme,
             home: const MyHomePage(
-              // title: 'Select Shop'
-              )));
+                // title: 'Select Shop'
+                )));
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key,
-  //  required this.title
-   });
+  const MyHomePage({
+    super.key,
+    //  required this.title
+  });
 
   // final String title;
 
@@ -78,9 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    return Scaffold(body: SafeArea(child: LogInScreen()));
+    // return Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(body: SafeArea(child: NewPasswordScreen()));
-    // return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
+    return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
     // return const Scaffold(body: SafeArea(child: HomeScreen()));
   }

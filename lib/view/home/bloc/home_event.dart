@@ -14,3 +14,14 @@ BottomNavBarTapdedEvent({
 });
 
   }
+
+
+// final class SetLanguageEvent extends HomeEvent {
+//  final String languageCode;
+
+//    SetLanguageEvent(this.languageCode);
+
+//   @override
+//   List<Object> get props => [languageCode];
+
+// }

@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:select_shop/core/helpers/cache_helper.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -7,6 +9,8 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   int activePageNumber = 1;
   int currentCarouselSliderIndex = 0;
+  // Locale initalLang =
+  // CacheHelper.getData(key: 'lang') == 'en' ? Locale('en') : Locale('ar');
 
   onCarouselSliderPageChanged({required int index}) {
     currentCarouselSliderIndex = index;
@@ -40,6 +44,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
           emit(HomeLoadedState());
         }
+
+        //       if (event is SetLanguageEvent) {
+        //    Locale(event.languageCode);
+        // }
       },
     );
   }

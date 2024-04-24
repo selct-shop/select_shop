@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:select_shop/core/functions/localization.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 
-class ChoseLanguageScreen extends StatelessWidget {
+class ChoseLanguageScreen extends StatefulWidget {
   const ChoseLanguageScreen({super.key});
 
+  @override
+  State<ChoseLanguageScreen> createState() => _ChoseLanguageScreenState();
+}
+
+class _ChoseLanguageScreenState extends State<ChoseLanguageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +34,13 @@ class ChoseLanguageScreen extends StatelessWidget {
                 textColor: Localizations.localeOf(context) == Locale('en')
                     ? Colors.white
                     : AppColors.mainColor,
-                onTap: () {
+                onTap: () async {
                   // set app language
+                  await changeLocal(langCode: 'ar');
+                  setState(() {
+                    navigateTo(context, LogInScreen());
+                  });
+
                   // then navigate to logIn screen
                 },
               ),
@@ -44,8 +57,14 @@ class ChoseLanguageScreen extends StatelessWidget {
                 textColor: Localizations.localeOf(context) == Locale('ar')
                     ? Colors.white
                     : AppColors.mainColor,
-                onTap: () {
+                onTap: () async {
                   // set app language
+
+                  await changeLocal(langCode: 'en');
+                  setState(() {
+                    navigateTo(context, LogInScreen());
+                  });
+
                   // then navigate to logIn screen
                 },
               ),
