@@ -8,13 +8,21 @@
     "backToSignIn": "back to signin", 
     "otpCodeSended": "otp code is sended to", 
     "newPassword": "new password", 
+    "password": "password", 
+
     "confirmNewPassword": "confirm new password", 
     "confirm": "confirm", 
     "noDataLikeThis":"no data like this",
     
 
-    "helloWorld": "", 
-    "helloWorld": "", 
+    "userAgrement": "I agree to all terms, privacy policy and fees", 
+    "signUp": "sign Up", 
+    "orByUsing": "or by using", 
+    "youHaveAccount": "you have account? sign in", 
+    "welcomeToSelectShop": "welcome to select shop", 
+    "forgotPassword": "forgot password?", 
+    "signIn": "sign In", 
+    "youDontHaveAccount": "you have don't have account? create one", 
 
 
 

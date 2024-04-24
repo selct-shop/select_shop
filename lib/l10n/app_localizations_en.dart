@@ -32,6 +32,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newPassword => 'new password';
 
   @override
+  String get password => 'password';
+
+  @override
   String get confirmNewPassword => 'confirm new password';
 
   @override
@@ -41,7 +44,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noDataLikeThis => 'no data like this';
 
   @override
-  String get helloWorld => '';
+  String get userAgrement => 'I agree to all terms, privacy policy and fees';
+
+  @override
+  String get signUp => 'sign Up';
+
+  @override
+  String get orByUsing => 'or by using';
+
+  @override
+  String get youHaveAccount => 'you have account? sign in';
+
+  @override
+  String get welcomeToSelectShop => 'welcome to select shop';
+
+  @override
+  String get forgotPassword => 'forgot password?';
+
+  @override
+  String get signIn => 'sign In';
+
+  @override
+  String get youDontHaveAccount => 'you have don\'t have account? create one';
 
   @override
   String get userName => 'user name';
@@ -96,4 +120,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get discaount => 'discaount';
+
+  @override
+  String get helloWorld => '';
 }

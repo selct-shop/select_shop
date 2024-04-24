@@ -147,6 +147,12 @@ abstract class AppLocalizations {
   /// **'new password'**
   String get newPassword;
 
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'password'**
+  String get password;
+
   /// No description provided for @confirmNewPassword.
   ///
   /// In en, this message translates to:
@@ -165,11 +171,53 @@ abstract class AppLocalizations {
   /// **'no data like this'**
   String get noDataLikeThis;
 
-  /// No description provided for @helloWorld.
+  /// No description provided for @userAgrement.
   ///
   /// In en, this message translates to:
-  /// **''**
-  String get helloWorld;
+  /// **'I agree to all terms, privacy policy and fees'**
+  String get userAgrement;
+
+  /// No description provided for @signUp.
+  ///
+  /// In en, this message translates to:
+  /// **'sign Up'**
+  String get signUp;
+
+  /// No description provided for @orByUsing.
+  ///
+  /// In en, this message translates to:
+  /// **'or by using'**
+  String get orByUsing;
+
+  /// No description provided for @youHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'you have account? sign in'**
+  String get youHaveAccount;
+
+  /// No description provided for @welcomeToSelectShop.
+  ///
+  /// In en, this message translates to:
+  /// **'welcome to select shop'**
+  String get welcomeToSelectShop;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'forgot password?'**
+  String get forgotPassword;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'sign In'**
+  String get signIn;
+
+  /// No description provided for @youDontHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'you have don\'t have account? create one'**
+  String get youDontHaveAccount;
 
   /// No description provided for @userName.
   ///
@@ -278,6 +326,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'discaount'**
   String get discaount;
+
+  /// No description provided for @helloWorld.
+  ///
+  /// In en, this message translates to:
+  /// **''**
+  String get helloWorld;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

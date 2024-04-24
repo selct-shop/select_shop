@@ -56,10 +56,11 @@ class MyApp extends StatelessWidget {
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             // locale: Locale('en'),
+            locale: Locale('ar'),
             // locale: context.read<HomeBloc>().initalLang  ,
-            locale: CacheHelper.getData(key: 'lang') == 'en'
-                ? Locale('en')
-                : Locale('ar'),
+            // locale: CacheHelper.getData(key: 'lang') == 'en'
+            //     ? Locale('en')
+            //     : Locale('ar'),
             // ...
             debugShowCheckedModeBanner: false,
             title: 'Select Shop',
@@ -88,9 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
     // return Scaffold(body: SafeArea(child: LogInScreen()));
-    // return const Scaffold(body: SafeArea(child: NewPasswordScreen()));
-    return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
+    // return const Scaffold(body: SafeArea(child: SignupScreen()));
+    // return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    // return const Scaffold(body: SafeArea(child: HomeScreen()));
+    return const Scaffold(body: SafeArea(child: HomeScreen()));
   }
 }

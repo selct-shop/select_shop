@@ -8,12 +8,21 @@
     "backToSignIn": "العودة إلى تسجيل الدخول", 
     "otpCodeSended": "تم إرسال رمز المصادقة إلى", 
     "newPassword": "كلمة المرور الجديده", 
+    "password": "كلمة المرور", 
     "confirmNewPassword": "تاكيد كلمة المرور", 
     "confirm": "تاكيد", 
     "noDataLikeThis":"no data", 
     
-    "helloWorld": "", 
-    "helloWorld": "", 
+    "userAgrement": "أوافق على جميع الشروط وسياسة الخصوصية والرسوم", 
+    "signUp": "أنشئ حسابك", 
+    "orByUsing": "أو بإستخدام", 
+    "youHaveAccount": "هل لديك حساب ؟ تسجيل الدخول", 
+    "welcomeToSelectShop": "مرحباً بك في متجر سيليكت شوب", 
+    "forgotPassword": "نسيت كلمة المرور؟", 
+    "signIn": "تسجيل دخول", 
+    "youDontHaveAccount": "ليس لديك حساب؟إنشاء حساب ", 
+
+
 
 
 

@@ -32,6 +32,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get newPassword => 'كلمة المرور الجديده';
 
   @override
+  String get password => 'كلمة المرور';
+
+  @override
   String get confirmNewPassword => 'تاكيد كلمة المرور';
 
   @override
@@ -41,7 +44,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noDataLikeThis => 'no data';
 
   @override
-  String get helloWorld => '';
+  String get userAgrement => 'أوافق على جميع الشروط وسياسة الخصوصية والرسوم';
+
+  @override
+  String get signUp => 'أنشئ حسابك';
+
+  @override
+  String get orByUsing => 'أو بإستخدام';
+
+  @override
+  String get youHaveAccount => 'هل لديك حساب ؟ تسجيل الدخول';
+
+  @override
+  String get welcomeToSelectShop => 'مرحباً بك في متجر سيليكت شوب';
+
+  @override
+  String get forgotPassword => 'نسيت كلمة المرور؟';
+
+  @override
+  String get signIn => 'تسجيل دخول';
+
+  @override
+  String get youDontHaveAccount => 'ليس لديك حساب؟إنشاء حساب ';
 
   @override
   String get userName => 'اسم المستخدم';
@@ -96,4 +120,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get discaount => 'خصم';
+
+  @override
+  String get helloWorld => '';
 }

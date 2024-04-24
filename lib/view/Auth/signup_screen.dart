@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
@@ -99,8 +100,11 @@ class _SignupScreenState extends State<SignupScreen> {
               //   ),
               // ),
 
-              _AuthCustomIcon(
-                size: size,
+              Directionality(
+                textDirection: TextDirection.ltr,
+                child: _AuthCustomIcon(
+                  size: size,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -112,24 +116,25 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(
                       height: 50,
                     ),
-                    const Text(
+                    Text(
                       style: TextStyle(
                         color: AppColors.mainColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
                       // "مرحبا بك في متجر سيليكت شوب",
-                      "أنشئ حسابك",
+
+                      AppLocalizations.of(context)!.signUp,
                     ),
-                    const Text(
-                      style: TextStyle(
-                        color: AppColors.mainColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                      // "مرحبا بك في متجر سيليكت شوب",
-                      "قم بإنشاء حساب للمتابعة",
-                    ),
+                    // const Text(
+                    //   style: TextStyle(
+                    //     color: AppColors.mainColor,
+                    //     fontWeight: FontWeight.bold,
+                    //     fontSize: 20,
+                    //   ),
+                    //   // "مرحبا بك في متجر سيليكت شوب",
+                    //   "قم بإنشاء حساب للمتابعة",
+                    // ),
                     const SizedBox(
                       height: 30,
                     ),
@@ -150,13 +155,13 @@ class _SignupScreenState extends State<SignupScreen> {
                               ],
                               color: Colors.white),
                           child: FormBuilderTextField(
-                            name: "email",
+                            name: AppLocalizations.of(context)!.email,
                             style: _customLocalTextStyle,
 
                             // controller: TextEditingController?,
 
                             decoration: InputDecoration(
-                              hintText: "البريد الإلكتروني",
+                              hintText: AppLocalizations.of(context)!.email,
                               hintStyle: _customLocalTextStyle,
                               border: InputBorder.none,
                               contentPadding: EdgeInsetsDirectional.symmetric(
@@ -182,13 +187,13 @@ class _SignupScreenState extends State<SignupScreen> {
                               ],
                               color: Colors.white),
                           child: FormBuilderTextField(
-                            name: "password",
+                            name: AppLocalizations.of(context)!.password,
                             style: _customLocalTextStyle,
                             obscureText:
                                 obscuringTextOrNot == true ? true : false,
                             // controller: TextEditingController?,
                             decoration: InputDecoration(
-                              hintText: "كلمة المرور",
+                              hintText: AppLocalizations.of(context)!.password,
                               hintStyle: _customLocalTextStyle,
                               border: InputBorder.none,
                               suffix: InkWell(
@@ -234,7 +239,8 @@ class _SignupScreenState extends State<SignupScreen> {
                               ],
                               color: Colors.white),
                           child: FormBuilderTextField(
-                            name: "confairm password",
+                            name: AppLocalizations.of(context)!
+                                .confirmNewPassword,
                             style: _customLocalTextStyle,
 
                             obscureText: obscuringTextOrNot,
@@ -242,7 +248,8 @@ class _SignupScreenState extends State<SignupScreen> {
                             // controller: TextEditingController?,
 
                             decoration: InputDecoration(
-                              hintText: "تأكيد كلمة المرور",
+                              hintText: AppLocalizations.of(context)!
+                                  .confirmNewPassword,
                               border: InputBorder.none,
                               suffix: InkWell(
                                 child: obscuringTextOrNot == true
@@ -274,7 +281,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           height: 20,
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Theme(
                               data: Theme.of(context).copyWith(
@@ -298,15 +305,24 @@ class _SignupScreenState extends State<SignupScreen> {
                                 },
                               ),
                             ),
-                            Text(
-                              "أوافق على جميع الشروط وسياسة الخصوصية والرسوم",
-                              style: TextStyle(
-                                color: AppColors.mainGreyColor,
-                                fontSize: 12,
+                            Expanded(
+                              child: Text(
+                                AppLocalizations.of(context)!.userAgrement,
+                                textAlign: TextAlign.center,
+
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                                // softWrap: true,
+
+                                style: TextStyle(
+                                  color: AppColors.mainGreyColor,
+                                  fontSize: 12,
+                                  
+                                ),
+                                // overflow: TextOverflow.visible,
                               ),
-                              // overflow: TextOverflow.visible,
                             ),
-                            Spacer(),
+                            // Spacer(),
                           ],
                         ),
                         const SizedBox(
@@ -340,13 +356,13 @@ class _SignupScreenState extends State<SignupScreen> {
                                 borderRadius: BorderRadius.circular(
                                   50,
                                 )),
-                            child: const Text(
+                            child: Text(
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                               ),
-                              "أنشي حساب",
+                              AppLocalizations.of(context)!.signUp,
                             ),
                           ),
                         ),
@@ -368,19 +384,19 @@ class _SignupScreenState extends State<SignupScreen> {
                                 return LogInScreen();
                               }), (route) => false);
                             },
-                            child: const Text(
+                            child: Text(
                               style: TextStyle(
                                 color: AppColors.mainColor,
                                 fontSize: 12,
                               ),
-                              "هل لديك حساب ؟ تسجيل الدخول",
+                              AppLocalizations.of(context)!.youHaveAccount,
                             ),
                           ),
                         ),
                         const SizedBox(
                           height: 30,
                         ),
-                        const Row(
+                        Row(
                           children: [
                             SizedBox(
                               width: 15,
@@ -400,7 +416,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 color: AppColors.mainGreyColor,
                                 fontSize: 12,
                               ),
-                              "أو بإستخدام",
+                              AppLocalizations.of(context)!.orByUsing,
                             ),
                             SizedBox(
                               width: 15,

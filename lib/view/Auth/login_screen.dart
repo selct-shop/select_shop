@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
@@ -38,7 +39,9 @@ class _LogInScreenState extends State<LogInScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              _AuthCustomIcon(size: size),
+              Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: _AuthCustomIcon(size: size)),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 35,
@@ -104,15 +107,13 @@ class _LoginBody extends StatelessWidget {
         const SizedBox(
           height: 50,
         ),
-        const Text(
-          style: TextStyle(
-            color: AppColors.mainColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-          // "مرحبا بك في متجر سيليكت شوب",
-          "مرحباً بك في متجر سيليكت شوب",
-        ),
+        Text(
+            style: TextStyle(
+              color: AppColors.mainColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+            AppLocalizations.of(context)!.welcomeToSelectShop),
         const SizedBox(
           height: 30,
         ),
@@ -133,12 +134,13 @@ class _LoginBody extends StatelessWidget {
                   ],
                   color: Colors.white),
               child: FormBuilderTextField(
-                name: "email",
+                name:  AppLocalizations.of(context)!.email,
 
                 // controller: TextEditingController?,
 
                 decoration: InputDecoration(
-                  hintText: "البريد الإلكتروني",
+                  hintText: 
+                   AppLocalizations.of(context)!.email,
                   hintStyle: _customLocalTextStyle,
                   border: InputBorder.none,
                   contentPadding: EdgeInsetsDirectional.symmetric(
@@ -164,12 +166,12 @@ class _LoginBody extends StatelessWidget {
                   ],
                   color: Colors.white),
               child: FormBuilderTextField(
-                name: "password",
+                name:  AppLocalizations.of(context)!.password,
 
                 // controller: TextEditingController?,
 
                 decoration: InputDecoration(
-                  hintText: "كلمة المرور",
+                  hintText: AppLocalizations.of(context)!.password,
                   hintStyle: _customLocalTextStyle,
                   border: InputBorder.none,
                   contentPadding: EdgeInsetsDirectional.symmetric(
@@ -189,12 +191,12 @@ class _LoginBody extends StatelessWidget {
                     navigateToWithReplacement(
                         context, const ForgotPasswordScreen());
                   },
-                  child: const Text(
+                  child:   Text(
                     style: TextStyle(
                       color: AppColors.mainColor,
                       fontSize: 12,
                     ),
-                    "نسيت كلمة المرور؟",
+                   AppLocalizations.of(context)!.forgotPassword,
                   ),
                 ),
                 InkWell(
@@ -202,12 +204,12 @@ class _LoginBody extends StatelessWidget {
                     navigateToWithReplacement(
                         context, const ForgotPasswordScreen());
                   },
-                  child: const Text(
+                  child:   Text(
                     style: TextStyle(
                       color: AppColors.mainColor,
                       fontSize: 12,
                     ),
-                    "إعادة تعيين",
+                   AppLocalizations.of(context)!.resetPassword,
                   ),
                 ),
               ],
@@ -241,13 +243,13 @@ class _LoginBody extends StatelessWidget {
                     borderRadius: BorderRadius.circular(
                       50,
                     )),
-                child: const Text(
+                child:   Text(
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
-                  "تسجيل دخول",
+                   AppLocalizations.of(context)!.signIn
                 ),
               ),
             ),
@@ -267,19 +269,20 @@ class _LoginBody extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => SignupScreen()),
                       (route) => false);
                 },
-                child: const Text(
+                child:   Text(
                   style: TextStyle(
                     color: AppColors.mainColor,
                     fontSize: 12,
                   ),
-                  "ليس لديك حساب؟إنشاء حساب ",
+                 
+                  AppLocalizations.of(context)!.youDontHaveAccount
                 ),
               ),
             ),
             const SizedBox(
               height: 30,
             ),
-            const Row(
+              Row(
               children: [
                 SizedBox(
                   width: 15,
@@ -299,7 +302,7 @@ class _LoginBody extends StatelessWidget {
                     color: AppColors.mainGreyColor,
                     fontSize: 12,
                   ),
-                  "أو بإستخدام",
+                  AppLocalizations.of(context)!.orByUsing,
                 ),
                 SizedBox(
                   width: 15,

@@ -38,7 +38,7 @@ class _ChoseLanguageScreenState extends State<ChoseLanguageScreen> {
                   // set app language
                   await changeLocal(langCode: 'ar');
                   setState(() {
-                    navigateTo(context, LogInScreen());
+                    navigateTo(context, const LogInScreen());
                   });
 
                   // then navigate to logIn screen
@@ -60,9 +60,11 @@ class _ChoseLanguageScreenState extends State<ChoseLanguageScreen> {
                 onTap: () async {
                   // set app language
 
+                  // Localizations.of(context, type)
+
                   await changeLocal(langCode: 'en');
                   setState(() {
-                    navigateTo(context, LogInScreen());
+                    navigateTo(context, const LogInScreen());
                   });
 
                   // then navigate to logIn screen
