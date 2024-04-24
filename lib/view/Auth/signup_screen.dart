@@ -304,6 +304,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 color: AppColors.mainGreyColor,
                                 fontSize: 12,
                               ),
+                              // overflow: TextOverflow.visible,
                             ),
                             Spacer(),
                           ],

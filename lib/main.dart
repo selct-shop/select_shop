@@ -21,15 +21,15 @@ import 'package:select_shop/view/language/chose_language_screen.dart';
 
 void main() async {
   // runApp(const MyApp());
-
   WidgetsFlutterBinding.ensureInitialized();
-
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.manual,
     overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top],
   );
   await CacheHelper.init();
   await DioHelper.init();
+  // await CacheHelper.get
+
 
   // token = CacheHelper.getData(key: 'token') ?? '';
 
@@ -54,16 +54,20 @@ class MyApp extends StatelessWidget {
             supportedLocales: AppLocalizations.supportedLocales,
             // ...
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Select Shop',
             theme: customLightTheme,
-            home: const MyHomePage(title: 'Flutter Demo Home Page')));
+            home: const MyHomePage(
+              // title: 'Select Shop'
+              )));
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key,
+  //  required this.title
+   });
 
-  final String title;
+  // final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -74,10 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    // return Scaffold(body: SafeArea(child: LogInScreen()));
+    return Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(body: SafeArea(child: NewPasswordScreen()));
     // return const Scaffold(body: SafeArea(child: ChoseLanguageScreen()));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    return const Scaffold(body: SafeArea(child: HomeScreen()));
+    // return const Scaffold(body: SafeArea(child: HomeScreen()));
   }
 }

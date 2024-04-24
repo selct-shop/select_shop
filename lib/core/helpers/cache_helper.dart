@@ -1,14 +1,28 @@
 // ignore_for_file: unnecessary_null_in_if_null_operators
 
+import 'package:select_shop/core/constants/app_shared_pref.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
   static SharedPreferences? sharedPreferences;
 
+
+    // String userToken='';
+    // String userEmail ='';
+    // String userLang ='';
+
   static init() async {
     sharedPreferences = await SharedPreferences.getInstance();
+    // getUser
   }
 
+
+
+//   static getUserData(){
+// userToken = getData(key: AppSharedPrefrences.userToken) ?? '';
+// userEmail = getData(key: AppSharedPrefrences.userEmail) ?? '';
+// userLang = getData(key: AppSharedPrefrences.userLang) ?? '';
+//    }
   static Future<bool> putBoolean(
       {required String key, required bool value}) async {
     return await sharedPreferences!.setBool(key, value);
