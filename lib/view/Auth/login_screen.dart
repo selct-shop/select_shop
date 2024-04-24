@@ -113,7 +113,7 @@ class _LoginBody extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),
-            AppLocalizations.of(context)!.welcomeToSelectShop),
+            S.of(context)!.welcomeToSelectShop),
         const SizedBox(
           height: 30,
         ),
@@ -134,13 +134,13 @@ class _LoginBody extends StatelessWidget {
                   ],
                   color: Colors.white),
               child: FormBuilderTextField(
-                name:  AppLocalizations.of(context)!.email,
+                name:  S.of(context)!.email,
 
                 // controller: TextEditingController?,
 
                 decoration: InputDecoration(
                   hintText: 
-                   AppLocalizations.of(context)!.email,
+                   S.of(context)!.email,
                   hintStyle: _customLocalTextStyle,
                   border: InputBorder.none,
                   contentPadding: EdgeInsetsDirectional.symmetric(
@@ -166,12 +166,12 @@ class _LoginBody extends StatelessWidget {
                   ],
                   color: Colors.white),
               child: FormBuilderTextField(
-                name:  AppLocalizations.of(context)!.password,
+                name:  S.of(context)!.password,
 
                 // controller: TextEditingController?,
 
                 decoration: InputDecoration(
-                  hintText: AppLocalizations.of(context)!.password,
+                  hintText: S.of(context)!.password,
                   hintStyle: _customLocalTextStyle,
                   border: InputBorder.none,
                   contentPadding: EdgeInsetsDirectional.symmetric(
@@ -196,7 +196,7 @@ class _LoginBody extends StatelessWidget {
                       color: AppColors.mainColor,
                       fontSize: 12,
                     ),
-                   AppLocalizations.of(context)!.forgotPassword,
+                   S.of(context)!.forgotPassword,
                   ),
                 ),
                 InkWell(
@@ -209,7 +209,7 @@ class _LoginBody extends StatelessWidget {
                       color: AppColors.mainColor,
                       fontSize: 12,
                     ),
-                   AppLocalizations.of(context)!.resetPassword,
+                   S.of(context)!.resetPassword,
                   ),
                 ),
               ],
@@ -249,7 +249,7 @@ class _LoginBody extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
-                   AppLocalizations.of(context)!.signIn
+                   S.of(context)!.signIn
                 ),
               ),
             ),
@@ -275,7 +275,7 @@ class _LoginBody extends StatelessWidget {
                     fontSize: 12,
                   ),
                  
-                  AppLocalizations.of(context)!.youDontHaveAccount
+                  S.of(context)!.youDontHaveAccount
                 ),
               ),
             ),
@@ -302,7 +302,7 @@ class _LoginBody extends StatelessWidget {
                     color: AppColors.mainGreyColor,
                     fontSize: 12,
                   ),
-                  AppLocalizations.of(context)!.orByUsing,
+                  S.of(context)!.orByUsing,
                 ),
                 SizedBox(
                   width: 15,

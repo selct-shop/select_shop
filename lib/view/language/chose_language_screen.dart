@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:select_shop/core/functions/localization.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
+import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 
 class ChoseLanguageScreen extends StatefulWidget {
-  const ChoseLanguageScreen({super.key});
+  final bool commingFromSettings;
+  const ChoseLanguageScreen({super.key, required this.commingFromSettings});
 
   @override
   State<ChoseLanguageScreen> createState() => _ChoseLanguageScreenState();
@@ -36,12 +39,17 @@ class _ChoseLanguageScreenState extends State<ChoseLanguageScreen> {
                     : AppColors.mainColor,
                 onTap: () async {
                   // set app language
-                  await changeLocal(langCode: 'ar');
-                  setState(() {
-                    navigateTo(context, const LogInScreen());
-                  });
+//                   await changeLocal(langCode: 'ar');
+//                   setState(() {});
 
-                  // then navigate to logIn screen
+// // MyApp.of(context).setLocale
+                  BlocProvider.of<LocalizationBloc>(context)
+                      .add(LoadLocalization(Locale('ar')));
+                  widget.commingFromSettings == true
+                      ? null
+                      : navigateTo(context, const LogInScreen());
+//                   print(
+//                       'arrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr'); // then navigate to logIn screen
                 },
               ),
               const SizedBox(
@@ -62,11 +70,17 @@ class _ChoseLanguageScreenState extends State<ChoseLanguageScreen> {
 
                   // Localizations.of(context, type)
 
-                  await changeLocal(langCode: 'en');
-                  setState(() {
-                    navigateTo(context, const LogInScreen());
-                  });
+                  // await changeLocal(langCode: 'en');
+                  // setState(() {});
 
+                  BlocProvider.of<LocalizationBloc>(context)
+                      .add(LoadLocalization(Locale('en')));
+
+                  widget.commingFromSettings == true
+                      ? null
+                      : navigateTo(context, const LogInScreen());
+
+                  // print('ennnnnnnnnnnngliiiiiiiiiiiiiiiiiiiiish');
                   // then navigate to logIn screen
                 },
               ),

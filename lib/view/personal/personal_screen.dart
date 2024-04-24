@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
+import 'package:select_shop/view/language/chose_language_screen.dart';
 
 class PersonalScreen extends StatefulWidget {
   const PersonalScreen({super.key});
@@ -13,8 +14,10 @@ class PersonalScreen extends StatefulWidget {
 class _PersonalScreenState extends State<PersonalScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: UnderDevScreen(),
+    return Scaffold(
+      body: ChoseLanguageScreen(
+        commingFromSettings: true,
+      ),
     );
   }
 }
