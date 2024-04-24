@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
@@ -124,7 +125,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       // "مرحبا بك في متجر سيليكت شوب",
 
-                      AppLocalizations.of(context)!.signUp,
+                      S.of(context).signUp,
                     ),
                     // const Text(
                     //   style: TextStyle(
@@ -155,13 +156,13 @@ class _SignupScreenState extends State<SignupScreen> {
                               ],
                               color: Colors.white),
                           child: FormBuilderTextField(
-                            name: AppLocalizations.of(context)!.email,
+                            name: S.of(context).email,
                             style: _customLocalTextStyle,
 
                             // controller: TextEditingController?,
 
                             decoration: InputDecoration(
-                              hintText: AppLocalizations.of(context)!.email,
+                              hintText: S.of(context).email,
                               hintStyle: _customLocalTextStyle,
                               border: InputBorder.none,
                               contentPadding: EdgeInsetsDirectional.symmetric(
@@ -187,13 +188,13 @@ class _SignupScreenState extends State<SignupScreen> {
                               ],
                               color: Colors.white),
                           child: FormBuilderTextField(
-                            name: AppLocalizations.of(context)!.password,
+                            name: S.of(context).password,
                             style: _customLocalTextStyle,
                             obscureText:
                                 obscuringTextOrNot == true ? true : false,
                             // controller: TextEditingController?,
                             decoration: InputDecoration(
-                              hintText: AppLocalizations.of(context)!.password,
+                              hintText: S.of(context).password,
                               hintStyle: _customLocalTextStyle,
                               border: InputBorder.none,
                               suffix: InkWell(
@@ -239,8 +240,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               ],
                               color: Colors.white),
                           child: FormBuilderTextField(
-                            name: AppLocalizations.of(context)!
-                                .confirmNewPassword,
+                            name: S.of(context).confirmNewPassword,
                             style: _customLocalTextStyle,
 
                             obscureText: obscuringTextOrNot,
@@ -248,8 +248,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             // controller: TextEditingController?,
 
                             decoration: InputDecoration(
-                              hintText: AppLocalizations.of(context)!
-                                  .confirmNewPassword,
+                              hintText: S.of(context).confirmNewPassword,
                               border: InputBorder.none,
                               suffix: InkWell(
                                 child: obscuringTextOrNot == true
@@ -307,7 +306,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             ),
                             Expanded(
                               child: Text(
-                                AppLocalizations.of(context)!.userAgrement,
+                                S.of(context).userAgrement,
                                 textAlign: TextAlign.center,
 
                                 overflow: TextOverflow.ellipsis,
@@ -317,7 +316,6 @@ class _SignupScreenState extends State<SignupScreen> {
                                 style: TextStyle(
                                   color: AppColors.mainGreyColor,
                                   fontSize: 12,
-                                  
                                 ),
                                 // overflow: TextOverflow.visible,
                               ),
@@ -362,7 +360,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                               ),
-                              AppLocalizations.of(context)!.signUp,
+                              S.of(context).signUp,
                             ),
                           ),
                         ),
@@ -389,7 +387,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 color: AppColors.mainColor,
                                 fontSize: 12,
                               ),
-                              AppLocalizations.of(context)!.youHaveAccount,
+                              S.of(context).youHaveAccount,
                             ),
                           ),
                         ),
@@ -416,7 +414,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 color: AppColors.mainGreyColor,
                                 fontSize: 12,
                               ),
-                              AppLocalizations.of(context)!.orByUsing,
+                              S.of(context).orByUsing,
                             ),
                             SizedBox(
                               width: 15,

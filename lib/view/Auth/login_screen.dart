@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
@@ -113,7 +114,7 @@ class _LoginBody extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),
-            S.of(context)!.welcomeToSelectShop),
+            S.of(context).welcomeToSelectShop),
         const SizedBox(
           height: 30,
         ),
@@ -134,13 +135,12 @@ class _LoginBody extends StatelessWidget {
                   ],
                   color: Colors.white),
               child: FormBuilderTextField(
-                name:  S.of(context)!.email,
+                name: S.of(context).email,
 
                 // controller: TextEditingController?,
 
                 decoration: InputDecoration(
-                  hintText: 
-                   S.of(context)!.email,
+                  hintText: S.of(context).email,
                   hintStyle: _customLocalTextStyle,
                   border: InputBorder.none,
                   contentPadding: EdgeInsetsDirectional.symmetric(
@@ -166,12 +166,12 @@ class _LoginBody extends StatelessWidget {
                   ],
                   color: Colors.white),
               child: FormBuilderTextField(
-                name:  S.of(context)!.password,
+                name: S.of(context).password,
 
                 // controller: TextEditingController?,
 
                 decoration: InputDecoration(
-                  hintText: S.of(context)!.password,
+                  hintText: S.of(context).password,
                   hintStyle: _customLocalTextStyle,
                   border: InputBorder.none,
                   contentPadding: EdgeInsetsDirectional.symmetric(
@@ -191,12 +191,12 @@ class _LoginBody extends StatelessWidget {
                     navigateToWithReplacement(
                         context, const ForgotPasswordScreen());
                   },
-                  child:   Text(
+                  child: Text(
                     style: TextStyle(
                       color: AppColors.mainColor,
                       fontSize: 12,
                     ),
-                   S.of(context)!.forgotPassword,
+                    S.of(context).forgotPassword,
                   ),
                 ),
                 InkWell(
@@ -204,12 +204,12 @@ class _LoginBody extends StatelessWidget {
                     navigateToWithReplacement(
                         context, const ForgotPasswordScreen());
                   },
-                  child:   Text(
+                  child: Text(
                     style: TextStyle(
                       color: AppColors.mainColor,
                       fontSize: 12,
                     ),
-                   S.of(context)!.resetPassword,
+                    S.of(context).resetPassword,
                   ),
                 ),
               ],
@@ -243,14 +243,13 @@ class _LoginBody extends StatelessWidget {
                     borderRadius: BorderRadius.circular(
                       50,
                     )),
-                child:   Text(
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                   S.of(context)!.signIn
-                ),
+                child: Text(
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                    S.of(context).signIn),
               ),
             ),
             const SizedBox(
@@ -269,20 +268,18 @@ class _LoginBody extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => SignupScreen()),
                       (route) => false);
                 },
-                child:   Text(
-                  style: TextStyle(
-                    color: AppColors.mainColor,
-                    fontSize: 12,
-                  ),
-                 
-                  S.of(context)!.youDontHaveAccount
-                ),
+                child: Text(
+                    style: TextStyle(
+                      color: AppColors.mainColor,
+                      fontSize: 12,
+                    ),
+                    S.of(context).youDontHaveAccount),
               ),
             ),
             const SizedBox(
               height: 30,
             ),
-              Row(
+            Row(
               children: [
                 SizedBox(
                   width: 15,
@@ -302,7 +299,7 @@ class _LoginBody extends StatelessWidget {
                     color: AppColors.mainGreyColor,
                     fontSize: 12,
                   ),
-                  S.of(context)!.orByUsing,
+                  S.of(context).orByUsing,
                 ),
                 SizedBox(
                   width: 15,

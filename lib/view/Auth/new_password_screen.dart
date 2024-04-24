@@ -3,6 +3,7 @@ import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/otp_screen.dart';
@@ -38,7 +39,7 @@ class NewPasswordScreen extends StatelessWidget {
                 ),
                 Text(
                     style: AppConstants.customTitleTextStyle,
-                    AppLocalizations.of(context)!.resetPassword),
+                    S.of(context).resetPassword),
                 const SizedBox(
                   height: 20,
                 ),
@@ -50,7 +51,7 @@ class NewPasswordScreen extends StatelessWidget {
                         onChanged: (p0) {},
                         validator: (p0) {},
                         shadow: true,
-                        hintText: AppLocalizations.of(context)!.newPassword,
+                        hintText: S.of(context).newPassword,
                       ),
                       const SizedBox(
                         height: 20,
@@ -61,7 +62,7 @@ class NewPasswordScreen extends StatelessWidget {
                         validator: (p0) {},
                         shadow: true,
                         hintText:
-                            AppLocalizations.of(context)!.confirmNewPassword,
+                            S.of(context).confirmNewPassword,
                       ),
                     ],
                   ),
@@ -70,7 +71,7 @@ class NewPasswordScreen extends StatelessWidget {
                   height: 20,
                 ),
                 AppButton(
-                  title: AppLocalizations.of(context)!.confirm,
+                  title: S.of(context).confirm,
                   textColor: Colors.white,
                   width: double.infinity,
                   backgroundColor: AppColors.mainColor,
@@ -94,7 +95,7 @@ class NewPasswordScreen extends StatelessWidget {
                         color: AppColors.mainGreyColor,
                         fontSize: 20,
                       ),
-                      AppLocalizations.of(context)!.backToSignIn,
+                      S.of(context).backToSignIn,
                     )),
               ],
             ),

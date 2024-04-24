@@ -7,6 +7,7 @@ import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/otp_screen.dart';
@@ -43,7 +44,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
                 Text(
                     style: AppConstants.customTitleTextStyle,
-                    AppLocalizations.of(context)!.resetPassword),
+                    S.of(context).resetPassword),
                 const SizedBox(
                   height: 20,
                 ),
@@ -52,14 +53,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     color: AppColors.mainGreyColor,
                     fontSize: 20,
                   ),
-                  AppLocalizations.of(context)!.enterEmailToResetOne,
+                  S.of(context).enterEmailToResetOne,
                 ),
                 Text(
                   style: TextStyle(
                     color: AppColors.mainGreyColor,
                     fontSize: 20,
                   ),
-                  AppLocalizations.of(context)!.enterEmailToResetTwo,
+                  S.of(context).enterEmailToResetTwo,
                 ),
                 const SizedBox(
                   height: 20,
@@ -70,14 +71,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     onChanged: (p0) {},
                     validator: (p0) {},
                     shadow: true,
-                    hintText: AppLocalizations.of(context)!.email,
+                    hintText: S.of(context).email,
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 AppButton(
-                  title: AppLocalizations.of(context)!.sendCode,
+                  title: S.of(context).sendCode,
                   textColor: Colors.white,
                   width: double.infinity,
                   backgroundColor: AppColors.mainColor,
@@ -100,7 +101,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         color: AppColors.mainGreyColor,
                         fontSize: 20,
                       ),
-                      AppLocalizations.of(context)!.backToSignIn,
+                      S.of(context).backToSignIn,
                     )),
               ],
             ),

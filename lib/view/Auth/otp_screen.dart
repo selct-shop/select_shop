@@ -3,6 +3,7 @@ import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/new_password_screen.dart';
@@ -32,7 +33,7 @@ class OtpScreen extends StatelessWidget {
                 ),
                 Text(
                     style: AppConstants.customTitleTextStyle,
-                    AppLocalizations.of(context)!.resetPassword),
+                    S.of(context).resetPassword),
                 const SizedBox(
                   height: 20,
                 ),
@@ -41,7 +42,7 @@ class OtpScreen extends StatelessWidget {
                     color: AppColors.mainGreyColor,
                     fontSize: 20,
                   ),
-                  AppLocalizations.of(context)!.otpCodeSended,
+                  S.of(context).otpCodeSended,
                 ),
                 Text(
                     style: TextStyle(
@@ -81,7 +82,7 @@ class OtpScreen extends StatelessWidget {
                   height: 20,
                 ),
                 AppButton(
-                  title: AppLocalizations.of(context)!.sendCode,
+                  title: S.of(context).sendCode,
                   textColor: Colors.white,
                   width: double.infinity,
                   backgroundColor: AppColors.mainColor,
@@ -90,7 +91,7 @@ class OtpScreen extends StatelessWidget {
                     // make sure the otp length is 4, if it's not then show custom
                     // toast saying the otp is shorter
                     // contorller.check otp
-                    
+
                     navigateToWithReplacement(
                         context, const NewPasswordScreen());
                   },
@@ -107,7 +108,7 @@ class OtpScreen extends StatelessWidget {
                         color: AppColors.mainGreyColor,
                         fontSize: 14,
                       ),
-                      AppLocalizations.of(context)!.backToSignIn,
+                      S.of(context).backToSignIn,
                     )),
               ],
             ),
