@@ -11,6 +11,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';

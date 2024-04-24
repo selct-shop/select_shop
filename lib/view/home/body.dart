@@ -116,12 +116,13 @@ class _HomeBody extends StatelessWidget {
                             bottomLeft: Radius.circular(6),
                           )),
                       child: Text(
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                          "categorys"),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                        S.of(context).categorys,
+                      ),
                     ),
                   ),
 
@@ -181,12 +182,11 @@ class _HomeBody extends StatelessWidget {
                   ),
 
                   Text(
-                    style: _customLocalTextStyle.copyWith(
-                        fontSize: 18,
-                        color: AppColors.mainGreyColor.withOpacity(.3),
-                        backgroundColor: Colors.white),
-                    "Search...",
-                  ),
+                      style: _customLocalTextStyle.copyWith(
+                          fontSize: 18,
+                          color: AppColors.mainGreyColor.withOpacity(.3),
+                          backgroundColor: Colors.white),
+                      S.of(context).search),
                 ],
               ),
             ),
@@ -204,7 +204,7 @@ class _HomeBody extends StatelessWidget {
               children: [
                 Text(
                   style: _customTitleTextStyle,
-                  "Categories: ",
+                  "${S.of(context).categorys}: ",
                 ),
                 Spacer(),
                 InkWell(
@@ -220,7 +220,7 @@ class _HomeBody extends StatelessWidget {
                         fontWeight: FontWeight.normal,
                         decoration: TextDecoration.underline,
                         decorationColor: AppColors.mainColor),
-                    "show all:",
+                    "${S.of(context).showAll}:",
                   ),
                 ),
               ],
@@ -273,7 +273,7 @@ class _HomeBody extends StatelessWidget {
                         Text(
                           style: _customTitleTextStyle.copyWith(
                               fontWeight: FontWeight.bold, height: .8),
-                          "Categories ",
+                                                  S.of(context).categorys,
                         ),
                       ],
                     ),

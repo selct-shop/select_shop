@@ -30,30 +30,42 @@
     
     "userName": "اسم المستخدم", 
     "userEmail": "mhli.ouutlook.sa@gmail.com", 
-    "homePage": "الصفحه الرئسيه", 
+    "homePage": "الرئسيه", 
     "products": "المنتجات", 
     "tradeMark": "العلامات التجاريه", 
     "specialproducts": "منتجات مميزه", 
     "favourts": "المفضله", 
     "mycart": "عربتي", 
     "orders": "الطلبات", 
-    "personalPage": "الملف الشخصي", 
+    "personalPage": "المستخدم", 
     "suppourt": "الدعم", 
     "contactUs": "تواصل معنا", 
     "signOut": "تسجيل خروج",
     
     
 
-    "most_wanted": "الاكثر طلبا", 
     "show_all": "عرض الكل", 
     "search": "ابحث", 
     "theNew": "جديد", 
     "discaount": "خصم", 
-    "helloWorld": "", 
-    "helloWorld": "", 
-    "helloWorld": ""
 
     
+
+    
+
+    "most_wanted": "الاكثر طلبا", 
+    "limitedOffers": "العروض المحدودة", 
+    "lowToHighPrice": "السعر من الأعلى للأقل ", 
+
+
+
+    "allCategoris": "كل التصنيفات ", 
+    "categorys": "التصنيفات", 
+    "category": "التصنيف", 
+    "showAll": "عرض الكل",
+    "searchYourProduct": "ابحث عن منتجك", 
+    "aed": "درهم"
+
     
   }
 

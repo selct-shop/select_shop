@@ -74,7 +74,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get userEmail => 'mhli.ouutlook.sa@gmail.com';
 
   @override
-  String get homePage => 'home Page';
+  String get homePage => 'home';
 
   @override
   String get products => 'products';
@@ -95,7 +95,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orders => 'orders';
 
   @override
-  String get personalPage => 'personal page';
+  String get personalPage => 'personal';
 
   @override
   String get suppourt => 'suppourt';
@@ -105,9 +105,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signOut => 'sign out';
-
-  @override
-  String get most_wanted => 'most wanted';
 
   @override
   String get show_all => 'show all';
@@ -122,5 +119,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get discaount => 'discaount';
 
   @override
-  String get helloWorld => '';
+  String get most_wanted => 'most wanted';
+
+  @override
+  String get limitedOffers => 'limited offers';
+
+  @override
+  String get lowToHighPrice => 'low to hight price';
+
+  @override
+  String get allCategoris => 'all catigory ';
+
+  @override
+  String get categorys => 'categorys';
+
+  @override
+  String get category => 'category';
+
+  @override
+  String get showAll => 'show all';
+
+  @override
+  String get searchYourProduct => 'search your product';
+
+  @override
+  String get aed => 'AED';
 }

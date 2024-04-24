@@ -50,11 +50,11 @@ class _CustomDrawer extends StatelessWidget {
                       ),
                       Text(
                         style: _customTitleTextStyle,
-                        AppLocalizations.of(context)!.userName,
+                        S.of(context).userName,
                       ),
                       Text(
                           style: _customLocalTextStyle,
-                          AppLocalizations.of(context)!.userEmail),
+                          S.of(context).userEmail),
                       const SizedBox(
                         width: 5,
                       ),
@@ -67,62 +67,62 @@ class _CustomDrawer extends StatelessWidget {
               height: 40,
             ),
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.homePage,
+              title: S.of(context).homePage,
               onTap: () {},
               isActive: true,
               leading: AppImages.homeSvg,
             ),
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.products,
+              title: S.of(context).products,
               onTap: () {},
               isActive: false,
               leading: AppImages.productsSvg,
             ),
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.tradeMark,
+              title: S.of(context).tradeMark,
               onTap: () {},
               isActive: false,
               leading: AppImages.tradeMarkSvg,
             ),
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.specialproducts,
+              title: S.of(context).specialproducts,
               onTap: () {},
               isActive: false,
               leading: AppImages.specialproductsSvg,
             ),
 
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.favourts,
+              title: S.of(context).favourts,
               onTap: () {},
               isActive: false,
               leading: AppImages.favourtsStorkSvg,
             ),
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.mycart,
+              title: S.of(context).mycart,
               onTap: () {},
               isActive: false,
               leading: AppImages.mycartSvg,
             ),
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.orders,
+              title: S.of(context).orders,
               onTap: () {},
               isActive: false,
               leading: AppImages.ordersSvg,
             ),
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.personalPage,
+              title: S.of(context).personalPage,
               onTap: () {},
               isActive: false,
               leading: AppImages.personalPageSvg,
             ),
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.suppourt,
+              title: S.of(context).suppourt,
               onTap: () {},
               isActive: false,
               leading: AppImages.suppourtSvg,
             ),
             _CustomDrawerListTile(
-              title: AppLocalizations.of(context)!.contactUs,
+              title: S.of(context).contactUs,
               onTap: () {},
               isActive: false,
               leading: AppImages.contactUsSvg,
@@ -142,7 +142,7 @@ class _CustomDrawer extends StatelessWidget {
                 AppImages.signOutSvg,
               ),
               title: Text(
-                AppLocalizations.of(context)!.signOut,
+                S.of(context).signOut,
                 style:
                     _customTitleTextStyle.copyWith(color: AppColors.greyColor),
               ),
@@ -301,7 +301,7 @@ class _CustomDrawerListTile extends StatelessWidget {
             //       Text(
             //         style:
             //             TextStyle(color: AppColors.mainGreyColor, fontSize: 18),
-            //         AppLocalizations.of(context)!.backToSignIn,
+            //         S.of(context).backToSignIn,
             //       ),
             //       SizedBox(
             //         width: 20,

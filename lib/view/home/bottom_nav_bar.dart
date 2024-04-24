@@ -26,7 +26,7 @@ class _CustomBottomNavBar extends StatelessWidget {
           AppConstants.emptySpaceTenPixl,
 
           _bottomNavBarIcon(
-            title: "Home",
+            title: S.of(context).homePage,
             svgImageName: AppImages.homeSvg,
             screenNumber: 1,
             // isActive: context.read<HomeBloc>().activePageNumber == ,
@@ -34,7 +34,7 @@ class _CustomBottomNavBar extends StatelessWidget {
           Spacer(),
 
           _bottomNavBarIcon(
-            title: "Categoris",
+            title: S.of(context).categorys,
             svgImageName: AppImages.categorisSvg,
             screenNumber: 2,
           ),
@@ -48,14 +48,14 @@ class _CustomBottomNavBar extends StatelessWidget {
           ///
           ///
           _bottomNavBarIcon(
-            title: "Favourite",
+            title: S.of(context).favourts,
             svgImageName: AppImages.favourtsStorkSvg,
             screenNumber: 3,
           ),
           Spacer(),
 
           _bottomNavBarIcon(
-            title: "Personal",
+            title: S.of(context).personalPage,
             svgImageName: AppImages.personalPageSvg,
             screenNumber: 4,
           ),
@@ -86,8 +86,8 @@ class _bottomNavBarIcon extends StatelessWidget {
         // TODO: implement listener
       },
       builder: (context, state) {
-        return InkWell(
-          onTap: () {
+        return IconButton(
+          onPressed: () {
             context
                 .read<HomeBloc>()
                 .add(BottomNavBarTapdedEvent(tappdedPageNumber: screenNumber));
@@ -96,7 +96,7 @@ class _bottomNavBarIcon extends StatelessWidget {
             //     tappdedPageNumber: screenNumber
             //     ));
           },
-          child: Column(
+          icon: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(

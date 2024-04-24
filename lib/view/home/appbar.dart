@@ -1,4 +1,5 @@
 part of 'home_screen.dart';
+
 class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(
@@ -36,8 +37,8 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            InkWell(
-              onTap: () {
+            IconButton(
+              onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
               // child: Image(
@@ -52,7 +53,7 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               //   Icons.menu_rounded,
               // ),
 
-              child: SvgPicture.asset(
+              icon: SvgPicture.asset(
                 AppImages.menuSvg,
               ),
             ),
@@ -72,8 +73,8 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ],
             ),
-            InkWell(
-              onTap: () {
+            IconButton(
+              onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
                   return UnderDevScreen();
@@ -85,7 +86,7 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               //   ),
               // ),
 
-              child: Icon(
+              icon: Icon(
                   color: AppColors.mainColor,
                   size: 30,
                   Icons.notifications_rounded),

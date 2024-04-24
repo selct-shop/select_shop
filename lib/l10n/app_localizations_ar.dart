@@ -74,7 +74,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get userEmail => 'mhli.ouutlook.sa@gmail.com';
 
   @override
-  String get homePage => 'الصفحه الرئسيه';
+  String get homePage => 'الرئسيه';
 
   @override
   String get products => 'المنتجات';
@@ -95,7 +95,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get orders => 'الطلبات';
 
   @override
-  String get personalPage => 'الملف الشخصي';
+  String get personalPage => 'المستخدم';
 
   @override
   String get suppourt => 'الدعم';
@@ -105,9 +105,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get signOut => 'تسجيل خروج';
-
-  @override
-  String get most_wanted => 'الاكثر طلبا';
 
   @override
   String get show_all => 'عرض الكل';
@@ -122,5 +119,29 @@ class AppLocalizationsAr extends AppLocalizations {
   String get discaount => 'خصم';
 
   @override
-  String get helloWorld => '';
+  String get most_wanted => 'الاكثر طلبا';
+
+  @override
+  String get limitedOffers => 'العروض المحدودة';
+
+  @override
+  String get lowToHighPrice => 'السعر من الأعلى للأقل ';
+
+  @override
+  String get allCategoris => 'كل التصنيفات ';
+
+  @override
+  String get categorys => 'التصنيفات';
+
+  @override
+  String get category => 'التصنيف';
+
+  @override
+  String get showAll => 'عرض الكل';
+
+  @override
+  String get searchYourProduct => 'ابحث عن منتجك';
+
+  @override
+  String get aed => 'درهم';
 }

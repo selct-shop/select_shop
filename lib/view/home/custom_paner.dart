@@ -1,8 +1,4 @@
-
-
 part of 'home_screen.dart';
-
-
 
 class _CustomBanar extends StatelessWidget {
   const _CustomBanar({
@@ -20,7 +16,7 @@ class _CustomBanar extends StatelessWidget {
           children: [
             Text(
               style: _customTitleTextStyle,
-              "Most Wanted: ",
+              "${S.of(context).most_wanted} :",
             ),
             Spacer(),
             InkWell(
@@ -35,7 +31,7 @@ class _CustomBanar extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                     decoration: TextDecoration.underline,
                     decorationColor: AppColors.mainColor),
-                "show all:",
+                "${S.of(context).showAll}:",
               ),
             ),
           ],
@@ -112,7 +108,7 @@ class _CustomBanar extends StatelessWidget {
                                         color: Colors.yellow,
                                       ),
                                       child: Text(
-                                        "new",
+                                        S.of(context).theNew,
                                         style: _customTitleTextStyle.copyWith(
                                           color: Colors.white,
                                           fontSize: 14,
@@ -136,12 +132,13 @@ class _CustomBanar extends StatelessWidget {
                                     children: [
                                       Text(
                                           style: TextStyle(fontSize: 10),
-                                          "Category:"),
+                                          "${S.of(context).category}:"),
                                       Text(
-                                          style: TextStyle(
-                                              fontSize: 10,
-                                              color: AppColors.mainColor),
-                                          "home"),
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            color: AppColors.mainColor),
+                                        S.of(context).homePage,
+                                      ),
                                       Spacer(),
                                       Row(
                                         children: [
@@ -197,16 +194,21 @@ class _CustomBanar extends StatelessWidget {
                                       Text(
                                           style: TextStyle(
                                             fontSize: 12,
+                                            color: AppColors.mainColor,
                                             fontWeight: FontWeight.bold,
                                           ),
-                                          "AED 350"),
+                                          "${S.of(context).aed} 350"),
                                       const SizedBox(
                                         width: 3,
                                       ),
                                       Text(
-                                        "AED 266".toUpperCase(),
+                                        "${S.of(context).aed} 266"
+                                            .toUpperCase(),
                                         style: _customTitleTextStyle.copyWith(
-                                          fontSize: 10,
+                                          fontSize: 8,
+                                          color: Colors.black,
+                                          decoration:
+                                              TextDecoration.lineThrough,
                                         ),
                                       ),
                                       Spacer(),

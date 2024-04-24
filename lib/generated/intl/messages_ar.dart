@@ -22,8 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aed": MessageLookupByLibrary.simpleMessage("درهم"),
+        "allCategoris": MessageLookupByLibrary.simpleMessage("كل التصنيفات "),
         "backToSignIn":
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
+        "category": MessageLookupByLibrary.simpleMessage("التصنيف"),
+        "categorys": MessageLookupByLibrary.simpleMessage("التصنيفات"),
         "confirm": MessageLookupByLibrary.simpleMessage("تاكيد"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
@@ -37,8 +41,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "favourts": MessageLookupByLibrary.simpleMessage("المفضله"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
-        "helloWorld": MessageLookupByLibrary.simpleMessage(""),
-        "homePage": MessageLookupByLibrary.simpleMessage("الصفحه الرئسيه"),
+        "homePage": MessageLookupByLibrary.simpleMessage("الرئسيه"),
+        "limitedOffers":
+            MessageLookupByLibrary.simpleMessage("العروض المحدودة"),
+        "lowToHighPrice":
+            MessageLookupByLibrary.simpleMessage("السعر من الأعلى للأقل "),
         "most_wanted": MessageLookupByLibrary.simpleMessage("الاكثر طلبا"),
         "mycart": MessageLookupByLibrary.simpleMessage("عربتي"),
         "newPassword":
@@ -49,13 +56,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "otpCodeSended":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز المصادقة إلى"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
-        "personalPage": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "personalPage": MessageLookupByLibrary.simpleMessage("المستخدم"),
         "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
         "search": MessageLookupByLibrary.simpleMessage("ابحث"),
+        "searchYourProduct":
+            MessageLookupByLibrary.simpleMessage("ابحث عن منتجك"),
         "selectShop": MessageLookupByLibrary.simpleMessage("سيلكت شوب"),
         "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
+        "showAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "show_all": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
         "signOut": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),

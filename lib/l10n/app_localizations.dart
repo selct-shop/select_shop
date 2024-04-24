@@ -234,7 +234,7 @@ abstract class AppLocalizations {
   /// No description provided for @homePage.
   ///
   /// In en, this message translates to:
-  /// **'home Page'**
+  /// **'home'**
   String get homePage;
 
   /// No description provided for @products.
@@ -276,7 +276,7 @@ abstract class AppLocalizations {
   /// No description provided for @personalPage.
   ///
   /// In en, this message translates to:
-  /// **'personal page'**
+  /// **'personal'**
   String get personalPage;
 
   /// No description provided for @suppourt.
@@ -296,12 +296,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'sign out'**
   String get signOut;
-
-  /// No description provided for @most_wanted.
-  ///
-  /// In en, this message translates to:
-  /// **'most wanted'**
-  String get most_wanted;
 
   /// No description provided for @show_all.
   ///
@@ -327,11 +321,59 @@ abstract class AppLocalizations {
   /// **'discaount'**
   String get discaount;
 
-  /// No description provided for @helloWorld.
+  /// No description provided for @most_wanted.
   ///
   /// In en, this message translates to:
-  /// **''**
-  String get helloWorld;
+  /// **'most wanted'**
+  String get most_wanted;
+
+  /// No description provided for @limitedOffers.
+  ///
+  /// In en, this message translates to:
+  /// **'limited offers'**
+  String get limitedOffers;
+
+  /// No description provided for @lowToHighPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'low to hight price'**
+  String get lowToHighPrice;
+
+  /// No description provided for @allCategoris.
+  ///
+  /// In en, this message translates to:
+  /// **'all catigory '**
+  String get allCategoris;
+
+  /// No description provided for @categorys.
+  ///
+  /// In en, this message translates to:
+  /// **'categorys'**
+  String get categorys;
+
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'category'**
+  String get category;
+
+  /// No description provided for @showAll.
+  ///
+  /// In en, this message translates to:
+  /// **'show all'**
+  String get showAll;
+
+  /// No description provided for @searchYourProduct.
+  ///
+  /// In en, this message translates to:
+  /// **'search your product'**
+  String get searchYourProduct;
+
+  /// No description provided for @aed.
+  ///
+  /// In en, this message translates to:
+  /// **'AED'**
+  String get aed;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

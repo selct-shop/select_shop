@@ -22,7 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aed": MessageLookupByLibrary.simpleMessage("AED"),
+        "allCategoris": MessageLookupByLibrary.simpleMessage("all catigory "),
         "backToSignIn": MessageLookupByLibrary.simpleMessage("back to signin"),
+        "category": MessageLookupByLibrary.simpleMessage("category"),
+        "categorys": MessageLookupByLibrary.simpleMessage("categorys"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("confirm new password"),
@@ -36,8 +40,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "favourts": MessageLookupByLibrary.simpleMessage("favourts"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("forgot password?"),
-        "helloWorld": MessageLookupByLibrary.simpleMessage(""),
-        "homePage": MessageLookupByLibrary.simpleMessage("home Page"),
+        "homePage": MessageLookupByLibrary.simpleMessage("home"),
+        "limitedOffers": MessageLookupByLibrary.simpleMessage("limited offers"),
+        "lowToHighPrice":
+            MessageLookupByLibrary.simpleMessage("low to hight price"),
         "most_wanted": MessageLookupByLibrary.simpleMessage("most wanted"),
         "mycart": MessageLookupByLibrary.simpleMessage("my cart"),
         "newPassword": MessageLookupByLibrary.simpleMessage("new password"),
@@ -48,12 +54,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "otpCodeSended":
             MessageLookupByLibrary.simpleMessage("otp code is sended to"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
-        "personalPage": MessageLookupByLibrary.simpleMessage("personal page"),
+        "personalPage": MessageLookupByLibrary.simpleMessage("personal"),
         "products": MessageLookupByLibrary.simpleMessage("products"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("reset password"),
         "search": MessageLookupByLibrary.simpleMessage("search"),
+        "searchYourProduct":
+            MessageLookupByLibrary.simpleMessage("search your product"),
         "selectShop": MessageLookupByLibrary.simpleMessage("select shop"),
         "sendCode": MessageLookupByLibrary.simpleMessage("send code"),
+        "showAll": MessageLookupByLibrary.simpleMessage("show all"),
         "show_all": MessageLookupByLibrary.simpleMessage("show all"),
         "signIn": MessageLookupByLibrary.simpleMessage("sign In"),
         "signOut": MessageLookupByLibrary.simpleMessage("sign out"),

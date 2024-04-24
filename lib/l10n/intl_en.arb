@@ -30,28 +30,38 @@
     
     "userName": "user name", 
     "userEmail": "mhli.ouutlook.sa@gmail.com", 
-    "homePage": "home Page", 
+    "homePage": "home", 
     "products": "products", 
     "tradeMark": "trad marks", 
     "specialproducts": "special products", 
     "favourts": "favourts", 
     "mycart": "my cart", 
     "orders": "orders", 
-    "personalPage": "personal page", 
+    "personalPage": "personal", 
     "suppourt": "suppourt", 
     "contactUs": "contact us", 
     "signOut": "sign out",
     
     
     
-    "most_wanted": "most wanted", 
     "show_all": "show all", 
     "search": "search", 
     "theNew": "new", 
     "discaount": "discaount", 
-    "helloWorld": "", 
-    "helloWorld": "", 
-    "helloWorld": ""
+
+
+    "most_wanted": "most wanted", 
+    "limitedOffers": "limited offers", 
+    "lowToHighPrice": "low to hight price", 
+
+
+
+    "allCategoris": "all catigory ", 
+    "categorys": "categorys", 
+    "category": "category", 
+    "showAll": "show all",
+    "searchYourProduct": "search your product", 
+    "aed": "AED"
 
 
     

@@ -280,10 +280,10 @@ class S {
     );
   }
 
-  /// `home Page`
+  /// `home`
   String get homePage {
     return Intl.message(
-      'home Page',
+      'home',
       name: 'homePage',
       desc: '',
       args: [],
@@ -350,10 +350,10 @@ class S {
     );
   }
 
-  /// `personal page`
+  /// `personal`
   String get personalPage {
     return Intl.message(
-      'personal page',
+      'personal',
       name: 'personalPage',
       desc: '',
       args: [],
@@ -385,16 +385,6 @@ class S {
     return Intl.message(
       'sign out',
       name: 'signOut',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `most wanted`
-  String get most_wanted {
-    return Intl.message(
-      'most wanted',
-      name: 'most_wanted',
       desc: '',
       args: [],
     );
@@ -440,11 +430,91 @@ class S {
     );
   }
 
-  /// ``
-  String get helloWorld {
+  /// `most wanted`
+  String get most_wanted {
     return Intl.message(
-      '',
-      name: 'helloWorld',
+      'most wanted',
+      name: 'most_wanted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `limited offers`
+  String get limitedOffers {
+    return Intl.message(
+      'limited offers',
+      name: 'limitedOffers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `low to hight price`
+  String get lowToHighPrice {
+    return Intl.message(
+      'low to hight price',
+      name: 'lowToHighPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `all catigory `
+  String get allCategoris {
+    return Intl.message(
+      'all catigory ',
+      name: 'allCategoris',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `categorys`
+  String get categorys {
+    return Intl.message(
+      'categorys',
+      name: 'categorys',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `category`
+  String get category {
+    return Intl.message(
+      'category',
+      name: 'category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `show all`
+  String get showAll {
+    return Intl.message(
+      'show all',
+      name: 'showAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `search your product`
+  String get searchYourProduct {
+    return Intl.message(
+      'search your product',
+      name: 'searchYourProduct',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AED`
+  String get aed {
+    return Intl.message(
+      'AED',
+      name: 'aed',
       desc: '',
       args: [],
     );

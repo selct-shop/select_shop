@@ -122,9 +122,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // return Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
-    return const Scaffold(
-        body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
+    // return const Scaffold(
+    // body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    // return const Scaffold(body: SafeArea(child: HomeScreen()));
+    return const Scaffold(body: SafeArea(child: HomeScreen()));
   }
 }
