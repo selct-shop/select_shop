@@ -23,8 +23,8 @@ import 'package:select_shop/view/home/home_screen.dart';
 import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
 
-String? iniiiiiitalLoca;
-final GlobalKey mainAppKey = GlobalKey();
+String? userToken;
+// final GlobalKey mainAppKey = GlobalKey();
 void main() async {
   // runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,12 +40,13 @@ void main() async {
   // await CacheHelper.get
 
   // token = CacheHelper.getData(key: 'token') ?? '';
-  String token = CacheHelper.getData(key: 'token') ?? '';
+  // String token = CacheHelper.getData(key: 'token') ?? '';
 
-  iniiiiiitalLoca = CacheHelper.getData(key: 'lang') == 'en' ? 'en' : 'ar';
+  // iniiiiiitalLoca = CacheHelper.getData(key: 'lang') == 'en' ? 'en' : 'ar';
 
   runApp(BlocProvider(
-    create: (context) => LocalizationBloc()..add(LoadSavedLocalization()),
+    create: (context) => LocalizationBloc()..add(LoadSavedLocalizationEvent()),
+    
     child: MyApp(),
   ));
 }
@@ -120,11 +121,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    // return Scaffold(body: SafeArea(child: LogInScreen()));
+    return Scaffold(
+        body: SafeArea(
+            child: userToken == null || userToken == ""
+                ? const LogInScreen()
+                : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(
     // body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    return const Scaffold(body: SafeArea(child: HomeScreen()));
+    // return const Scaffold(body: SafeArea(child: HomeScreen()));
   }
 }

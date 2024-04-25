@@ -102,8 +102,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  // SingleChildScrollView homeBody(BuildContext context) {
-  //   return ;
-  // }
 }

@@ -9,18 +9,18 @@ part 'localization_state.dart';
 
 class LocalizationBloc extends Bloc<LocalizationEvent, LocalizationState> {
   LocalizationBloc() : super(LocalizationState.initial()) {
-    on<LoadSavedLocalization>(getLanguage);
-    on<LoadLocalization>(changeLanguage);
+    on<LoadSavedLocalizationEvent>(getLanguage);
+    on<LoadLocalizationEvent>(changeLanguage);
   }
 
-  void changeLanguage(LoadLocalization event, Emitter<LocalizationState> emit) {
+  void changeLanguage(LoadLocalizationEvent event, Emitter<LocalizationState> emit) {
     if (event.locale == state.locale) return;
     saveLocale(event.locale);
     emit(LocalizationState(event.locale));
   }
 
   Future<void> getLanguage(
-      LoadSavedLocalization event, Emitter<LocalizationState> emit) async {
+      LoadSavedLocalizationEvent event, Emitter<LocalizationState> emit) async {
     Locale saveLocale = await getLocale();
     emit(LocalizationState(saveLocale));
   }

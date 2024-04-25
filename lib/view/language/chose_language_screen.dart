@@ -44,7 +44,7 @@ class _ChoseLanguageScreenState extends State<ChoseLanguageScreen> {
 
 // // MyApp.of(context).setLocale
                   BlocProvider.of<LocalizationBloc>(context)
-                      .add(LoadLocalization(Locale('ar')));
+                      .add(LoadLocalizationEvent(Locale('ar')));
                   widget.commingFromSettings == true
                       ? null
                       : navigateTo(context, const LogInScreen());
@@ -74,7 +74,7 @@ class _ChoseLanguageScreenState extends State<ChoseLanguageScreen> {
                   // setState(() {});
 
                   BlocProvider.of<LocalizationBloc>(context)
-                      .add(LoadLocalization(Locale('en')));
+                      .add(LoadLocalizationEvent(Locale('en')));
 
                   widget.commingFromSettings == true
                       ? null
