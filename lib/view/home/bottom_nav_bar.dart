@@ -13,7 +13,7 @@ class _CustomBottomNavBar extends StatelessWidget {
         // vertical: 10,
       ),
       width: double.infinity,
-      height: 60,
+      height: 55,
       alignment: Alignment.center,
       decoration: BoxDecoration(
           color: AppColors.mainGreyColor.withOpacity(.1),
@@ -100,7 +100,7 @@ class _bottomNavBarIcon extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                height: 30, width: 30,
+                height: 25, width: 25,
                 svgImageName,
 
                 // color: isActive ? AppColors.mainColor: AppColors.grey2Color,
