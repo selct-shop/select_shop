@@ -380,6 +380,26 @@ class S {
     );
   }
 
+  /// `sign successfully`
+  String get signInSuccess {
+    return Intl.message(
+      'sign successfully',
+      name: 'signInSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sign up successfully`
+  String get signUpSuccess {
+    return Intl.message(
+      'sign up successfully',
+      name: 'signUpSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `sign out`
   String get signOut {
     return Intl.message(

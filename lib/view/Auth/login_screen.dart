@@ -6,6 +6,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
+import 'package:select_shop/view/Shared/app_toast.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
@@ -23,6 +24,13 @@ TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,
 );
 
+final GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
+
+final TextEditingController phoneNumberTextEditingController =
+    TextEditingController();
+final TextEditingController passwordTextEditingController =
+    TextEditingController();
+
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
 
@@ -32,6 +40,15 @@ class LogInScreen extends StatefulWidget {
 
 class _LogInScreenState extends State<LogInScreen> {
   @override
+  @override
+  void dispose() {
+    // Dispose of the controllers when the state is disposed
+    // _usernameController.dispose();
+    // _passwordController.dispose();
+
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
@@ -54,27 +71,36 @@ class _LogInScreenState extends State<LogInScreen> {
                     // context.loaderOverlay.show();
                     // }
 
-                    // if (state is AuthSuccessState) {
-                    //   context.loaderOverlay.hide();
-                    //   showToast(message: S.of(context).login_toast_success_msg);
-                    //   AppCubit.get(context).getUser();
-                    //   navigateToWithReplacement(
-                    //     context,
-                    //     const AppLayout(),
-                    //   );
-                    // }
+                    if (state is AuthSuccessState) {
+                      // context.loaderOverlay.hide();
+                      showToast(message: S.of(context).signInSuccess);
+                      // AppCubit.get(context).getUser();
+                      navigateToWithReplacement(
+                        context,
+                        const HomeScreen(),
+                      );
+                    }
 
-                    // if (state is AuthErrorState) {
-                    //   context.loaderOverlay.hide();
-                    //   showToast(message: S.of(context).login_toast_error_msg);
-                    // }
+                    if (state is AuthErrorState) {
+                      // context.loaderOverlay.hide();
+                      showToast(
+                        message: state.errorMessage,
+                      );
+                    }
                   },
                   builder: (context, state) {
                     if (state is AuthLoadingState) {
-                      return const CustomLoadingScreen();
-                    } else if (state is AuthErrorState) {
-                      return ErrorScreen(errorMessage: 'errorMessage');
+                      return const SizedBox(
+                          width: 200,
+                          height: 200,
+                          child: CustomLoadingScreen());
                     }
+                    // else if (state is AuthErrorState) {
+                    //   return SizedBox(
+                    //       width: 200,
+                    //       height: 200,
+                    //       child: ErrorScreen(errorMessage: state.errorMessage));
+                    // }
 
                     // else if (state is AuthInitialState )
                     // {return CustomLoadingScreen();}
@@ -119,243 +145,237 @@ class _LoginBody extends StatelessWidget {
           height: 30,
         ),
         FormBuilder(
+            key: signInFormKey,
             child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    50,
-                  ),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(.5),
-                      offset: Offset(0.0, 2.0),
-                      blurRadius: 3.0,
-                    ),
-                  ],
-                  color: Colors.white),
-              child: FormBuilderTextField(
-                name: S.of(context).email,
-
-                // controller: TextEditingController?,
-
-                decoration: InputDecoration(
-                  hintText: S.of(context).email,
-                  hintStyle: _customLocalTextStyle,
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsetsDirectional.symmetric(
-                    horizontal: 20,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    50,
-                  ),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(.5),
-                      offset: Offset(0.0, 2.0),
-                      blurRadius: 3.0,
-                    ),
-                  ],
-                  color: Colors.white),
-              child: FormBuilderTextField(
-                name: S.of(context).password,
-
-                // controller: TextEditingController?,
-
-                decoration: InputDecoration(
-                  hintText: S.of(context).password,
-                  hintStyle: _customLocalTextStyle,
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsetsDirectional.symmetric(
-                    horizontal: 20,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                InkWell(
-                  onTap: () {
-                    navigateToWithReplacement(
-                        context, const ForgotPasswordScreen());
-                  },
-                  child: Text(
-                    style: TextStyle(
-                      color: AppColors.mainColor,
-                      fontSize: 12,
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        50,
+                      ),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(.5),
+                          offset: Offset(0.0, 2.0),
+                          blurRadius: 3.0,
+                        ),
+                      ],
+                      color: Colors.white),
+                  child: FormBuilderTextField(
+                    name: S.of(context).email,
+                    // validator: (value) {
+                    //   context.read<AuthBloc>().validateEmail(value);
+                    // },
+                    controller: phoneNumberTextEditingController,
+                    decoration: InputDecoration(
+                      hintText: S.of(context).email,
+                      hintStyle: _customLocalTextStyle,
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsetsDirectional.symmetric(
+                        horizontal: 20,
+                      ),
                     ),
-                    S.of(context).forgotPassword,
                   ),
-                ),
-                InkWell(
-                  onTap: () {
-                    navigateToWithReplacement(
-                        context, const ForgotPasswordScreen());
-                  },
-                  child: Text(
-                    style: TextStyle(
-                      color: AppColors.mainColor,
-                      fontSize: 12,
-                    ),
-                    S.of(context).resetPassword,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            InkWell(
-              borderRadius: BorderRadius.circular(
-                50,
-              ),
-              onTap: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) =>
-                //             const UnderDevScreen()));
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) {
-                //   return HomeScreen();
-                // }));
-
-                context.read<AuthBloc>().add(AuthLogInEvent());
-              },
-              child: Container(
-                height: 40,
-                width: 200,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    color: AppColors.mainGreyColor,
-                    borderRadius: BorderRadius.circular(
-                      50,
-                    )),
-                child: Text(
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                    S.of(context).signIn),
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const UnderDevScreen()));
-              },
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => SignupScreen()),
-                      (route) => false);
-                },
-                child: Text(
-                    style: TextStyle(
-                      color: AppColors.mainColor,
-                      fontSize: 12,
-                    ),
-                    S.of(context).youDontHaveAccount),
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 15,
-                ),
-                Expanded(
-                  child: Divider(
-                    // thickness: 15,
-                    // height: 30,
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                Text(
-                  style: TextStyle(
-                    color: AppColors.mainGreyColor,
-                    fontSize: 12,
-                  ),
-                  S.of(context).orByUsing,
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                Expanded(
-                  child: Divider(
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-                  borderRadius: BorderRadius.circular(50),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const UnderDevScreen()));
-                  },
-                  child: const Image(
-                      image: AssetImage(
-                    AppImages.facebook,
-                  )),
                 ),
                 const SizedBox(
-                  width: 20,
+                  height: 20,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        50,
+                      ),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(.5),
+                          offset: Offset(0.0, 2.0),
+                          blurRadius: 3.0,
+                        ),
+                      ],
+                      color: Colors.white),
+                  child: FormBuilderTextField(
+                    name: S.of(context).password,
+                    controller: passwordTextEditingController,
+                    // validator: (value) {
+                    //   context.read<AuthBloc>().validatepassword(value);
+                    // },
+                    decoration: InputDecoration(
+                      hintText: S.of(context).password,
+                      hintStyle: _customLocalTextStyle,
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsetsDirectional.symmetric(
+                        horizontal: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        navigateToWithReplacement(
+                            context, const ForgotPasswordScreen());
+                      },
+                      child: Text(
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: 12,
+                        ),
+                        S.of(context).forgotPassword,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        navigateToWithReplacement(
+                            context, const ForgotPasswordScreen());
+                      },
+                      child: Text(
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: 12,
+                        ),
+                        S.of(context).resetPassword,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 InkWell(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(
+                    50,
+                  ),
+                  onTap: () {
+                    context.read<AuthBloc>().add(AuthLogInEvent());
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 200,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: AppColors.mainGreyColor,
+                        borderRadius: BorderRadius.circular(
+                          50,
+                        )),
+                    child: Text(
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                        S.of(context).signIn),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                InkWell(
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const UnderDevScreen()));
                   },
-                  child: const Image(
-                      image: AssetImage(
-                    AppImages.google,
-                  )),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                              builder: (context) => SignupScreen()),
+                          (route) => false);
+                    },
+                    child: Text(
+                        style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontSize: 12,
+                        ),
+                        S.of(context).youDontHaveAccount),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Expanded(
+                      child: Divider(
+                        // thickness: 15,
+                        // height: 30,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      style: TextStyle(
+                        color: AppColors.mainGreyColor,
+                        fontSize: 12,
+                      ),
+                      S.of(context).orByUsing,
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Expanded(
+                      child: Divider(
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      borderRadius: BorderRadius.circular(50),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const UnderDevScreen()));
+                      },
+                      child: const Image(
+                          image: AssetImage(
+                        AppImages.facebook,
+                      )),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    InkWell(
+                      borderRadius: BorderRadius.circular(50),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const UnderDevScreen()));
+                      },
+                      child: const Image(
+                          image: AssetImage(
+                        AppImages.google,
+                      )),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
                 ),
               ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-          ],
-        ))
+            ))
       ],
     );
   }

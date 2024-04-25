@@ -291,6 +291,18 @@ abstract class AppLocalizations {
   /// **'contact us'**
   String get contactUs;
 
+  /// No description provided for @signInSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'sign successfully'**
+  String get signInSuccess;
+
+  /// No description provided for @signUpSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'sign up successfully'**
+  String get signUpSuccess;
+
   /// No description provided for @signOut.
   ///
   /// In en, this message translates to:

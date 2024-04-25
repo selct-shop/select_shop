@@ -104,6 +104,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get contactUs => 'تواصل معنا';
 
   @override
+  String get signInSuccess => 'تم تسجيل الدخول بنجاح';
+
+  @override
+  String get signUpSuccess => 'تم تسجيل الحساب بنجاح';
+
+  @override
   String get signOut => 'تسجيل خروج';
 
   @override

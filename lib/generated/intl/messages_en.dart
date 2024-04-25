@@ -65,8 +65,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "showAll": MessageLookupByLibrary.simpleMessage("show all"),
         "show_all": MessageLookupByLibrary.simpleMessage("show all"),
         "signIn": MessageLookupByLibrary.simpleMessage("sign In"),
+        "signInSuccess":
+            MessageLookupByLibrary.simpleMessage("sign successfully"),
         "signOut": MessageLookupByLibrary.simpleMessage("sign out"),
         "signUp": MessageLookupByLibrary.simpleMessage("sign Up"),
+        "signUpSuccess":
+            MessageLookupByLibrary.simpleMessage("sign up successfully"),
         "specialproducts":
             MessageLookupByLibrary.simpleMessage("special products"),
         "suppourt": MessageLookupByLibrary.simpleMessage("suppourt"),

@@ -104,6 +104,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get contactUs => 'contact us';
 
   @override
+  String get signInSuccess => 'sign successfully';
+
+  @override
+  String get signUpSuccess => 'sign up successfully';
+
+  @override
   String get signOut => 'sign out';
 
   @override

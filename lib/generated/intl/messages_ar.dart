@@ -68,8 +68,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "showAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "show_all": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
+        "signInSuccess":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول بنجاح"),
         "signOut": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
         "signUp": MessageLookupByLibrary.simpleMessage("أنشئ حسابك"),
+        "signUpSuccess":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الحساب بنجاح"),
         "specialproducts": MessageLookupByLibrary.simpleMessage("منتجات مميزه"),
         "suppourt": MessageLookupByLibrary.simpleMessage("الدعم"),
         "theNew": MessageLookupByLibrary.simpleMessage("جديد"),

@@ -40,6 +40,8 @@
     "personalPage": "personal", 
     "suppourt": "suppourt", 
     "contactUs": "contact us", 
+    "signInSuccess": "sign successfully", 
+    "signUpSuccess": "sign up successfully", 
     "signOut": "sign out",
     
     
