@@ -68,7 +68,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get youDontHaveAccount => 'you have don\'t have account? create one';
 
   @override
-  String get userName => 'user name';
+  String get userName => 'name';
 
   @override
   String get userEmail => 'mhli.ouutlook.sa@gmail.com';
@@ -107,7 +107,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signInSuccess => 'sign successfully';
 
   @override
-  String get signUpSuccess => 'sign up successfully';
+  String get signInWelcome => 'welcome back';
+
+  @override
+  String get signUpSuccess => 'hopes you good experence';
 
   @override
   String get signOut => 'sign out';

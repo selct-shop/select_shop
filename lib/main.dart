@@ -46,7 +46,6 @@ void main() async {
 
   runApp(BlocProvider(
     create: (context) => LocalizationBloc()..add(LoadSavedLocalizationEvent()),
-    
     child: MyApp(),
   ));
 }
@@ -121,12 +120,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    return Scaffold(
-        body: SafeArea(
-            child: userToken == null || userToken == ""
-                ? const LogInScreen()
-                : const HomeScreen()));
+    // return Scaffold(
+    //     body: SafeArea(
+    //         child: userToken == null || userToken == ""
+    //             ? const LogInScreen()
+    //             : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
+    return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
     // body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));

@@ -28,7 +28,7 @@
 
 
     
-    "userName": "اسم المستخدم", 
+    "userName": "الاسم", 
     "userEmail": "mhli.ouutlook.sa@gmail.com", 
     "homePage": "الرئسيه", 
     "products": "المنتجات", 
@@ -41,6 +41,7 @@
     "suppourt": "الدعم", 
     "contactUs": "تواصل معنا", 
     "signInSuccess": "تم تسجيل الدخول بنجاح", 
+    "signInWelcome": "اهلا بعودتك", 
     "signUpSuccess": "تم تسجيل الحساب بنجاح", 
     "signOut": "تسجيل خروج",
     

@@ -28,7 +28,7 @@
 
 
     
-    "userName": "user name", 
+    "userName": "name", 
     "userEmail": "mhli.ouutlook.sa@gmail.com", 
     "homePage": "home", 
     "products": "products", 
@@ -41,7 +41,8 @@
     "suppourt": "suppourt", 
     "contactUs": "contact us", 
     "signInSuccess": "sign successfully", 
-    "signUpSuccess": "sign up successfully", 
+    "signInWelcome": "welcome back", 
+    "signUpSuccess": "hopes you good experence", 
     "signOut": "sign out",
     
     

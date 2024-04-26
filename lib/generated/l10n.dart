@@ -260,10 +260,10 @@ class S {
     );
   }
 
-  /// `user name`
+  /// `name`
   String get userName {
     return Intl.message(
-      'user name',
+      'name',
       name: 'userName',
       desc: '',
       args: [],
@@ -390,10 +390,20 @@ class S {
     );
   }
 
-  /// `sign up successfully`
+  /// `welcome back`
+  String get signInWelcome {
+    return Intl.message(
+      'welcome back',
+      name: 'signInWelcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `hopes you good experence`
   String get signUpSuccess {
     return Intl.message(
-      'sign up successfully',
+      'hopes you good experence',
       name: 'signUpSuccess',
       desc: '',
       args: [],

@@ -67,10 +67,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("sign In"),
         "signInSuccess":
             MessageLookupByLibrary.simpleMessage("sign successfully"),
+        "signInWelcome": MessageLookupByLibrary.simpleMessage("welcome back"),
         "signOut": MessageLookupByLibrary.simpleMessage("sign out"),
         "signUp": MessageLookupByLibrary.simpleMessage("sign Up"),
         "signUpSuccess":
-            MessageLookupByLibrary.simpleMessage("sign up successfully"),
+            MessageLookupByLibrary.simpleMessage("hopes you good experence"),
         "specialproducts":
             MessageLookupByLibrary.simpleMessage("special products"),
         "suppourt": MessageLookupByLibrary.simpleMessage("suppourt"),
@@ -80,7 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "I agree to all terms, privacy policy and fees"),
         "userEmail":
             MessageLookupByLibrary.simpleMessage("mhli.ouutlook.sa@gmail.com"),
-        "userName": MessageLookupByLibrary.simpleMessage("user name"),
+        "userName": MessageLookupByLibrary.simpleMessage("name"),
         "welcomeToSelectShop":
             MessageLookupByLibrary.simpleMessage("welcome to select shop"),
         "youDontHaveAccount": MessageLookupByLibrary.simpleMessage(

@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
         "signInSuccess":
             MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول بنجاح"),
+        "signInWelcome": MessageLookupByLibrary.simpleMessage("اهلا بعودتك"),
         "signOut": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
         "signUp": MessageLookupByLibrary.simpleMessage("أنشئ حسابك"),
         "signUpSuccess":
@@ -82,7 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "أوافق على جميع الشروط وسياسة الخصوصية والرسوم"),
         "userEmail":
             MessageLookupByLibrary.simpleMessage("mhli.ouutlook.sa@gmail.com"),
-        "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+        "userName": MessageLookupByLibrary.simpleMessage("الاسم"),
         "welcomeToSelectShop": MessageLookupByLibrary.simpleMessage(
             "مرحباً بك في متجر سيليكت شوب"),
         "youDontHaveAccount":

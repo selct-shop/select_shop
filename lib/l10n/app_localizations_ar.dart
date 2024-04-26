@@ -68,7 +68,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get youDontHaveAccount => 'ليس لديك حساب؟إنشاء حساب ';
 
   @override
-  String get userName => 'اسم المستخدم';
+  String get userName => 'الاسم';
 
   @override
   String get userEmail => 'mhli.ouutlook.sa@gmail.com';
@@ -105,6 +105,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get signInSuccess => 'تم تسجيل الدخول بنجاح';
+
+  @override
+  String get signInWelcome => 'اهلا بعودتك';
 
   @override
   String get signUpSuccess => 'تم تسجيل الحساب بنجاح';

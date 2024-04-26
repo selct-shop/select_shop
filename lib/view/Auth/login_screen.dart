@@ -67,13 +67,11 @@ class _LogInScreenState extends State<LogInScreen> {
                 child: BlocConsumer<AuthBloc, AuthState>(
                   listener: (context, state) {
                     // TODO: implement listener
-                    // if (state is AuthLoadingState) {
-                    // context.loaderOverlay.show();
-                    // }
 
                     if (state is AuthSuccessState) {
-                      // context.loaderOverlay.hide();
-                      showToast(message: S.of(context).signInSuccess);
+                      showToast(
+                          message:
+                              "${S.of(context).signInWelcome}: ${context.read<AuthBloc>().userName != null ? context.read<AuthBloc>().userName! : " "}");
                       // AppCubit.get(context).getUser();
                       navigateToWithReplacement(
                         context,

@@ -222,7 +222,7 @@ abstract class AppLocalizations {
   /// No description provided for @userName.
   ///
   /// In en, this message translates to:
-  /// **'user name'**
+  /// **'name'**
   String get userName;
 
   /// No description provided for @userEmail.
@@ -297,10 +297,16 @@ abstract class AppLocalizations {
   /// **'sign successfully'**
   String get signInSuccess;
 
+  /// No description provided for @signInWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'welcome back'**
+  String get signInWelcome;
+
   /// No description provided for @signUpSuccess.
   ///
   /// In en, this message translates to:
-  /// **'sign up successfully'**
+  /// **'hopes you good experence'**
   String get signUpSuccess;
 
   /// No description provided for @signOut.
