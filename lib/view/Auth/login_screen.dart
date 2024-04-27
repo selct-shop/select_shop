@@ -69,7 +69,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   listener: (context, state) {
                     // TODO: implement listener
 
-                    if (state is AuthSuccessState) {
+                    if (state is AuthSuccessStateSignIn) {
                       showToast(
                           message:
                               "${S.of(context).signInWelcome}: ${context.read<AuthBloc>().userName != null ? context.read<AuthBloc>().userName! : " "}");
@@ -80,7 +80,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       );
                     }
 
-                    if (state is AuthErrorState) {
+                    if (state is AuthErrorStateSignIn) {
                       // context.loaderOverlay.hide();
                       showToast(
                         message: state.errorMessage,
@@ -88,7 +88,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     }
                   },
                   builder: (context, state) {
-                    if (state is AuthLoadingState) {
+                    if (state is AuthLoadingStateSignIn) {
                       return const SizedBox(
                           width: 200,
                           height: 200,
@@ -107,8 +107,9 @@ class _LogInScreenState extends State<LogInScreen> {
                     // else if (state is AuthSuccessState )
                     // {return _LoginBody();}
 
-                    else
+                    else {
                       return _LoginBody();
+                    }
                   },
                 ),
               )
@@ -322,6 +323,10 @@ class _LoginBodyState extends State<_LoginBody> {
               const SizedBox(
                 height: 30,
               ),
+              _DepugSign(),
+              const SizedBox(
+                height: 30,
+              ),
               InkWell(
                 onTap: () {
                   Navigator.push(
@@ -512,6 +517,39 @@ class _AuthCustomIcon extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class _DepugSign extends StatelessWidget {
+  const _DepugSign({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(
+        50,
+      ),
+      onTap: () {
+        navigateToWithReplacement(context, const HomeScreen());
+      },
+      child: Container(
+        height: 40,
+        width: 200,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: AppColors.mainGreyColor,
+            borderRadius: BorderRadius.circular(
+              50,
+            )),
+        child: Text(
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+            "debug sign"),
       ),
     );
   }

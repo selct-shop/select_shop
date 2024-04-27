@@ -124,7 +124,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         // if (signInFormKey.currentState == null) {
         // if (signInFormKey.currentState!.validate() == true) {
         // signInFormKey.currentState!.save();
-        emit(AuthLoadingState());
+        emit(AuthLoadingStateSignIn());
 
         // start sign in
 
@@ -159,10 +159,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             // caching the user info
             signnnnModle.result != null
                 ? await _cashUserData(signnnnModle.result!)
-                : emit(AuthErrorState(errorMessage: 'user not founded'));
+                : emit(AuthErrorStateSignIn(errorMessage: 'user not founded'));
           } else {
             // if the response is != ok
-            emit(AuthErrorState(
+            emit(AuthErrorStateSignIn(
                 errorMessage:
                     "${logInResponse.statusCode} \n ${logInResponse.statusMessage}"));
           }
@@ -174,12 +174,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
           // print(
           //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
-          emit(AuthSuccessState());
+          emit(AuthSuccessStateSignIn());
           // emit(AuthInitialState());
         } else {
           print("ooooooooooooooooooooooooo");
 
-          emit(AuthErrorState(
+          emit(AuthErrorStateSignIn(
               errorMessage: logInResponse.statusMessage ?? "unknown Error"));
         }
 
@@ -194,7 +194,84 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         //
       }
 
-      if (event is AuthSignupEvet) {}
+//       if (event is AuthSignupEvet) {
+
+// // #### sign up #### //
+
+// // check for network connectivty
+// // form validation
+
+//  emit(AuthLoadingStateSignUp());
+
+//         // start sign in
+
+//         Response logInResponse = await DioHelper.signUp(
+//           phoneNumber: phoneNumberTextEditingController.text,
+//           password: passwordTextEditingController.text,
+//           // phoneNumber: '1234',
+//           // password: '1234',
+//         );
+
+//         print(logInResponse.statusCode);
+
+//         // await DioHelper.login(phoneNumber: '1234', password: '1234');
+//         if (logInResponse.statusCode == 200) {
+//           // save token
+//           // show toast
+//           // navigate to home screen
+//           //  var jsonMap = json.decode(logInResponse.data);
+//           // SignInModle responseData = SignInModle.fromJson(jsonMap);
+
+//           //
+//           //
+//           //
+//           print("ddddddddddddddddddddddd");
+
+//           SignInModle signnnnModle = SignInModle.fromJson(logInResponse.data);
+//           // Result userResult = signnnnModle.result!;
+//           // Customer customer = userResult.customer!;
+
+//           Customer? customer = signnnnModle.result?.customer;
+//           if (customer != null) {
+//             // caching the user info
+//             signnnnModle.result != null
+//                 ? await _cashUserData(signnnnModle.result!)
+//                 : emit(AuthErrorState(errorMessage: 'user not founded'));
+//           } else {
+//             // if the response is != ok
+//             emit(AuthErrorState(
+//                 errorMessage:
+//                     "${logInResponse.statusCode} \n ${logInResponse.statusMessage}"));
+//           }
+
+//           // Map<String, dynamic> customerMap =
+//           // Result customerData = Result.fromJson(responseData.result)
+//           //  Result   useerData = Result.fromJson(   responseData.   );
+//           // print(
+//           //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
+//           // print(
+//           //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
+//           emit(AuthSuccessState());
+//           // emit(AuthInitialState());
+//         } else {
+//           print("ooooooooooooooooooooooooo");
+
+//           emit(AuthErrorState(
+//               errorMessage: logInResponse.statusMessage ?? "unknown Error"));
+//         }
+
+//         // } else {
+//         // setState(() {
+//         //   _autoValidate = AutovalidateMode.always;
+//         // });
+//         // }
+
+//         //
+//         //
+//         //
+//       }
+
+// #### sign up #### //
     });
   }
 }

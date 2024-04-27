@@ -4,6 +4,7 @@ class DioHelper {
   // static String baseUrl = 'https://crm.specialline.info/api/';
   static String baseUrl = 'http://10.255.254.13:3000';
   static String logInUrl = '/customer/signin';
+  static String signUpUrl = '/customer/signup';
 
   // static const String logInUrl = 'http://localhost:3000/customer/signin';
 
@@ -27,6 +28,33 @@ class DioHelper {
           "phoneNumber": phoneNumber,
           "password": password,
           "rememberMe": true
+        },
+
+        
+      );
+
+      // print('ressssssssssssssssssssssssssssspons: ${response}');
+
+      // if (response.statusCode == 200) {
+      //   // print('ressssssssssssssssssssssssssssspons: ${response}');
+      // }
+      return response;
+    } catch (e) {
+      throw Exception('Failed to login: $e');
+    }
+  }
+
+  
+  static Future<Response> signUp (
+      {required String name, required String phoneNumber, required String password,  required String email,}) async {
+    try {
+      final response = await _dio!.post(
+        signUpUrl,
+        data: {
+          "name" : name, 
+          "email": email, 
+          "phoneNumber": phoneNumber,
+          "password": password,
         },
 
         

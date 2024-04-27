@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
+import 'package:select_shop/view/Auth/bloc/auth_bloc.dart';
+import 'package:select_shop/view/Shared/app_toast.dart';
+import 'package:select_shop/view/Shared/error_screen.dart';
+import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
@@ -73,48 +78,53 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(
                       height: 30,
                     ),
-                    FormBuilder(
-                        key: signUpKey,
-                        child: Column(
-                          children: [
-                            const _UserNameFormFeild(),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            _UserEmailFormFeild(),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            _PasswordFormFeild(context),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            _ConfirmPasswordFormFeild(context),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            _UserAggrementRow(context),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            const _SignUpButton(),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            const _DoYouHaveAccount(),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            const _OrSignUpWithGoogle(),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            _GoogleIcons(),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                          ],
-                        ))
+                    BlocConsumer<AuthBloc, AuthState>(
+                      listener: (context, state) {
+                        // TODO: implement listener
+
+                        if (state is AuthSuccessStateSignUp) {
+                          showToast(
+                              message:
+                                  "${S.of(context).signUpSuccess}: ${context.read<AuthBloc>().userName != null ? context.read<AuthBloc>().userName! : " "}");
+                          // AppCubit.get(context).getUser();
+                          navigateToWithReplacement(
+                            context,
+                            const HomeScreen(),
+                          );
+                        }
+
+                        if (state is AuthErrorStateSignIn) {
+                          // context.loaderOverlay.hide();
+                          showToast(
+                            message: state.errorMessage,
+                          );
+                        }
+                      },
+                      builder: (context, state) {
+                        if (state is AuthLoadingStateSignUp) {
+                          return const SizedBox(
+                              width: 200,
+                              height: 200,
+                              child: CustomLoadingScreen());
+                        }
+                        // else if (state is AuthErrorStateSignUp) {
+                        //   return SizedBox(
+                        //       width: 200,
+                        //       height: 200,
+                        //       child: ErrorScreen(errorMessage: state.errorMessage));
+                        // }
+
+                        // else if (state is AuthInitialState )
+                        // {return CustomLoadingScreen();}
+
+                        // else if (state is AuthSuccessStateSignUp )
+                        // {return _SignUpBody(context);}
+
+                        else {
+                          return _SignUpBody(context);
+                        }
+                      },
+                    )
                   ],
                 ),
               )
@@ -123,6 +133,55 @@ class _SignupScreenState extends State<SignupScreen> {
         ),
       ),
     );
+  }
+
+  FormBuilder _SignUpBody(BuildContext context) {
+    return FormBuilder(
+        key: signUpKey,
+        child: Column(
+          children: [
+            const _UserNameFormFeild(),
+            const SizedBox(
+              height: 20,
+            ),
+            _UserEmailFormFeild(),
+            const SizedBox(
+              height: 20,
+            ),
+            _PasswordFormFeild(context),
+            const SizedBox(
+              height: 20,
+            ),
+            _ConfirmPasswordFormFeild(context),
+            const SizedBox(
+              height: 20,
+            ),
+            _UserAggrementRow(context),
+            const SizedBox(
+              height: 20,
+            ),
+            const _SignUpButton(),
+            const SizedBox(
+              height: 30,
+            ),
+            const _DepugSign(),
+            const SizedBox(
+              height: 30,
+            ),
+            const _DoYouHaveAccount(),
+            const SizedBox(
+              height: 30,
+            ),
+            const _OrSignUpWithGoogle(),
+            const SizedBox(
+              height: 30,
+            ),
+            _GoogleIcons(),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ));
   }
 
   Row _UserAggrementRow(BuildContext context) {
@@ -259,7 +318,6 @@ class _SignupScreenState extends State<SignupScreen> {
                     color: AppColors.mainGreyColor,
                   ),
             onTap: () {
-              print("setttttttttttttttttttttttttttttttttttt");
               setState(() {
                 obscuringTextOrNot == true
                     ? obscuringTextOrNot = false
@@ -288,7 +346,8 @@ class _SignUpButton extends StatelessWidget {
         50,
       ),
       onTap: () {
-        navigateToWithReplacement(context, const HomeScreen());
+        // make sure the form is valid
+        context.read<AuthBloc>().add(AuthSignupEvet());
       },
       child: Container(
         height: 40,
@@ -307,6 +366,39 @@ class _SignUpButton extends StatelessWidget {
           ),
           S.of(context).signUp,
         ),
+      ),
+    );
+  }
+}
+
+class _DepugSign extends StatelessWidget {
+  const _DepugSign({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(
+        50,
+      ),
+      onTap: () {
+        navigateToWithReplacement(context, const HomeScreen());
+      },
+      child: Container(
+        height: 40,
+        width: 200,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: AppColors.mainGreyColor,
+            borderRadius: BorderRadius.circular(
+              50,
+            )),
+        child: Text(
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+            "debug sign"),
       ),
     );
   }
@@ -337,7 +429,9 @@ class _UserEmailFormFeild extends StatelessWidget {
         name: S.of(context).email,
         style: _customLocalTextStyle,
         controller: signUpserEmailTextEditingController,
-        validator: (value) {},
+        validator: (value) {
+          value!.length < 4 ? "too short" : null;
+        },
         decoration: InputDecoration(
           hintText: S.of(context).email,
           hintStyle: _customLocalTextStyle,
