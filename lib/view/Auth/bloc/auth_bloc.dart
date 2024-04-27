@@ -52,16 +52,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  // String? validateMobile(String? value) {
-  //   if (value!.isEmpty) {
-  //     return 'Phone number cannot be empty';
-  //   }
-  //   if (value.length != 10) {
-  //     return 'Mobile Number must be of 10 digit';
-  //   } else {
-  //     return null;
-  //   }
-  // }
+  String? validateMobile(String? value) {
+    if (value!.isEmpty) {
+      return 'Phone number cannot be empty';
+    }
+    if (value.length != 10) {
+      return 'Mobile Number must be of 10 digit';
+    } else {
+      return null;
+    }
+  }
+
+  customValidator(text) {
+    if (text == null || text.isEmpty) {
+      return 'Can\'t be empty';
+    }
+    if (text.length < 4) {
+      return 'Too short';
+    }
+    return null;
+  }
 
   //   String? validatepassword(String? value) {
   //  if ( value != null ){
@@ -101,72 +111,87 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc() : super(AuthInitialState()) {
     on<AuthEvent>((event, emit) async {
+      ///
+      ///
+      ///
+      ///
       // #### log in #### //
       if (event is AuthLogInEvent) {
 // check for network
 
 // form validation
-        // if (signInFormKey.currentState!.validate()) {
+// print("tttttttttttttttttttttttttttttttttt${signInFormKey.currentState!.validate()}");
+        // if (signInFormKey.currentState == null) {
+        // if (signInFormKey.currentState!.validate() == true) {
         // signInFormKey.currentState!.save();
-        // DioHelper.getData(url: DioHelper.baseUrl);
         emit(AuthLoadingState());
 
         // start sign in
-        try {
-          Response logInResponse = await DioHelper.login(
-              // phoneNumber: phoneNumberTextEditingController.text,
-              // password: passwordTextEditingController.text,
-              phoneNumber: '1234',
-              password: '1234');
-          // await DioHelper.login(phoneNumber: '1234', password: '1234');
-          if (logInResponse.statusCode == 200) {
-            // save token
-            // show toast
-            // navigate to home screen
-// var test = jsonDecode(logInResponse.data);
-            //  var jsonMap = json.decode(logInResponse.data);
-            // SignInModle responseData = SignInModle.fromJson(jsonMap);
 
-            //
-            //
-            //
+        Response logInResponse = await DioHelper.login(
+          phoneNumber: phoneNumberTextEditingController.text,
+          password: passwordTextEditingController.text,
+          // phoneNumber: '1234',
+          // password: '1234',
+        );
 
-            SignInModle signnnnModle = SignInModle.fromJson(logInResponse.data);
-            // Result userResult = signnnnModle.result!;
-            // Customer customer = userResult.customer!;
+        print(logInResponse.statusCode);
 
-            Customer? customer = signnnnModle.result?.customer;
-            if (customer != null) {
-              // caching the user info
-              signnnnModle.result != null
-                  ? await _cashUserData(signnnnModle.result!)
-                  : emit(AuthErrorState(errorMessage: 'user not founded'));
-            } else {
-              // if the response is != ok
-              emit(AuthErrorState(
-                  errorMessage:
-                      "${logInResponse.statusCode} \n ${logInResponse.statusMessage}"));
-            }
+        // await DioHelper.login(phoneNumber: '1234', password: '1234');
+        if (logInResponse.statusCode == 200) {
+          // save token
+          // show toast
+          // navigate to home screen
+          //  var jsonMap = json.decode(logInResponse.data);
+          // SignInModle responseData = SignInModle.fromJson(jsonMap);
 
-            // Map<String, dynamic> customerMap =
-            // Result customerData = Result.fromJson(responseData.result)
-            //  Result   useerData = Result.fromJson(   responseData.   );
-            // print(
-            //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
-            // print(
-            //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
-            emit(AuthSuccessState());
-            // emit(AuthInitialState());
+          //
+          //
+          //
+          print("ddddddddddddddddddddddd");
+
+          SignInModle signnnnModle = SignInModle.fromJson(logInResponse.data);
+          // Result userResult = signnnnModle.result!;
+          // Customer customer = userResult.customer!;
+
+          Customer? customer = signnnnModle.result?.customer;
+          if (customer != null) {
+            // caching the user info
+            signnnnModle.result != null
+                ? await _cashUserData(signnnnModle.result!)
+                : emit(AuthErrorState(errorMessage: 'user not founded'));
           } else {
+            // if the response is != ok
             emit(AuthErrorState(
-                errorMessage: logInResponse.statusMessage ?? "unknown Error"));
+                errorMessage:
+                    "${logInResponse.statusCode} \n ${logInResponse.statusMessage}"));
           }
-        } catch (exception) {}
+
+          // Map<String, dynamic> customerMap =
+          // Result customerData = Result.fromJson(responseData.result)
+          //  Result   useerData = Result.fromJson(   responseData.   );
+          // print(
+          //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
+          // print(
+          //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
+          emit(AuthSuccessState());
+          // emit(AuthInitialState());
+        } else {
+          print("ooooooooooooooooooooooooo");
+
+          emit(AuthErrorState(
+              errorMessage: logInResponse.statusMessage ?? "unknown Error"));
+        }
+
         // } else {
         // setState(() {
         //   _autoValidate = AutovalidateMode.always;
         // });
         // }
+
+        //
+        //
+        //
       }
 
       if (event is AuthSignupEvet) {}

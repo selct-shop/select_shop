@@ -14,6 +14,7 @@ class DioHelper {
       baseUrl: baseUrl,
       receiveDataWhenStatusError: true,
       validateStatus: (status) => true,
+      connectTimeout: const Duration(seconds: 2),
     ));
   }
 
@@ -22,12 +23,13 @@ class DioHelper {
     try {
       final response = await _dio!.post(
         logInUrl,
-
         data: {
           "phoneNumber": phoneNumber,
           "password": password,
           "rememberMe": true
         },
+
+        
       );
 
       // print('ressssssssssssssssssssssssssssspons: ${response}');
