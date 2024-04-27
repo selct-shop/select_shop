@@ -1,8 +1,9 @@
-part of 'home_screen.dart';
+
+part of "home_screen.dart";
 
 class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
-  Size get preferredSize => Size.fromHeight(
+  Size get preferredSize => const Size.fromHeight(
         55,
       );
   _CustomAppBar({
@@ -14,23 +15,23 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return PreferredSize(
-      preferredSize: Size.fromHeight(155),
+      preferredSize: const Size.fromHeight(155),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         // height: 55,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(15),
             bottomRight: Radius.circular(15),
           ),
           boxShadow: [
             BoxShadow(
               // color: Colors.grey.withOpacity(0.5),
-              color: Color(0xff000000).withOpacity(.16),
+              color: const Color(0xff000000).withOpacity(.16),
               blurRadius: 7,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -41,23 +42,11 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
-              // child: Image(
-              //   image: AssetImage(
-              //     AppImages.menu,
-              //   ),
-              // ),
-
-              // child: Icon(
-              //   color: AppColors.mainColor,
-              //   size: 30,
-              //   Icons.menu_rounded,
-              // ),
-
               icon: SvgPicture.asset(
                 AppImages.menuSvg,
               ),
             ),
-            Row(
+            const Row(
               children: [
                 Image(
                   height: 40,
@@ -77,16 +66,10 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return UnderDevScreen();
+                  return const UnderDevScreen();
                 }));
               },
-              // child: Image(
-              //   image: AssetImage(
-              //     AppImages.notification,
-              //   ),
-              // ),
-
-              icon: Icon(
+              icon: const Icon(
                   color: AppColors.mainColor,
                   size: 30,
                   Icons.notifications_rounded),

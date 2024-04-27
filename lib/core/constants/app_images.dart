@@ -1,6 +1,7 @@
 class AppImages {
   static const selShoHoriText = "assets/images/selShoHoriText.png";
   static const logo = "assets/images/logo.png";
+  static const logoNoTextStrok = "assets/images/logo_notext_strok.png";
   static const logoSmall = "assets/images/logo_small.png";
   static const menu = "assets/images/menu.png";
   static const notification = "assets/images/notifiation.png";
