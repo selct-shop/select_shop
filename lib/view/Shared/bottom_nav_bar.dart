@@ -1,7 +1,16 @@
-part of 'home_screen.dart';
 
-class _CustomBottomNavBar extends StatelessWidget {
-  const _CustomBottomNavBar({
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:select_shop/core/constants/app_constants.dart';
+import 'package:select_shop/core/constants/app_images.dart';
+import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
+import 'package:select_shop/view/home/bloc/home_bloc.dart';
+
+class CustomBottomNavBar extends StatelessWidget {
+  const CustomBottomNavBar({
     super.key,
   });
 

@@ -13,6 +13,9 @@ import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
+import 'package:select_shop/view/Shared/appbar.dart';
+import 'package:select_shop/view/Shared/bottom_nav_bar.dart';
+import 'package:select_shop/view/Shared/floating_acction_button.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constants/app_images.dart';
@@ -26,10 +29,8 @@ import 'package:select_shop/view/personal/personal_screen.dart';
 import 'dart:math' as math;
 //
 //
-part 'bottom_nav_bar.dart';
 part 'drawer.dart';
 part 'custom_paner.dart';
-part 'appbar.dart';
 part 'body.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // top: false,
       child: Scaffold(
         drawer: _CustomDrawer(),
-        appBar: _CustomAppBar(),
+        appBar: CustomAppBar(),
 
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
@@ -80,26 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
 
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: Transform.rotate(
-          angle: math.pi / 4,
-          child: FloatingActionButton(
-            onPressed: () {
-              navigateTo(context, CartScreen());
-            },
-            backgroundColor: AppColors.mainColor,
-            child: Transform.rotate(
-                angle: -(math.pi / 4),
-                child: SvgPicture.asset(
-                  color: Colors.white,
-                  width: 30,
-                  height: 30,
-                  AppImages.mycartSvg,
-                )),
-          ),
-        ),
-        bottomNavigationBar: _CustomBottomNavBar(),
+        floatingActionButton: CustomFloatingAcctionButton(),
+        bottomNavigationBar: CustomBottomNavBar(),
         resizeToAvoidBottomInset: false, // Set this to false
       ),
     );
   }
 }
+
