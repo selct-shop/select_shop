@@ -4,6 +4,7 @@
     "enterEmailToResetOne": "enter your email to reset", 
     "enterEmailToResetTwo": "your password", 
     "email": "email", 
+    "phoneNum": "phone number", 
     "sendCode": "send code", 
     "backToSignIn": "back to signin", 
     "otpCodeSended": "otp code is sended to", 

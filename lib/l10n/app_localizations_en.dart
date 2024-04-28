@@ -20,6 +20,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get email => 'email';
 
   @override
+  String get phoneNum => 'phone number';
+
+  @override
   String get sendCode => 'send code';
 
   @override

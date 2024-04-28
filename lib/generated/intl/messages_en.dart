@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("otp code is sended to"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
         "personalPage": MessageLookupByLibrary.simpleMessage("personal"),
+        "phoneNum": MessageLookupByLibrary.simpleMessage("phone number"),
         "products": MessageLookupByLibrary.simpleMessage("products"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("reset password"),
         "search": MessageLookupByLibrary.simpleMessage("search"),

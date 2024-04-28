@@ -20,6 +20,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get email => 'البريد الإلكتروني';
 
   @override
+  String get phoneNum => 'رقم الهاتف';
+
+  @override
   String get sendCode => 'إرسال الرمز';
 
   @override

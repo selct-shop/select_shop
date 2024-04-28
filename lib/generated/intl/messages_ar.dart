@@ -57,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز المصادقة إلى"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "personalPage": MessageLookupByLibrary.simpleMessage("المستخدم"),
+        "phoneNum": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),

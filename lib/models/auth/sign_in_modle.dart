@@ -406,3 +406,5 @@ class Customer {
         return "$id, $name, $email, $phoneNumber, $phoneVerifiedAt, $emailVerifiedAt, $createdAt, $updatedAt, $isDeleted, $isBlocked, $blockedBy, ";
     }
 }
+
+

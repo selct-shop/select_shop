@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `phone number`
+  String get phoneNum {
+    return Intl.message(
+      'phone number',
+      name: 'phoneNum',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `send code`
   String get sendCode {
     return Intl.message(

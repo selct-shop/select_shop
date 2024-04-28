@@ -24,13 +24,15 @@ part "widgets/signup_widgets.dart";
 bool obscuringTextOrNot = true;
 bool? _userAgreementChecked = false;
 GlobalKey signUpKey = GlobalKey();
-TextEditingController signUserNameTextEditingContorller =
+TextEditingController signUPUserNameTextEditingContorller =
     TextEditingController();
-TextEditingController signUpserEmailTextEditingController =
+TextEditingController signUpUserEmailTextEditingController =
+    TextEditingController();
+TextEditingController signUpUserPhonNumTextEditingController =
     TextEditingController();
 TextEditingController signUpPasswordTextEditingController =
     TextEditingController();
-TextEditingController confirmSignupPassTexEdiController =
+TextEditingController signUpconfirmPassTexEdiController =
     TextEditingController();
 
 TextStyle _customLocalTextStyle = TextStyle(
@@ -85,7 +87,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         if (state is AuthSuccessStateSignUp) {
                           showToast(
                               message:
-                                  "${S.of(context).signUpSuccess}: ${context.read<AuthBloc>().userName != null ? context.read<AuthBloc>().userName! : " "}");
+                                  "${S.of(context).signUpSuccess}: ${context.read<AuthBloc>().cashedUserName != null ? context.read<AuthBloc>().cashedUserName! : " "}");
                           // AppCubit.get(context).getUser();
                           navigateToWithReplacement(
                             context,
@@ -98,6 +100,10 @@ class _SignupScreenState extends State<SignupScreen> {
                           showToast(
                             message: state.errorMessage,
                           );
+
+                          // Duration(seconds: 5 ) ;
+
+// context.read<AuthBloc>().add(AuthInitialState());
                         }
                       },
                       builder: (context, state) {
@@ -106,13 +112,13 @@ class _SignupScreenState extends State<SignupScreen> {
                               width: 200,
                               height: 200,
                               child: CustomLoadingScreen());
+                        } else if (state is AuthErrorStateSignUp) {
+                          return SizedBox(
+                              width: 200,
+                              height: 200,
+                              child: ErrorScreen(
+                                  errorMessage: state.errorMessage));
                         }
-                        // else if (state is AuthErrorStateSignUp) {
-                        //   return SizedBox(
-                        //       width: 200,
-                        //       height: 200,
-                        //       child: ErrorScreen(errorMessage: state.errorMessage));
-                        // }
 
                         // else if (state is AuthInitialState )
                         // {return CustomLoadingScreen();}
@@ -145,6 +151,10 @@ class _SignupScreenState extends State<SignupScreen> {
               height: 20,
             ),
             _UserEmailFormFeild(),
+            const SizedBox(
+              height: 20,
+            ),
+            _UserPhonNumText(),
             const SizedBox(
               height: 20,
             ),
@@ -252,7 +262,7 @@ class _SignupScreenState extends State<SignupScreen> {
         name: S.of(context).confirmNewPassword,
         style: _customLocalTextStyle,
         obscureText: obscuringTextOrNot,
-        controller: confirmSignupPassTexEdiController,
+        controller: signUpconfirmPassTexEdiController,
         decoration: InputDecoration(
           hintText: S.of(context).confirmNewPassword,
           border: InputBorder.none,
@@ -428,12 +438,52 @@ class _UserEmailFormFeild extends StatelessWidget {
       child: FormBuilderTextField(
         name: S.of(context).email,
         style: _customLocalTextStyle,
-        controller: signUpserEmailTextEditingController,
+        controller: signUpUserEmailTextEditingController,
         validator: (value) {
           value!.length < 4 ? "too short" : null;
         },
         decoration: InputDecoration(
           hintText: S.of(context).email,
+          hintStyle: _customLocalTextStyle,
+          border: InputBorder.none,
+          contentPadding: EdgeInsetsDirectional.symmetric(
+            horizontal: 20,
+          ),
+        ),
+      ),
+    );
+  }
+}
+class _UserPhonNumText extends StatelessWidget {
+  const _UserPhonNumText({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // user phoneNum feild
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(
+            50,
+          ),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: Colors.grey.withOpacity(.5),
+              offset: Offset(0.0, 2.0),
+              blurRadius: 3.0,
+            ),
+          ],
+          color: Colors.white),
+      child: FormBuilderTextField(
+        name: S.of(context).phoneNum,
+        style: _customLocalTextStyle,
+        controller: signUpUserPhonNumTextEditingController,
+        validator: (value) {
+          value!.length < 4 ? "too short" : null;
+        },
+        decoration: InputDecoration(
+          hintText: S.of(context).phoneNum,
           hintStyle: _customLocalTextStyle,
           border: InputBorder.none,
           contentPadding: EdgeInsetsDirectional.symmetric(
@@ -469,7 +519,7 @@ class _UserNameFormFeild extends StatelessWidget {
       child: FormBuilderTextField(
         name: S.of(context).email,
         style: _customLocalTextStyle,
-        controller: signUserNameTextEditingContorller,
+        controller: signUPUserNameTextEditingContorller,
         validator: (value) {},
         decoration: InputDecoration(
           hintText: S.of(context).userName,

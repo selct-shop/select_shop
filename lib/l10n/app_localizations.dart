@@ -123,6 +123,12 @@ abstract class AppLocalizations {
   /// **'email'**
   String get email;
 
+  /// No description provided for @phoneNum.
+  ///
+  /// In en, this message translates to:
+  /// **'phone number'**
+  String get phoneNum;
+
   /// No description provided for @sendCode.
   ///
   /// In en, this message translates to:

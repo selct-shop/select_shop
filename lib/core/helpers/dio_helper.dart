@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 
 class DioHelper {
   // static String baseUrl = 'https://crm.specialline.info/api/';
-  static String baseUrl = 'http://10.255.254.13:3000';
+  // static String baseUrl = 'http://10.255.254.13:3000';
+  static String baseUrl = 'http://74.208.189.16:3000';
+
   static String logInUrl = '/customer/signin';
   static String signUpUrl = '/customer/signup';
 
@@ -15,7 +17,7 @@ class DioHelper {
       baseUrl: baseUrl,
       receiveDataWhenStatusError: true,
       validateStatus: (status) => true,
-      connectTimeout: const Duration(seconds: 2),
+      connectTimeout: const Duration(seconds: 10),
     ));
   }
 
@@ -29,8 +31,6 @@ class DioHelper {
           "password": password,
           "rememberMe": true
         },
-
-        
       );
 
       // print('ressssssssssssssssssssssssssssspons: ${response}');
@@ -44,23 +44,35 @@ class DioHelper {
     }
   }
 
-  
-  static Future<Response> signUp (
-      {required String name, required String phoneNumber, required String password,  required String email,}) async {
+  static Future<Response> signUp({
+    required String name,
+    required String phoneNumber,
+    required String? email,
+    required String password,
+  }) async {
     try {
-      final response = await _dio!.post(
-        signUpUrl,
-        data: {
-          "name" : name, 
-          "email": email, 
-          "phoneNumber": phoneNumber,
-          "password": password,
-        },
+      final response = email != null && email != ""
+          ? await _dio!.post(
+              // post with email
+              signUpUrl,
+              data: {
+                "name": name,
+                "email": email,
+                "phoneNumber": phoneNumber,
+                "password": password,
+              },
+            )
+          : await _dio!.post(
+              // post without emial
+              signUpUrl,
+              data: {
+                "name": name,
+                "phoneNumber": phoneNumber,
+                "password": password,
+              },
+            );
 
-        
-      );
-
-      // print('ressssssssssssssssssssssssssssspons: ${response}');
+      print('ressssssssssssssssssssssssssssspons: ${response}');
 
       // if (response.statusCode == 200) {
       //   // print('ressssssssssssssssssssssssssssspons: ${response}');

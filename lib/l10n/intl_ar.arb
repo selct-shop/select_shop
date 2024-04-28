@@ -4,6 +4,8 @@
     "enterEmailToResetOne": "أدخل بريدك الإلكتروني لإعادة تعيين", 
     "enterEmailToResetTwo": "كلمة المرور الخاصة بك", 
     "email": "البريد الإلكتروني", 
+    "phoneNum": "رقم الهاتف", 
+
     "sendCode": "إرسال الرمز", 
     "backToSignIn": "العودة إلى تسجيل الدخول", 
     "otpCodeSended": "تم إرسال رمز المصادقة إلى", 

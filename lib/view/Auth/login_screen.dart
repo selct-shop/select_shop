@@ -72,7 +72,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     if (state is AuthSuccessStateSignIn) {
                       showToast(
                           message:
-                              "${S.of(context).signInWelcome}: ${context.read<AuthBloc>().userName != null ? context.read<AuthBloc>().userName! : " "}");
+                              "${S.of(context).signInWelcome}: ${context.read<AuthBloc>().cashedUserName != null ? context.read<AuthBloc>().cashedUserName! : " "}");
                       // AppCubit.get(context).getUser();
                       navigateToWithReplacement(
                         context,

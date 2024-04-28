@@ -8,37 +8,47 @@ import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/helpers/cache_helper.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/main.dart';
-import 'package:select_shop/models/auth/auth_modle.dart';
+import 'package:select_shop/models/auth/sign_in_modle.dart';
+import 'package:select_shop/models/auth/sign_up_modle.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
+import 'package:select_shop/view/Auth/signup_screen.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  String? userName;
-  String? userEmail;
-  String? userToken;
-  String? userPhoneNum;
+  String? cashedUserName;
+  String? cashedUserEmail;
+  String? cashedUserToken;
+  String? cashedUserPhoneNum;
 //
 //
-  _cashUserData(Result userResult) async {
-    Customer customer = userResult.customer!;
-    userName = customer.name;
-    userEmail = customer.email;
-    userPhoneNum = customer.phoneNumber;
+  _cashUserData({
+    required String token,
+    required String userName,
+    String? userPhoneNumber,
+    String? userEmail,
+  }) async {
+    // userToken = token;
+    // userName = userName;
+    // userPhoneNum = userPhoneNumber;
+    // userEmail = userEmail;
 //
 //
-    userToken = userResult.accessToken;
 //
 //
+    await CacheHelper.setData(key: AppConstants.cachedUserToken, value: token);
     await CacheHelper.setData(
-        key: AppConstants.cachedUserName, value: userEmail);
+        key: AppConstants.cachedUserName, value: userName);
     await CacheHelper.setData(
-        key: AppConstants.cachedUserEmail, value: userEmail);
+        key: AppConstants.cachedUserPhonNum, value: userPhoneNumber);
     await CacheHelper.setData(
-        key: AppConstants.cachedUserPhonNum, value: userPhoneNum);
-    await CacheHelper.setData(
-        key: AppConstants.cachedUserToken, value: userToken);
+        key: AppConstants.cachedUserEmail, value: userEmail ?? "");
+
+    cashedUserName = userName;
+    cashedUserEmail = userEmail ?? "";
+    cashedUserToken = token;
+    cashedUserPhoneNum = userPhoneNumber ?? "";
   }
 
   String? validateName(String? value) {
@@ -158,7 +168,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           if (customer != null) {
             // caching the user info
             signnnnModle.result != null
-                ? await _cashUserData(signnnnModle.result!)
+                ? await _cashUserData(
+                    token: signnnnModle.result!.accessToken!,
+                    userName: customer.name!,
+                    userEmail: customer.email,
+                    userPhoneNumber: customer.phoneNumber,
+                  )
                 : emit(AuthErrorStateSignIn(errorMessage: 'user not founded'));
           } else {
             // if the response is != ok
@@ -194,82 +209,78 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         //
       }
 
-//       if (event is AuthSignupEvet) {
+      if (event is AuthSignupEvet) {
+// #### sign up #### //
 
-// // #### sign up #### //
+// check for network connectivty
+// form validation
 
-// // check for network connectivty
-// // form validation
+        emit(AuthLoadingStateSignUp());
 
-//  emit(AuthLoadingStateSignUp());
+        Response signupResponse = await DioHelper.signUp(
+          name: signUPUserNameTextEditingContorller.text,
+          email: signUpUserEmailTextEditingController.text,
+          phoneNumber: signUpUserPhonNumTextEditingController.text,
+          password: signUpPasswordTextEditingController.text,
+        );
 
-//         // start sign in
+        if (signupResponse.statusCode == 200) {
+          // save token
+          // show toast
+          // navigate to home screen
 
-//         Response logInResponse = await DioHelper.signUp(
-//           phoneNumber: phoneNumberTextEditingController.text,
-//           password: passwordTextEditingController.text,
-//           // phoneNumber: '1234',
-//           // password: '1234',
-//         );
+          //
+          //
+          //
+          print("ddddddddddddddddddddddd");
 
-//         print(logInResponse.statusCode);
+          SignUpModle signUpModle = SignUpModle.fromJson(signupResponse.data);
+          // Result userResult = signnnnModle.result!;
+          // Customer customer = userResult.customer!;
 
-//         // await DioHelper.login(phoneNumber: '1234', password: '1234');
-//         if (logInResponse.statusCode == 200) {
-//           // save token
-//           // show toast
-//           // navigate to home screen
-//           //  var jsonMap = json.decode(logInResponse.data);
-//           // SignInModle responseData = SignInModle.fromJson(jsonMap);
+          // ResultSignup? resultSignup = signUpModle.result?.customer;
+          if (signUpModle.resultSignUp != null) {
+            // caching the user info
+            await _cashUserData(
+              token: signUpModle.resultSignUp!.accessToken!,
+              userName: signUpModle.resultSignUp!.customerSignUp!.name!,
+              userEmail: signUpModle.resultSignUp!.customerSignUp!.email,
+              userPhoneNumber:
+                  signUpModle.resultSignUp!.customerSignUp!.phoneNumber,
+            );
+          } else {
+            // if the response is != ok
+            emit(AuthErrorStateSignUp(
+                errorMessage:
+                    "${signupResponse.statusCode} \n ${signupResponse.statusMessage}"));
+          }
 
-//           //
-//           //
-//           //
-//           print("ddddddddddddddddddddddd");
+          // Map<String, dynamic> customerMap =
+          // Result customerData = Result.fromJson(responseData.result)
+          //  Result   useerData = Result.fromJson(   responseData.   );
+          // print(
+          //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
+          // print(
+          //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
+          emit(AuthSuccessStateSignUp());
+          // emit(AuthInitialState());
+        } else {
+          print("ooooooooooooooooooooooooo ${signupResponse.statusMessage}");
 
-//           SignInModle signnnnModle = SignInModle.fromJson(logInResponse.data);
-//           // Result userResult = signnnnModle.result!;
-//           // Customer customer = userResult.customer!;
+          emit(AuthErrorStateSignUp(
+              errorMessage: signupResponse.statusMessage ?? "unknown Error"));
+        }
 
-//           Customer? customer = signnnnModle.result?.customer;
-//           if (customer != null) {
-//             // caching the user info
-//             signnnnModle.result != null
-//                 ? await _cashUserData(signnnnModle.result!)
-//                 : emit(AuthErrorState(errorMessage: 'user not founded'));
-//           } else {
-//             // if the response is != ok
-//             emit(AuthErrorState(
-//                 errorMessage:
-//                     "${logInResponse.statusCode} \n ${logInResponse.statusMessage}"));
-//           }
+        // } else {
+        // setState(() {
+        //   _autoValidate = AutovalidateMode.always;
+        // });
+        // }
 
-//           // Map<String, dynamic> customerMap =
-//           // Result customerData = Result.fromJson(responseData.result)
-//           //  Result   useerData = Result.fromJson(   responseData.   );
-//           // print(
-//           //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
-//           // print(
-//           //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
-//           emit(AuthSuccessState());
-//           // emit(AuthInitialState());
-//         } else {
-//           print("ooooooooooooooooooooooooo");
-
-//           emit(AuthErrorState(
-//               errorMessage: logInResponse.statusMessage ?? "unknown Error"));
-//         }
-
-//         // } else {
-//         // setState(() {
-//         //   _autoValidate = AutovalidateMode.always;
-//         // });
-//         // }
-
-//         //
-//         //
-//         //
-//       }
+        //
+        //
+        //
+      }
 
 // #### sign up #### //
     });

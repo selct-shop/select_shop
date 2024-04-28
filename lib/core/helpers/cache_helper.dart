@@ -14,7 +14,7 @@ class CacheHelper {
 
   static init() async {
     sharedPreferences = await SharedPreferences.getInstance();
-    userToken = await getData(key: "userToken");
+    GlobalUserToken = await getData(key: "userToken");
     // setToken();
     // getUser
   }
