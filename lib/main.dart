@@ -25,7 +25,7 @@ import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
 import 'package:select_shop/view/product/products_screen.dart';
 
-String? GlobalUserToken;
+String? globalUserToken;
 // final GlobalKey mainAppKey = GlobalKey();
 void main() async {
   // runApp(const MyApp());

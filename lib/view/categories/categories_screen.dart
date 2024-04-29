@@ -9,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/main.dart';
 import 'package:select_shop/models/categories/categories_modle.dart';
 import 'package:select_shop/view/Shared/app_no_data.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
@@ -50,6 +51,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             errorMessage: state.errorMessage,
           );
         } else if (state is CategoriesSuccsessState) {
+
           return _Body();
         } else {
           return Center(
