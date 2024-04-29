@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_null_in_if_null_operators
 
+import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_shared_pref.dart';
 import 'package:select_shop/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,19 +8,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CacheHelper {
   static SharedPreferences? sharedPreferences;
 
-
-    // String userToken='';
-    // String userEmail ='';
-    // String userLang ='';
+  // String userToken='';
+  // String userEmail ='';
+  // String userLang ='';
 
   static init() async {
     sharedPreferences = await SharedPreferences.getInstance();
-    GlobalUserToken = await getData(key: "userToken");
+    globalUserToken = await getData(key: AppConstants.cachedUserToken);
+
+    // print("uuuuuuuuuuuuuuuuuuuuuuuuuuuuu :${globalUserToken}");
+
     // setToken();
     // getUser
   }
-
-
 
 //   static getUserData(){
 // userToken = getData(key: AppSharedPrefrences.userToken) ?? '';
