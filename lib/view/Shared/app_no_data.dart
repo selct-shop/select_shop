@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 
 class AppNoData extends StatelessWidget {
@@ -20,7 +21,7 @@ class AppNoData extends StatelessWidget {
         ),
         Text(
           // S.of(context).shipment_no_data,
-          AppLocalizations.of(context)!.noDataLikeThis,
+          S.of(context)!.noDataLikeThis,
           style: const TextStyle(
             color: AppColors.mainColor,
             fontSize: 20,

@@ -18,6 +18,7 @@ import 'package:select_shop/view/Auth/bloc/auth_bloc.dart';
 import 'package:select_shop/view/Auth/forget_password_screen.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
+import 'package:select_shop/view/categories/bloc/categories_bloc.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 import 'package:select_shop/view/language/bloc/localization_bloc.dart';
@@ -67,6 +68,7 @@ class _MyAppState extends State<MyApp> {
           // BlocProvider(create:(context) => HomeBloc()..add(HomeGetItemsEvent( ))),
 
           BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
+          BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
           builder: (context, state) {
@@ -126,12 +128,12 @@ class _MyHomePageState extends State<MyHomePage> {
     //         child: userToken == null || userToken == ""
     //             ? const LogInScreen()
     //             : const HomeScreen()));
-    return const Scaffold(body: SafeArea(child: SignupScreen()));
+    // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
     // body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    // return const Scaffold(body: SafeArea(child: HomeScreen()));
+    return const Scaffold(body: SafeArea(child: HomeScreen()));
     // return const Scaffold(body: SafeArea(child: ProductsScreen()));
   }
 }

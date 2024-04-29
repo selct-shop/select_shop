@@ -7,6 +7,7 @@ class DioHelper {
 
   static String logInUrl = '/customer/signin';
   static String signUpUrl = '/customer/signup';
+  static String categoriesAllUrl = '/category/all';
 
   // static const String logInUrl = 'http://localhost:3000/customer/signin';
 
@@ -78,6 +79,17 @@ class DioHelper {
       //   // print('ressssssssssssssssssssssssssssspons: ${response}');
       // }
       return response;
+    } catch (e) {
+      throw Exception('Failed to login: $e');
+    }
+  }
+
+  static Future<Response> getCategories() async {
+    try {
+    final response = await _dio!.get(
+      categoriesAllUrl,
+    );
+    return response;
     } catch (e) {
       throw Exception('Failed to login: $e');
     }
