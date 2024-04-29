@@ -23,6 +23,7 @@ import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
+import 'package:select_shop/view/product%20details/product_details_screen.dart';
 import 'package:select_shop/view/product/products_screen.dart';
 
 String? globalUserToken;
@@ -133,7 +134,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(
     // body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    return const Scaffold(body: SafeArea(child: HomeScreen()));
+    // return const Scaffold(body: SafeArea(child: HomeScreen()));
+    return const Scaffold(body: SafeArea(child: ProductDetailsScreen()));
     // return const Scaffold(body: SafeArea(child: ProductsScreen()));
   }
 }
