@@ -34,6 +34,8 @@ class _HomeBody extends StatelessWidget {
                             .read<HomeBloc>()
                             .onCarouselSliderPageChanged(index: index);
                       },
+
+                      
                     ),
                     items: [1, 2, 3].map((i) {
                       return Builder(

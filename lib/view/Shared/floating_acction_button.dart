@@ -21,7 +21,7 @@ class CustomFloatingAcctionButton extends StatelessWidget {
         onPressed: () {
           navigateTo(context, CartScreen());
         },
-        backgroundColor: AppColors.mainColor,
+        backgroundColor: AppColors.main2Color,
         child: Transform.rotate(
             angle: -(math.pi / 4),
             child: SvgPicture.asset(

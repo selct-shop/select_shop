@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   // mixed colors
   static const mainColor = Color(0xff79B700);
+  static const main2Color = Color(0xff699A00);
   static const mainGreyColor = Color(0xff707070);
   //light
   // static const yellowColor = Color(0xffffd200);

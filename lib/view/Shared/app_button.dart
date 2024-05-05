@@ -4,7 +4,7 @@ import 'package:select_shop/core/theme/colors.dart';
 class AppButton extends StatelessWidget {
   final String title;
   final void Function()? onTap;
-  final double? width, height;
+  final double? width, height, borderRadius;
   final Color? backgroundColor, textColor, borderColor;
   final bool? hasBorder;
   const AppButton(
@@ -13,6 +13,7 @@ class AppButton extends StatelessWidget {
       this.onTap,
       this.width,
       this.height,
+      this.borderRadius,
       this.backgroundColor,
       this.textColor,
       this.hasBorder,
@@ -29,7 +30,7 @@ class AppButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(
-            15,
+            borderRadius ?? 15,
           ),
           border: hasBorder == true
               ? Border.all(
