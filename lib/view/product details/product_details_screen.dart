@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:developer';
+
+import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +27,12 @@ TextStyle _customBodyTextStyle = TextStyle(
   height: .7,
   // fontWeight: FontWeight.bold,
   fontSize: 16,
+);
+TextStyle _customDropdownlistItemTextStyle = TextStyle(
+  color: AppColors.mainColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 20,
+  height: .5,
 );
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -204,8 +213,7 @@ class _Body extends StatelessWidget {
             horizontal: 10,
           ),
           child: _BrandNameAndDetialsWidget(
-            theBrandName:
-                "chanel chanel chanel chanel chanel chanel chanel chanel chanel chanel chanel chanel chanel chanel chanel chanel chanel ",
+            theBrandName: "chanel",
             theNumberOfProducts: 342.0,
           ),
         ),
@@ -310,7 +318,7 @@ class _Body extends StatelessWidget {
         _AddToCartAndFavRow(),
 
         const SizedBox(
-          height: 100,
+          height: 45,
         ),
 
         // Container(
@@ -362,59 +370,295 @@ class _AddToCartAndFavRow extends StatelessWidget {
       height: 135,
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(
-          // horizontal: 10,
-          // vertical: 20,
-          ),
+        horizontal: 10,
+        vertical: 20,
+      ),
 
       decoration: BoxDecoration(
         color: Colors.white,
-        // borderRadius: BorderRadius.only(
-        //   bottomLeft: Radius.circular(20),
-        //   bottomRight: Radius.circular(20),
-        // ),
-        // boxShadow: [
-        //   BoxShadow(
-        //       blurRadius: 3,
-        //       color: AppColors.greyColor.withOpacity(.3),
-        //       offset: Offset(3, 6)),
-        // ],
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+        boxShadow: [
+          BoxShadow(
+              blurRadius: 3,
+              color: AppColors.greyColor.withOpacity(.3),
+              offset: Offset(3, 6)),
+        ],
         // boxShadow: AppConstants.theBoxShdow,
       ),
 
-      // child: SizedBox(
-      //   width: double.infinity,
-      //   height: 45,
-      //   child: Row(
-      //     children: [
-      //       // Expanded(
-      //       //   child: AppButton(
-      //       //     title: "add to cart",
-      //       //     onTap: () {
-      //       //       // add to cart and navigate to cart
-      //       //     },
-      //       //     backgroundColor: AppColors.mainColor,
-      //       //     textColor: Colors.white,
-      //       //     height: 45,
-      //       //     width: double.infinity,
-      //       //     borderRadius: 10,
-      //       //   ),
-      //       // ),
+      child: SizedBox(
+        // width: double.infinity,
+        width: MediaQuery.of(context).size.width,
 
-      //       Container(
-      //         width: double.infinity,
-      //         // height: double.infinity,
-      //         height: 45,
-      //         decoration: BoxDecoration(
-      //           color: AppColors.grey2Color,
-      //         ),
-      //       ),
-      //       SizedBox(
-      //         height: 10,
-      //         width: 10,
-      //       ),
-      //     ],
-      //   ),
-      // ),
+        height: 45,
+        child: Row(
+          children: [
+            Expanded(
+              flex: 4,
+              child: Container(
+                height: 45,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: AppColors.mainColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  onTap: () {
+                    // add to cart and navigate to cart
+
+                    // print("teeeeeeeeeeeeeesttttt addddd to cart");
+                  },
+                  child: Center(
+                    child: Text(
+                      "add to cart",
+                      // textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+              width: 10,
+            ),
+            Container(
+              width: 55,
+              // width: 100,
+
+              height: 45,
+              padding: EdgeInsets.symmetric(
+                horizontal: 12.5,
+              ),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: AppColors.mainColor,
+                ),
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(10),
+                onTap: () {
+                  // trigger add to fav
+                  // print('tesssssssssssssssttttt');
+                },
+                // onHover: (value) {},
+                child: Expanded(
+                  child: DropdownMenu(
+                    // label: Row(
+                    //   children: [
+                    //     Icon(
+                    //       Icons.arrow_downward_rounded,
+                    //       color: AppColors.mainColor,
+                    //     ),
+                    //     VerticalDivider(
+                    //       color: AppColors.mainColor,
+                    //       // thickness: 2,
+                    //     ),
+                    //     Text("22"),
+                    //   ],
+                    // ),
+
+                    // leadingIcon: Row(
+                    //   children: [
+                    //     Icon(
+                    //       Icons.arrow_downward_rounded,
+                    //       color: AppColors.mainColor,
+                    //     ),
+                    //     VerticalDivider(
+                    //       color: AppColors.mainColor,
+                    //       // thickness: 2,
+                    //     ),
+                    //     Text("22"),
+                    //   ],
+                    // ),
+
+                    enableSearch: true,
+                    onSelected: (value) {
+                      print(value);
+                    },
+                    initialSelection: "1",
+                    menuHeight: 150,
+                    width: 25,
+
+                    menuStyle: MenuStyle(
+                      alignment: Alignment.center,
+                      // backgroundColor:
+                      // MaterialStateProperty.all(AppColors.mainColor),
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+
+                      surfaceTintColor:
+                          MaterialStateProperty.all(AppColors.grey2Color),
+                      // surfaceTintColor:
+                      //     MaterialStatePropertyAll(Colors.transparent),
+                    ),
+                    dropdownMenuEntries: [
+                      DropdownMenuEntry(
+                        value: String,
+                        label: '1',
+                        labelWidget:
+                            Text('1', style: _customDropdownlistItemTextStyle),
+                      ),
+                      DropdownMenuEntry(
+                          value: String,
+                          label: '2',
+                          labelWidget: Text(
+                            "2",
+                            style: _customDropdownlistItemTextStyle,
+                          )),
+                      DropdownMenuEntry(
+                          value: String,
+                          label: '3',
+                          labelWidget: Text(
+                            "3",
+                            style: _customDropdownlistItemTextStyle,
+                          )),
+                      DropdownMenuEntry(
+                          value: String,
+                          label: '4',
+                          labelWidget: Text(
+                            "4",
+                            style: _customDropdownlistItemTextStyle,
+                          )),
+                      DropdownMenuEntry(
+                          value: String,
+                          label: '5',
+                          labelWidget: Text(
+                            "5",
+                            style: _customDropdownlistItemTextStyle,
+                          )),
+                      DropdownMenuEntry(
+                          value: String,
+                          label: '6',
+                          labelWidget: Text(
+                            "6",
+                            style: _customDropdownlistItemTextStyle,
+                          )),
+                      DropdownMenuEntry(
+                          value: String,
+                          label: '7',
+                          labelWidget: Text(
+                            "7",
+                            style: _customDropdownlistItemTextStyle,
+                          )),
+                      DropdownMenuEntry(
+                          value: String,
+                          label: '8',
+                          labelWidget: Text(
+                            "8",
+                            style: _customDropdownlistItemTextStyle,
+                          )),
+                      DropdownMenuEntry(
+                          value: String,
+                          label: '9',
+                          labelWidget: Text(
+                            "9",
+                            style: _customDropdownlistItemTextStyle,
+                          )),
+                    ],
+
+                    // initialSelection: int,
+                  ),
+
+//                   child: CustomDropdown<String>(
+
+//                     // canCloseOutsideBounds: true,
+// // overlayHeight:  ,
+
+//                     listItemPadding: EdgeInsets.symmetric(
+//                       horizontal: 6,
+//                       vertical: 10,
+//                     ),
+//                     // hintText: 'Select items count',
+//                     items: [
+//                       "1",
+//                       "2",
+//                       "3",
+//                       "4",
+//                       "5",
+//                       "6",
+//                       "7",
+//                       "8",
+//                       "9",
+//                     ],
+//                     initialItem: "1",
+//                     maxlines: 1,
+// // listItemBuilder: (context, item, isSelected, onItemSelect) {
+
+// // },
+
+//                     itemsListPadding: EdgeInsets.symmetric(
+//                       horizontal: 0,
+//                       vertical: 0,
+//                     ),
+//                     // headerBuilder: (context, selectedItem) {
+//                     //   return const SizedBox();
+//                     // },
+
+//                     decoration: CustomDropdownDecoration(
+//                         listItemStyle: TextStyle(
+//                       color: AppColors.mainColor,
+//                       fontWeight: FontWeight.bold,
+//                       fontSize: 20,
+//                       height: .5,
+//                     )),
+//                     onChanged: (value) {
+//                       log('changing value to: $value');
+//                     },
+//                   ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+              width: 10,
+            ),
+            Container(
+              width: 55,
+              height: 45,
+              padding: EdgeInsets.symmetric(
+                horizontal: 12.5,
+              ),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: AppColors.mainColor,
+                ),
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(10),
+                onTap: () {
+                  // trigger add to fav
+                  // print('tesssssssssssssssttttt');
+                },
+                // onHover: (value) {},
+                child: SizedBox(
+                  width: 30,
+                  height: 30,
+                  child: SvgPicture.asset(
+                    AppImages.favourtsStorkSvg,
+                    // alignment: Alignment.center,
+                  ),
+                ),
+              ),
+            ),
+            // SizedBox(
+            //   height: 10,
+            //   width: 10,
+            // ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -526,7 +770,7 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: "brand name : ",
+                              text: "brand : ",
                               style: TextStyle(
                                 color: AppColors.mainColor,
                                 fontWeight: FontWeight.w400,
@@ -1459,7 +1703,7 @@ class _CustomShipmentListTile extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: _customTitleTextStyle.copyWith(
-                              color: AppColors.greyColor,
+                              color: AppColors.grey2Color,
                               fontSize: 13,
                               fontWeight: FontWeight.normal,
                             ),
@@ -1475,11 +1719,12 @@ class _CustomShipmentListTile extends StatelessWidget {
                           color: AppColors.greyColor,
                           thickness: .5,
                         )
-                      : Divider(
-                          // color: AppColors.greyColor,
-                          color: AppColors.greyColor,
-                          thickness: .5,
-                        ),
+                      // : Divider(
+                      //     // color: AppColors.greyColor,
+                      //     color: AppColors.greyColor,
+                      //     thickness: .5,
+                      //   ),
+                      : const SizedBox(height: .5),
 
                   // //
                   // //
