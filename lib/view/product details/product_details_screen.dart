@@ -482,6 +482,16 @@ class _AddToCartAndFavRow extends StatelessWidget {
                     //   ],
                     // ),
 
+                    //
+                    //
+                    //
+
+                    // leadingIcon: Icon(
+                    //   Icons.arrow_downward_rounded,
+                    //   color: AppColors.mainColor,
+                    //   size: 10,
+                    // ),
+
                     enableSearch: true,
                     onSelected: (value) {
                       print(value);
@@ -1537,11 +1547,10 @@ class _SizeRow extends StatelessWidget {
             width: 15,
           ),
           Row(
+            // i should give it the number of sizes and if they active or not
             children: [
               Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 3,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 3, vertical: 3),
                 decoration: BoxDecoration(
                     color:
                         isActive == true ? AppColors.mainColor : Colors.white,
@@ -1556,6 +1565,9 @@ class _SizeRow extends StatelessWidget {
                   style: TextStyle(
                     color:
                         isActive == true ? Colors.white : AppColors.grey2Color,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    height: .8,
                   ),
                 ),
               ),
@@ -1924,10 +1936,18 @@ class _ProductPicticher extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _SmallTagContainer(),
-                  _SmallTagContainer(),
-                  _SmallTagContainer(),
-                  _SmallTagContainer(),
+                  _SmallTagContainer(
+                    isActive: false,
+                  ),
+                  _SmallTagContainer(
+                    isActive: true,
+                  ),
+                  _SmallTagContainer(
+                    isActive: false,
+                  ),
+                  _SmallTagContainer(
+                    isActive: false,
+                  ),
                 ],
               ),
             ),
@@ -1939,8 +1959,10 @@ class _ProductPicticher extends StatelessWidget {
 }
 
 class _SmallTagContainer extends StatelessWidget {
+  final bool isActive;
   const _SmallTagContainer({
     super.key,
+    required this.isActive,
   });
 
   @override
@@ -1952,7 +1974,7 @@ class _SmallTagContainer extends StatelessWidget {
       width: 20,
       height: 5,
       decoration: BoxDecoration(
-          color: AppColors.mainColor,
+          color: isActive == true ? AppColors.mainColor : Colors.white,
           border: Border.all(
             color: AppColors.mainColor,
           )),
