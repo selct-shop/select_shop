@@ -10,6 +10,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   int activePageNumber = 1;
   int activeDrawerPage = 1;
   int currentCarouselSliderIndex = 0;
+  // BuildContext theDrawerBuildContext = BuildContext();
   // Locale initalLang =
   // CacheHelper.getData(key: 'lang') == 'en' ? Locale('en') : Locale('ar');
 
@@ -82,7 +83,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     //
     //
 
-    // print("DDDDDDDDdrrrrrrrrrrrrrrrwer");
+    print("DDDDDDDDdrrrrrrrrrrrrrrrwer$activeDrawerPage");
   }
 
   HomeBloc() : super(HomeInitialState()) {
@@ -100,17 +101,26 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             case 1:
               // 1 is the home
               activeDrawerPage = 1;
+              // print(
+              //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+
+              break;
 
             case 3:
               // 3 is the favourest
               activeDrawerPage = 5;
 
-              print(
-                  "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+              // print(
+              //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+              break;
 
             case 4:
               // 4 is the personal
               activeDrawerPage = 8;
+              // print(
+              //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+
+              break;
           }
 
           // bottomNavBarTapded(newPageNumber) {
@@ -123,7 +133,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           // activePageNumber = BottomNavBarTapdedEvent(tappdedPageNumber: tappdedPageNumber)
 
           emit(HomeLoadedState());
-          // emit(HomeDrawerLoadedState());
+          emit(HomeDrawerLoadedState());
+          print("home drawereererererer Loaded state $activeDrawerPage");
         }
 
         //

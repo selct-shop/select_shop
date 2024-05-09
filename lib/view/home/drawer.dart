@@ -44,227 +44,244 @@ class _DrawerBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      color: Colors.white,
-      child: ListView(
-        padding: const EdgeInsets.all(15),
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          SizedBox(
-            height: 50,
-            child: Row(
-              children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  clipBehavior: Clip.hardEdge,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      width: 2,
-                      color: AppColors.mainColor,
-                    ),
-                    // image: DecorationImage(image: CachedNetworkImage(imageUrl:"+" ,))
-                    image: const DecorationImage(
-                        image: AssetImage(AppImages.tempPerson)),
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        return Container(
+          height: double.infinity,
+          width: double.infinity,
+          color: Colors.white,
+          child: ListView(
+            padding: const EdgeInsets.all(15),
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                height: 50,
+                child: Row(
                   children: [
+                    Container(
+                      width: 50,
+                      height: 50,
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          width: 2,
+                          color: AppColors.mainColor,
+                        ),
+                        // image: DecorationImage(image: CachedNetworkImage(imageUrl:"+" ,))
+                        image: const DecorationImage(
+                            image: AssetImage(AppImages.tempPerson)),
+                      ),
+                    ),
                     const SizedBox(
-                      width: 5,
+                      width: 10,
                     ),
-                    Text(
-                      style: _customTitleTextStyle,
-                      S.of(context).userName,
-                    ),
-                    Text(style: _customLocalTextStyle, S.of(context).userEmail),
-                    const SizedBox(
-                      width: 5,
-                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          style: _customTitleTextStyle,
+                          S.of(context).userName,
+                        ),
+                        Text(
+                            style: _customLocalTextStyle,
+                            S.of(context).userEmail),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                      ],
+                    )
                   ],
-                )
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          _CustomDrawerListTile(
-            title: S.of(context).homePage,
-            onTap: () {
-              // change the drawer for home screen
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 1));
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              _CustomDrawerListTile(
+                title: S.of(context).homePage,
+                onTap: () {
+                  // change the drawer for home screen
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 1));
 
-              // change the bottom nav bar for home screen icon
-              theHomeBuildContext
-                  .read<HomeBloc>()
-                  .add(BottomNavBarTapdedEvent(tappdedPageNumber: 1));
-            },
-            listTileNumber: 1,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 1 ? true : false,
-            leading: AppImages.homeSvg,
-          ),
-          _CustomDrawerListTile(
-            title: S.of(context).products,
-            onTap: () {
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 2));
-            },
-            listTileNumber: 2,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 2 ? true : false,
-            leading: AppImages.productsSvg,
-          ),
-          _CustomDrawerListTile(
-            title: S.of(context).tradeMark,
-            onTap: () {
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
+                  // change the bottom nav bar for home screen icon
+                  theHomeBuildContext
+                      .read<HomeBloc>()
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 1));
+                },
+                listTileNumber: 1,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 1
+                    ? true
+                    : false,
+                leading: AppImages.homeSvg,
+              ),
+              _CustomDrawerListTile(
+                title: S.of(context).products,
+                onTap: () {
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 2));
+                },
+                listTileNumber: 2,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 2
+                    ? true
+                    : false,
+                leading: AppImages.productsSvg,
+              ),
+              _CustomDrawerListTile(
+                title: S.of(context).tradeMark,
+                onTap: () {
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
 
-              // BlocProvider.of<HomeBloc>(context)
-              //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
-            },
-            listTileNumber: 3,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 3 ? true : false,
-            leading: AppImages.tradeMarkSvg,
-          ),
-          _CustomDrawerListTile(
-            title: S.of(context).specialproducts,
-            onTap: () {
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 4));
-            },
-            listTileNumber: 4,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 4 ? true : false,
-            leading: AppImages.specialproductsSvg,
-          ),
+                  // BlocProvider.of<HomeBloc>(context)
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
+                },
+                listTileNumber: 3,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 3
+                    ? true
+                    : false,
+                leading: AppImages.tradeMarkSvg,
+              ),
+              _CustomDrawerListTile(
+                title: S.of(context).specialproducts,
+                onTap: () {
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 4));
+                },
+                listTileNumber: 4,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 4
+                    ? true
+                    : false,
+                leading: AppImages.specialproductsSvg,
+              ),
 
-          _CustomDrawerListTile(
-            title: S.of(context).favourts,
-            onTap: () {
-              // change the drawer for the favouret Drawer List Tile
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5));
+              _CustomDrawerListTile(
+                title: S.of(context).favourts,
+                onTap: () {
+                  // change the drawer for the favouret Drawer List Tile
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5));
 
-              // change the home screen for the favouret tab
-              theHomeBuildContext
-                  .read<HomeBloc>()
-                  .add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
-            },
-            listTileNumber: 5,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 5 ? true : false,
-            leading: AppImages.favourtsStorkSvg,
-          ),
-          _CustomDrawerListTile(
-            title: S.of(context).mycart,
-            onTap: () {
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 6));
-              // pop the drawer and go directley to car screen
-              Navigator.pop(context);
-              navigateTo(context, CartScreen());
-            },
-            listTileNumber: 6,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 6 ? true : false,
-            leading: AppImages.mycartSvg,
-          ),
-          _CustomDrawerListTile(
-            title: S.of(context).orders,
-            onTap: () {
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 7));
-            },
-            listTileNumber: 7,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 7 ? true : false,
-            leading: AppImages.ordersSvg,
-          ),
-          _CustomDrawerListTile(
-            title: S.of(context).personalPage,
-            onTap: () {
-              // change the drawer ListTile for the personal ListTile
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 8));
+                  // change the home screen for the favouret tab
+                  theHomeBuildContext
+                      .read<HomeBloc>()
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
+                },
+                listTileNumber: 5,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 5
+                    ? true
+                    : false,
+                leading: AppImages.favourtsStorkSvg,
+              ),
+              _CustomDrawerListTile(
+                title: S.of(context).mycart,
+                onTap: () {
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 6));
+                  // pop the drawer and go directley to car screen
+                  Navigator.pop(context);
+                  navigateTo(context, CartScreen());
+                },
+                listTileNumber: 6,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 6
+                    ? true
+                    : false,
+                leading: AppImages.mycartSvg,
+              ),
+              _CustomDrawerListTile(
+                title: S.of(context).orders,
+                onTap: () {
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 7));
+                },
+                listTileNumber: 7,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 7
+                    ? true
+                    : false,
+                leading: AppImages.ordersSvg,
+              ),
+              _CustomDrawerListTile(
+                title: S.of(context).personalPage,
+                onTap: () {
+                  // change the drawer ListTile for the personal ListTile
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 8));
 
-              // change the home screen and bottom nav bar for the personal page
-              theHomeBuildContext
-                  .read<HomeBloc>()
-                  .add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
-            },
-            listTileNumber: 8,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 8 ? true : false,
-            leading: AppImages.personalPageSvg,
-          ),
-          _CustomDrawerListTile(
-            title: S.of(context).suppourt,
-            onTap: () {
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 9));
-            },
-            listTileNumber: 9,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 9 ? true : false,
-            leading: AppImages.suppourtSvg,
-          ),
-          _CustomDrawerListTile(
-            title: S.of(context).contactUs,
-            onTap: () {
-              context
-                  .read<HomeBloc>()
-                  .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 10));
-            },
-            listTileNumber: 10,
-            isActive:
-                context.read<HomeBloc>().activeDrawerPage == 10 ? true : false,
-            leading: AppImages.contactUsSvg,
-          ),
+                  // change the home screen and bottom nav bar for the personal page
+                  theHomeBuildContext
+                      .read<HomeBloc>()
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
+                },
+                listTileNumber: 8,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 8
+                    ? true
+                    : false,
+                leading: AppImages.personalPageSvg,
+              ),
+              _CustomDrawerListTile(
+                title: S.of(context).suppourt,
+                onTap: () {
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 9));
+                },
+                listTileNumber: 9,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 9
+                    ? true
+                    : false,
+                leading: AppImages.suppourtSvg,
+              ),
+              _CustomDrawerListTile(
+                title: S.of(context).contactUs,
+                onTap: () {
+                  context
+                      .read<HomeBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 10));
+                },
+                listTileNumber: 10,
+                isActive: context.read<HomeBloc>().activeDrawerPage == 10
+                    ? true
+                    : false,
+                leading: AppImages.contactUsSvg,
+              ),
 
-          //
-          //
-          ListTile(
-            // titleAlignment: ListTileTitleAlignment.center,
-            // selected: true,
-            // selectedColor: AppColors.mainColor,
-            // selectedTileColor: AppColors.mainColor,
-            leading: SvgPicture.asset(
-              // color: isActive == true ? Colors.white : AppColors.mainColor,
-              // leading,
-              color: AppColors.mainColor,
-              AppImages.signOutSvg,
-            ),
-            title: Text(
-              S.of(context).signOut,
-              style: _customTitleTextStyle.copyWith(color: AppColors.greyColor),
-            ),
+              //
+              //
+              ListTile(
+                // titleAlignment: ListTileTitleAlignment.center,
+                // selected: true,
+                // selectedColor: AppColors.mainColor,
+                // selectedTileColor: AppColors.mainColor,
+                leading: SvgPicture.asset(
+                  // color: isActive == true ? Colors.white : AppColors.mainColor,
+                  // leading,
+                  color: AppColors.mainColor,
+                  AppImages.signOutSvg,
+                ),
+                title: Text(
+                  S.of(context).signOut,
+                  style: _customTitleTextStyle.copyWith(
+                      color: AppColors.greyColor),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
@@ -301,10 +318,10 @@ class _CustomDrawerListTile extends StatelessWidget {
             width: double.infinity,
             // constraints: ,
             margin: isActive
-                ? EdgeInsets.only(
+                ? const EdgeInsets.only(
                     bottom: 10,
                   )
-                : EdgeInsets.all(0),
+                : const EdgeInsets.all(0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color:
