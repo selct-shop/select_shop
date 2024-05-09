@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
+import 'package:select_shop/view/home/bloc/home_bloc.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -45,6 +46,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             IconButton(
               onPressed: () {
                 Scaffold.of(context).openDrawer();
+                // print(
+                //     "ddddddddddddddddddddrwer page ${context.read<HomeBloc>().activeDrawerPage}");
               },
               icon: SvgPicture.asset(
                 AppImages.menuSvg,

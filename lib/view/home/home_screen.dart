@@ -15,6 +15,7 @@ import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Shared/appbar.dart';
 import 'package:select_shop/view/Shared/bottom_nav_bar.dart';
+import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/floating_acction_button.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       // top: false,
       child: Scaffold(
-        drawer: _CustomDrawer(),
+        drawer: _CustomDrawer( theHomeBuildContext: context,),
         appBar: CustomAppBar(),
 
         body: BlocBuilder<HomeBloc, HomeState>(

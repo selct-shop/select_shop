@@ -34,8 +34,6 @@ class _HomeBody extends StatelessWidget {
                             .read<HomeBloc>()
                             .onCarouselSliderPageChanged(index: index);
                       },
-
-                      
                     ),
                     items: [1, 2, 3].map((i) {
                       return Builder(
@@ -215,6 +213,10 @@ class _HomeBody extends StatelessWidget {
                         MaterialPageRoute(builder: (context) {
                       return UnderDevScreen();
                     }));
+
+                    // context
+                    //     .read<HomeBloc>()
+                    //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5));
                   },
                   child: Text(
                     style: _customTitleTextStyle.copyWith(
@@ -275,7 +277,7 @@ class _HomeBody extends StatelessWidget {
                         Text(
                           style: _customTitleTextStyle.copyWith(
                               fontWeight: FontWeight.bold, height: .8),
-                                                  S.of(context).categorys,
+                          S.of(context).categorys,
                         ),
                       ],
                     ),
