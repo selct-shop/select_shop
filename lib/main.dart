@@ -1,3 +1,6 @@
+// import 'dart:js';
+// import 'dart:js_interop';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,6 +30,7 @@ import 'package:select_shop/view/product%20details/product_details_screen.dart';
 import 'package:select_shop/view/product/products_screen.dart';
 
 String? globalUserToken;
+String? globalCachedUserLang;
 // final GlobalKey mainAppKey = GlobalKey();
 void main() async {
   // runApp(const MyApp());

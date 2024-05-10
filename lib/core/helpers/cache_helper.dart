@@ -15,6 +15,7 @@ class CacheHelper {
   static init() async {
     sharedPreferences = await SharedPreferences.getInstance();
     globalUserToken = await getData(key: AppConstants.cachedUserToken);
+    globalCachedUserLang = await getData(key: AppConstants.cachedUserLang);
 
     // print("uuuuuuuuuuuuuuuuuuuuuuuuuuuuu :${globalUserToken}");
 

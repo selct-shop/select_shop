@@ -1,7 +1,11 @@
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
 import 'package:select_shop/core/helpers/cache_helper.dart';
+import 'package:select_shop/core/helpers/dio_helper.dart';
+import 'package:select_shop/models/categories/categories_modle.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -10,7 +14,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   int activePageNumber = 1;
   int activeDrawerPage = 1;
   int currentCarouselSliderIndex = 0;
-  // BuildContext theDrawerBuildContext = BuildContext();
+  List<CategoriesResult?> categoresListForHomeScreen = [];
+
   // Locale initalLang =
   // CacheHelper.getData(key: 'lang') == 'en' ? Locale('en') : Locale('ar');
 
@@ -88,11 +93,44 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc() : super(HomeInitialState()) {
     on<HomeEvent>(
-      (event, emit) {
+      (event, emit) async {
         // TODO: implement event handler
 
-        // print(
-        //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent");
+        // inital events
+        // if (event is HomeInitialState) {
+        //   add(HomeGetHomeCategoEvent());
+        // }
+
+        if (event is HomeGetHomeCategoEvent) {
+          emit(HomeGetHomeCatiegorLoadingState());
+// get all the categories
+          try {
+            Response getCateResponse = await DioHelper.getCategories();
+
+            if (getCateResponse.statusCode == 200) {
+              CategoriesModle categoriesModle =
+                  CategoriesModle.fromJson(getCateResponse.data);
+              List<CategoriesResult> cateeegoriss =
+                  categoriesModle.categoriesResult;
+              if (cateeegoriss != null) {
+                categoresListForHomeScreen = cateeegoriss;
+                emit(HomeGetHomeCatiegorsucseesState());
+              } else {
+                emit(HomeGetHomeCatiegorErrorState(
+                    errorMessage:
+                        "${getCateResponse.statusCode} \n ${getCateResponse.statusMessage}"));
+              }
+              emit(HomeGetHomeCatiegorsucseesState());
+            } else {
+              emit(HomeGetHomeCatiegorErrorState(
+                  errorMessage:
+                      getCateResponse.statusMessage ?? "unknown Error"));
+            }
+          } catch (exception) {
+            emit(HomeGetHomeCatiegorErrorState(
+                errorMessage: exception.toString()));
+          }
+        }
 
         if (event is BottomNavBarTapdedEvent) {
           emit(HomeLoadingState());

@@ -37,6 +37,7 @@ class AppConstants {
   static const String cachedUserEmail = "cachedUseremail";
   static const String cachedUserPhonNum = "cachedUserPhoNum";
   static const String cachedUserToken = "cachedUserToken";
+  static const String cachedUserLang = "cachedUserLang";
 
   //
   //

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'localization_event.dart';
@@ -27,12 +28,13 @@ class LocalizationBloc extends Bloc<LocalizationEvent, LocalizationState> {
 
   saveLocale(Locale locale) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('language', locale.languageCode);
+    prefs.setString(AppConstants.cachedUserLang, locale.languageCode);
   }
 
   Future<Locale> getLocale() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String languageCode = prefs.getString('language') ?? 'en';
+    String languageCode = prefs.getString(AppConstants.cachedUserLang) ?? 'en';
+
     print(languageCode);
     return Locale(languageCode);
   }
