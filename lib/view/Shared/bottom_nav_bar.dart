@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -109,11 +107,20 @@ class _bottomNavBarIcon extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                height: 25, width: 25,
-                svgImageName,
+                height: 25,
+                width: 25,
+                // all this if conditions for the fav icon,
+                // to determine if its active or not
+                screenNumber == 3
+                    ? (context.read<HomeBloc>().activePageNumber == screenNumber
+                        ? AppImages.favourFilledSvg
+                        : svgImageName)
+                    : svgImageName
+
+                // svgImageName,
 
                 // color: isActive ? AppColors.mainColor: AppColors.grey2Color,
-
+                ,
                 color: context.read<HomeBloc>().activePageNumber == screenNumber
                     ? AppColors.mainColor
                     : AppColors.greyColor,
