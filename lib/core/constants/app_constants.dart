@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
@@ -26,6 +27,8 @@ class AppConstants {
     width: 10,
     height: 10,
   );
+
+  // CachedNetworkImage userCachedImage = CachedNetworkImage(imageUrl: imageUrl)
 
   // TextStyle _customTitleTextStyle = TextStyle(
   // color: AppColors.mainColor, fontWeight: FontWeight.bold, fontSize: 20);

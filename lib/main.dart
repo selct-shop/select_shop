@@ -22,6 +22,7 @@ import 'package:select_shop/view/Auth/forget_password_screen.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/categories/bloc/categories_bloc.dart';
+import 'package:select_shop/view/check%20out/check_out.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 import 'package:select_shop/view/language/bloc/localization_bloc.dart';
@@ -138,8 +139,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(
     // body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    return const Scaffold(body: SafeArea(child: HomeScreen()));
+    // return const Scaffold(body: SafeArea(child: HomeScreen()));
     // return const Scaffold(body: SafeArea(child: ProductDetailsScreen()));
     // return const Scaffold(body: SafeArea(child: ProductsScreen()));
+    return const Scaffold(body: SafeArea(child: CheckOutScreen()));
   }
 }
