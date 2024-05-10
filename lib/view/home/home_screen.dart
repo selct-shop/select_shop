@@ -20,6 +20,7 @@ import 'package:select_shop/view/Shared/bottom_nav_bar.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/floating_acction_button.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
+import 'package:select_shop/view/Shared/search_container.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/functions.dart';
@@ -30,6 +31,8 @@ import 'package:select_shop/view/favourite/favourite_screen.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/personal/personal_screen.dart';
 import 'dart:math' as math;
+
+import 'package:select_shop/view/search/search_screen.dart';
 //
 //
 part 'drawer.dart';
@@ -61,28 +64,34 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     // final homeBloc = BlocProvider.of<HomeBloc>(context);
 
-    return SafeArea(
-      // top: false,
+    return Hero (
+
+      
+      tag: "search",
       child: Scaffold(
-        drawer: _CustomDrawer( theHomeBuildContext: context,),
-        appBar: CustomAppBar(),
-
-        body: BlocBuilder<HomeBloc, HomeState>(
-          builder: (context, state) {
-            if (context.read<HomeBloc>().activePageNumber == 1) {
-              return _HomeBody();
-            } else if (context.read<HomeBloc>().activePageNumber == 2) {
-              return CategoriesScreen();
-            } else if (context.read<HomeBloc>().activePageNumber == 3) {
-              return FavoureitesScreen();
-            } else if (context.read<HomeBloc>().activePageNumber == 4) {
-              return PersonalScreen();
-            } else {
-              return CustomLoadingScreen();
-            }
-          },
+        drawer: _CustomDrawer(
+          theHomeBuildContext: context,
         ),
-
+        appBar: CustomAppBar(),
+      
+        body: SafeArea(
+          child: BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              if (context.read<HomeBloc>().activePageNumber == 1) {
+                return _HomeBody();
+              } else if (context.read<HomeBloc>().activePageNumber == 2) {
+                return CategoriesScreen();
+              } else if (context.read<HomeBloc>().activePageNumber == 3) {
+                return FavoureitesScreen();
+              } else if (context.read<HomeBloc>().activePageNumber == 4) {
+                return PersonalScreen();
+              } else {
+                return CustomLoadingScreen();
+              }
+            },
+          ),
+        ),
+      
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: CustomFloatingAcctionButton(),
         bottomNavigationBar: CustomBottomNavBar(),
@@ -91,4 +100,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

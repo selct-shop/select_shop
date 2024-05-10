@@ -61,9 +61,6 @@ class CheckOutScreen extends StatelessWidget {
 
             // check out details
             _CheckOutDetails(),
-            _CheckOutDetails(),
-            _CheckOutDetails(),
-            _CheckOutDetails(),
 
             ///
             ///
@@ -360,47 +357,47 @@ class _EnterYourCoponsRow extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        InkWell(
-          onTap: () {
-            // navigate to copon screen
-          },
-          borderRadius: BorderRadius.circular(5),
+        Container(
+          height: 38,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            // color: AppColors.grey2Color.withOpacity(.2),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+            boxShadow: [
+              // BoxShadow(
+              //     blurRadius: 3,
+              //     color: AppColors.greyColor.withOpacity(.3),
+              //     offset: Offset(3, 6), ),
+
+              // BoxShadow(
+              //   color: Colors.grey.withOpacity(0.5),
+              //   spreadRadius: 5,
+              //   blurRadius: 7,
+              //   offset: Offset(0, 3), // changes position of shadow
+              // ),
+
+              BoxShadow(
+                offset: Offset(0, 2),
+                blurRadius: 2,
+                spreadRadius: 2,
+                color: Colors.black12,
+              ),
+            ],
+          ),
           child: Container(
             height: 38,
             width: double.infinity,
             decoration: BoxDecoration(
-              // color: AppColors.grey2Color.withOpacity(.2),
-              color: Colors.white,
+              color: AppColors.grey2Color.withOpacity(.1),
               borderRadius: BorderRadius.circular(5),
-              boxShadow: [
-                // BoxShadow(
-                //     blurRadius: 3,
-                //     color: AppColors.greyColor.withOpacity(.3),
-                //     offset: Offset(3, 6), ),
-
-                // BoxShadow(
-                //   color: Colors.grey.withOpacity(0.5),
-                //   spreadRadius: 5,
-                //   blurRadius: 7,
-                //   offset: Offset(0, 3), // changes position of shadow
-                // ),
-
-                BoxShadow(
-                  offset: Offset(0, 2),
-                  blurRadius: 2,
-                  spreadRadius: 2,
-                  color: Colors.black12,
-                ),
-              ],
+              // boxShadow: AppConstants.theBoxShdow,
             ),
-            child: Container(
-              height: 38,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: AppColors.grey2Color.withOpacity(.1),
-                borderRadius: BorderRadius.circular(5),
-                // boxShadow: AppConstants.theBoxShdow,
-              ),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(5),
+              onTap: () {
+                // navigate to copon screen
+              },
               child: Row(
                 children: [
                   const SizedBox(

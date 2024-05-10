@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
@@ -18,6 +16,7 @@ class CustomFloatingAcctionButton extends StatelessWidget {
     return Transform.rotate(
       angle: math.pi / 4,
       child: FloatingActionButton(
+        heroTag: null,
         onPressed: () {
           navigateTo(context, CartScreen());
         },
