@@ -32,12 +32,14 @@ import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/personal/personal_screen.dart';
 import 'dart:math' as math;
 
-import 'package:select_shop/view/search/search_screen.dart';
+// import 'package:select_shop/view/search/search_screen.dart';
 //
 //
 part 'drawer.dart';
 part 'custom_paner.dart';
 part 'body.dart';
+part  'package:select_shop/view/search/search_screen.dart';
+
 
 TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,
@@ -64,16 +66,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     // final homeBloc = BlocProvider.of<HomeBloc>(context);
 
-    return Hero (
-
-      
+    return Hero(
       tag: "search",
       child: Scaffold(
         drawer: _CustomDrawer(
           theHomeBuildContext: context,
         ),
         appBar: CustomAppBar(),
-      
+
         body: SafeArea(
           child: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
         ),
-      
+
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: CustomFloatingAcctionButton(),
         bottomNavigationBar: CustomBottomNavBar(),

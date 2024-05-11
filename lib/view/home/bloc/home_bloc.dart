@@ -104,7 +104,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         if (event is HomeGetHomeCategoEvent) {
           emit(HomeGetHomeCatiegorLoadingState());
 // get all the categories
-          try {
+          try { 
             Response getCateResponse = await DioHelper.getCategories();
 
             if (getCateResponse.statusCode == 200) {
