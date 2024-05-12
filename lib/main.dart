@@ -139,10 +139,10 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(
     // body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    // return const Scaffold(body: SafeArea(child: HomeScreen()));
+    return const Scaffold(body: SafeArea(child: HomeScreen()));
     // return const Scaffold(body: SafeArea(child: ProductDetailsScreen()));
     // return const Scaffold(body: SafeArea(child: ProductsScreen()));
     // return const Scaffold(body: SafeArea(child: CheckOutScreen()));
-    return const Scaffold(body: SafeArea(child: SearchScreen())); 
+    // return const Scaffold(body: SafeArea(child: SearchScreen()));
   }
 }

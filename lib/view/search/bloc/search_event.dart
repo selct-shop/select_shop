@@ -6,3 +6,11 @@ sealed class SearchEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class SearchProduct extends SearchEvent {
+  final String theValueToBeSearched;
+
+  SearchProduct({
+    required this.theValueToBeSearched,
+  });
+}

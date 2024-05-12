@@ -3,7 +3,9 @@ import 'package:dio/dio.dart';
 class DioHelper {
   // static String baseUrl = 'https://crm.specialline.info/api/';
   // static String baseUrl = 'http://10.255.254.13:3000';
-  static String baseUrl = 'http://74.208.189.16:3000';
+  // static String baseUrl = 'http://74.208.189.16:3000';
+
+  static const String baseUrl =   "https://d801-83-110-150-217.ngrok-free.app"; 
 
   static String logInUrl = '/customer/signin';
   static String signUpUrl = '/customer/signup';

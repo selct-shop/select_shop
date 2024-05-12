@@ -112,9 +112,7 @@ class _CustomTabChild extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Expanded(child: Text("childdddd")),
-    );
+    return Expanded(child: Text("childdddd"));
   }
 }
 
@@ -151,7 +149,7 @@ class _TabTitle extends StatelessWidget {
         theTitle ?? "  ",
         style: TextStyle(
           color: AppColors.mainColor,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w900,
           fontSize: 18,
           height: .8,
         ),

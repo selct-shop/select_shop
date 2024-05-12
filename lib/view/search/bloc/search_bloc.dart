@@ -5,7 +5,7 @@ part 'search_event.dart';
 part 'search_state.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
-  SearchBloc() : super(SearchInitial()) {
+  SearchBloc() : super(SearchInitialState()) {
     on<SearchEvent>((event, emit) {
       // TODO: implement event handler
     });
