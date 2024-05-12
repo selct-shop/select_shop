@@ -32,6 +32,10 @@ import 'package:select_shop/view/product/products_screen.dart';
 
 String? globalUserToken;
 String? globalCachedUserLang;
+//  const String globalDefaltCachedNetworkImage = "https://www.istockphoto.com/illustrations/green-shopping-cart-icon";
+const String globalDefaltCachedNetworkImage =
+    "https://cdn4.iconfinder.com/data/icons/social-media-2070/140/_shopify-512.png";
+
 // final GlobalKey mainAppKey = GlobalKey();
 void main() async {
   // runApp(const MyApp());
@@ -129,17 +133,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    // return Scaffold(
-    //     body: SafeArea(
-    //         child: userToken == null || userToken == ""
-    //             ? const LogInScreen()
-    //             : const HomeScreen()));
+    return Scaffold(
+        body: SafeArea(
+            child: globalUserToken == null || globalUserToken == ""
+                ? const LogInScreen()
+                : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
     // body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
-    return const Scaffold(body: SafeArea(child: HomeScreen()));
+    // return const Scaffold(body: SafeArea(child: HomeScreen()));
     // return const Scaffold(body: SafeArea(child: ProductDetailsScreen()));
     // return const Scaffold(body: SafeArea(child: ProductsScreen()));
     // return const Scaffold(body: SafeArea(child: CheckOutScreen()));

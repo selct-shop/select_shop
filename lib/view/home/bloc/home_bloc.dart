@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:select_shop/core/helpers/cache_helper.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/models/categories/categories_modle.dart';
+import 'package:select_shop/models/categories/get_main_categories_deatails.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -14,7 +15,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   int activePageNumber = 1;
   int activeDrawerPage = 1;
   int currentCarouselSliderIndex = 0;
-  List<CategoriesResult?> categoresListForHomeScreen = [];
+  List<MainCategoriesResult?> categoresListForHomeScreen = [];
 
   // Locale initalLang =
   // CacheHelper.getData(key: 'lang') == 'en' ? Locale('en') : Locale('ar');
@@ -88,7 +89,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     //
     //
 
-    print("DDDDDDDDdrrrrrrrrrrrrrrrwer$activeDrawerPage");
+    // print("DDDDDDDDdrrrrrrrrrrrrrrrwer$activeDrawerPage");
   }
 
   HomeBloc() : super(HomeInitialState()) {
@@ -103,28 +104,28 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
         if (event is HomeGetHomeCategoEvent) {
           emit(HomeGetHomeCatiegorLoadingState());
-// get all the categories
-          try { 
-            Response getCateResponse = await DioHelper.getCategories();
+          // get all the categories
+          try {
+            Response getHomeMainCateResponse = await DioHelper.getHomeMainCategories();
 
-            if (getCateResponse.statusCode == 200) {
-              CategoriesModle categoriesModle =
-                  CategoriesModle.fromJson(getCateResponse.data);
-              List<CategoriesResult> cateeegoriss =
-                  categoriesModle.categoriesResult;
-              if (cateeegoriss != null) {
-                categoresListForHomeScreen = cateeegoriss;
+            if (getHomeMainCateResponse.statusCode == 200) {
+              GetMainCategoriesModle getMainCategoriesModle =
+                  GetMainCategoriesModle.fromJson(getHomeMainCateResponse.data);
+              List<MainCategoriesResult?>? mainCategoResutList =
+                  getMainCategoriesModle.result;
+              if (mainCategoResutList != null) {
+                categoresListForHomeScreen = mainCategoResutList;
                 emit(HomeGetHomeCatiegorsucseesState());
               } else {
                 emit(HomeGetHomeCatiegorErrorState(
                     errorMessage:
-                        "${getCateResponse.statusCode} \n ${getCateResponse.statusMessage}"));
+                        "${getHomeMainCateResponse.statusCode} \n ${getHomeMainCateResponse.statusMessage}"));
               }
               emit(HomeGetHomeCatiegorsucseesState());
             } else {
               emit(HomeGetHomeCatiegorErrorState(
                   errorMessage:
-                      getCateResponse.statusMessage ?? "unknown Error"));
+                      getHomeMainCateResponse.statusMessage ?? "unknown Error"));
             }
           } catch (exception) {
             emit(HomeGetHomeCatiegorErrorState(

@@ -40,44 +40,44 @@ class _HomeBodyState extends State<_HomeBody> {
                   }));
                 },
                 child: SearchContainer()),
-    
+
             ////////////////////////////////
             ///
             ///
             ///
             ////////////////////////////////
-    
+
             const SizedBox(
               height: 20,
             ),
-    
+
             _HomeCategoriesRow(),
-    
+
             ////////////////////////////
             ///
             ///
             ///////////////////////////
-    
+
             _CustomBanar(),
-    
-            ////////////////////////////
-            ///
-            ///
-            ///////////////////////////
-            _CustomBanar(),
-    
+
             ////////////////////////////
             ///
             ///
             ///////////////////////////
             _CustomBanar(),
-    
+
             ////////////////////////////
             ///
             ///
             ///////////////////////////
             _CustomBanar(),
-    
+
+            ////////////////////////////
+            ///
+            ///
+            ///////////////////////////
+            _CustomBanar(),
+
             ////////////////////////////
             ///
             ///
@@ -135,6 +135,7 @@ class _HomeCategoriesRow extends StatelessWidget {
         ),
         Container(
             height: 165,
+            // height: 600,
             width: double.infinity,
             clipBehavior: Clip.hardEdge,
             padding: EdgeInsets.symmetric(vertical: 15),
@@ -168,50 +169,152 @@ class _HomeCategoriesRow extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: ((context, index) {
-                      return Column(
-                        children: [
-                          Container(
-                            width: 100,
-                            height: 100,
-                            margin: EdgeInsets.symmetric(horizontal: 8),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color:
-                                      AppColors.mainGreyColor.withOpacity(.3),
-                                  blurRadius: 3,
-                                  offset: Offset(3, 3),
+                      return SizedBox(
+                        width: 100,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+// #### #### //
+// #### #### //
+// #### #### //
+// #### #### //
+// #### #### //
+// #### #### //
+
+                            // CachedNetworkImage(
+                            //   // imageUrl: 'https://pbs.twimg.com/profile_images/945853318273761280/0U40alJG_400x400.jpg',
+                            //   imageUrl: context
+                            //           .read<HomeBloc>()
+                            //           .categoresListForHomeScreen[index]!
+                            //           .image ??
+                            //       globalDefaltCachedNetworkImage,
+                            //   imageBuilder: (context, imageProvider) =>
+                            //       Container(
+                            //     width: 100,
+                            //     height: 100,
+                            //     alignment: Alignment.center,
+                            //     margin: EdgeInsets.symmetric(horizontal: 8),
+                            //     decoration: BoxDecoration(
+                            //       shape: BoxShape.circle,
+                            //       color: Colors.white,
+                            //       boxShadow: [
+                            //         BoxShadow(
+                            //           color: AppColors.mainGreyColor
+                            //               .withOpacity(.3),
+                            //           blurRadius: 3,
+                            //           offset: Offset(3, 3),
+                            //         ),
+                            //       ],
+                            //       image: DecorationImage(
+                            //           image: imageProvider, fit: BoxFit.cover),
+                            //     ),
+                            //   ),
+                            //   placeholder: (context, url) => const SizedBox(
+                            //       width: 100,
+                            //       height: 100,
+                            //       child: CircularProgressIndicator()),
+                            //   errorWidget: (context, url, error) => SizedBox(
+                            //     width: 100,
+                            //     height: 100,
+                            //     child: Icon(
+                            //       Icons.error,
+                            //       size: 30,
+                            //       color: AppColors.mainColor,
+                            //     ),
+                            //   ),
+                            // ),
+
+// #### #### //
+// #### #### //
+// #### #### //
+// #### #### //
+// #### #### //
+// #### #### //
+
+                            Container(
+                              alignment: Alignment.center,
+                              width: 100,
+                              height: 100,
+                              margin: EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color:
+                                        AppColors.mainGreyColor.withOpacity(.3),
+                                    blurRadius: 3,
+                                    offset: Offset(3, 3),
+                                  ),
+                                ],
+
+                                image: DecorationImage(
+                                  image: NetworkImage(context
+                                          .read<HomeBloc>()
+                                          .categoresListForHomeScreen[index]!
+                                          .image ??
+                                      globalDefaltCachedNetworkImage),
                                 ),
-                              ],
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(
-                                  AppImages.mainCarouselSlider,
-                                ),
+
+                                //
+                                //
+
+                                // image: DecorationImage(
+                                //   fit: BoxFit.cover,
+                                //   image: AssetImage(
+                                //     AppImages.mainCarouselSlider,
+                                //   ),
+                                // ),
+                              ),
+                              // child: Container(
+                              //   alignment: Alignment.center,
+                              //   width: 100,
+                              //   height: 100,
+                              //   clipBehavior: Clip.hardEdge,
+                              //   decoration: BoxDecoration(
+                              //     color: Colors.white,
+                              //     shape: BoxShape.circle,
+                              //   ),
+                              //   child: CachedNetworkImage(
+                              //     width: 100,
+                              //     height: 100,
+                              //     imageUrl: context
+                              //             .read<HomeBloc>()
+                              //             .categoresListForHomeScreen[index]!
+                              //             .image ??
+                              //         globalDefaltCachedNetworkImage,
+                              //     errorWidget: (context, url, error) {
+                              //       return CachedNetworkImage(
+                              //           imageUrl:
+                              //               globalDefaltCachedNetworkImage);
+                              //     },
+                              //   ),
+                              // ),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              // S.of(context).categorys,
+                              // AppLocalizations.of(context)!.localeName
+                              globalCachedUserLang == "ar"
+                                  ? context
+                                      .read<HomeBloc>()
+                                      .categoresListForHomeScreen[index]!
+                                      .nameAr!
+                                  : context
+                                      .read<HomeBloc>()
+                                      .categoresListForHomeScreen[index]!
+                                      .nameEn!,
+                              // ?? S.of(context) ,
+                              style: _customTitleTextStyle.copyWith(
+                                fontWeight: FontWeight.bold,
+                                height: .8,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            // S.of(context).categorys,
-                            // AppLocalizations.of(context)!.localeName
-                            globalCachedUserLang == "ar"
-                                ? context
-                                    .read<HomeBloc>()
-                                    .categoresListForHomeScreen[index]!
-                                    .nameAr!
-                                : context
-                                    .read<HomeBloc>()
-                                    .categoresListForHomeScreen[index]!
-                                    .nameEn!,
-                            // ?? S.of(context) ,
-                            style: _customTitleTextStyle.copyWith(
-                                fontWeight: FontWeight.bold, height: .8),
-                          ),
-                        ],
+                          ],
+                        ),
                       );
                     }));
               } else
