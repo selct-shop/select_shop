@@ -38,8 +38,7 @@ import 'dart:math' as math;
 part 'drawer.dart';
 part 'custom_paner.dart';
 part 'body.dart';
-part  'package:select_shop/view/search/search_screen.dart';
-
+part 'package:select_shop/view/search/search_screen.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,

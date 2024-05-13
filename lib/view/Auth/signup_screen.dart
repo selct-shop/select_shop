@@ -71,7 +71,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     Text(
                       style: const TextStyle(
-                        color: AppColors.mainColor,
+                        color: AppColors.main2Color,
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
@@ -248,7 +248,7 @@ class _SignupScreenState extends State<SignupScreen> {
       // confirm password feild
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
-            50,
+            10,
           ),
           boxShadow: <BoxShadow>[
             BoxShadow(
@@ -298,7 +298,7 @@ class _SignupScreenState extends State<SignupScreen> {
       // password feild
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
-            50,
+            10,
           ),
           boxShadow: <BoxShadow>[
             BoxShadow(
@@ -325,7 +325,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   )
                 : FaIcon(
                     FontAwesomeIcons.eye,
-                    color: AppColors.mainGreyColor,
+                    color: const Color.fromARGB(255, 184, 113, 113),
                   ),
             onTap: () {
               setState(() {
@@ -425,7 +425,7 @@ class _UserEmailFormFeild extends StatelessWidget {
       // user email feild
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
-            50,
+            10,
           ),
           boxShadow: <BoxShadow>[
             BoxShadow(
@@ -454,6 +454,7 @@ class _UserEmailFormFeild extends StatelessWidget {
     );
   }
 }
+
 class _UserPhonNumText extends StatelessWidget {
   const _UserPhonNumText({
     super.key,
@@ -465,7 +466,7 @@ class _UserPhonNumText extends StatelessWidget {
       // user phoneNum feild
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
-            50,
+            10,
           ),
           boxShadow: <BoxShadow>[
             BoxShadow(
@@ -506,7 +507,7 @@ class _UserNameFormFeild extends StatelessWidget {
       // user name feild
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
-            50,
+            10,
           ),
           boxShadow: <BoxShadow>[
             BoxShadow(

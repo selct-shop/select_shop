@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //         ? const LogInScreen()
     //         : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
-    // return const Scaffold(body: SafeArea(child: LogInScreen()));
+    return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
     // body: SafeArea(child: ChoseLanguageScreen(commingFromSettings: false)));
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
@@ -151,6 +151,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(body: SafeArea(child: CheckOutScreen()));
     // return const Scaffold(body: SafeArea(child: SearchScreen()));
     // return const Scaffold(body: SafeArea(child: UserLocationsScreen()));
-    return const Scaffold(body: SafeArea(child: CreateNewLocationScreen()));
+    // return const Scaffold(body: SafeArea(child: CreateNewLocationScreen()));
   }
 }

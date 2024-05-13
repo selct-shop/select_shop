@@ -22,7 +22,7 @@ import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
-  color: AppColors.mainGreyColor,
+  color: AppColors.grey2Color,
 );
 
 final GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
@@ -141,7 +141,7 @@ class _LoginBodyState extends State<_LoginBody> {
         ),
         Text(
             style: TextStyle(
-              color: AppColors.mainColor,
+              color: AppColors.main2Color,
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),
@@ -157,7 +157,7 @@ class _LoginBodyState extends State<_LoginBody> {
                 // email or phone number
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
-                      50,
+                      10,
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
@@ -227,7 +227,7 @@ class _LoginBodyState extends State<_LoginBody> {
 
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
-                      50,
+                      10,
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
