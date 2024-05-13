@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/user%20location/create_new_location.dart';
 
 // enum SavedUserLocations<String> {  onn "Ajman", "Ajman", "Ajman" , "Ajman" }
 class UserLocationsScreen extends StatelessWidget {
@@ -104,6 +106,7 @@ class UserLocationsScreen extends StatelessWidget {
             InkWell(
               onTap: () {
                 // navigate to add new location
+                navigateTo(context, CreateNewLocationScreen());
               },
               child: Container(
                 height: 45,
