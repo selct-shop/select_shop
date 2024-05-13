@@ -11,7 +11,8 @@ class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
-  final int? maxLines;
+  final int? maxLines; 
+  final double? borderRaduis;
   final void Function(String)? onFieldSubmitted;
   final Color? borderColor;
   const AppTextFormField({
@@ -25,6 +26,7 @@ class AppTextFormField extends StatelessWidget {
     this.keyboardType,
     this.inputFormatters,
     this.maxLines = 1,
+    this.borderRaduis, 
     this.onFieldSubmitted,
     this.borderColor,
   }) : super(key: key);
@@ -36,7 +38,7 @@ class AppTextFormField extends StatelessWidget {
       height: 45,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
-          15,
+          borderRaduis?? 15,
         ),
         color: Colors.white,
         boxShadow: shadow == true

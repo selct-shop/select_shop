@@ -39,14 +39,14 @@ class OtpScreen extends StatelessWidget {
                 ),
                 Text(
                   style: TextStyle(
-                    color: AppColors.mainGreyColor,
+                    color: AppColors.grey2Color,
                     fontSize: 20,
                   ),
                   S.of(context).otpCodeSended,
                 ),
                 Text(
                     style: TextStyle(
-                      color: AppColors.mainGreyColor,
+                      color: AppColors.grey2Color ,
                       fontSize: 20,
                     ),
                     'mhli.outlook.sa@gmail.com'),
@@ -57,7 +57,7 @@ class OtpScreen extends StatelessWidget {
                   numberOfFields: 4,
                   // borderColor: AppColors.grey2Color,454
                   showFieldAsBox: true,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                   fieldHeight: 60,
                   fieldWidth: 60,
                   enabledBorderColor: AppColors.greyColor,
@@ -84,6 +84,7 @@ class OtpScreen extends StatelessWidget {
                 AppButton(
                   title: S.of(context).sendCode,
                   textColor: Colors.white,
+                  borderRadius: 10,
                   width: double.infinity,
                   backgroundColor: AppColors.mainColor,
                   onTap: () {
@@ -105,7 +106,7 @@ class OtpScreen extends StatelessWidget {
                     },
                     child: Text(
                       style: AppConstants.customTitleTextStyle.copyWith(
-                        color: AppColors.mainGreyColor,
+                        color: AppColors.grey2Color,
                         fontSize: 14,
                       ),
                       S.of(context).backToSignIn,

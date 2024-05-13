@@ -38,7 +38,9 @@ class NewPasswordScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                    style: AppConstants.customTitleTextStyle,
+                    style: AppConstants.customTitleTextStyle.copyWith(
+                      color: AppColors.main2Color,
+                    ),
                     S.of(context).resetPassword),
                 const SizedBox(
                   height: 20,
@@ -47,6 +49,7 @@ class NewPasswordScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       AppTextFormField(
+                        borderRaduis: 10,
                         controller: _newPasswordTextEditingContorller,
                         onChanged: (p0) {},
                         validator: (p0) {},
@@ -57,12 +60,12 @@ class NewPasswordScreen extends StatelessWidget {
                         height: 20,
                       ),
                       AppTextFormField(
+                        borderRaduis: 10,
                         controller: _confermNewPasswordTextEditingContorller,
                         onChanged: (p0) {},
                         validator: (p0) {},
                         shadow: true,
-                        hintText:
-                            S.of(context).confirmNewPassword,
+                        hintText: S.of(context).confirmNewPassword,
                       ),
                     ],
                   ),
@@ -74,6 +77,7 @@ class NewPasswordScreen extends StatelessWidget {
                   title: S.of(context).confirm,
                   textColor: Colors.white,
                   width: double.infinity,
+                  borderRadius: 10,
                   backgroundColor: AppColors.mainColor,
                   onTap: () {
                     // validate
