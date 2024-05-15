@@ -7,7 +7,7 @@ class DioHelper {
   // static String baseUrl = 'http://10.255.254.13:3000';
   // static String baseUrl = 'http://74.208.189.16:3000';
 
-  static const String baseUrl = "https://d801-83-110-150-217.ngrok-free.app";
+  static const String baseUrl = "https://a754-217-165-246-246.ngrok-free.app/";
   // static const String? userToken = globalUserToken ;
 
   static String logInUrl = '/customer/signin';
@@ -25,17 +25,17 @@ class DioHelper {
 
   static init() {
     _dio = Dio(BaseOptions(
-        baseUrl: baseUrl,
-        receiveDataWhenStatusError: true,
-        validateStatus: (status) => true,
-        connectTimeout: const Duration(seconds: 10),
-        // headers: {}
-        // dio.options.headers['Authorization'] = 'Bearer $userToken';
-        // headers:  <String, dynamic> {   "Authorization" :  'Bearer $userToken' }
-        // headers: <String, dynamic>{
-        // "Authorization": 'Bearer $globalUserToken'
-        // },
-        ));
+      baseUrl: baseUrl,
+      receiveDataWhenStatusError: true,
+      validateStatus: (status) => true,
+      connectTimeout: const Duration(seconds: 10),
+      // headers: {}
+      // dio.options.headers['Authorization'] = 'Bearer $userToken';
+      // headers:  <String, dynamic> {   "Authorization" :  'Bearer $userToken' }
+      // headers: <String, dynamic>{
+      // "Authorization": 'Bearer $globalUserToken'
+      // },
+    ));
 
     _dio!.options.headers['Authorization'] = 'Bearer $globalUserToken';
   }

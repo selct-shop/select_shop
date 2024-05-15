@@ -236,6 +236,7 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                   elevation: MaterialStateProperty.all(2),
                 ),
                 onPressed: () {
+                  // validate and save location
                   // if (createNewLocationKey.currentState!.validate()) {
                   //   // save the new location
                   // }
