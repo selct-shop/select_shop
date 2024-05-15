@@ -75,6 +75,7 @@ dependencies:
   intl: ^0.18.1
   equatable: ^2.0.5
   flutter_dash: ^1.0.0
+  # awesome_dialog: ^3.2.1
 
   # another_flutter_splash_screen: ^1.2.0
 

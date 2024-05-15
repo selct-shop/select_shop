@@ -4,7 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:select_shop/core/helpers/user_experience_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/Shared/custom_dialog.dart';
 
 // GlobalKey<FormState> createNewLocationKey = new GlobalKey<FormState>();
 TextEditingController emirateTextEditingController = TextEditingController();
@@ -221,6 +223,7 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: ElevatedButton(
+                // #### save location button #### //
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
                     AppColors.mainColor,
@@ -233,9 +236,9 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                   elevation: MaterialStateProperty.all(2),
                 ),
                 onPressed: () {
-                  if (createNewLocationKey.currentState!.validate()) {
-                    // save the new location
-                  }
+                  // if (createNewLocationKey.currentState!.validate()) {
+                  //   // save the new location
+                  // }
                 },
                 child: const Text(
                   'Save Location',
