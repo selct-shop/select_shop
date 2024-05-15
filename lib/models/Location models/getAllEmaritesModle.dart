@@ -3,34 +3,34 @@
 
 import 'dart:convert';
 
-class GetAllEmirates {
-    Result result;
+class GetAllEmiratesModle {
+    EmiratesResult result;
     int statusCode;
     String message;
 
-    GetAllEmirates({
+    GetAllEmiratesModle({
         required this.result,
         required this.statusCode,
         required this.message,
     });
 
-    GetAllEmirates copyWith({
-        Result? result,
+    GetAllEmiratesModle copyWith({
+        EmiratesResult? result,
         int? statusCode,
         String? message,
     }) => 
-        GetAllEmirates(
+        GetAllEmiratesModle(
             result: result ?? this.result,
             statusCode: statusCode ?? this.statusCode,
             message: message ?? this.message,
         );
 
-    factory GetAllEmirates.fromRawJson(String str) => GetAllEmirates.fromJson(json.decode(str));
+    factory GetAllEmiratesModle.fromRawJson(String str) => GetAllEmiratesModle.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory GetAllEmirates.fromJson(Map<String, dynamic> json) => GetAllEmirates(
-        result: Result.fromJson(json["result"]),
+    factory GetAllEmiratesModle.fromJson(Map<String, dynamic> json) => GetAllEmiratesModle(
+        result: EmiratesResult.fromJson(json["result"]),
         statusCode: json["statusCode"],
         message: json["message"],
     );
@@ -42,26 +42,26 @@ class GetAllEmirates {
     };
 }
 
-class Result {
-    List<AddressCity> addressCities;
+class EmiratesResult {
+    List<AddressCityModle> addressCities;
 
-    Result({
+    EmiratesResult({
         required this.addressCities,
     });
 
-    Result copyWith({
-        List<AddressCity>? addressCities,
+    EmiratesResult copyWith({
+        List<AddressCityModle>? addressCities,
     }) => 
-        Result(
+        EmiratesResult(
             addressCities: addressCities ?? this.addressCities,
         );
 
-    factory Result.fromRawJson(String str) => Result.fromJson(json.decode(str));
+    factory EmiratesResult.fromRawJson(String str) => EmiratesResult.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory Result.fromJson(Map<String, dynamic> json) => Result(
-        addressCities: List<AddressCity>.from(json["addressCities"].map((x) => AddressCity.fromJson(x))),
+    factory EmiratesResult.fromJson(Map<String, dynamic> json) => EmiratesResult(
+        addressCities: List<AddressCityModle>.from(json["addressCities"].map((x) => AddressCityModle.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
@@ -69,7 +69,7 @@ class Result {
     };
 }
 
-class AddressCity {
+class AddressCityModle {
     int id;
     String nameEn;
     String nameAr;
@@ -77,7 +77,7 @@ class AddressCity {
     DateTime updatedAt;
     bool isDeleted;
 
-    AddressCity({
+    AddressCityModle({
         required this.id,
         required this.nameEn,
         required this.nameAr,
@@ -86,7 +86,7 @@ class AddressCity {
         required this.isDeleted,
     });
 
-    AddressCity copyWith({
+    AddressCityModle copyWith({
         int? id,
         String? nameEn,
         String? nameAr,
@@ -94,7 +94,7 @@ class AddressCity {
         DateTime? updatedAt,
         bool? isDeleted,
     }) => 
-        AddressCity(
+        AddressCityModle(
             id: id ?? this.id,
             nameEn: nameEn ?? this.nameEn,
             nameAr: nameAr ?? this.nameAr,
@@ -103,11 +103,11 @@ class AddressCity {
             isDeleted: isDeleted ?? this.isDeleted,
         );
 
-    factory AddressCity.fromRawJson(String str) => AddressCity.fromJson(json.decode(str));
+    factory AddressCityModle.fromRawJson(String str) => AddressCityModle.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory AddressCity.fromJson(Map<String, dynamic> json) => AddressCity(
+    factory AddressCityModle.fromJson(Map<String, dynamic> json) => AddressCityModle(
         id: json["id"],
         nameEn: json["nameEn"],
         nameAr: json["nameAr"],

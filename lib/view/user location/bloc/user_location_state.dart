@@ -7,4 +7,12 @@ sealed class UserLocationState extends Equatable {
   List<Object> get props => [];
 }
 
-final class UserLocationInitial extends UserLocationState {}
+final class UserLocationInitialState extends UserLocationState {}
+final class LoadingAllEmiratesState extends UserLocationState {}
+final class AllEmiratesStateLoadedState extends UserLocationState {}
+final class GetAllEmiratesErrorState extends UserLocationState {
+  String? errorMessage;
+GetAllEmiratesErrorState({String? this.errorMessage, });
+}
+// final class UserLocationInitial extends UserLocationState {}
+// final class UserLocationInitial extends UserLocationState {}

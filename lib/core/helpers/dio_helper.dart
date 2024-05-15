@@ -19,9 +19,11 @@ class DioHelper {
   // the new getHomeMainCategoriesUrl
   static String getHomeMainCategoriesUrl = '/category/main';
 
-  // static const String logInUrl = 'http://localhost:3000/customer/signin';
+  static const String getEmiratesUrl = "/address-city/all";
 
   static Dio? _dio;
+
+  // #### dio init #### //
 
   static init() {
     _dio = Dio(BaseOptions(
@@ -40,6 +42,7 @@ class DioHelper {
     _dio!.options.headers['Authorization'] = 'Bearer $globalUserToken';
   }
 
+  // #### login #### //
   static Future<Response> login(
       {required String phoneNumber, required String password}) async {
     try {
@@ -63,6 +66,7 @@ class DioHelper {
     }
   }
 
+  // #### signUp #### //
   static Future<Response> signUp({
     required String name,
     required String phoneNumber,
@@ -102,7 +106,7 @@ class DioHelper {
     }
   }
 
-  // #### the old get home categories #### //
+  // #### the olddddd get home categories #### //
 
   static Future<Response> getCategories() async {
     try {
@@ -116,6 +120,7 @@ class DioHelper {
     }
   }
 
+  // #### the newwww get home categories #### //
   static Future<Response> getHomeMainCategories() async {
     try {
       final response = await _dio!.get(
@@ -127,6 +132,19 @@ class DioHelper {
     }
   }
 
+  // #### get emirates or cites #### //
+  static Future<Response> getAllEmirates() async {
+    try {
+      final Response response = await _dio!.get(
+        getEmiratesUrl,
+      );
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  // #### genral dio getData #### //
   static Future<Response> getData({
     required String url,
     Map<String, dynamic>? query,
@@ -152,6 +170,7 @@ class DioHelper {
     );
   }
 
+  // #### genral dio posData #### //
   static Future<Response> postData({
     required String url,
     Map<String, dynamic>? queryParameters,
@@ -181,6 +200,7 @@ class DioHelper {
     }
   }
 
+  //  // #### sendNotifications #### //
   // static Future<Response> sendNotificatoin({
   //   //required String url,
   //   //Map<String, dynamic>? queryParameters,
@@ -203,6 +223,7 @@ class DioHelper {
   //   );
   // }
 
+  // #### genral dio putData #### //
   static Future<Response> putData({
     required String url,
     Map<String, dynamic>? queryParameters,
@@ -235,6 +256,7 @@ class DioHelper {
     );
   }
 
+  // #### genral dio deleteData #### //
   static Future<Response> deleteData({
     required String url,
     Map<String, dynamic>? queryParameters,
