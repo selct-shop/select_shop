@@ -11,6 +11,7 @@ import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/models/categories/categories_modle.dart';
+import 'package:select_shop/models/categories/get_main_categories_deatails.dart';
 import 'package:select_shop/view/Shared/app_no_data.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
@@ -30,7 +31,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   // ignore: must_call_super
   initState() {
-    context.read<CategoriesBloc>().add(GetCategoriesEvent());
+    context.read<CategoriesBloc>().add(GetMainCategoriesEvent());
   }
 
   @override
@@ -51,7 +52,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             errorMessage: state.errorMessage,
           );
         } else if (state is CategoriesSuccsessState) {
-
           return _Body();
         } else {
           return Center(
@@ -72,13 +72,13 @@ class _Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsets.all(15),
-      itemCount: context.read<CategoriesBloc>().categoriesLisssst.length,
+      itemCount: context.read<CategoriesBloc>().categoriesLisssst!.length,
       // shrinkWrap: true,
 
       itemBuilder: (context, index) {
         return _CustomCategory(
           categoriesResult:
-              context.read<CategoriesBloc>().categoriesLisssst[index]!,
+              context.read<CategoriesBloc>().categoriesLisssst![index]!,
         );
       },
     );
@@ -86,7 +86,7 @@ class _Body extends StatelessWidget {
 }
 
 class _CustomCategory extends StatelessWidget {
-  final CategoriesResult categoriesResult;
+  final MainCategoriesResult categoriesResult;
   const _CustomCategory({
     super.key,
     required this.categoriesResult,
@@ -108,9 +108,11 @@ class _CustomCategory extends StatelessWidget {
             //       "${DioHelper.baseUrl}/${categoriesResult.categoryImage}" ,
             // ),
 
-            image: NetworkImage(
-                "${DioHelper.baseUrl}/${categoriesResult.categoryImage}"),
+            // image:
+            // NetworkImage("${DioHelper.baseUrl}${categoriesResult.image}"),
 
+            image: NetworkImage(
+                categoriesResult.image ?? globalDefaltCachedNetworkImage),
             //  onError:
           ),
           boxShadow: [
@@ -175,16 +177,16 @@ class _CustomCategory extends StatelessWidget {
               height: 22,
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  "${categoriesResult.children.length} items",
-                  style: TextStyle(
-                    color: AppColors.mainGreyColor,
-                    fontSize: 14,
-                    height: .8,
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
+                // child: Text(
+                //   "${categoriesResult.children.length} items",
+                //   style: TextStyle(
+                //     color: AppColors.mainGreyColor,
+                //     fontSize: 14,
+                //     height: .8,
+                //   ),
+                //   maxLines: 1,
+                //   overflow: TextOverflow.ellipsis,
+                // ),
               ),
             ),
             Container(

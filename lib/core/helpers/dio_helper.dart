@@ -108,17 +108,17 @@ class DioHelper {
 
   // #### the olddddd get home categories #### //
 
-  static Future<Response> getCategories() async {
-    try {
-      final response = await _dio!.get(
-        categoriesAllUrl,
-        // options: Options()
-      );
-      return response;
-    } catch (e) {
-      throw Exception('Failed to login: $e');
-    }
-  }
+  // static Future<Response> getCategories() async {
+  //   try {
+  //     final response = await _dio!.get(
+  //       categoriesAllUrl,
+  //       // options: Options()
+  //     );
+  //     return response;
+  //   } catch (e) {
+  //     throw Exception('Failed to login: $e');
+  //   }
+  // }
 
   // #### the newwww get home categories #### //
   static Future<Response> getHomeMainCategories() async {
