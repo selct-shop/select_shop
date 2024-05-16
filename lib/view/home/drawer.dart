@@ -86,12 +86,19 @@ class _DrawerBody extends StatelessWidget {
                           width: 5,
                         ),
                         Text(
+                          globalCachedUserName == "" ||
+                                  globalCachedUserName == null
+                              ? S.of(context).userName
+                              : globalCachedUserName!,
                           style: _customTitleTextStyle,
-                          S.of(context).userName,
                         ),
                         Text(
-                            style: _customLocalTextStyle,
-                            S.of(context).userEmail),
+                          globalCachedUserPhoneNum == null ||
+                                  globalCachedUserPhoneNum == ""
+                              ? S.of(context).userEmail
+                              : globalCachedUserPhoneNum!,
+                          style: _customLocalTextStyle,
+                        ),
                         const SizedBox(
                           width: 5,
                         ),

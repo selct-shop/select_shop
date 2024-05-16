@@ -66,36 +66,40 @@ class _HomeScreenState extends State<HomeScreen> {
     // final homeBloc = BlocProvider.of<HomeBloc>(context);
 
     return Hero(
-      tag: "search",
-      child: Scaffold(
-        drawer: _CustomDrawer(
-          theHomeBuildContext: context,
-        ),
-        appBar: CustomAppBar(),
+        tag: "search",
+        child: Scaffold(
+          body: SafeArea(
+            child: Scaffold(
+              drawer: _CustomDrawer(
+                theHomeBuildContext: context,
+              ),
+              appBar: CustomAppBar(),
 
-        body: SafeArea(
-          child: BlocBuilder<HomeBloc, HomeState>(
-            builder: (context, state) {
-              if (context.read<HomeBloc>().activePageNumber == 1) {
-                return _HomeBody();
-              } else if (context.read<HomeBloc>().activePageNumber == 2) {
-                return CategoriesScreen();
-              } else if (context.read<HomeBloc>().activePageNumber == 3) {
-                return FavoureitesScreen();
-              } else if (context.read<HomeBloc>().activePageNumber == 4) {
-                return PersonalScreen();
-              } else {
-                return CustomLoadingScreen();
-              }
-            },
+              body: SafeArea(
+                child: BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) {
+                    if (context.read<HomeBloc>().activePageNumber == 1) {
+                      return _HomeBody();
+                    } else if (context.read<HomeBloc>().activePageNumber == 2) {
+                      return CategoriesScreen();
+                    } else if (context.read<HomeBloc>().activePageNumber == 3) {
+                      return FavoureitesScreen();
+                    } else if (context.read<HomeBloc>().activePageNumber == 4) {
+                      return PersonalScreen();
+                    } else {
+                      return CustomLoadingScreen();
+                    }
+                  },
+                ),
+              ),
+
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
+              floatingActionButton: CustomFloatingAcctionButton(),
+              bottomNavigationBar: CustomBottomNavBar(),
+              resizeToAvoidBottomInset: false, // Set this to false
+            ),
           ),
-        ),
-
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: CustomFloatingAcctionButton(),
-        bottomNavigationBar: CustomBottomNavBar(),
-        resizeToAvoidBottomInset: false, // Set this to false
-      ),
-    );
+        ));
   }
 }
