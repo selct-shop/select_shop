@@ -87,7 +87,7 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                       // ),
 
                       child: _CustomSelectEmirate(
-                        height: 40,
+                        // height: 40,
                         hintText: "choose the emirate",
                         controller: emirateTextEditingController,
                         theTitle: "Emirate",
