@@ -33,8 +33,10 @@ import 'package:select_shop/view/user%20location/bloc/user_location_bloc.dart';
 import 'package:select_shop/view/user%20location/create_new_location.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
 
-String? globalUserToken;
+String? globalCachedUserToken;
 String? globalCachedUserLang;
+String? globalCachedUserName;
+String? globalCachedUserPhoneNum;
 //  const String globalDefaltCachedNetworkImage = "https://www.istockphoto.com/illustrations/green-shopping-cart-icon";
 const String globalDefaltCachedNetworkImage =
     "https://cdn4.iconfinder.com/data/icons/social-media-2070/140/_shopify-512.png";
@@ -81,7 +83,8 @@ class _MyAppState extends State<MyApp> {
           // BlocProvider(create:(context) => HomeBloc()..add(HomeGetItemsEvent( ))),
           BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
           BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),
-          BlocProvider<UserLocationBloc>(create: (context) => UserLocationBloc()),
+          BlocProvider<UserLocationBloc>(
+              create: (context) => UserLocationBloc()),
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
           builder: (context, state) {
@@ -136,11 +139,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    // return Scaffold(
-    // body: SafeArea(
-    //     child: globalUserToken == null || globalUserToken == ""
-    //         ? const LogInScreen()
-    //         : const HomeScreen()));
+    return Scaffold(
+        body: SafeArea(
+            child: globalCachedUserToken == null || globalCachedUserToken == ""
+                ? const LogInScreen()
+                : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
@@ -152,6 +155,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(body: SafeArea(child: CheckOutScreen()));
     // return const Scaffold(body: SafeArea(child: SearchScreen()));
     // return const Scaffold(body: SafeArea(child: UserLocationsScreen()));
-    return const Scaffold(body: SafeArea(child: CreateNewLocationScreen()));
+    // return const Scaffold(body: SafeArea(child: CreateNewLocationScreen()));
   }
 }

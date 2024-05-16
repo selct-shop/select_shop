@@ -35,8 +35,11 @@ TextEditingController signUpPasswordTextEditingController =
 TextEditingController signUpconfirmPassTexEdiController =
     TextEditingController();
 
-TextStyle _customLocalTextStyle = TextStyle(
-  color: AppColors.mainGreyColor,
+TextStyle _customLocalTextStyle = const TextStyle(
+  color: AppColors.grey2Color,
+  height: .8,
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
 );
 
 class SignupScreen extends StatefulWidget {

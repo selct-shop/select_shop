@@ -39,7 +39,7 @@ class DioHelper {
       // },
     ));
 
-    _dio!.options.headers['Authorization'] = 'Bearer $globalUserToken';
+    _dio!.options.headers['Authorization'] = 'Bearer $globalCachedUserToken';
   }
 
   // #### login #### //

@@ -21,8 +21,11 @@ import 'package:select_shop/view/Auth/forget_password_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 
-TextStyle _customLocalTextStyle = TextStyle(
+TextStyle _customLocalTextStyle =const  TextStyle(
   color: AppColors.grey2Color,
+  height: .8,
+  fontSize: 16 ,
+  fontWeight: FontWeight.w500,
 );
 
 final GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
