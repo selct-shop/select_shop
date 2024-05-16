@@ -29,6 +29,7 @@ import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
 import 'package:select_shop/view/product%20details/product_details_screen.dart';
 import 'package:select_shop/view/product/products_screen.dart';
+import 'package:select_shop/view/user%20location/bloc/user_location_bloc.dart';
 import 'package:select_shop/view/user%20location/create_new_location.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
 
@@ -78,9 +79,9 @@ class _MyAppState extends State<MyApp> {
         providers: [
           BlocProvider<HomeBloc>(create: (context) => HomeBloc()),
           // BlocProvider(create:(context) => HomeBloc()..add(HomeGetItemsEvent( ))),
-
           BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
           BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),
+          BlocProvider<UserLocationBloc>(create: (context) => UserLocationBloc()),
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
           builder: (context, state) {

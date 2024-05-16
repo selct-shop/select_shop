@@ -8,51 +8,43 @@ part 'user_location_event.dart';
 part 'user_location_state.dart';
 
 class UserLocationBloc extends Bloc<UserLocationEvent, UserLocationState> {
-  List<String > listOfEmirtatesNames = [ ] ;
-  UserLocationBloc() : super(UserLocationInitialState()){
+  List<String> listOfEmirtatesNames = [];
+  List<AddressCityModle> listOfEmirtates = [];
+  UserLocationBloc() : super(UserLocationInitialState()) {
     on<UserLocationEvent>((event, emit) async {
       // TODO: implement event handler
 
       // #### get all emirates #### //
-if(event is GetAllEmirateEvent){
-  emit( LoadingAllEmiratesState ()); 
-try{
-  Response<dynamic> getAllEmiratesResponse =
-await DioHelper.getAllEmirates();
-if ( getAllEmiratesResponse.statusCode == 200){
-
-  GetAllEmiratesModle getAllEmiratesModle =
-GetAllEmiratesModle.fromJson(getAllEmiratesResponse.data);
-// List<EmiratesResult> listOfEmiratesResult = getAllEmiratesModle.result ;
-
-listOfEmirtatesNames.clear();
-//  listOfEmirtatesNames.addAll(getAllEmiratesModle.result.addressCities.);
-
-// listOfEmirtatesNames.add(getAllEmiratesModle.result.addressCities)
-
-// listOfEmirtatesNames = getAllEmiratesModle.result.
-
-// for ( var emirateName in getAllEmiratesModle.result ){
-
-// }
-
-// for ( var emirateName in listOfEmiratesResult ) {
-//   listOfEmirtatesNames.add(emirateName)
-// }
-
-
-
-emit(AllEmiratesStateLoadedState());
-} else {
-  emit( GetAllEmiratesErrorState(errorMessage: getAllEmiratesResponse.statusCode.toString() + getAllEmiratesResponse.statusMessage.toString(), 
-  ));
-}
-}catch(e) {
-  throw Exception(e);
-}
-
-}
-
+      if (event is GetAllEmirateEvent) {
+        emit(LoadingAllEmiratesState());
+        print("emirateees gggggggeeeet   allll emirates");
+        try {
+          Response<dynamic> getAllEmiratesResponse =
+              await DioHelper.getAllEmirates();
+          if (getAllEmiratesResponse.statusCode == 200) {
+            // listOfEmirtatesNames.clear();
+            listOfEmirtates.clear();
+            GetAllEmiratesModle getAllEmiratesModle =
+                GetAllEmiratesModle.fromJson(getAllEmiratesResponse.data);
+            List<AddressCityModle> emiratesList =
+                getAllEmiratesModle.result.addressCities;
+              //  listOfEmirtates =
+              //   getAllEmiratesModle.result.addressCities;
+            for (var item in emiratesList) {
+              listOfEmirtatesNames.add(item.nameEn);
+              print("emirateees successsssssssssss");
+            }
+            emit(AllEmiratesLoadedState());
+          } else {
+            emit(GetAllEmiratesErrorState(
+              errorMessage: getAllEmiratesResponse.statusCode.toString() +
+                  getAllEmiratesResponse.statusMessage.toString(),
+            ));
+          }
+        } catch (e) {
+          throw Exception(e);
+        }
+      }
     });
   }
 }
