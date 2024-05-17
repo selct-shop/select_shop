@@ -17,9 +17,11 @@ import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/view/Shared/appbar.dart';
 import 'package:select_shop/view/Shared/bottom_nav_bar.dart';
+import 'package:select_shop/view/Shared/drawer.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/floating_acction_button.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
+import 'package:select_shop/view/Shared/product_card.dart';
 import 'package:select_shop/view/Shared/search_container.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/core/constants/app_images.dart';
@@ -35,14 +37,11 @@ import 'dart:math' as math;
 // import 'package:select_shop/view/search/search_screen.dart';
 //
 //
-part 'drawer.dart';
+// part '../Shared/drawer.dart';
 part 'custom_paner.dart';
 part 'body.dart';
 part 'package:select_shop/view/search/search_screen.dart';
 
-TextStyle _customLocalTextStyle = TextStyle(
-  color: AppColors.mainGreyColor,
-);
 
 TextStyle _customTitleTextStyle = TextStyle(
   color: AppColors.mainColor,
@@ -70,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
           body: SafeArea(
             child: Scaffold(
-              drawer: _CustomDrawer(
+              drawer: CustomDrawer(
                 theHomeBuildContext: context,
               ),
               appBar: CustomAppBar(),
