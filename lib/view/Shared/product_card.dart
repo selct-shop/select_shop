@@ -1,7 +1,8 @@
 // #### ProductCard #### //
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
@@ -9,7 +10,7 @@ import 'package:select_shop/generated/l10n.dart';
 
 class ProductCard extends StatelessWidget {
   final void Function()? onTap;
-  final double? height, width, rating, newPrice, oldPrice;
+  final double? height, width, ratingNumber, newPrice, oldPrice;
   final String? productCategory, productName, brandName;
 
   ProductCard({
@@ -17,7 +18,7 @@ class ProductCard extends StatelessWidget {
     required this.onTap,
     this.height,
     this.width,
-    required this.rating,
+    required this.ratingNumber,
     required this.newPrice,
     this.oldPrice,
     required this.productCategory,
@@ -103,13 +104,43 @@ class ProductCard extends StatelessWidget {
                         ),
                         Spacer(),
                         Row(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
-                            for (int i = 1; i <= 5; i++)
-                              Icon(
-                                size: 12,
-                                color: AppColors.mainColor,
-                                Icons.star_rounded,
-                              )
+                            // for (int i = 1; i <= 5; i++)
+                            //   Icon(
+                            //     size: 12,
+                            //     color: AppColors.mainColor,
+                            //     Icons.star_rounded,
+                            //   )
+
+                            RatingBar(
+                              glow: false,
+                              ignoreGestures: true,
+                              initialRating: ratingNumber ?? 0,
+                              itemSize: 13,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              ratingWidget: RatingWidget(
+                                full: Icon(
+                                  Icons.star_rounded,
+                                  color: AppColors.mainColor,
+                                ),
+                                half: Icon(
+                                  Icons.star_half_rounded,
+                                  color: AppColors.mainColor,
+                                ),
+                                empty: Icon(
+                                  Icons.star_outline_rounded,
+                                  color: AppColors.mainColor,
+                                ),
+                              ),
+                              itemPadding:
+                                  EdgeInsets.symmetric(horizontal: 1.0),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+                              },
+                            ),
                           ],
                         )
                       ],
@@ -169,16 +200,20 @@ class ProductCard extends StatelessWidget {
                         const SizedBox(
                           width: 3,
                         ),
-                        Text(
-                          oldPrice != null
-                              ? "${S.of(context).aed} $oldPrice".toUpperCase()
-                              : "${S.of(context).aed} uk".toUpperCase(),
-                          style: AppConstants.customTitleTextStyle.copyWith(
-                            fontSize: 8,
-                            color: Colors.black,
-                            decoration: TextDecoration.lineThrough,
-                          ),
-                        ),
+                        oldPrice != null
+                            ? Text(
+                                oldPrice != null
+                                    ? "${S.of(context).aed} $oldPrice"
+                                        .toUpperCase()
+                                    : "${S.of(context).aed} uk".toUpperCase(),
+                                style:
+                                    AppConstants.customTitleTextStyle.copyWith(
+                                  fontSize: 8,
+                                  color: Colors.black,
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                              )
+                            : const SizedBox(),
                         Spacer(),
                         Container(
                           width: 38,
