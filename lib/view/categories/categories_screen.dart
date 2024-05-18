@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/main.dart';
@@ -16,6 +17,8 @@ import 'package:select_shop/view/Shared/app_no_data.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/categories/bloc/categories_bloc.dart';
+import 'package:select_shop/view/product%20details/product_details_screen.dart';
+import 'package:select_shop/view/product%20of%20category/products_of_categorys.dart';
 
 TextStyle _titleTextStyle = TextStyle(
     color: AppColors.mainColor, fontSize: 20, fontWeight: FontWeight.bold);
@@ -97,33 +100,32 @@ class _CustomCategory extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
-          color: AppColors.greyColor.withOpacity(.2),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            // image: AssetImage(
-            //   AppImages.categories,
-            // ),
+        color: AppColors.greyColor.withOpacity(.2),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          // image: AssetImage(
+          //   AppImages.categories,
+          // ),
+          //   image: CachedNetworkImageProvider(
+          //       "${DioHelper.baseUrl}/${categoriesResult.categoryImage}" ,
+          // ),
+          // image:
+          // NetworkImage("${DioHelper.baseUrl}${categoriesResult.image}"),
 
-            //   image: CachedNetworkImageProvider(
-            //       "${DioHelper.baseUrl}/${categoriesResult.categoryImage}" ,
-            // ),
-
-            // image:
-            // NetworkImage("${DioHelper.baseUrl}${categoriesResult.image}"),
-
-            image: NetworkImage(
-                categoriesResult.image ?? globalDefaltCachedNetworkImage),
-            //  onError:
-          ),
-          boxShadow: [
-            BoxShadow(
-                offset: Offset(2, 4),
-                color: AppColors.mainGreyColor.withOpacity(.1),
-                spreadRadius: 1,
-                blurRadius: 5)
-          ],
-          // color: AppColors.mainGreyColor,
-          borderRadius: BorderRadius.circular(12)),
+          image: NetworkImage(
+              categoriesResult.image ?? globalDefaltCachedNetworkImage),
+          //  onError:
+        ),
+        boxShadow: [
+          BoxShadow(
+              offset: Offset(2, 4),
+              color: AppColors.mainGreyColor.withOpacity(.1),
+              spreadRadius: 1,
+              blurRadius: 5)
+        ],
+        // color: AppColors.mainGreyColor,
+        borderRadius: BorderRadius.circular(12),
+      ),
       width: double.infinity,
       height: 180,
 
@@ -132,94 +134,108 @@ class _CustomCategory extends StatelessWidget {
 
       padding: EdgeInsets.all(15),
       // child: Text('data'),
-      child: Container(
-        height: 100,
-        width: 170,
-        padding: EdgeInsets.all(10),
-        alignment: Alignment.centerLeft,
-        decoration: BoxDecoration(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: (
+          // category id
+          
 
-            // color: AppColors.mainGreyColor.withOpacity(.1),
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12),
-              bottomRight: Radius.circular(12),
-            )),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            const SizedBox(
-              height: 5,
-            ),
-            SizedBox(
-              width: 160,
-              height: 22,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  // category name ,
-                  categoriesResult.nameEn!,
-                  style: _titleTextStyle.copyWith(
-                    height: .8,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
+        ) {
+          // navigate to products of category screen
+          // pass the category id
+          navigateTo(context, ProductsOfCategoryScreen(mainCategoryId: categoriesResult.id!, ));
+        
+        },
+        child: Container(
+          height: 100,
+          width: 170,
+          padding: EdgeInsets.all(10),
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+
+              // color: AppColors.mainGreyColor.withOpacity(.1),
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12),
+                bottomRight: Radius.circular(12),
+              )),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              const SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                width: 160,
+                height: 22,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    // category name ,
+                    categoriesResult.nameEn!,
+                    style: _titleTextStyle.copyWith(
+                      height: .8,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                    // textAlign: TextAlign.start,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  // textAlign: TextAlign.start,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-            ),
-            SizedBox(
-              width: 160,
-              height: 22,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                // child: Text(
-                //   "${categoriesResult.children.length} items",
-                //   style: TextStyle(
-                //     color: AppColors.mainGreyColor,
-                //     fontSize: 14,
-                //     height: .8,
-                //   ),
-                //   maxLines: 1,
-                //   overflow: TextOverflow.ellipsis,
-                // ),
-              ),
-            ),
-            Container(
-              // width: 90,
-              height: 20,
-              padding: EdgeInsets.symmetric(horizontal: 5),
-              decoration: BoxDecoration(
-                color: AppColors.mainColor.withOpacity(
-                  .1,
+              SizedBox(
+                width: 160,
+                height: 22,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  // child: Text(
+                  //   "${categoriesResult.children.length} items",
+                  //   style: TextStyle(
+                  //     color: AppColors.mainGreyColor,
+                  //     fontSize: 14,
+                  //     height: .8,
+                  //   ),
+                  //   maxLines: 1,
+                  //   overflow: TextOverflow.ellipsis,
+                  // ),
                 ),
-                borderRadius: BorderRadius.circular(3),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "shop now",
-                    style: TextStyle(fontSize: 12, color: AppColors.mainColor),
+              Container(
+                // width: 90,
+                height: 20,
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                decoration: BoxDecoration(
+                  color: AppColors.mainColor.withOpacity(
+                    .1,
                   ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  Image.asset(
-                    AppImages.cartSmall,
-                    height: 15,
-                    width: 15,
-                  ),
-                ],
-              ),
-            )
-          ],
+                  borderRadius: BorderRadius.circular(3),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "shop now",
+                      style:
+                          TextStyle(fontSize: 12, color: AppColors.mainColor),
+                    ),
+                    const SizedBox(
+                      width: 3,
+                    ),
+                    Image.asset(
+                      AppImages.cartSmall,
+                      height: 15,
+                      width: 15,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

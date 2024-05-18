@@ -1,8 +1,33 @@
-part of "home_screen.dart";
+// part of "../home/home_screen.dart";
 
-class _CustomDrawer extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:select_shop/core/constants/app_constants.dart';
+import 'package:select_shop/core/constants/app_images.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
+import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
+import 'package:select_shop/main.dart';
+import 'package:select_shop/view/Shared/error_screen.dart';
+import 'package:select_shop/view/Shared/loading_screen.dart';
+import 'package:select_shop/view/cart/cart_screen.dart';
+import 'package:select_shop/view/home/bloc/home_bloc.dart';
+
+TextStyle _customLocalTextStyle = TextStyle(
+  color: AppColors.mainGreyColor,
+);
+
+
+TextStyle _customTitleTextStyle = const TextStyle(
+  color: AppColors.mainColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 18,
+);
+
+class CustomDrawer extends StatelessWidget {
   BuildContext theHomeBuildContext;
-  _CustomDrawer({
+  CustomDrawer({
     super.key,
     required this.theHomeBuildContext,
   });

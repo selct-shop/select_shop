@@ -21,6 +21,10 @@ class DioHelper {
 
   static const String getEmiratesUrl = "/address-city/all";
 
+  static const String getSubCategoriesUrl = "/category/children/";
+  static const String getProductsByCategoryIDUrl = "/product/categoryProducts/";
+  static const String getProductsBySubCategoryIDUrl = "/product/categoryProducts/";
+
   static Dio? _dio;
 
   // #### dio init #### //
@@ -143,6 +147,56 @@ class DioHelper {
       throw Exception(e);
     }
   }
+
+
+
+  // #### get all subCategorys of main category #### //
+  // static Future<Response> getAllProductsOfMainCategory ( 
+  //   final int mainCategoryID 
+  // ) async {
+  //   try {
+  //     final Response response = awa  it _dio!.post(
+  //       getProductsByCategoryIDUrl + mainCategoryID.toString(),
+  //     );
+  //     return response;
+  //   } catch (e) {
+  //     throw Exception(e);
+  //   }
+  // }
+
+  // #### get all products of main category #### //
+  static Future<Response> getAllProductsOfMainCategory ( 
+    final int mainCategoryID 
+  ) async {
+    try {
+      final Response response = await _dio!.post(
+        getProductsByCategoryIDUrl + mainCategoryID.toString(),
+      );
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+
+
+
+  // #### get all products of sub category #### //
+  static Future<Response> getAllProductsOfSubCategory ( 
+    final int subCategoryID 
+  ) async {
+    try {
+      final Response response = await _dio!.post(
+        getProductsBySubCategoryIDUrl + subCategoryID.toString(),
+      );
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+
+
 
   // #### genral dio getData #### //
   static Future<Response> getData({

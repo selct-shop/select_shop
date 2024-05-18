@@ -1,18 +1,22 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-// import 'package:select_shop/view/Shared/search_container.dart';
-
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+import 'package:flutter/material.dart';
+import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/Shared/appbar.dart';
+import 'package:select_shop/view/Shared/drawer.dart';
+import 'package:select_shop/view/Shared/search_container.dart';
+
 
 // part of "home_screen.dart"
-part of 'package:select_shop/view/home/home_screen.dart';
+// part of 'package:select_shop/view/home/home_screen.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+class ProductsOfCategoryScreen extends StatelessWidget {
+  final int mainCategoryId;
+  const ProductsOfCategoryScreen({super.key, required this.mainCategoryId});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: SafeArea(
         child: Hero(
           tag: "search",
