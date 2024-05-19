@@ -7,7 +7,9 @@ class DioHelper {
   // static String baseUrl = 'http://10.255.254.13:3000';
   // static String baseUrl = 'http://74.208.189.16:3000';
 
-  static const String baseUrl = "https://6374-217-165-246-246.ngrok-free.app";
+  // static const String baseUrl = "https://6374-217-165-246-246.ngrok-free.app";
+  // static const String baseUrl = "10.255.254.24";
+  static String baseUrl = 'http://10.255.254.28:3000';
   // static const String? userToken = globalUserToken ;
 
   static String logInUrl = '/customer/signin';
@@ -23,7 +25,8 @@ class DioHelper {
 
   static const String getSubCategoriesUrl = "/category/children/";
   static const String getProductsByCategoryIDUrl = "/product/categoryProducts/";
-  static const String getProductsBySubCategoryIDUrl = "/product/categoryProducts/";
+  static const String getProductsBySubCategoryIDUrl =
+      "/product/categoryProducts/";
 
   static Dio? _dio;
 
@@ -148,26 +151,24 @@ class DioHelper {
     }
   }
 
-
-
   // #### get all subCategorys of main category #### //
-  // static Future<Response> getAllProductsOfMainCategory ( 
-  //   final int mainCategoryID 
-  // ) async {
-  //   try {
-  //     final Response response = awa  it _dio!.post(
-  //       getProductsByCategoryIDUrl + mainCategoryID.toString(),
-  //     );
-  //     return response;
-  //   } catch (e) {
-  //     throw Exception(e);
-  //   }
-  // }
+  static Future<Response> getAllSubCategoryOfMainCategory(
+      {required final int mainCategoryID}) async {
+    print("geeeeeeeeeeeeeeeeeeeeeeeeeeeeet sub categories");
+    try {
+      // pass the main category id
+      final Response response = await _dio!.get(
+        getSubCategoriesUrl + mainCategoryID.toString(),
+      );
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 
   // #### get all products of main category #### //
-  static Future<Response> getAllProductsOfMainCategory ( 
-    final int mainCategoryID 
-  ) async {
+  static Future<Response> getAllProductsOfMainCategory(
+      {required final int mainCategoryID}) async {
     try {
       final Response response = await _dio!.post(
         getProductsByCategoryIDUrl + mainCategoryID.toString(),
@@ -178,13 +179,9 @@ class DioHelper {
     }
   }
 
-
-
-
   // #### get all products of sub category #### //
-  static Future<Response> getAllProductsOfSubCategory ( 
-    final int subCategoryID 
-  ) async {
+  static Future<Response> getAllProductsOfSubCategory(
+      {required final int subCategoryID}) async {
     try {
       final Response response = await _dio!.post(
         getProductsBySubCategoryIDUrl + subCategoryID.toString(),
@@ -194,9 +191,6 @@ class DioHelper {
       throw Exception(e);
     }
   }
-
-
-
 
   // #### genral dio getData #### //
   static Future<Response> getData({

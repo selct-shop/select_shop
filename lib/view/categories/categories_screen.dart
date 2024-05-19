@@ -18,7 +18,7 @@ import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/categories/bloc/categories_bloc.dart';
 import 'package:select_shop/view/product%20details/product_details_screen.dart';
-import 'package:select_shop/view/product%20of%20category/products_of_categorys.dart';
+import 'package:select_shop/view/product%20of%20category/products_main_of_categorys_screen.dart';
 
 TextStyle _titleTextStyle = TextStyle(
     color: AppColors.mainColor, fontSize: 20, fontWeight: FontWeight.bold);

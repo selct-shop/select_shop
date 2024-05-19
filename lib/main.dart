@@ -28,6 +28,7 @@ import 'package:select_shop/view/home/home_screen.dart';
 import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
 import 'package:select_shop/view/product%20details/product_details_screen.dart';
+import 'package:select_shop/view/product%20of%20category/bloc/product_of_main_category_bloc.dart';
 import 'package:select_shop/view/product/products_screen.dart';
 import 'package:select_shop/view/user%20location/bloc/user_location_bloc.dart';
 import 'package:select_shop/view/user%20location/create_new_location.dart';
@@ -85,6 +86,8 @@ class _MyAppState extends State<MyApp> {
           BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),
           BlocProvider<UserLocationBloc>(
               create: (context) => UserLocationBloc()),
+          BlocProvider<ProductOfMainCategoryBloc>(
+              create: (context) => ProductOfMainCategoryBloc()),
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
           builder: (context, state) {
