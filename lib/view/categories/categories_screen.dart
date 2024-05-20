@@ -97,144 +97,154 @@ class _CustomCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      decoration: BoxDecoration(
-        color: AppColors.greyColor.withOpacity(.2),
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          // image: AssetImage(
-          //   AppImages.categories,
-          // ),
-          //   image: CachedNetworkImageProvider(
-          //       "${DioHelper.baseUrl}/${categoriesResult.categoryImage}" ,
-          // ),
-          // image:
-          // NetworkImage("${DioHelper.baseUrl}${categoriesResult.image}"),
-
-          image: NetworkImage(
-              categoriesResult.image ?? globalDefaltCachedNetworkImage),
-          //  onError:
-        ),
-        boxShadow: [
-          BoxShadow(
-              offset: Offset(2, 4),
-              color: AppColors.mainGreyColor.withOpacity(.1),
-              spreadRadius: 1,
-              blurRadius: 5)
-        ],
-        // color: AppColors.mainGreyColor,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      width: double.infinity,
-      height: 180,
-
-      // alignment: Alignment.centerLeft,
-      alignment: Alignment.centerLeft,
-
-      padding: EdgeInsets.all(15),
-      // child: Text('data'),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 10),
       child: InkWell(
-        borderRadius: BorderRadius.circular(12),
-        onTap: (
-          // category id
-          
-
-        ) {
+        borderRadius: BorderRadius.circular(10),
+        onTap: () {
           // navigate to products of category screen
           // pass the category id
-          navigateTo(context, ProductsOfCategoryScreen(mainCategoryId: categoriesResult.id!, ));
-        
+          navigateTo(
+              context,
+              ProductsOfCategoryScreen(
+                mainCategoryId: categoriesResult.id!,
+              ));
         },
         child: Container(
-          height: 100,
-          width: 170,
-          padding: EdgeInsets.all(10),
+          // margin: EdgeInsets.symmetric(vertical: 10),
+          width: double.infinity,
+          height: 180,
+          // alignment: Alignment.centerLeft,
           alignment: Alignment.centerLeft,
+          padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-
-              // color: AppColors.mainGreyColor.withOpacity(.1),
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                bottomRight: Radius.circular(12),
-              )),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              const SizedBox(
-                height: 5,
-              ),
-              SizedBox(
-                width: 160,
-                height: 22,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    // category name ,
-                    categoriesResult.nameEn!,
-                    style: _titleTextStyle.copyWith(
-                      height: .8,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                    // textAlign: TextAlign.start,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 160,
-                height: 22,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  // child: Text(
-                  //   "${categoriesResult.children.length} items",
-                  //   style: TextStyle(
-                  //     color: AppColors.mainGreyColor,
-                  //     fontSize: 14,
-                  //     height: .8,
-                  //   ),
-                  //   maxLines: 1,
-                  //   overflow: TextOverflow.ellipsis,
-                  // ),
-                ),
-              ),
-              Container(
-                // width: 90,
-                height: 20,
-                padding: EdgeInsets.symmetric(horizontal: 5),
-                decoration: BoxDecoration(
-                  color: AppColors.mainColor.withOpacity(
-                    .1,
-                  ),
-                  borderRadius: BorderRadius.circular(3),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "shop now",
-                      style:
-                          TextStyle(fontSize: 12, color: AppColors.mainColor),
-                    ),
-                    const SizedBox(
-                      width: 3,
-                    ),
-                    Image.asset(
-                      AppImages.cartSmall,
-                      height: 15,
-                      width: 15,
-                    ),
-                  ],
-                ),
-              )
+            color: AppColors.greyColor.withOpacity(.2),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              // image: AssetImage(
+              //   AppImages.categories,
+              // ),
+              //   image: CachedNetworkImageProvider(
+              //       "${DioHelper.baseUrl}/${categoriesResult.categoryImage}" ,
+              // ),
+              // image:
+              // NetworkImage("${DioHelper.baseUrl}${categoriesResult.image}"),
+              image: NetworkImage(
+                  categoriesResult.image ?? globalDefaltCachedNetworkImage),
+              //  onError:
+            ),
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(2, 4),
+                  color: AppColors.mainGreyColor.withOpacity(.1),
+                  spreadRadius: 1,
+                  blurRadius: 5)
             ],
+            // color: AppColors.mainGreyColor,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          // child: Text('data'),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(12),
+            onTap: (
+                // category id
+
+                ) {
+              // navigate to products of category screen
+              // pass the category id
+              // navigateTo(context, ProductsOfCategoryScreen(mainCategoryId: categoriesResult.id!, ));
+            },
+            child: Container(
+              height: 100,
+              width: 170,
+              padding: EdgeInsets.all(10),
+              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+
+                  // color: AppColors.mainGreyColor.withOpacity(.1),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    bottomRight: Radius.circular(12),
+                  )),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  SizedBox(
+                    width: 160,
+                    height: 22,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        // category name ,
+                        categoriesResult.nameEn!,
+                        style: _titleTextStyle.copyWith(
+                          height: .8,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                        // textAlign: TextAlign.start,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 160,
+                    height: 22,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      // child: Text(
+                      //   "${categoriesResult.children.length} items",
+                      //   style: TextStyle(
+                      //     color: AppColors.mainGreyColor,
+                      //     fontSize: 14,
+                      //     height: .8,
+                      //   ),
+                      //   maxLines: 1,
+                      //   overflow: TextOverflow.ellipsis,
+                      // ),
+                    ),
+                  ),
+                  Container(
+                    // width: 90,
+                    height: 20,
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    decoration: BoxDecoration(
+                      color: AppColors.mainColor.withOpacity(
+                        .1,
+                      ),
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "shop now",
+                          style: TextStyle(
+                              fontSize: 12, color: AppColors.mainColor),
+                        ),
+                        const SizedBox(
+                          width: 3,
+                        ),
+                        Image.asset(
+                          AppImages.cartSmall,
+                          height: 15,
+                          width: 15,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),
