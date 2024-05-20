@@ -159,7 +159,13 @@ class _HomeCategoriesRow extends StatelessWidget {
                   ),
                 );
               } else if (state is HomeGetHomeCatiegorErrorState) {
-                return ErrorScreen(errorMessage: state.errorMessage.toString());
+                return SingleChildScrollView(
+                  child: SizedBox(
+                      width: double.infinity,
+                      height: 400,
+                      child: ErrorScreen(
+                          errorMessage: state.errorMessage.toString())),
+                );
               } else if (state is HomeGetHomeCatiegorsucseesState) {
                 return ListView.builder(
                     itemCount: context
