@@ -6,7 +6,7 @@ import 'package:select_shop/view/Shared/appbar.dart';
 import 'package:select_shop/view/Shared/drawer.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/search_container.dart';
-import 'package:select_shop/view/product%20of%20category/bloc/product_of_main_category_bloc.dart';
+import 'package:select_shop/view/products%20of%20category/bloc/product_of_main_category_bloc.dart';
 
 // part of "home_screen.dart"
 // part of 'package:select_shop/view/home/home_screen.dart';
@@ -47,26 +47,20 @@ class _ProductsOfCategoryScreenState extends State<ProductsOfCategoryScreen> {
                 child: BlocBuilder<ProductOfMainCategoryBloc,
                     ProductsOfMainCategoryState>(
                   builder: (context, state) {
-                    if (state is ProductsOfMainCategoryLoadedState) {
-                      if (context
-                                  .read<ProductOfMainCategoryBloc>()
-                                  .loadingSubCategories ==
-                              true ||
-                          context
-                                  .read<ProductOfMainCategoryBloc>()
-                                  .loadingTheProducts ==
-                              true) {
-                        return Center(
-                          child: CustomLoadingScreen(),
-                        );
-                      } else {
-                        return _TheBody();
-                      }
-
-                      ///
-                      ///
-                      ///
-                      ///
+                    if (state is ProductsOfMainCategoryLoadedState &&
+                        (context
+                                    .read<ProductOfMainCategoryBloc>()
+                                    .loadingSubCategoriesState ==
+                                false &&
+                            context
+                                    .read<ProductOfMainCategoryBloc>()
+                                    .loadingTheProductsState ==
+                                false)) {
+                      return _TheBody();
+                    } else if (state is ProductsOfMainCategoryErrorState) {
+                      return Center(
+                        child: CustomLoadingScreen(),
+                      );
                     } else {
                       return const Center(
                         child: CustomLoadingScreen(),
@@ -174,17 +168,26 @@ class _TheBody extends StatelessWidget {
               ),
               // if (state
               //     is ProductsOfMainCategoryGetSubCategoryProductsSuccessState)
-              //   Expanded(
-              //     child: TabBarView(
-              //       children: [
-              //         Icon(Icons.directions_car),
-              //         Icon(Icons.directions_transit),
-              //         Icon(Icons.directions_bike),
-              //         _CustomTabChild(),
-              //         _CustomTabChild(),
-              //       ],
-              //     ),
-              //   ),
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    for (int i = 0;
+                        i <
+                            context
+                                .read<ProductOfMainCategoryBloc>()
+                                .subCategoriesList
+                                .length;
+                        i++)
+                      Icon(Icons.directions_car),
+
+                    // Icon(Icons.directions_car),
+                    // Icon(Icons.directions_transit),
+                    // Icon(Icons.directions_bike),
+                    // _CustomTabChild(),
+                    // _CustomTabChild(),
+                  ],
+                ),
+              ),
             ],
           ),
         );

@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
+import 'package:select_shop/models/products%20of%20category%20models/products_of_category_model.dart';
 import 'package:select_shop/models/sub%20categories%20model/sub_categories_model.dart';
 
 part 'product_of_main_category_event.dart';
@@ -10,8 +11,10 @@ part 'product_of_main_category_state.dart';
 class ProductOfMainCategoryBloc
     extends Bloc<ProductOfCategoryEvent, ProductsOfMainCategoryState> {
   List<SubCategoriesResult> subCategoriesList = [];
-   bool loadingSubCategories = true;
-   bool loadingTheProducts = true;
+  // list of the products of the subCategory or the main category
+  List<CategoryProduct?> productsOfACategoryResultList = [];
+   bool loadingSubCategoriesState = true;
+   bool loadingTheProductsState = true;
   ProductOfMainCategoryBloc() : super(ProductsOfMainCategoryInitialState()) {
     on<ProductOfCategoryEvent>((event, emit) async {
       // TODO: implement event handler
@@ -33,7 +36,7 @@ class ProductOfMainCategoryBloc
             theMainCategoryID: event.theMainCategoryID));
 
         // get the subcategories
-        //  add(GetAllTheProductsOfTheMainCategoryEvent( theMainCategoryID: event.theMainCategoryID ));
+         add(GetAllTheProductsOfTheMainCategoryEvent( theMainCategoryID: event.theMainCategoryID ));
 
         // emit loaded sucsses state
         print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
@@ -51,7 +54,7 @@ class ProductOfMainCategoryBloc
 // emit loading state
         // emit(ProductsOfMainCategoryGetSubCategoriesLoadingState());
 
-        loadingSubCategories = true;
+        loadingSubCategoriesState  = true;
         Response<dynamic> response =
             await DioHelper.getAllSubCategoryOfMainCategory(
                 mainCategoryID: event.theMainCategoryID);
@@ -67,9 +70,53 @@ class ProductOfMainCategoryBloc
 
           // emit loaded or success state
           // emit(ProductsOfMainCategoryGetSubCategoriesSuccessState());
-          loadingSubCategories = false; 
+          loadingSubCategoriesState = false; 
+          emit(ProductsOfMainCategoryLoadedState());
+// temp
+          // loadingTheProductsState = false; 
+       
+        } else {
+          // emit(GetThema)
+        }
+      }
 
-          // emit(ProductsOfMainCategoryLoadedState());
+      ///
+      ///
+      ///
+      ///
+      ///
+      
+
+
+      // #### #### //
+// #### get all the proudcts of the main category #### //
+      if (event is GetAllTheProductsOfTheMainCategoryEvent) {
+// emit loading state
+        // emit(ProductsOfMainCategoryGetSubCategoriesLoadingState());
+
+        loadingTheProductsState  = true;
+        Response<dynamic> response =
+            await DioHelper.getAllProductsOfMainCategory(
+                mainCategoryID: event.theMainCategoryID);
+
+        if (response.statusCode == 200) {
+          print("geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne");
+          GetAllProductsOfACategoryModel getAllProductsOfACategoryModel =
+              GetAllProductsOfACategoryModel.fromJson(response.data);
+
+          // clear the cached data and add new one
+          productsOfACategoryResultList.clear();
+          productsOfACategoryResultList = getAllProductsOfACategoryModel.result.categoryProducts;
+          
+
+          
+
+
+          // emit loaded or success state
+          // emit(ProductsOfMainCategoryGetSubCategoriesSuccessState());
+          loadingTheProductsState = false; 
+          emit(ProductsOfMainCategoryLoadedState());
+       
         } else {
           // emit(GetThema)
         }

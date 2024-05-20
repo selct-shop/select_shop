@@ -12,7 +12,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  int activePageNumber = 1;
+  int activePageNumber = 2;
   int activeDrawerPage = 1;
   int currentCarouselSliderIndex = 0;
   List<MainCategoriesResult?> categoresListForHomeScreen = [];
@@ -106,7 +106,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           emit(HomeGetHomeCatiegorLoadingState());
           // get all the categories
           try {
-            Response getHomeMainCateResponse = await DioHelper.getHomeMainCategories();
+            Response getHomeMainCateResponse =
+                await DioHelper.getHomeMainCategories();
 
             if (getHomeMainCateResponse.statusCode == 200) {
               GetMainCategoriesModle getMainCategoriesModle =
@@ -124,8 +125,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               emit(HomeGetHomeCatiegorsucseesState());
             } else {
               emit(HomeGetHomeCatiegorErrorState(
-                  errorMessage:
-                      getHomeMainCateResponse.statusMessage ?? "unknown Error"));
+                  errorMessage: getHomeMainCateResponse.statusMessage ??
+                      "unknown Error"));
             }
           } catch (exception) {
             emit(HomeGetHomeCatiegorErrorState(

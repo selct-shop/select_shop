@@ -22,13 +22,15 @@ import 'package:select_shop/view/Auth/forget_password_screen.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/categories/bloc/categories_bloc.dart';
+import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/check%20out/check_out.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
 import 'package:select_shop/view/product%20details/product_details_screen.dart';
-import 'package:select_shop/view/product%20of%20category/bloc/product_of_main_category_bloc.dart';
+import 'package:select_shop/view/products%20of%20category/bloc/product_of_main_category_bloc.dart';
+import 'package:select_shop/view/products%20of%20category/products_main_of_categorys_screen.dart';
 import 'package:select_shop/view/product/products_screen.dart';
 import 'package:select_shop/view/user%20location/bloc/user_location_bloc.dart';
 import 'package:select_shop/view/user%20location/create_new_location.dart';
@@ -159,5 +161,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(body: SafeArea(child: SearchScreen()));
     // return const Scaffold(body: SafeArea(child: UserLocationsScreen()));
     // return const Scaffold(body: SafeArea(child: CreateNewLocationScreen()));
+    // return const Scaffold(body: SafeArea(child: CategoriesScreen()));
   }
 }
