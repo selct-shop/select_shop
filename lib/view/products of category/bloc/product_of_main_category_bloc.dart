@@ -13,8 +13,73 @@ class ProductOfMainCategoryBloc
   List<SubCategoriesResult> subCategoriesList = [];
   // list of the products of the subCategory or the main category
   List<CategoryProduct?> productsOfACategoryResultList = [];
-   bool loadingSubCategoriesState = true;
-   bool loadingTheProductsState = true;
+  bool loadingSubCategoriesState = true;
+  bool loadingTheProductsState = true;
+
+  // #### #### //
+  // get all subCategory function //
+
+  Future<bool> getTheSubCategoryOfTheMainCategoryFunc(
+      {required final int theMainCategoryID}) async {
+    loadingSubCategoriesState = true;
+    Response<dynamic> response =
+        await DioHelper.getAllSubCategoryOfMainCategory(
+            mainCategoryID: theMainCategoryID);
+
+    if (response.statusCode == 200) {
+      print("geeeeeet allllllll sub cate donnnnnnnnnnnnnnnnnnnnne");
+      GetAllSubCategoriesOfMainCateIdModle subCategoriesOfMainCateIdModle =
+          GetAllSubCategoriesOfMainCateIdModle.fromJson(response.data);
+
+      // clear the cached data and add new one
+      subCategoriesList.clear();
+      subCategoriesList = subCategoriesOfMainCateIdModle.result;
+
+      // emit loaded or success state
+      // emit(ProductsOfMainCategoryGetSubCategoriesSuccessState());
+      loadingSubCategoriesState = false;
+      // emit(ProductsOfMainCategoryLoadedState());
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+// #### #### //
+// #### get all products of the main category #### //
+
+  Future<bool> getAllProductsOfACategoryFunc(
+      {required final int theMainCategoryID}) async {
+    loadingTheProductsState = true;
+    Response<dynamic> response = await DioHelper.getAllProductsOfMainCategory(
+        mainCategoryID: theMainCategoryID);
+
+    if (response.statusCode == 200) {
+      print("geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne");
+      GetAllProductsOfACategoryModel getAllProductsOfACategoryModel =
+          GetAllProductsOfACategoryModel.fromJson(response.data);
+
+      // clear the cached data and add new one
+      productsOfACategoryResultList.clear();
+      productsOfACategoryResultList =
+          getAllProductsOfACategoryModel.result.categoryProducts;
+
+      // emit loaded or success state
+      // emit(ProductsOfMainCategoryGetSubCategoriesSuccessState());
+      loadingTheProductsState = false;
+      // emit(ProductsOfMainCategoryLoadedState());
+      return true;
+    } else {
+      return false;
+    }
+
+    ///
+    ///
+    ///
+    ///
+    ///
+  }
+
   ProductOfMainCategoryBloc() : super(ProductsOfMainCategoryInitialState()) {
     on<ProductOfCategoryEvent>((event, emit) async {
       // TODO: implement event handler
@@ -32,16 +97,35 @@ class ProductOfMainCategoryBloc
         emit(ProductsOfMainCategoryLoadingState());
 
         // get the subcategories
-        add(GetTheSubCategoryOfTheMainCategoryEvent(
-            theMainCategoryID: event.theMainCategoryID));
+        // add(GetTheSubCategoryOfTheMainCategoryEvent(
+        //     theMainCategoryID: event.theMainCategoryID));
+        // getTheSubCategoryOfTheMainCategoryFunc(
+        //     theMainCategoryID: event.theMainCategoryID);
 
         // get the subcategories
-         add(GetAllTheProductsOfTheMainCategoryEvent( theMainCategoryID: event.theMainCategoryID ));
+        //  add(GetAllTheProductsOfTheMainCategoryEvent( theMainCategoryID: event.theMainCategoryID ));
 
-        // emit loaded sucsses state
-        print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
-        emit(ProductsOfMainCategoryLoadedState());
-        print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+        // getAllProductsOfACategoryFunc(
+        //     theMainCategoryID: event.theMainCategoryID);
+
+        if (await getTheSubCategoryOfTheMainCategoryFunc(
+                    theMainCategoryID: event.theMainCategoryID) ==
+                true &&
+            await getAllProductsOfACategoryFunc(
+                    theMainCategoryID: event.theMainCategoryID) ==
+                true) {
+          // emit loaded sucsses state
+          print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+          emit(ProductsOfMainCategoryLoadedState());
+          print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+        } else {
+          emit(ProductsOfMainCategoryErrorState());
+        }
+
+        // // emit loaded sucsses state
+        // print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+        // emit(ProductsOfMainCategoryLoadedState());
+        // print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
       }
 
       ///
@@ -50,83 +134,54 @@ class ProductOfMainCategoryBloc
 
 // #### #### //
 // #### get all subCategorys of the main category #### //
-      if (event is GetTheSubCategoryOfTheMainCategoryEvent) {
+      // if (event is GetTheSubCategoryOfTheMainCategoryEvent) {
 // emit loading state
-        // emit(ProductsOfMainCategoryGetSubCategoriesLoadingState());
-
-        loadingSubCategoriesState  = true;
-        Response<dynamic> response =
-            await DioHelper.getAllSubCategoryOfMainCategory(
-                mainCategoryID: event.theMainCategoryID);
-
-        if (response.statusCode == 200) {
-          print("geeeeeet allllllll sub cate donnnnnnnnnnnnnnnnnnnnne");
-          GetAllSubCategoriesOfMainCateIdModle subCategoriesOfMainCateIdModle =
-              GetAllSubCategoriesOfMainCateIdModle.fromJson(response.data);
-
-          // clear the cached data and add new one
-          subCategoriesList.clear();
-          subCategoriesList = subCategoriesOfMainCateIdModle.result;
-
-          // emit loaded or success state
-          // emit(ProductsOfMainCategoryGetSubCategoriesSuccessState());
-          loadingSubCategoriesState = false; 
-          emit(ProductsOfMainCategoryLoadedState());
+      // emit(ProductsOfMainCategoryGetSubCategoriesLoadingState());
 // temp
-          // loadingTheProductsState = false; 
-       
-        } else {
-          // emit(GetThema)
-        }
-      }
+      // loadingTheProductsState = false;
+
+      //   } else {
+      //     // emit(GetThema)
+      //   }
+      // }
 
       ///
       ///
       ///
       ///
       ///
-      
 
-
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
       // #### #### //
 // #### get all the proudcts of the main category #### //
-      if (event is GetAllTheProductsOfTheMainCategoryEvent) {
-// emit loading state
-        // emit(ProductsOfMainCategoryGetSubCategoriesLoadingState());
+//       if (event is GetAllTheProductsOfTheMainCategoryEvent) {
+// // emit loading state
+//         // emit(ProductsOfMainCategoryGetSubCategoriesLoadingState());
 
-        loadingTheProductsState  = true;
-        Response<dynamic> response =
-            await DioHelper.getAllProductsOfMainCategory(
-                mainCategoryID: event.theMainCategoryID);
+//         loadingTheProductsState  = true;
+//         Response<dynamic> response =
+//             await DioHelper.getAllProductsOfMainCategory(
+//                 mainCategoryID: event.theMainCategoryID);
 
-        if (response.statusCode == 200) {
-          print("geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne");
-          GetAllProductsOfACategoryModel getAllProductsOfACategoryModel =
-              GetAllProductsOfACategoryModel.fromJson(response.data);
+//         if (response.statusCode == 200) {
+//           print("geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne");
+//           GetAllProductsOfACategoryModel getAllProductsOfACategoryModel =
+//               GetAllProductsOfACategoryModel.fromJson(response.data);
 
-          // clear the cached data and add new one
-          productsOfACategoryResultList.clear();
-          productsOfACategoryResultList = getAllProductsOfACategoryModel.result.categoryProducts;
-          
+//           // clear the cached data and add new one
+//           productsOfACategoryResultList.clear();
+//           productsOfACategoryResultList = getAllProductsOfACategoryModel.result.categoryProducts;
 
-          
+//           // emit loaded or success state
+//           // emit(ProductsOfMainCategoryGetSubCategoriesSuccessState());
+//           loadingTheProductsState = false;
+//           emit(ProductsOfMainCategoryLoadedState());
 
-
-          // emit loaded or success state
-          // emit(ProductsOfMainCategoryGetSubCategoriesSuccessState());
-          loadingTheProductsState = false; 
-          emit(ProductsOfMainCategoryLoadedState());
-       
-        } else {
-          // emit(GetThema)
-        }
-      }
-
-      ///
-      ///
-      ///
-      ///
-      ///
+//         } else {
+//           // emit(GetThema)
+//         }
+//       }
     });
   }
 }

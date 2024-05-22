@@ -12,7 +12,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  int activePageNumber = 4;
+  int activePageNumber = 2;
   int activeDrawerPage = 1;
   int currentCarouselSliderIndex = 0;
   List<MainCategoriesResult?> categoresListForHomeScreen = [];

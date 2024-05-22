@@ -47,15 +47,17 @@ class _ProductsOfCategoryScreenState extends State<ProductsOfCategoryScreen> {
                 child: BlocBuilder<ProductOfMainCategoryBloc,
                     ProductsOfMainCategoryState>(
                   builder: (context, state) {
-                    if (state is ProductsOfMainCategoryLoadedState &&
-                        (context
-                                    .read<ProductOfMainCategoryBloc>()
-                                    .loadingSubCategoriesState ==
-                                false &&
-                            context
-                                    .read<ProductOfMainCategoryBloc>()
-                                    .loadingTheProductsState ==
-                                false)) {
+                    if (state is ProductsOfMainCategoryLoadedState
+                        // &&
+                        // (context
+                        //             .read<ProductOfMainCategoryBloc>()
+                        //             .loadingSubCategoriesState ==
+                        //         false &&
+                        //     context
+                        //             .read<ProductOfMainCategoryBloc>()
+                        //             .loadingTheProductsState ==
+                        //         false)
+                        ) {
                       return _TheBody();
                     } else if (state is ProductsOfMainCategoryErrorState) {
                       return Center(
