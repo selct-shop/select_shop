@@ -7,6 +7,7 @@ import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/functions/signout.dart';
+import 'package:select_shop/core/helpers/user_experience_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
@@ -300,10 +301,19 @@ class _DrawerBody extends StatelessWidget {
                 // selectedColor: AppColors.mainColor,
                 // selectedTileColor: AppColors.mainColor,
                 onTap: () async {
-                  // sign out
-                  if (await signOut()) {
-                    navigateToWithReplacement(context, const LogInScreen());
-                  }
+                  UserExperinceHelper().showCustomDialog(
+                    theContext: context,
+                    dialogContent: "you sure you want to signout !!",
+                    confirmButtonTitle: S.of(context).signOut,
+                    onConfirm: () async {
+                      print("coococococococococococ"); // sign out
+                      bool siiiignout = await signOut();
+                      // if (await signOut()) {
+                      if (siiiignout == true) {
+                        navigateToWithReplacement(context, const LogInScreen());
+                      }
+                    },
+                  );
                 },
                 leading: SvgPicture.asset(
                   // color: isActive == true ? Colors.white : AppColors.mainColor,

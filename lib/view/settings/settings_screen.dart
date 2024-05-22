@@ -7,7 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/functions/signout.dart';
+import 'package:select_shop/core/helpers/user_experience_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
@@ -252,9 +254,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       theSvgPictuer: AppImages.homeSvg,
                       onTap: () async {
                         // sign out
-                        if (await signOut()) {
-                          navigateToWithReplacement(context, LogInScreen());
-                        }
+                        // if (await signOut()) {
+                        //   navigateToWithReplacement(context, LogInScreen());
+                        // }
+
+                  UserExperinceHelper().showCustomDialog(
+                    theContext: context,
+                    dialogContent: "you sure you want to signout !!",
+                    confirmButtonTitle: S.of(context).signOut,
+                    onConfirm: () async {
+                      print("coococococococococococ"); // sign out
+                      bool siiiignout = await signOut();
+                      // if (await signOut()) {
+                      if (siiiignout == true) {
+                        navigateToWithReplacement(context, const LogInScreen());
+                      }
+                    },
+                  );
+                
                       },
                     ),
                   ],

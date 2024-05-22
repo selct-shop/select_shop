@@ -102,14 +102,17 @@ class UserExperinceHelper {
               //       : const SizedBox(),
               // ),
 
-              AppButton(
-                title: confirmButtonTitle ?? '',
-                borderRadius: 10,
-                hasBorder: true,
-                borderColor: AppColors.mainColor,
-                backgroundColor: AppColors.mainColor,
-                textColor: Colors.white,
-              ),
+              confirmButtonTitle != null
+                  ? AppButton(
+                      title: confirmButtonTitle,
+                      borderRadius: 10,
+                      hasBorder: true,
+                      borderColor: AppColors.mainColor,
+                      backgroundColor: AppColors.mainColor,
+                      textColor: Colors.white,
+                      onTap: onConfirm,
+                    )
+                  : const SizedBox(),
 
               const SizedBox(
                 height: 10,
@@ -122,15 +125,17 @@ class UserExperinceHelper {
               //       ? Text(cancelButtonTitle)
               //       : const SizedBox(),
               // ),
-
-              AppButton(
-                title: cancelButtonTitle ?? '',
-                borderRadius: 10,
-                hasBorder: true,
-                borderColor: AppColors.mainColor,
-                backgroundColor: Colors.white,
-                textColor: AppColors.mainColor,
-              ),
+              cancelButtonTitle != null
+                  ? AppButton(
+                      title: cancelButtonTitle ?? '',
+                      borderRadius: 10,
+                      hasBorder: true,
+                      borderColor: AppColors.mainColor,
+                      backgroundColor: Colors.white,
+                      textColor: AppColors.mainColor,
+                      onTap: onCancel,
+                    )
+                  : const SizedBox(),
 
               //
               //
