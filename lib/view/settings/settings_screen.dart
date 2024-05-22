@@ -6,8 +6,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
+import 'package:select_shop/core/functions/signout.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/main.dart';
+import 'package:select_shop/view/Auth/login_screen.dart';
+import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
@@ -236,19 +239,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       },
                     ),
                     _CustomSettingListTile(
-                      theTitle: "sign out",
+                      theTitle: "help center",
                       theSvgPictuer: AppImages.homeSvg,
                       hasADivier: true,
                       onTap: () {
-                        // sign out
+                        // navigate to help center screen
+                        navigateTo(context, UnderDevScreen());
                       },
                     ),
                     _CustomSettingListTile(
-                      theTitle: "help center",
+                      theTitle: "sign out",
                       theSvgPictuer: AppImages.homeSvg,
-                      onTap: () {
-                        // navigate to help center screen
-                        navigateTo(context, UnderDevScreen());
+                      onTap: () async {
+                        // sign out
+                        if (await signOut()) {
+                          navigateToWithReplacement(context, LogInScreen());
+                        }
                       },
                     ),
                   ],

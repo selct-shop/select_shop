@@ -6,9 +6,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
+import 'package:select_shop/core/functions/signout.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
+import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
@@ -17,7 +19,6 @@ import 'package:select_shop/view/home/bloc/home_bloc.dart';
 TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,
 );
-
 
 TextStyle _customTitleTextStyle = const TextStyle(
   color: AppColors.mainColor,
@@ -298,6 +299,12 @@ class _DrawerBody extends StatelessWidget {
                 // selected: true,
                 // selectedColor: AppColors.mainColor,
                 // selectedTileColor: AppColors.mainColor,
+                onTap: () async {
+                  // sign out
+                  if (await signOut()) {
+                    navigateToWithReplacement(context, const LogInScreen());
+                  }
+                },
                 leading: SvgPicture.asset(
                   // color: isActive == true ? Colors.white : AppColors.mainColor,
                   // leading,
