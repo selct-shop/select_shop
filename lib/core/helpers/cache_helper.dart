@@ -17,6 +17,7 @@ class CacheHelper {
     globalCachedUserToken = await getData(key: AppConstants.cachedUserToken);
     globalCachedUserLang = await getData(key: AppConstants.cachedUserLang);
     globalCachedUserName = await getData(key: AppConstants.cachedUserName);
+    globalCachedUserID = await getData(key: AppConstants.cachedUserID);
     globalCachedUserPhoneNum = await getData(key: AppConstants.cachedUserPhonNum);
 
     // print("uuuuuuuuuuuuuuuuuuuuuuuuuuuuu :${globalUserToken}");

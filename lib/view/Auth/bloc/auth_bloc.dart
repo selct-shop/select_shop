@@ -18,6 +18,7 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   String? cashedUserName;
+  String? cashedUserID;
   String? cashedUserEmail;
   String? cashedUserToken;
   String? cashedUserPhoneNum;
@@ -26,11 +27,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   _cashUserData({
     required String token,
     required String userName,
+    required String userID,
     String? userPhoneNumber,
     String? userEmail,
   }) async {
     // userToken = token;
     // userName = userName;
+    // userID = userID;
     // userPhoneNum = userPhoneNumber;
     // userEmail = userEmail;
 //
@@ -40,12 +43,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     await CacheHelper.setData(key: AppConstants.cachedUserToken, value: token);
     await CacheHelper.setData(
         key: AppConstants.cachedUserName, value: userName);
+
+        await CacheHelper.setData(
+        key: AppConstants.cachedUserID, value: userID);
     await CacheHelper.setData(
         key: AppConstants.cachedUserPhonNum, value: userPhoneNumber);
     await CacheHelper.setData(
         key: AppConstants.cachedUserEmail, value: userEmail ?? "");
 
     cashedUserName = userName;
+    cashedUserID = userID;
     cashedUserEmail = userEmail ?? "";
     cashedUserToken = token;
     cashedUserPhoneNum = userPhoneNumber ?? "";
@@ -171,6 +178,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 ? await _cashUserData(
                     token: signnnnModle.result!.accessToken!,
                     userName: customer.name!,
+                    userID: customer.id.toString(),
                     userEmail: customer.email,
                     userPhoneNumber: customer.phoneNumber,
                   )
@@ -244,6 +252,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             await _cashUserData(
               token: signUpModle.resultSignUp!.accessToken!,
               userName: signUpModle.resultSignUp!.customerSignUp!.name!,
+              userID: signUpModle.resultSignUp!.customerSignUp!.id!.toString(),
               userEmail: signUpModle.resultSignUp!.customerSignUp!.email,
               userPhoneNumber:
                   signUpModle.resultSignUp!.customerSignUp!.phoneNumber,

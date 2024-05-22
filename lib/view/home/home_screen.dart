@@ -31,7 +31,7 @@ import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/favourite/favourite_screen.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
-import 'package:select_shop/view/personal/personal_screen.dart';
+import 'package:select_shop/view/settings/settings_screen.dart';
 import 'dart:math' as math;
 
 // import 'package:select_shop/view/search/search_screen.dart';
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     } else if (context.read<HomeBloc>().activePageNumber == 3) {
                       return FavoureitesScreen();
                     } else if (context.read<HomeBloc>().activePageNumber == 4) {
-                      return PersonalScreen();
+                      return SettingsScreen();
                     } else {
                       return CustomLoadingScreen();
                     }

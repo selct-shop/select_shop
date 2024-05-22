@@ -39,6 +39,7 @@ import 'package:select_shop/view/user%20location/user_location_screen.dart';
 String? globalCachedUserToken;
 String? globalCachedUserLang;
 String? globalCachedUserName;
+String? globalCachedUserID;
 String? globalCachedUserPhoneNum;
 //  const String globalDefaltCachedNetworkImage = "https://www.istockphoto.com/illustrations/green-shopping-cart-icon";
 const String globalDefaltCachedNetworkImage =
