@@ -17,28 +17,37 @@ const String _discountOrNewTag = "disscount";
 // const String _brandName = "chanel";
 
 class ProductContainer extends StatelessWidget {
-  final bool? isDisscountOrNew;
+  final bool? isDisscountOrNew, isFavourated , isDiscountOrNew ;
   final String? productName,
-      category,
+      categoryName ,
       productDiscreption,
       oldPrice,
       newPrice,
       brandName,
-      ProductNetworkImage,
+      productNetworkImage,
       brandNetworkImage;
-  final double? productRating;
+  final double? productRating, width, height ;
+  final Function()? onTapProductWidget, onTapAddOrRemoveFav;
   const ProductContainer({
     super.key,
-    this.isDisscountOrNew,
-    this.productName,
-    this.category,
-    this.productDiscreption,
-    this.oldPrice,
-    this.newPrice,
-    this.brandName,
-    this.ProductNetworkImage,
-    this.brandNetworkImage,
-    this.productRating,
+  required   this.isDisscountOrNew,
+
+  required this.isFavourated,
+  required this.isDiscountOrNew,
+   required   this.productName,
+   required   this.categoryName ,
+    required  this.productDiscreption,
+    required  this.oldPrice,
+    required  this.newPrice,
+     required this.brandName,
+     required this.productNetworkImage,
+     required this.brandNetworkImage,
+     required this.productRating,
+     required this.width ,
+     required this.height,
+    required  this.onTapProductWidget, 
+      required this.onTapAddOrRemoveFav, 
+
   });
 
   @override
@@ -47,9 +56,9 @@ class ProductContainer extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 20),
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
-        onTap: () {},
+        onTap: onTapProductWidget ?? (){},
         child: Container(
-          width: double.infinity,
+          width: width ?? double.infinity,
           height: 134,
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
@@ -75,23 +84,26 @@ class ProductContainer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _TagAndFavRow(
-                    isFavourated: true,
-                    isDiscountOrNew: true,
-                    addOrRemoveFav: () {},
+                    isFavourated: isFavourated ?? false ,
+                    isDiscountOrNew: isDiscountOrNew ?? false,
+                    addOrRemoveFav: onTapAddOrRemoveFav?? ( ) 
+                    { },
                   ),
                   _NameAndRatingRow(
-                    productName: "t-shirt",
-                    ratingNumber: 3.8,
+                    productName: productName,
+                    ratingNumber: productRating,
                   ),
                   _CategoryNameRow(),
                   _DescriptionRow(
                     productDiscription:
+
+                    productDiscreption ?? 
                         "here comes the product discription, and so on",
                   ),
                   _PriceAndBrandRow(
-                    bandName: "channel",
-                    newPrice: "288",
-                    oldPrice: "399",
+                    bandName:  brandName ?? "brand",
+                    newPrice: newPrice ?? "??",
+                    oldPrice: oldPrice?? "??",
                   ),
                   const SizedBox(
                     height: 5,
