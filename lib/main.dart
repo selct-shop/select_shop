@@ -33,6 +33,7 @@ import 'package:select_shop/view/product%20details/product_details_screen.dart';
 import 'package:select_shop/view/products%20of%20category/bloc/product_of_main_category_bloc.dart';
 import 'package:select_shop/view/products%20of%20category/products_main_of_categorys_screen.dart';
 import 'package:select_shop/view/product/products_screen.dart';
+import 'package:select_shop/view/track%20order/track_order_screen.dart';
 import 'package:select_shop/view/user%20location/bloc/user_location_bloc.dart';
 import 'package:select_shop/view/user%20location/create_new_location.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
@@ -158,9 +159,11 @@ class _MyHomePageState extends State<MyHomePage> {
     // return Scaffold(body: SafeArea(child: ErrorScreen(errorMessage: 'test')));
     // return const Scaffold(body: SafeArea(child: HomeScreen()));
     // return const Scaffold(body: SafeArea(child: ProductDetailsScreen()));
-    // return const Scaffold(body: SafeArea(child: ProductsScreen()));
+    return const Scaffold(body: SafeArea(child: ProductsScreen()));
     // return const Scaffold(body: SafeArea(child: CheckOutScreen()));
-    return const Scaffold(body: SafeArea(child: ChoosePaymentMethodScreen()));
+    // return const Scaffold(body: SafeArea(child: ChoosePaymentMethodScreen()));
+    // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
+
     // return const Scaffold(body: SafeArea(child: SearchScreen()));
     // return const Scaffold(body: SafeArea(child: UserLocationsScreen()));
     // return const Scaffold(body: SafeArea(child: CreateNewLocationScreen()));
