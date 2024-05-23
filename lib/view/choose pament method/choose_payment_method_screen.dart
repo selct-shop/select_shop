@@ -292,6 +292,9 @@ class _ChoosePaymentMethodScreenState extends State<ChoosePaymentMethodScreen> {
                         ),
                         const Spacer(),
 
+                        // just for the empty commit
+                        const SizedBox(), 
+
                         Text(
                           "apply",
                           style: TextStyle(
