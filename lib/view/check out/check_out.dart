@@ -8,7 +8,9 @@ import 'package:flutter_dash/flutter_dash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
 
 class CheckOutScreen extends StatelessWidget {
   const CheckOutScreen({super.key});
@@ -60,7 +62,13 @@ class CheckOutScreen extends StatelessWidget {
             ),
 
             // check out details
-            _CheckOutDetails(),
+
+            _CheckOutDetails(
+              theNewPrice: "299",
+              theDiscount: "7",
+              deliveryPrice: "20",
+              totalPrice: "240",
+            ),
 
             ///
             ///
@@ -110,9 +118,15 @@ class CheckOutScreen extends StatelessWidget {
 }
 
 // check out details
+
 class _CheckOutDetails extends StatelessWidget {
+  final String? theNewPrice, theDiscount, deliveryPrice, totalPrice;
   const _CheckOutDetails({
     super.key,
+    required this.theNewPrice,
+    required this.theDiscount,
+    required this.deliveryPrice,
+    required this.totalPrice,
   });
 
   @override
@@ -139,7 +153,7 @@ class _CheckOutDetails extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                "3478" " " "AED",
+                "$theNewPrice" " " "AED",
                 style: TextStyle(
                     color: AppColors.mainColor,
                     fontWeight: FontWeight.w500,
@@ -154,32 +168,34 @@ class _CheckOutDetails extends StatelessWidget {
         ///
         ///
         ///
-        SizedBox(
-          // discount row
-          height: 30,
-          width: double.infinity,
-          child: Row(
-            children: [
-              Text(
-                "Discount" " : ",
-                style: TextStyle(
-                    color: AppColors.grey2Color,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
-                    height: .8),
-              ),
-              Spacer(),
-              Text(
-                "3478" " " "%",
-                style: TextStyle(
-                    color: AppColors.mainColor,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
-                    height: .8),
-              ),
-            ],
-          ),
-        ),
+        theDiscount != null
+            ? SizedBox(
+                // discount row
+                height: 30,
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    Text(
+                      "Discount" " : ",
+                      style: TextStyle(
+                          color: AppColors.grey2Color,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                          height: .8),
+                    ),
+                    Spacer(),
+                    Text(
+                      "$theDiscount" " " "%",
+                      style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                          height: .8),
+                    ),
+                  ],
+                ),
+              )
+            : const SizedBox(),
 
         ///
         ///
@@ -216,32 +232,34 @@ class _CheckOutDetails extends StatelessWidget {
         ///
         ///
         ///
-        SizedBox(
-          // the Delivery price row
-          height: 30,
-          width: double.infinity,
-          child: Row(
-            children: [
-              Text(
-                "delivery price" " : ",
-                style: TextStyle(
-                    color: AppColors.grey2Color,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
-                    height: .8),
-              ),
-              Spacer(),
-              Text(
-                "0.00" " " "AED",
-                style: TextStyle(
-                    color: AppColors.mainColor,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
-                    height: .8),
-              ),
-            ],
-          ),
-        ),
+        deliveryPrice != null
+            ? SizedBox(
+                // the Delivery price row
+                height: 30,
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    Text(
+                      "delivery price" " : ",
+                      style: TextStyle(
+                          color: AppColors.grey2Color,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                          height: .8),
+                    ),
+                    Spacer(),
+                    Text(
+                      "$deliveryPrice" " " "AED",
+                      style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                          height: .8),
+                    ),
+                  ],
+                ),
+              )
+            : const SizedBox(),
 
         ///
         ///
@@ -264,32 +282,34 @@ class _CheckOutDetails extends StatelessWidget {
         ///
         ///
         ///
-        SizedBox(
-          // the total price row
-          height: 30,
-          width: double.infinity,
-          child: Row(
-            children: [
-              Text(
-                "total price" " : ",
-                style: TextStyle(
-                    color: AppColors.grey2Color,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    height: .8),
-              ),
-              Spacer(),
-              Text(
-                "200.00" " " "AED",
-                style: TextStyle(
-                    color: AppColors.mainColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    height: .8),
-              ),
-            ],
-          ),
-        ),
+        totalPrice != null
+            ? SizedBox(
+                // the total price row
+                height: 30,
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    Text(
+                      "total price" " : ",
+                      style: TextStyle(
+                          color: AppColors.grey2Color,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          height: .8),
+                    ),
+                    Spacer(),
+                    Text(
+                      "200.00" " " "AED",
+                      style: TextStyle(
+                          color: AppColors.mainColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          height: .8),
+                    ),
+                  ],
+                ),
+              )
+            : const SizedBox(),
       ],
     );
   }
@@ -643,7 +663,10 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
           ///
 
           InkWell(
-            onTap: () {},
+            onTap: () {
+              // navigate to choose the payment type
+              navigateTo(context, ChoosePaymentMethodScreen());
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
