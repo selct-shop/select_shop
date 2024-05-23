@@ -665,7 +665,7 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
           InkWell(
             onTap: () {
               // navigate to choose the payment type
-              navigateTo(context, ChoosePaymentMethodScreen());
+              // navigateTo(context, ChoosePaymentMethodScreen());
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
