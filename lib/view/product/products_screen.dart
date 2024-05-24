@@ -13,7 +13,6 @@ import 'package:select_shop/view/Shared/bottom_nav_bar.dart';
 import 'package:select_shop/view/Shared/floating_acction_button.dart';
 import 'package:select_shop/view/Shared/product_container.dart';
 
-
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
 
@@ -28,19 +27,28 @@ class ProductsScreen extends StatelessWidget {
             AppConstants.emptySpaceTenPixl,
             AppConstants.emptySpaceTenPixl,
             AppConstants.emptySpaceTenPixl,
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
-            ProductContainer(),
+            for (int i = 1; i < 10; i++)
+              ProductContainer(
+                brandName: "zara",
+                brandNetworkImage: null,
+                isDisscountOrNew: true,
+                isFavourated: true,
+                isDiscountOrNew: true,
+                hasPaddings: true,
+
+                productName: 't-shirt',
+                categoryName: 'men',
+                productDiscreption:
+                    'this is just a test for the product discription, and so on',
+                oldPrice: '499',
+                newPrice: '299',
+                productNetworkImage: null,
+                productRating: 4.5,
+                // width: ,
+                // height: null,
+                onTapProductWidget: () {},
+                onTapAddOrRemoveFav: () {},
+              ),
           ],
         ),
       ),
@@ -50,4 +58,3 @@ class ProductsScreen extends StatelessWidget {
     );
   }
 }
-

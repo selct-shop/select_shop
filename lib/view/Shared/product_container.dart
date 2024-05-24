@@ -17,46 +17,45 @@ const String _discountOrNewTag = "disscount";
 // const String _brandName = "chanel";
 
 class ProductContainer extends StatelessWidget {
-  final bool? isDisscountOrNew, isFavourated , isDiscountOrNew ;
+  final bool? isDisscountOrNew, isFavourated, isDiscountOrNew, hasPaddings;
   final String? productName,
-      categoryName ,
+      categoryName,
       productDiscreption,
       oldPrice,
       newPrice,
       brandName,
       productNetworkImage,
       brandNetworkImage;
-  final double? productRating, width, height ;
+  final double? productRating, width, height;
   final Function()? onTapProductWidget, onTapAddOrRemoveFav;
   const ProductContainer({
     super.key,
-  required   this.isDisscountOrNew,
-
-  required this.isFavourated,
-  required this.isDiscountOrNew,
-   required   this.productName,
-   required   this.categoryName ,
-    required  this.productDiscreption,
-    required  this.oldPrice,
-    required  this.newPrice,
-     required this.brandName,
-     required this.productNetworkImage,
-     required this.brandNetworkImage,
-     required this.productRating,
-     required this.width ,
-     required this.height,
-    required  this.onTapProductWidget, 
-      required this.onTapAddOrRemoveFav, 
-
+    required this.isDisscountOrNew,
+    required this.isFavourated,
+    required this.isDiscountOrNew,
+    required this.hasPaddings,
+    required this.productName,
+    required this.categoryName,
+    required this.productDiscreption,
+    required this.oldPrice,
+    required this.newPrice,
+    required this.brandName,
+    required this.productNetworkImage,
+    required this.brandNetworkImage,
+    required this.productRating,
+    this.width,
+    this.height,
+    required this.onTapProductWidget,
+    required this.onTapAddOrRemoveFav,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 20),
+      padding: EdgeInsets.only(bottom: hasPaddings == true ? 20 : 0),
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
-        onTap: onTapProductWidget ?? (){},
+        onTap: onTapProductWidget ?? () {},
         child: Container(
           width: width ?? double.infinity,
           height: 134,
@@ -84,10 +83,9 @@ class ProductContainer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _TagAndFavRow(
-                    isFavourated: isFavourated ?? false ,
+                    isFavourated: isFavourated ?? false,
                     isDiscountOrNew: isDiscountOrNew ?? false,
-                    addOrRemoveFav: onTapAddOrRemoveFav?? ( ) 
-                    { },
+                    addOrRemoveFav: onTapAddOrRemoveFav ?? () {},
                   ),
                   _NameAndRatingRow(
                     productName: productName,
@@ -95,15 +93,13 @@ class ProductContainer extends StatelessWidget {
                   ),
                   _CategoryNameRow(),
                   _DescriptionRow(
-                    productDiscription:
-
-                    productDiscreption ?? 
+                    productDiscription: productDiscreption ??
                         "here comes the product discription, and so on",
                   ),
                   _PriceAndBrandRow(
-                    bandName:  brandName ?? "brand",
+                    bandName: brandName ?? "brand",
                     newPrice: newPrice ?? "??",
-                    oldPrice: oldPrice?? "??",
+                    oldPrice: oldPrice ?? "??",
                   ),
                   const SizedBox(
                     height: 5,
