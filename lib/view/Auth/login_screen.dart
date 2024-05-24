@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:select_shop/core/helpers/user_experience_helper.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/view/Shared/app_toast.dart';
@@ -21,10 +22,10 @@ import 'package:select_shop/view/Auth/forget_password_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 
-TextStyle _customLocalTextStyle =const  TextStyle(
+TextStyle _customLocalTextStyle = const TextStyle(
   color: AppColors.grey2Color,
   height: .8,
-  fontSize: 16 ,
+  fontSize: 16,
   fontWeight: FontWeight.w500,
 );
 
@@ -197,11 +198,30 @@ class _LoginBodyState extends State<_LoginBody> {
                   //     },
                   // ]),
 
-                  validator: (emailOrPhoneNum) {
-                    emailOrPhoneNum!.length < 5 ? 'falsssse' : null;
-                    // print(emailOrPhoneNum);
-                    // emailOrPhoneNum == null
-                  },
+                  // validator: (emailOrPhoneNum) {
+                  // emailOrPhoneNum!.length < 5 ? 'falsssse' : null;
+                  // print(emailOrPhoneNum);
+                  // emailOrPhoneNum == null
+                  // },
+
+// #### fully working validator #### //
+// #### #### //
+                  // validator: (value) {
+                  //   final phoneExp = RegExp(r'^\+?1?\d{9,15}$');
+                  //   // print("vvvvvvvvvvvvvvvvvvvvvvvv${value.runtimeType}");
+                  //   if (value == null || value.isEmpty) {
+                  //     return 'Please enter a phone number';
+                  //   }
+
+                  //   if (value.length < 9) {
+                  //     return 'Password must be at least 9 characters long';
+                  //   }
+
+                  //   if (!phoneExp.hasMatch(value)) {
+                  //     return 'Please enter a trueee phone number';
+                  //   }
+                  //   return null;
+                  // },
 
                   // validator: (String? value) {
                   //   if (value == null || value.trim().isEmpty) {
@@ -213,7 +233,8 @@ class _LoginBodyState extends State<_LoginBody> {
                   // },
                   controller: phoneNumberTextEditingController,
                   decoration: InputDecoration(
-                    hintText: S.of(context).email,
+                    // the hint text was S.email but i change it for S.phoneNumber
+                    hintText: S.of(context).phoneNum,
                     hintStyle: _customLocalTextStyle,
                     border: InputBorder.none,
                     contentPadding: EdgeInsetsDirectional.symmetric(
@@ -244,9 +265,36 @@ class _LoginBodyState extends State<_LoginBody> {
                   // password text field
                   name: S.of(context).password,
                   controller: passwordTextEditingController,
-                  validator: (password) {
-                    // context.read<AuthBloc>().validatepassword(value);
-                    password!.length < 5 ? 'falsssse' : null;
+                  // validator: (password) {
+                  //   // context.read<AuthBloc>().validatepassword(value);
+                  //   password!.length < 5 ? 'falsssse' : null;
+                  // },
+
+// #### fully working validator #### //
+// #### #### //
+                  validator: (value) {
+                    final passwordExp = RegExp(
+                        r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
+
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a password';
+                    }
+
+                    if (value.length < 8) {
+                      return 'Password must be at least 8 characters long';
+                    }
+
+                    if (!passwordExp.hasMatch(value)) {
+                      return 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character';
+
+                      // return UserExperinceHelper().showCustomDialog(
+                      //   theContext: context,
+                      //   confirmButtonTitle: S.of(context).confirm,
+                      //   dialogContent:
+                      //       'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
+                      // );
+                    }
+                    return null;
                   },
                   decoration: InputDecoration(
                     hintText: S.of(context).password,
@@ -303,7 +351,13 @@ class _LoginBodyState extends State<_LoginBody> {
                   // signInFormKey.currentState!.validate() == true
                   //     ? print("${signInFormKey.currentState!.validate()}")
                   //     : print("${signInFormKey.currentState!.validate()}");
-                  context.read<AuthBloc>().add(AuthLogInEvent());
+                  if (signInFormKey.currentState!.validate() == true) {
+                    print("valllllllllllllllllllllllllllllllllliinnini");
+                    // context.read<AuthBloc>().add(AuthLogInEvent());
+                  }
+
+                  // print(
+                  //     "==============================${signInFormKey.currentState!.validate()}");
                 },
                 child: Container(
                   height: 40,
