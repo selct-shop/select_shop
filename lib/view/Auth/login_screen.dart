@@ -206,31 +206,22 @@ class _LoginBodyState extends State<_LoginBody> {
 
 // #### fully working validator #### //
 // #### #### //
-                  // validator: (value) {
-                  //   final phoneExp = RegExp(r'^\+?1?\d{9,15}$');
-                  //   // print("vvvvvvvvvvvvvvvvvvvvvvvv${value.runtimeType}");
-                  //   if (value == null || value.isEmpty) {
-                  //     return 'Please enter a phone number';
-                  //   }
+                  validator: (value) {
+                    final phoneExp = RegExp(r'^\+?1?\d{9,15}$');
+                    // print("vvvvvvvvvvvvvvvvvvvvvvvv${value.runtimeType}");
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a phone number';
+                    }
 
-                  //   if (value.length < 9) {
-                  //     return 'Password must be at least 9 characters long';
-                  //   }
+                    if (value.length < 9) {
+                      return 'Password must be at least 9 characters long';
+                    }
 
-                  //   if (!phoneExp.hasMatch(value)) {
-                  //     return 'Please enter a trueee phone number';
-                  //   }
-                  //   return null;
-                  // },
-
-                  // validator: (String? value) {
-                  //   if (value == null || value.trim().isEmpty) {
-                  //     return 'Please provide a value.';
-                  //   } else if (value.length < 4) {
-                  //     return 'Please provide a value.';
-                  //   }
-                  //   return null;
-                  // },
+                    if (!phoneExp.hasMatch(value)) {
+                      return 'Please enter a trueee phone number';
+                    }
+                    return null;
+                  },
                   controller: phoneNumberTextEditingController,
                   decoration: InputDecoration(
                     // the hint text was S.email but i change it for S.phoneNumber
@@ -265,16 +256,12 @@ class _LoginBodyState extends State<_LoginBody> {
                   // password text field
                   name: S.of(context).password,
                   controller: passwordTextEditingController,
-                  // validator: (password) {
-                  //   // context.read<AuthBloc>().validatepassword(value);
-                  //   password!.length < 5 ? 'falsssse' : null;
-                  // },
 
 // #### fully working validator #### //
 // #### #### //
                   validator: (value) {
                     final passwordExp = RegExp(
-                        r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
+                        r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
 
                     if (value == null || value.isEmpty) {
                       return 'Please enter a password';
@@ -352,8 +339,7 @@ class _LoginBodyState extends State<_LoginBody> {
                   //     ? print("${signInFormKey.currentState!.validate()}")
                   //     : print("${signInFormKey.currentState!.validate()}");
                   if (signInFormKey.currentState!.validate() == true) {
-                    print("valllllllllllllllllllllllllllllllllliinnini");
-                    // context.read<AuthBloc>().add(AuthLogInEvent());
+                    context.read<AuthBloc>().add(AuthLogInEvent());
                   }
 
                   // print(
