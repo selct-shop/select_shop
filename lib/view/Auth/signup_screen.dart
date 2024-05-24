@@ -23,7 +23,8 @@ part "widgets/signup_widgets.dart";
 
 bool obscuringTextOrNot = true;
 bool? _userAgreementChecked = false;
-GlobalKey signUpKey = GlobalKey();
+// final GlobalKey<FormState> signUpKey = GlobalKey<FormState>();
+
 TextEditingController signUPUserNameTextEditingContorller =
     TextEditingController();
 TextEditingController signUpUserEmailTextEditingController =
@@ -146,55 +147,57 @@ class _SignupScreenState extends State<SignupScreen> {
 
   FormBuilder _SignUpBody(BuildContext context) {
     return FormBuilder(
-        key: signUpKey,
+        // key: signUpKey,
         child: Column(
-          children: [
-            const _UserNameFormFeild(),
-            const SizedBox(
-              height: 20,
+      children: [
+        const _UserNameFormFeild(),
+        const SizedBox(
+          height: 20,
+        ),
+        _UserEmailFormFeild(),
+        const SizedBox(
+          height: 20,
+        ),
+        _UserPhonNumText(),
+        const SizedBox(
+          height: 20,
+        ),
+        _PasswordFormFeild(context),
+        const SizedBox(
+          height: 20,
+        ),
+        _ConfirmPasswordFormFeild(context),
+        const SizedBox(
+          height: 20,
+        ),
+        _UserAggrementRow(context),
+        const SizedBox(
+          height: 20,
+        ),
+        _SignUpButton(
+            // signUpKey: signUpKey,
             ),
-            _UserEmailFormFeild(),
-            const SizedBox(
-              height: 20,
-            ),
-            _UserPhonNumText(),
-            const SizedBox(
-              height: 20,
-            ),
-            _PasswordFormFeild(context),
-            const SizedBox(
-              height: 20,
-            ),
-            _ConfirmPasswordFormFeild(context),
-            const SizedBox(
-              height: 20,
-            ),
-            _UserAggrementRow(context),
-            const SizedBox(
-              height: 20,
-            ),
-            const _SignUpButton(),
-            const SizedBox(
-              height: 30,
-            ),
-            const _DepugSign(),
-            const SizedBox(
-              height: 30,
-            ),
-            const _DoYouHaveAccount(),
-            const SizedBox(
-              height: 30,
-            ),
-            const _OrSignUpWithGoogle(),
-            const SizedBox(
-              height: 30,
-            ),
-            _GoogleIcons(),
-            const SizedBox(
-              height: 30,
-            ),
-          ],
-        ));
+        const SizedBox(
+          height: 30,
+        ),
+        const _DepugSign(),
+        const SizedBox(
+          height: 30,
+        ),
+        const _DoYouHaveAccount(),
+        const SizedBox(
+          height: 30,
+        ),
+        const _OrSignUpWithGoogle(),
+        const SizedBox(
+          height: 30,
+        ),
+        _GoogleIcons(),
+        const SizedBox(
+          height: 30,
+        ),
+      ],
+    ));
   }
 
   Row _UserAggrementRow(BuildContext context) {
@@ -348,8 +351,10 @@ class _SignupScreenState extends State<SignupScreen> {
 }
 
 class _SignUpButton extends StatelessWidget {
+  // final GlobalKey<FormState> signUpKey;
   const _SignUpButton({
     super.key,
+    // required this.signUpKey,
   });
 
   @override
@@ -360,7 +365,10 @@ class _SignUpButton extends StatelessWidget {
       ),
       onTap: () {
         // make sure the form is valid
-        context.read<AuthBloc>().add(AuthSignupEvet());
+        // if (signUpKey.currentState!.validate()) {
+        //   print("hoooooooooooooooomememem");
+        // }
+        // context.read<AuthBloc>().add(AuthSignupEvet());
       },
       child: Container(
         height: 40,
@@ -442,9 +450,12 @@ class _UserEmailFormFeild extends StatelessWidget {
         name: S.of(context).email,
         style: _customLocalTextStyle,
         controller: signUpUserEmailTextEditingController,
-        validator: (value) {
-          value!.length < 4 ? "too short" : null;
-        },
+        // validator: (value) {
+        //  if ( value!.length < 4 ) {
+        //   return
+        //   "too short" ; }
+        //   return null;
+        // },
         decoration: InputDecoration(
           hintText: S.of(context).email,
           hintStyle: _customLocalTextStyle,
@@ -483,9 +494,9 @@ class _UserPhonNumText extends StatelessWidget {
         name: S.of(context).phoneNum,
         style: _customLocalTextStyle,
         controller: signUpUserPhonNumTextEditingController,
-        validator: (value) {
-          value!.length < 4 ? "too short" : null;
-        },
+        // validator: (value) {
+        //   value!.length < 4 ? "too short" : null;
+        // },
         decoration: InputDecoration(
           hintText: S.of(context).phoneNum,
           hintStyle: _customLocalTextStyle,
@@ -524,7 +535,20 @@ class _UserNameFormFeild extends StatelessWidget {
         name: S.of(context).email,
         style: _customLocalTextStyle,
         controller: signUPUserNameTextEditingContorller,
-        validator: (value) {},
+
+        // #### fully working validator #### //
+// #### #### //
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter a valid name';
+          }
+
+          if (value.length < 8) {
+            return 'the name must be at least 3 characters long';
+          }
+
+          return null;
+        },
         decoration: InputDecoration(
           hintText: S.of(context).userName,
           hintStyle: _customLocalTextStyle,
