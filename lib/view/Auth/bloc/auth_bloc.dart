@@ -44,8 +44,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     await CacheHelper.setData(
         key: AppConstants.cachedUserName, value: userName);
 
-        await CacheHelper.setData(
-        key: AppConstants.cachedUserID, value: userID);
+    await CacheHelper.setData(key: AppConstants.cachedUserID, value: userID);
     await CacheHelper.setData(
         key: AppConstants.cachedUserPhonNum, value: userPhoneNumber);
     await CacheHelper.setData(

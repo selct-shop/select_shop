@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -259,8 +261,8 @@ class _LoginBodyState extends State<_LoginBody> {
 // #### fully working validator #### //
 // #### #### //
                   validator: (value) {
-                    final passwordExp = RegExp(
-                        r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
+                    // final passwordExp = RegExp(
+                    //     r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
 
                     if (value == null || value.isEmpty) {
                       return 'Please enter a password';
@@ -270,16 +272,16 @@ class _LoginBodyState extends State<_LoginBody> {
                       return 'Password must be at least 8 characters long';
                     }
 
-                    if (!passwordExp.hasMatch(value)) {
-                      return 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character';
+                    // if (!passwordExp.hasMatch(value)) {
+                    //   return 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character';
 
-                      // return UserExperinceHelper().showCustomDialog(
-                      //   theContext: context,
-                      //   confirmButtonTitle: S.of(context).confirm,
-                      //   dialogContent:
-                      //       'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
-                      // );
-                    }
+                    //   // return UserExperinceHelper().showCustomDialog(
+                    //   //   theContext: context,
+                    //   //   confirmButtonTitle: S.of(context).confirm,
+                    //   //   dialogContent:
+                    //   //       'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
+                    //   // );
+                    // }
                     return null;
                   },
                   decoration: InputDecoration(
