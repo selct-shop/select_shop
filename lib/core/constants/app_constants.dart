@@ -19,6 +19,13 @@ class AppConstants {
         offset: Offset(3, 6))
   ];
 
+  static List<BoxShadow> theLightBoxShdow = [
+    BoxShadow(
+        blurRadius: 3,
+        color: AppColors.greyColor.withOpacity(.1),
+        offset: Offset(1, 1))
+  ];
+
   // TextStyle
   static TextStyle customTitleTextStyle = const TextStyle(
       color: AppColors.mainColor, fontWeight: FontWeight.bold, fontSize: 20);

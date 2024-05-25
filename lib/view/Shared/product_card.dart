@@ -12,34 +12,43 @@ class ProductCard extends StatelessWidget {
   final void Function()? onTap;
   final double? height, width, ratingNumber, newPrice, oldPrice;
   final String? productCategory, productName, brandName;
+  // i use this shadow to give it card affect, and it's defalt true
+  bool? withShado = true;
 
   ProductCard({
     super.key,
     required this.onTap,
     this.height,
     this.width,
+    // this.shadow,
     required this.ratingNumber,
     required this.newPrice,
     this.oldPrice,
     required this.productCategory,
     required this.productName,
     this.brandName,
+    this.withShado,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
+      borderRadius: BorderRadius.circular(
+        10,
+      ),
       child: Container(
         height: height ?? 170,
         width: width ?? 180,
         margin: EdgeInsets.only(right: 10),
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(
-              8,
-            )),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(
+            10,
+          ),
+          boxShadow: withShado == true ? AppConstants.theLightBoxShdow : null,
+        ),
         child: Column(
           children: [
             Flexible(

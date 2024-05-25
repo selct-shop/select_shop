@@ -49,21 +49,29 @@ class _CustomBanar extends StatelessWidget {
           },
           child: Container(
             // height: 140,
-            height: 280,
+            height: 290,
             width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 10),
+            padding: EdgeInsets.symmetric(
+                // vertical: 10,
+                // horizontal: 10,
+                ),
             decoration: BoxDecoration(
-              color: AppColors.mainGreyColor.withOpacity(.1),
+              // color: AppColors.mainGreyColor.withOpacity(.1),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(6),
             ),
             child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 15), 
+              shrinkWrap: true,
+              padding: EdgeInsets.symmetric(
+                  // horizontal: 15,
+                  ),
               scrollDirection: Axis.horizontal,
               children: [
                 for (int i = 0; i < 10; i++)
                   ProductCard(
                     width: 180,
                     height: 170,
+                    withShado: true,
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
