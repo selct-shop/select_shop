@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:select_shop/core/helpers/user_experience_helper.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';

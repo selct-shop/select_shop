@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
