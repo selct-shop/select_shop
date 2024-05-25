@@ -21,9 +21,10 @@ class AppConstants {
 
   static List<BoxShadow> theLightBoxShdow = [
     BoxShadow(
-        blurRadius: 3,
-        color: AppColors.greyColor.withOpacity(.1),
-        offset: Offset(1, 1))
+      blurRadius: 3,
+      color: AppColors.greyColor.withOpacity(.1),
+      offset: Offset(1, 1),
+    ),
   ];
 
   // TextStyle

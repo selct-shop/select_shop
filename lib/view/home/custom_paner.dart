@@ -41,50 +41,43 @@ class _CustomBanar extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        InkWell(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return UnderDevScreen();
-            }));
-          },
-          child: Container(
-            // height: 140,
-            height: 290,
-            width: double.infinity,
+        Container(
+          // height: 140,
+          height: 290,
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(
+              // vertical: 10,
+              // horizontal: 10,
+              ),
+          decoration: BoxDecoration(
+            // color: AppColors.mainGreyColor.withOpacity(.1),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(6),
+          ),
+          child: ListView(
+            shrinkWrap: true,
             padding: EdgeInsets.symmetric(
-                // vertical: 10,
-                // horizontal: 10,
+                // horizontal: 15,
                 ),
-            decoration: BoxDecoration(
-              // color: AppColors.mainGreyColor.withOpacity(.1),
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(6),
-            ),
-            child: ListView(
-              shrinkWrap: true,
-              padding: EdgeInsets.symmetric(
-                  // horizontal: 15,
-                  ),
-              scrollDirection: Axis.horizontal,
-              children: [
-                for (int i = 0; i < 10; i++)
-                  ProductCard(
-                    width: 180,
-                    height: 170,
-                    withShado: true,
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return UnderDevScreen();
-                      }));
-                    },
-                    newPrice: 400,
-                    productCategory: "men",
-                    productName: "t-shirt",
-                    ratingNumber: 3.8,
-                  ),
-              ],
-            ),
+            scrollDirection: Axis.horizontal,
+            children: [
+              for (int i = 0; i < 10; i++)
+                ProductCard(
+                  width: 180,
+                  height: 170,
+                  withShado: true,
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return UnderDevScreen();
+                    }));
+                  },
+                  newPrice: 400,
+                  productCategory: "men",
+                  productName: "t-shirt",
+                  ratingNumber: 3.8,
+                ),
+            ],
           ),
         ),
       ],

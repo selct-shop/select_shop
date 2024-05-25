@@ -32,11 +32,11 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(
-        10,
-      ),
+      // borderRadius: BorderRadius.circular(
+      //   10,
+      // ),
       child: Container(
         height: height ?? 170,
         width: width ?? 180,
