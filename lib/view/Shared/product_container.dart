@@ -505,7 +505,7 @@ class _TagAndFavRow extends StatelessWidget {
                       child: SvgPicture.asset(
                         width: 20,
                         height: 20,
-                        AppImages.favourFilledSvg,
+                        AppImagesSvg.favourFilledSvg,
                       ),
                     )
                   : InkWell(
@@ -514,7 +514,7 @@ class _TagAndFavRow extends StatelessWidget {
                       child: SvgPicture.asset(
                         width: 20,
                         height: 20,
-                        AppImages.favourtsStorkSvg,
+                        AppImagesSvg.favourtsStorkSvg,
                       ),
                     ),
             ],

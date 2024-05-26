@@ -120,7 +120,7 @@ class _Body extends StatelessWidget {
                 discription: "fast shipment",
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImages.homeSvg,
+                svgImgName: AppImagesSvg.homeSvg,
                 onTap: () {},
                 haveDivider: true,
               ),
@@ -128,7 +128,7 @@ class _Body extends StatelessWidget {
                 discription: "payment on recive",
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImages.homeSvg,
+                svgImgName: AppImagesSvg.homeSvg,
                 onTap: () {},
                 haveDivider: true,
               ),
@@ -136,7 +136,7 @@ class _Body extends StatelessWidget {
                 discription: "free return",
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImages.homeSvg,
+                svgImgName: AppImagesSvg.homeSvg,
                 onTap: () {},
                 haveDivider: true,
               ),
@@ -144,7 +144,7 @@ class _Body extends StatelessWidget {
                 discription: "earn free points",
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImages.homeSvg,
+                svgImgName: AppImagesSvg.homeSvg,
                 onTap: () {},
                 // haveDivider: true,
               ),
@@ -656,7 +656,7 @@ class _AddToCartAndFavRow extends StatelessWidget {
                   width: 30,
                   height: 30,
                   child: SvgPicture.asset(
-                    AppImages.favourtsStorkSvg,
+                    AppImagesSvg.favourtsStorkSvg,
                     // alignment: Alignment.center,
                   ),
                 ),
@@ -1119,7 +1119,7 @@ class _RandomUserComment extends StatelessWidget {
                   height: 15,
                   child: SvgPicture.asset(
                     // i should use like picture
-                    AppImages.homeSvg,
+                    AppImagesSvg.homeSvg,
                     fit: BoxFit.fitWidth,
                     color: AppColors.mainColor,
                   ),

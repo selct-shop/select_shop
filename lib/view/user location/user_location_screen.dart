@@ -57,7 +57,7 @@ class UserLocationsScreen extends StatelessWidget {
                       // alignment: Alignment.center,
                       colorFilter:
                           ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                      AppImages.homeSvg,
+                      AppImagesSvg.homeSvg,
                     ),
                   ),
                   title: SizedBox(

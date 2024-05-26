@@ -431,7 +431,7 @@ class _EnterYourCoponsRow extends StatelessWidget {
                     child: SvgPicture.asset(
                       color: AppColors.mainColor,
                       // fit: BoxFit.fitHeight,
-                      AppImages.creditCardsSvg,
+                      AppImagesSvg.creditCardsSvg,
                     ),
                   ),
 
@@ -583,7 +583,7 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
                         child: SvgPicture.asset(
                           color: Colors.white,
                           // fit: BoxFit.fitHeight,
-                          AppImages.locationFilledSvg,
+                          AppImagesSvg.locationFilledSvg,
                         ),
                       ),
                       const SizedBox(
@@ -692,7 +692,7 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
                         child: SvgPicture.asset(
                           color: Colors.white,
                           // fit: BoxFit.fitHeight,
-                          AppImages.creditCardsSvg,
+                          AppImagesSvg.creditCardsSvg,
                         ),
                       ),
                       const SizedBox(

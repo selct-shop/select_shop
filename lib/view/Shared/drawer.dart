@@ -154,7 +154,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 1
                     ? true
                     : false,
-                leading: AppImages.homeSvg,
+                leading: AppImagesSvg.homeSvg,
               ),
               _CustomDrawerListTile(
                 title: S.of(context).products,
@@ -167,7 +167,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 2
                     ? true
                     : false,
-                leading: AppImages.productsSvg,
+                leading: AppImagesSvg.productsSvg,
               ),
               _CustomDrawerListTile(
                 title: S.of(context).tradeMark,
@@ -183,7 +183,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 3
                     ? true
                     : false,
-                leading: AppImages.tradeMarkSvg,
+                leading: AppImagesSvg.tradeMarkSvg,
               ),
               _CustomDrawerListTile(
                 title: S.of(context).specialproducts,
@@ -196,7 +196,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 4
                     ? true
                     : false,
-                leading: AppImages.specialproductsSvg,
+                leading: AppImagesSvg.specialproductsSvg,
               ),
 
               _CustomDrawerListTile(
@@ -216,7 +216,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 5
                     ? true
                     : false,
-                leading: AppImages.favourtsStorkSvg,
+                leading: AppImagesSvg.favourtsStorkSvg,
               ),
               _CustomDrawerListTile(
                 title: S.of(context).mycart,
@@ -232,7 +232,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 6
                     ? true
                     : false,
-                leading: AppImages.mycartSvg,
+                leading: AppImagesSvg.mycartSvg,
               ),
               _CustomDrawerListTile(
                 title: S.of(context).orders,
@@ -245,7 +245,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 7
                     ? true
                     : false,
-                leading: AppImages.ordersSvg,
+                leading: AppImagesSvg.ordersSvg,
               ),
               _CustomDrawerListTile(
                 title: S.of(context).personalPage,
@@ -264,7 +264,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 8
                     ? true
                     : false,
-                leading: AppImages.personalPageSvg,
+                leading: AppImagesSvg.personalPageSvg,
               ),
               _CustomDrawerListTile(
                 title: S.of(context).suppourt,
@@ -277,7 +277,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 9
                     ? true
                     : false,
-                leading: AppImages.suppourtSvg,
+                leading: AppImagesSvg.suppourtSvg,
               ),
               _CustomDrawerListTile(
                 title: S.of(context).contactUs,
@@ -290,7 +290,7 @@ class _DrawerBody extends StatelessWidget {
                 isActive: context.read<HomeBloc>().activeDrawerPage == 10
                     ? true
                     : false,
-                leading: AppImages.contactUsSvg,
+                leading: AppImagesSvg.contactUsSvg,
               ),
 
               //
@@ -319,7 +319,7 @@ class _DrawerBody extends StatelessWidget {
                   // color: isActive == true ? Colors.white : AppColors.mainColor,
                   // leading,
                   color: AppColors.mainColor,
-                  AppImages.signOutSvg,
+                  AppImagesSvg.signOutSvg,
                 ),
                 title: Text(
                   S.of(context).signOut,
@@ -488,7 +488,7 @@ class _CustomDrawerListTile extends StatelessWidget {
             //         // child: Image.asset(
             //         //   width: 22,
             //         //   height: 22,
-            //         //   AppImages.home,
+            //         //   AppImagesSvg.home,
             //         // ),
             //       ),
             //       SizedBox(

@@ -206,7 +206,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "edit personal profile",
-                      theSvgPictuer: AppImages.homeSvg,
+                      theSvgPictuer: AppImagesSvg.homeSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to edit personal details
@@ -214,7 +214,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "add location",
-                      theSvgPictuer: AppImages.homeSvg,
+                      theSvgPictuer: AppImagesSvg.homeSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to add new location screen
@@ -223,7 +223,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "change language",
-                      theSvgPictuer: AppImages.homeSvg,
+                      theSvgPictuer: AppImagesSvg.homeSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to edit language screen
@@ -233,7 +233,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "notifications settings",
-                      theSvgPictuer: AppImages.homeSvg,
+                      theSvgPictuer: AppImagesSvg.homeSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to edit personal details
@@ -242,7 +242,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "help center",
-                      theSvgPictuer: AppImages.homeSvg,
+                      theSvgPictuer: AppImagesSvg.homeSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to help center screen
@@ -251,7 +251,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "sign out",
-                      theSvgPictuer: AppImages.homeSvg,
+                      theSvgPictuer: AppImagesSvg.homeSvg,
                       onTap: () async {
                         // sign out
                         // if (await signOut()) {
@@ -318,7 +318,7 @@ class _CustomSettingListTile extends StatelessWidget {
                     width: 24,
                     alignment: Alignment.center,
                     color: AppColors.mainColor,
-                    AppImages.homeSvg,
+                    AppImagesSvg.homeSvg,
                   ),
                   SizedBox(
                     width: 15,

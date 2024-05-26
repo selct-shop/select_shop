@@ -34,7 +34,7 @@ class CustomBottomNavBar extends StatelessWidget {
 
           _bottomNavBarIcon(
             title: S.of(context).homePage,
-            svgImageName: AppImages.homeSvg,
+            svgImageName: AppImagesSvg.homeSvg,
             screenNumber: 1,
             // isActive: context.read<HomeBloc>().activePageNumber == ,
           ),
@@ -42,7 +42,7 @@ class CustomBottomNavBar extends StatelessWidget {
 
           _bottomNavBarIcon(
             title: S.of(context).categorys,
-            svgImageName: AppImages.categorisSvg,
+            svgImageName: AppImagesSvg.categorisSvg,
             screenNumber: 2,
           ),
 
@@ -56,14 +56,14 @@ class CustomBottomNavBar extends StatelessWidget {
           ///
           _bottomNavBarIcon(
             title: S.of(context).favourts,
-            svgImageName: AppImages.favourtsStorkSvg,
+            svgImageName: AppImagesSvg.favourtsStorkSvg,
             screenNumber: 3,
           ),
           Spacer(),
 
           _bottomNavBarIcon(
             title: S.of(context).personalPage,
-            svgImageName: AppImages.personalPageSvg,
+            svgImageName: AppImagesSvg.personalPageSvg,
             screenNumber: 4,
           ),
 
@@ -113,7 +113,7 @@ class _bottomNavBarIcon extends StatelessWidget {
                 // to determine if its active or not
                 screenNumber == 3
                     ? (context.read<HomeBloc>().activePageNumber == screenNumber
-                        ? AppImages.favourFilledSvg
+                        ? AppImagesSvg.favourFilledSvg
                         : svgImageName)
                     : svgImageName
 

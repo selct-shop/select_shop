@@ -50,7 +50,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 //     "ddddddddddddddddddddrwer page ${context.read<HomeBloc>().activeDrawerPage}");
               },
               icon: SvgPicture.asset(
-                AppImages.menuSvg,
+                AppImagesSvg.menuSvg,
               ),
             ),
             const Row(

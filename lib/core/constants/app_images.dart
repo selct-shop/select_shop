@@ -25,6 +25,17 @@ class AppImages {
   static const facebook = "assets/images/facebook.png";
   static const google = "assets/images/google.png";
 
+
+
+}
+
+
+class AppImagesSvg{
+
+
+
+
+
   //   ####   //
   //  SVG Images  //
 
@@ -59,14 +70,6 @@ class AppImages {
   static const categorisSvg = "assets/svg images/categoris.svg";
   // static const locationFilled = "assets/svg images/location_filled.svg";
   // static const locationFilled = "assets/svg images/location_filled.svg";
-
-
-
-}
-
-
-class AppImagesSvg{
-
 
   static const noDataSvg  = "assets/svg images/no_data.svg";
   static const underDevSvg  = "assets/svg images/under_dev.svg";

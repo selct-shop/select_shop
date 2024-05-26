@@ -27,7 +27,7 @@ class CustomFloatingAcctionButton extends StatelessWidget {
               color: Colors.white,
               width: 30,
               height: 30,
-              AppImages.mycartSvg,
+              AppImagesSvg.mycartSvg,
             )),
       ),
     );
