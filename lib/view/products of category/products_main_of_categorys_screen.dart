@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
+import 'package:select_shop/view/Shared/app_no_data.dart';
 import 'package:select_shop/view/Shared/appbar.dart';
 import 'package:select_shop/view/Shared/drawer.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
@@ -191,17 +192,15 @@ class _TheBody extends StatelessWidget {
                     Tab(
                       iconMargin: EdgeInsets.zero,
                       icon: _TabTitle(
-                        theTitle: 
-                        globalCachedUserLang == "ar" ? 
-                        
-                        context
-                            .read<ProductOfMainCategoryBloc>()
-                            .subCategoriesList[i]
-                            .nameAr:
-                        context
-                            .read<ProductOfMainCategoryBloc>()
-                            .subCategoriesList[i]
-                            .nameEn,
+                        theTitle: globalCachedUserLang == "ar"
+                            ? context
+                                .read<ProductOfMainCategoryBloc>()
+                                .subCategoriesList[i]
+                                .nameAr
+                            : context
+                                .read<ProductOfMainCategoryBloc>()
+                                .subCategoriesList[i]
+                                .nameEn,
                       ),
                     ),
                 ],
@@ -209,17 +208,31 @@ class _TheBody extends StatelessWidget {
               // if (state
               //     is ProductsOfMainCategoryGetSubCategoryProductsSuccessState)
               Expanded(
-                
                 child: TabBarView(
                   children: [
-                    for (int i = 0;
-                        i <
-                            context
-                                .read<ProductOfMainCategoryBloc>()
-                                .subCategoriesList
-                                .length;
-                        i++)
-                      Icon(Icons.directions_car),
+                    if (context
+                        .read<ProductOfMainCategoryBloc>()
+                        .productsOfACategoryResultList
+                        .isEmpty)
+                      for (int i = 0;
+                          i <
+                              context
+                                  .read<ProductOfMainCategoryBloc>()
+                                  .subCategoriesList
+                                  .length;
+                          i++)
+                        Center(
+                          child: AppNoData(),
+                        )
+                    else
+                      for (int i = 0;
+                          i <
+                              context
+                                  .read<ProductOfMainCategoryBloc>()
+                                  .subCategoriesList
+                                  .length;
+                          i++)
+                        Icon(Icons.directions_car),
 
                     // Icon(Icons.directions_car),
                     // Icon(Icons.directions_transit),

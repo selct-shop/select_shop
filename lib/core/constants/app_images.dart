@@ -63,3 +63,26 @@ class AppImages {
 
 
 }
+
+
+class AppImagesSvg{
+
+
+  static const noDataSvg  = "assets/svg images/no_data.svg";
+  static const underDevSvg  = "assets/svg images/under_dev.svg";
+  static const errorSvg  = "assets/svg images/error.svg";
+  static const visaBlueSvg  = "assets/svg images/visa_blue.svg";
+  static const visaRedSvg  = "assets/svg images/visa_red.svg";
+  static const timeSvg  = "assets/svg images/time.svg";
+  static const editUserSvg  = "assets/svg images/edit_user.svg";
+  static const loacationOnMapSvg  = "assets/svg images/location_on_map.svg";
+  static const langSvg  = "assets/svg images/lang.svg";
+  static const notificationSvg  = "assets/svg images/notification.svg";
+  static const backPageSvg  = "assets/svg images/back_page.svg";
+  static const phoneCallSvg  = "assets/svg images/phone_call.svg";
+
+
+  
+
+
+}

@@ -21,7 +21,7 @@ class AppNoData extends StatelessWidget {
         ),
         Text(
           // S.of(context).shipment_no_data,
-          S.of(context)!.noDataLikeThis,
+          S.of(context).noDataLikeThis,
           style: const TextStyle(
             color: AppColors.mainColor,
             fontSize: 20,
