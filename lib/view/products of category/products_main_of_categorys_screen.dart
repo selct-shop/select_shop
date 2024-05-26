@@ -2,8 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/appbar.dart';
 import 'package:select_shop/view/Shared/drawer.dart';
+import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/search_container.dart';
 import 'package:select_shop/view/products%20of%20category/bloc/product_of_main_category_bloc.dart';
@@ -46,28 +48,82 @@ class _ProductsOfCategoryScreenState extends State<ProductsOfCategoryScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: BlocBuilder<ProductOfMainCategoryBloc,
                     ProductsOfMainCategoryState>(
+                  // builder: (context, state) {
+                  //   if (state is ProductsOfMainCategoryLoadedState
+                  //       // &&
+                  //       // (context
+                  //       //             .read<ProductOfMainCategoryBloc>()
+                  //       //             .loadingSubCategoriesState ==
+                  //       //         false &&
+                  //       //     context
+                  //       //             .read<ProductOfMainCategoryBloc>()
+                  //       //             .loadingTheProductsState ==
+                  //       //         false)
+                  //       ) {
+                  //     return _TheBody();
+                  //   } else if (state is ProductsOfMainCategoryErrorState) {
+                  //     return Center(
+                  //       child: CustomLoadingScreen(),
+                  //     );
+                  //   } else {
+                  //     return const Center(
+                  //       child: CustomLoadingScreen(),
+                  //     );
+                  //   }
+                  // },
+
                   builder: (context, state) {
-                    if (state is ProductsOfMainCategoryLoadedState
-                        // &&
-                        // (context
-                        //             .read<ProductOfMainCategoryBloc>()
-                        //             .loadingSubCategoriesState ==
-                        //         false &&
-                        //     context
-                        //             .read<ProductOfMainCategoryBloc>()
-                        //             .loadingTheProductsState ==
-                        //         false)
-                        ) {
-                      return _TheBody();
-                    } else if (state is ProductsOfMainCategoryErrorState) {
-                      return Center(
-                        child: CustomLoadingScreen(),
-                      );
-                    } else {
-                      return const Center(
-                        child: CustomLoadingScreen(),
+                    // loading state
+                    if (state is ProductsOfMainCategoryLoadingState) {
+                      return Expanded(
+                        child: Center(
+                          child: Container(
+                            color: Colors.cyanAccent,
+                            height: 500,
+                            width: double.infinity,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Expanded(child: CustomLoadingScreen()),
+                                Expanded(
+                                  child: AppButton(
+                                    title: "test",
+                                    height: 45,
+                                    textColor: Colors.white,
+                                    borderColor: AppColors.mainColor,
+                                    width: double.infinity,
+                                    onTap: () {
+                                      print(
+                                          "tttttttttttttttttttttttttttttt   ${context.read<ProductOfMainCategoryBloc>().subCategoriesList} ");
+                                    },
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
                       );
                     }
+
+                    // inital  state
+                    // if (state is ProductsOfMainCategoryInitialState) {
+                    // if (state is ProductsOfMainCategoryLoadingState) {
+                    //   return const Center(
+                    //     child: CustomLoadingScreen(),
+                    //   );
+                    // }
+
+                    // error state
+                    if (state is ProductsOfMainCategoryErrorState) {
+                      return Center(
+                        child: ErrorScreen(
+                          errorMessage: "eeeeeeeee",
+                        ),
+                      );
+                    }
+
+                    // sucsses and defualt state
+                    return _TheBody();
                   },
                 ),
               ),
@@ -92,6 +148,7 @@ class _TheBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProductOfMainCategoryBloc, ProductsOfMainCategoryState>(
+      // bloc: ProductOfMainCategoryBloc(),
       builder: (context, state) {
         return DefaultTabController(
           length: context

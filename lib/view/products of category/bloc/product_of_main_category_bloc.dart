@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/models/products%20of%20category%20models/products_of_category_model.dart';
 import 'package:select_shop/models/sub%20categories%20model/sub_categories_model.dart';
+import 'package:http_status/http_status.dart';
 
 part 'product_of_main_category_event.dart';
 part 'product_of_main_category_state.dart';
@@ -26,7 +27,16 @@ class ProductOfMainCategoryBloc
         await DioHelper.getAllSubCategoryOfMainCategory(
             mainCategoryID: theMainCategoryID);
 
-    if (response.statusCode == 200) {
+if (response.statusCode!.isSuccessfulHttpStatusCode) {
+  // final httpStatus = HttpStatus.fromCode(response!.statusCode);
+
+  // return {
+  //   'statusCode': res.statusCode,
+  //   'httpStatus': httpStatus,
+  //   'data': res.body
+  // };
+
+
       print("geeeeeet allllllll sub cate donnnnnnnnnnnnnnnnnnnnne");
       GetAllSubCategoriesOfMainCateIdModle subCategoriesOfMainCateIdModle =
           GetAllSubCategoriesOfMainCateIdModle.fromJson(response.data);
@@ -40,7 +50,10 @@ class ProductOfMainCategoryBloc
       loadingSubCategoriesState = false;
       // emit(ProductsOfMainCategoryLoadedState());
       return true;
-    } else {
+}
+
+
+     else {
       return false;
     }
   }
@@ -54,7 +67,11 @@ class ProductOfMainCategoryBloc
     Response<dynamic> response = await DioHelper.getAllProductsOfMainCategory(
         mainCategoryID: theMainCategoryID);
 
-    if (response.statusCode == 200) {
+    if (
+      // response.statusCode == 200
+
+      response.statusCode!.isSuccessfulHttpStatusCode
+    ) {
       print("geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne");
       GetAllProductsOfACategoryModel getAllProductsOfACategoryModel =
           GetAllProductsOfACategoryModel.fromJson(response.data);
@@ -88,8 +105,8 @@ class ProductOfMainCategoryBloc
       ///
       ///
 
-// #### #### //
-// #### inital of the screen event #### //
+      // #### #### //
+      // #### inital of the screen event #### //
       if (event is ProductsOfCategoryInitalEvent) {
         // initalization code
 
@@ -108,24 +125,40 @@ class ProductOfMainCategoryBloc
         // getAllProductsOfACategoryFunc(
         //     theMainCategoryID: event.theMainCategoryID);
 
-        if (await getTheSubCategoryOfTheMainCategoryFunc(
-                    theMainCategoryID: event.theMainCategoryID) ==
-                true &&
-            await getAllProductsOfACategoryFunc(
-                    theMainCategoryID: event.theMainCategoryID) ==
-                true) {
+        bool theSubCat = await getTheSubCategoryOfTheMainCategoryFunc(
+            theMainCategoryID: event.theMainCategoryID);
+        bool theProductsOfMainCat = await getAllProductsOfACategoryFunc(
+            theMainCategoryID: event.theMainCategoryID);
+
+        if (theSubCat == true && theProductsOfMainCat == true) {
           // emit loaded sucsses state
-          print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+          print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit Sucsess");
           emit(ProductsOfMainCategoryLoadedState());
           print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
         } else {
           emit(ProductsOfMainCategoryErrorState());
         }
 
-        // // emit loaded sucsses state
-        // print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+        //   if (await getTheSubCategoryOfTheMainCategoryFunc(
+        //               theMainCategoryID: event.theMainCategoryID) ==
+        //           true &&
+        //       await getAllProductsOfACategoryFunc(
+        //               theMainCategoryID: event.theMainCategoryID) ==
+        //           true) {
+        //     // emit loaded sucsses state
+        //     print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+        //     emit(ProductsOfMainCategoryLoadedState());
+        //     print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+        //   } else {
+        //     emit(ProductsOfMainCategoryErrorState());
+        //   }
+
+        //   // // emit loaded sucsses state
+        //   // print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+        //   // emit(ProductsOfMainCategoryLoadedState());
+        //   // print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+
         // emit(ProductsOfMainCategoryLoadedState());
-        // print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
       }
 
       ///
@@ -183,5 +216,13 @@ class ProductOfMainCategoryBloc
 //         }
 //       }
     });
+
+    // @override
+    // void   onChange(change){
+    //   }
   }
 }
+
+
+
+

@@ -350,7 +350,7 @@ packages:
     source: hosted
     version: "0.15.4"
   http:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: http
       sha256: "761a297c042deedc1ffbb156d6e2af13886bb305c2a343a4d972504cd67dd938"
@@ -365,6 +365,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  http_status:
+    dependency: "direct main"
+    description:
+      name: http_status
+      sha256: "7089fb4728beaa766655f188223b7bc7955edc12a2ea87618f9c1206d60a2828"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.3"
   image:
     dependency: transitive
     description:
