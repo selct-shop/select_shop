@@ -147,11 +147,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    // return Scaffold(
-    //     body: SafeArea(
-    //         child: globalCachedUserToken == null || globalCachedUserToken == ""
-    //             ? const LogInScreen()
-    //             : const HomeScreen()));
+    return Scaffold(
+        body: SafeArea(
+            child: globalCachedUserToken == null || globalCachedUserToken == ""
+                ? const LogInScreen()
+                : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
@@ -164,11 +164,11 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(body: SafeArea(child: ChoosePaymentMethodScreen()));
     // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
 
-    return const Scaffold(
-        body: SafeArea(
-            child: ProductsOfCategoryScreen(
-      mainCategoryId: 1,
-    )));
+    // return const Scaffold(
+    //     body: SafeArea(
+    //         child: ProductsOfCategoryScreen(
+    //   mainCategoryId: 1,
+    // )));
 
     // return const Scaffold(body: SafeArea(child: SearchScreen()));
     // return const Scaffold(body: SafeArea(child: UserLocationsScreen()));

@@ -23,6 +23,8 @@ class ProductOfMainCategoryBloc
   Future<bool> getTheSubCategoryOfTheMainCategoryFunc(
       {required final int theMainCategoryID}) async {
     loadingSubCategoriesState = true;
+
+    
     Response<dynamic> response =
         await DioHelper.getAllSubCategoryOfMainCategory(
             mainCategoryID: theMainCategoryID);

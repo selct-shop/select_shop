@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/main.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/appbar.dart';
 import 'package:select_shop/view/Shared/drawer.dart';
@@ -75,34 +76,7 @@ class _ProductsOfCategoryScreenState extends State<ProductsOfCategoryScreen> {
                   builder: (context, state) {
                     // loading state
                     if (state is ProductsOfMainCategoryLoadingState) {
-                      return Expanded(
-                        child: Center(
-                          child: Container(
-                            color: Colors.cyanAccent,
-                            height: 500,
-                            width: double.infinity,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Expanded(child: CustomLoadingScreen()),
-                                Expanded(
-                                  child: AppButton(
-                                    title: "test",
-                                    height: 45,
-                                    textColor: Colors.white,
-                                    borderColor: AppColors.mainColor,
-                                    width: double.infinity,
-                                    onTap: () {
-                                      print(
-                                          "tttttttttttttttttttttttttttttt   ${context.read<ProductOfMainCategoryBloc>().subCategoriesList} ");
-                                    },
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
+                      return CustomLoadingScreen();
                     }
 
                     // inital  state
@@ -217,7 +191,14 @@ class _TheBody extends StatelessWidget {
                     Tab(
                       iconMargin: EdgeInsets.zero,
                       icon: _TabTitle(
-                        theTitle: context
+                        theTitle: 
+                        globalCachedUserLang == "ar" ? 
+                        
+                        context
+                            .read<ProductOfMainCategoryBloc>()
+                            .subCategoriesList[i]
+                            .nameAr:
+                        context
                             .read<ProductOfMainCategoryBloc>()
                             .subCategoriesList[i]
                             .nameEn,
@@ -228,6 +209,7 @@ class _TheBody extends StatelessWidget {
               // if (state
               //     is ProductsOfMainCategoryGetSubCategoryProductsSuccessState)
               Expanded(
+                
                 child: TabBarView(
                   children: [
                     for (int i = 0;
