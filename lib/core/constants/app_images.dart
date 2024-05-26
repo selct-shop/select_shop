@@ -1,29 +1,29 @@
 class AppImages {
-  static const selShoHoriText = "assets/images/selShoHoriText.png";
-  static const logo = "assets/images/logo.png";
-  static const logoNoTextStrok = "assets/images/logo_notext_strok.png";
-  static const logoSmall = "assets/images/logo_small.png";
-  static const menu = "assets/images/menu.png";
-  static const notification = "assets/images/notifiation.png";
-  static const selectShopText = "assets/images/select_shop_text.png";
-  static const mainCarouselSlider = "assets/images/main_carousel_slider.png";
-  static const girlLoginScreen = "assets/images/girlLoginScreen.png";
+  static const selShoHoriTextPng = "assets/images/selShoHoriText.png";
+  static const logoPng = "assets/images/logo.png";
+  static const logoNoTextStrokPng = "assets/images/logo_notext_strok.png";
+  static const logoSmallPng = "assets/images/logo_small.png";
+  static const menuPng = "assets/images/menu.png";
+  static const notificationPng = "assets/images/notifiation.png";
+  static const selectShopTextPng = "assets/images/select_shop_text.png";
+  static const mainCarouselSliderPng = "assets/images/main_carousel_slider.png";
+  static const girlLoginScreenPng = "assets/images/girlLoginScreen.png";
 
-  static const cartBig = "assets/images/cart_big.png";
-  static const cartSmall = "assets/images/cart_small.png";
-  static const catigeores = "assets/images/catigeores.png";
-  static const favFilled = "assets/images/fav_filled.png";
-  static const favNotFilled = "assets/images/fav_not_filled.png";
-  static const home = "assets/images/home.png";
-  static const person = "assets/images/person.png";
-  static const search = "assets/images/search.png";
+  static const cartBigPng = "assets/images/cart_big.png";
+  static const cartSmallPng = "assets/images/cart_small.png";
+  static const catigeoresPng = "assets/images/catigeores.png";
+  static const favFilledPng = "assets/images/fav_filled.png";
+  static const favNotFilledPng = "assets/images/fav_not_filled.png";
+  static const homePng = "assets/images/home.png";
+  static const personPng = "assets/images/person.png";
+  static const searchPng = "assets/images/search.png";
   static const chanelLogoJfif = "assets/images/chanel.jfif";
-  static const categories = "assets/images/categories.png";
-  static const tempPerson = "assets/images/temp-person.png";
-  static const noData = "assets/images/no_data.png";
+  static const categoriesPng = "assets/images/categories.png";
+  static const tempPersonPng = "assets/images/temp-person.png";
+  static const noDataPng = "assets/images/no_data.png";
 
-  static const facebook = "assets/images/facebook.png";
-  static const google = "assets/images/google.png";
+  static const facebookPng = "assets/images/facebook.png";
+  static const googlePng = "assets/images/google.png";
 
 
 
@@ -86,6 +86,15 @@ class AppImagesSvg{
 
 
   
+
+  
+  static const giftSvg   = "assets/svg images/gift.svg";
+  static const cashSvg   = "assets/svg images/cash.svg";
+  static const creditSvg   = "assets/svg images/credit.svg";
+  static const creditWithDetailsSvg   = "assets/svg images/credit_with_details.svg";
+  static const returnSvg   = "assets/svg images/return.svg";
+  static const truckSvg  = "assets/svg images/truck.svg";
+  static const siesorSvg  = "assets/svg images/siesor.svg";
 
 
 }
