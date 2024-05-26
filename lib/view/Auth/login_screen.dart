@@ -446,7 +446,7 @@ class _LoginBodyState extends State<_LoginBody> {
                     },
                     child: const Image(
                         image: AssetImage(
-                      AppImages.facebook,
+                      AppImages.facebookPng,
                     )),
                   ),
                   const SizedBox(
@@ -462,7 +462,7 @@ class _LoginBodyState extends State<_LoginBody> {
                     },
                     child: const Image(
                         image: AssetImage(
-                      AppImages.google,
+                      AppImages.googlePng,
                     )),
                   ),
                 ],
@@ -541,7 +541,7 @@ class _AuthCustomIcon extends StatelessWidget {
                         // ),
                       ),
                     ),
-                    Center(child: Image.asset(AppImages.girlLoginScreen)),
+                    Center(child: Image.asset(AppImages.girlLoginScreenPng)),
                   ]),
                 ),
                 const SizedBox(
@@ -551,7 +551,7 @@ class _AuthCustomIcon extends StatelessWidget {
                   // width: 10,
                   // height: 10,
                   image: AssetImage(
-                    AppImages.selShoHoriText,
+                    AppImages.selShoHoriTextPng,
                   ),
                 ),
                 const SizedBox(

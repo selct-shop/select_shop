@@ -99,7 +99,7 @@ class _DrawerBody extends StatelessWidget {
                         ),
                         // image: DecorationImage(image: CachedNetworkImage(imageUrl:"+" ,))
                         image: const DecorationImage(
-                            image: AssetImage(AppImages.tempPerson)),
+                            image: AssetImage(AppImages.tempPersonPng)),
                       ),
                     ),
                     const SizedBox(

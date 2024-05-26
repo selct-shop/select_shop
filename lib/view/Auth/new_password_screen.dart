@@ -33,7 +33,7 @@ class NewPasswordScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(width: 160, AppImages.logo),
+                Image.asset(width: 160, AppImages.logoPng),
                 const SizedBox(
                   height: 20,
                 ),

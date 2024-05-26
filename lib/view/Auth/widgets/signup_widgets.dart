@@ -57,7 +57,7 @@ class _AuthCustomIcon extends StatelessWidget {
                                   const BorderRadius.all(Radius.circular(50))),
                         ),
                       ),
-                      Center(child: Image.asset(AppImages.girlLoginScreen)),
+                      Center(child: Image.asset(AppImages.girlLoginScreenPng)),
                     ]),
                   ),
                   const SizedBox(
@@ -65,7 +65,7 @@ class _AuthCustomIcon extends StatelessWidget {
                   ),
                   const Image(
                     image: AssetImage(
-                      AppImages.selShoHoriText,
+                      AppImages.selShoHoriTextPng,
                     ),
                   ),
                   const SizedBox(
@@ -171,7 +171,7 @@ class _GoogleIcons extends StatelessWidget {
           },
           child: const Image(
               image: AssetImage(
-            AppImages.facebook,
+            AppImages.facebookPng,
           )),
         ),
         const SizedBox(
@@ -187,7 +187,7 @@ class _GoogleIcons extends StatelessWidget {
           },
           child: const Image(
               image: AssetImage(
-            AppImages.google,
+            AppImages.googlePng,
           )),
         ),
       ],

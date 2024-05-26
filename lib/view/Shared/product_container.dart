@@ -118,7 +118,7 @@ class ProductContainer extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: AssetImage(AppImages.mainCarouselSlider),
+                      image: AssetImage(AppImages.mainCarouselSliderPng),
                     )),
               ),
             ],

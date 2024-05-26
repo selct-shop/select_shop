@@ -62,7 +62,7 @@ class ProductCard extends StatelessWidget {
                         fit: BoxFit.cover,
                         // fit: BoxFit.none,
                         image: AssetImage(
-                          AppImages.mainCarouselSlider,
+                          AppImages.mainCarouselSliderPng,
                         ),
                       ),
                     ),
@@ -234,7 +234,7 @@ class ProductCard extends StatelessWidget {
                           child: Image.asset(
                             height: 10,
                             width: 510,
-                            AppImages.cartSmall,
+                            AppImages.cartSmallPng,
                           ),
                         ),
                       ],

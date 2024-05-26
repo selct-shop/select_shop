@@ -1921,7 +1921,7 @@ class _ProductPicticher extends StatelessWidget {
                   // key:
 
                   fit: BoxFit.cover,
-                  AppImages.mainCarouselSlider)),
+                  AppImages.mainCarouselSliderPng)),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(

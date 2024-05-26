@@ -409,7 +409,7 @@ class _CustomCarsoulSlider extends StatelessWidget {
                       width: double.infinity,
                       fit: BoxFit.fill,
                       image: AssetImage(
-                        AppImages.mainCarouselSlider,
+                        AppImages.mainCarouselSliderPng,
                       ));
                 },
               );

@@ -59,12 +59,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   height: 40,
                   width: 40,
                   image: AssetImage(
-                    AppImages.logoSmall,
+                    AppImages.logoSmallPng,
                   ),
                 ),
                 Image(
                   image: AssetImage(
-                    AppImages.selectShopText,
+                    AppImages.selectShopTextPng,
                   ),
                 ),
               ],

@@ -235,7 +235,7 @@ class _CustomCategory extends StatelessWidget {
                           width: 3,
                         ),
                         Image.asset(
-                          AppImages.cartSmall,
+                          AppImages.cartSmallPng,
                           height: 15,
                           width: 15,
                         ),

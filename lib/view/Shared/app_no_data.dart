@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
@@ -10,14 +11,25 @@ class AppNoData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        const Image(
-          image: AssetImage(
-            AppImages.noData,
+        // const Image(
+        //   image: AssetImage(
+        //     AppImages.noData,
+        //   ),
+        //   width: 300,
+        //   height: 300,
+        //   fit: BoxFit.cover,
+        // ),
+        SizedBox(
+          child: Center(
+            child: SvgPicture.asset(
+              AppImagesSvg.noDataSvg,
+              width: 300,
+              height: 300,
+            ),
           ),
-          width: 300,
-          height: 300,
-          fit: BoxFit.cover,
         ),
         Text(
           // S.of(context).shipment_no_data,
@@ -25,6 +37,7 @@ class AppNoData extends StatelessWidget {
           style: const TextStyle(
             color: AppColors.mainColor,
             fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ],

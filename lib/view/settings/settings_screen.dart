@@ -65,7 +65,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                           // image: DecorationImage(image: CachedNetworkImage(imageUrl:"+" ,))
                           image: const DecorationImage(
-                              image: AssetImage(AppImages.tempPerson),
+                              image: AssetImage(AppImages.tempPersonPng),
                               fit: BoxFit.cover),
                         ),
                       ),
