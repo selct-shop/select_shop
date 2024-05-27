@@ -14,7 +14,7 @@ class _HomeBodyState extends State<_HomeBody> {
 
   @override
   void initState() {
-    print("hoooooooooooooooomememem init state");
+    // print("=========================================${Localizations.localeOf(context).languageCode }");
 
     context.read<HomeBloc>().add(HomeGetHomeCategoEvent());
     context.read<GetNewProductsBloc>().add(HomeGetHomeNewProductsInitalEvent());
@@ -29,6 +29,14 @@ class _HomeBodyState extends State<_HomeBody> {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
+            // AppButton(
+            //   title: Localizations.localeOf(context).languageCode,
+            //   backgroundColor: AppColors.mainColor,
+            //   onTap: () {
+            //     print(
+            //         "=========================================${Localizations.localeOf(context).languageCode}");
+            //   },
+            // ),
             _CustomCarsoulSlider(),
             const SizedBox(
               height: 20,
@@ -309,7 +317,7 @@ class _HomeCategoriesRow extends StatelessWidget {
                             Text(
                               // S.of(context).categorys,
                               // AppLocalizations.of(context)!.localeName
-                              globalCachedUserLang == "ar"
+                              Localizations.localeOf(context) == "ar"
                                   ? context
                                       .read<HomeBloc>()
                                       .categoresListForHomeScreen[index]!

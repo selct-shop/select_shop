@@ -131,7 +131,7 @@ class ProductCard extends StatelessWidget {
                         ),
                         Text(
                           // productCategory ?? S.of(context).homePage,
-                          globalCachedUserLang == "ar"
+                          Localizations.localeOf(context).languageCode == "ar"
                               ? theProduct.categories.first.category.nameAr
                               : theProduct.categories.first.category.nameEn,
                           style: TextStyle(
@@ -188,7 +188,7 @@ class ProductCard extends StatelessWidget {
                       children: [
                         Text(
                           // productName ?? "shirt",
-                          globalCachedUserLang == "ar"
+                          Localizations.localeOf(context).languageCode == "ar"
                               ? theProduct.nameAr
                               : theProduct.nameEn,
                           style: TextStyle(
@@ -202,9 +202,9 @@ class ProductCard extends StatelessWidget {
                           //     ? brandName!.toUpperCase()
                           //     : "chanel".toUpperCase(),
 
-                          globalCachedUserLang == "ar"
+                          Localizations.localeOf(context).languageCode == "ar"
                               ? theProduct.brand.nameAr
-                              : theProduct.nameEn,
+                              : theProduct.brand.nameEn,
                           style: AppConstants.customTitleTextStyle.copyWith(
                             fontSize: 10,
                           ),

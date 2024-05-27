@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/helpers/cache_helper.dart';
+import 'package:select_shop/main.dart';
 
 // changeLocal()async {
 // Locale appLocal = await CacheHelper.getData(key: 'local');
@@ -42,5 +43,5 @@ cachLocal({required String langCode}) async {
 
   await CacheHelper.setData(key: AppConstants.cachedUserLang, value: langCode);
 
-// RestartWidget.restartApp(context);
+  globalCachedUserLang = langCode; // RestartWidget.restartApp(context);
 }

@@ -149,8 +149,7 @@ class DioHelper {
         "collection": collection,
       });
 
-      print(
-          "===========================================${globalCachedUserLang}");
+      
       return response;
     } catch (e) {
       throw Exception('Failed to get main categories: $e');

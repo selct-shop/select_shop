@@ -179,7 +179,7 @@ class _TheBody extends StatelessWidget {
                     Tab(
                       iconMargin: EdgeInsets.zero,
                       icon: _TabTitle(
-                        theTitle: globalCachedUserLang == "ar"
+                        theTitle: Localizations.localeOf(context) == "ar"
                             ? context
                                 .read<ProductOfMainCategoryBloc>()
                                 .subCategoriesList[i]
