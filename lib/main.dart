@@ -25,6 +25,7 @@ import 'package:select_shop/view/categories/bloc/categories_bloc.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/check%20out/check_out.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
+import 'package:select_shop/view/home/widgets/prodcts%20best%20seller/bloc/product_bestseller_bloc.dart';
 import 'package:select_shop/view/home/widgets/products%20new/bloc/products_new_bloc.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/home_screen.dart';
@@ -89,6 +90,9 @@ class _MyAppState extends State<MyApp> {
           BlocProvider<HomeBloc>(create: (context) => HomeBloc()),
           BlocProvider<GetNewProductsBloc>(
               create: (context) => GetNewProductsBloc()),
+
+          BlocProvider<ProductBestsellerBloc>(
+              create: (context) => ProductBestsellerBloc()),
           // BlocProvider(create:(context) => HomeBloc()..add(HomeGetItemsEvent( ))),
           BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
           BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),

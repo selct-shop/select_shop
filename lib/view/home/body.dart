@@ -18,6 +18,7 @@ class _HomeBodyState extends State<_HomeBody> {
 
     context.read<HomeBloc>().add(HomeGetHomeCategoEvent());
     context.read<GetNewProductsBloc>().add(HomeGetHomeNewProductsInitalEvent());
+    context.read<ProductBestsellerBloc>().add(ProductsBestSellerInitalEvent());
 
     super.initState();
   }
@@ -68,7 +69,7 @@ class _HomeBodyState extends State<_HomeBody> {
             ///
             ///////////////////////////
 
-            _CustomBanar(
+            _CustomBanarNew(
               banarTitle: S.of(context).theNew,
               banarTag: S.of(context).theNew,
               theProductsStats: S.of(context).theNew,
@@ -78,7 +79,7 @@ class _HomeBodyState extends State<_HomeBody> {
             ///
             ///
             ///////////////////////////
-            _CustomBanar(
+            _CustomBanarBestSeller(
               banarTitle: S.of(context).thebestSeller,
               banarTag: S.of(context).thebestSeller,
               theProductsStats: S.of(context).thebestSeller,

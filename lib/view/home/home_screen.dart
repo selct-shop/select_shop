@@ -32,10 +32,12 @@ import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/favourite/favourite_screen.dart';
+import 'package:select_shop/view/home/widgets/prodcts%20best%20seller/bloc/product_bestseller_bloc.dart';
 import 'package:select_shop/view/home/widgets/products%20new/bloc/products_new_bloc.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/product%20details/product_details_screen.dart';
 import 'package:select_shop/view/product/products_screen.dart';
+import 'package:select_shop/view/products%20of%20category/bloc/product_of_main_category_bloc.dart';
 import 'package:select_shop/view/settings/settings_screen.dart';
 import 'dart:math' as math;
 
