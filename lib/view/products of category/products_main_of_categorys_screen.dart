@@ -1,7 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
+//this import casing broplems
+// import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/app_no_data.dart';
@@ -9,7 +15,9 @@ import 'package:select_shop/view/Shared/appbar.dart';
 import 'package:select_shop/view/Shared/drawer.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
+import 'package:select_shop/view/Shared/product_card.dart';
 import 'package:select_shop/view/Shared/search_container.dart';
+import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/view/products%20of%20category/bloc/product_of_main_category_bloc.dart';
 
 // part of "home_screen.dart"
@@ -127,9 +135,10 @@ class _TheBody extends StatelessWidget {
       builder: (context, state) {
         return DefaultTabController(
           length: context
-              .read<ProductOfMainCategoryBloc>()
-              .subCategoriesList
-              .length,
+                  .read<ProductOfMainCategoryBloc>()
+                  .subCategoriesList
+                  .length +
+              1,
           child: Column(
             children: [
               const SizedBox(
@@ -153,35 +162,13 @@ class _TheBody extends StatelessWidget {
                 // unselectedLabelColor: Colors.black,
 
                 tabs: [
-                  // Tab(
-                  //   // iconMargin: EdgeInsets.zero,
-                  //   icon: _TabTitle(
-                  //     theTitle: "t-shirt",
-                  //   ),
-
-                  //   // child: _CustomTabChild(),
-                  // ),
-                  // Tab(
-                  //   icon: _TabTitle(
-                  //     theTitle: "womens",
-                  //   ),
-                  // ),
-                  // Tab(
-                  //   icon: _TabTitle(
-                  //     theTitle: "t-aaaaa",
-                  //   ),
-                  // ),
-                  // Tab(
-                  //   icon: _TabTitle(
-                  //     theTitle: "t-bbbbb",
-                  //   ),
-                  // ),
-                  // Tab(
-                  //   icon: _TabTitle(
-                  //     theTitle: "t-ccccc",
-                  //   ),
-                  // ),
-
+                  Tab(
+                    // all products
+                    iconMargin: EdgeInsets.zero,
+                    icon: _TabTitle(
+                      theTitle: S.of(context).showAll,
+                    ),
+                  ),
                   for (int i = 0;
                       i <
                           context
@@ -210,6 +197,25 @@ class _TheBody extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: [
+                    // #### all product pages #### //
+                    if (context
+                        .read<ProductOfMainCategoryBloc>()
+                        .productsOfACategoryResultList
+                        .isEmpty)
+                      Center(
+                        child: AppNoData(),
+                      )
+                    else
+                      Icon(
+                        Icons.all_inbox_rounded,
+                      ),
+
+                    ///
+                    ///
+                    ///
+                    ///
+                    ///
+                    // #### the rest of product pages #### //
                     if (context
                         .read<ProductOfMainCategoryBloc>()
                         .productsOfACategoryResultList
@@ -221,8 +227,40 @@ class _TheBody extends StatelessWidget {
                                   .subCategoriesList
                                   .length;
                           i++)
-                        Center(
-                          child: AppNoData(),
+                        // Center(
+                        //   child: AppNoData(),
+                        // )
+
+                        Column(
+                          children: [
+                            const SizedBox(
+                              height: 10,
+                              width: 10,
+                            ),
+                            GridView.builder(
+                                shrinkWrap: true,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  childAspectRatio: .6,
+                                  crossAxisSpacing: 5,
+                                  mainAxisSpacing: 15,
+                                ),
+                                itemBuilder: (context, index) {
+                                  return ProductCard(
+                                    width: 180,
+                                    height: 170,
+                                    withShado: true,
+                                    onTap: () {
+                                      navigateTo(context, UnderDevScreen());
+                                    },
+                                    newPrice: 400,
+                                    productCategory: "men",
+                                    productName: "t-shirt",
+                                    ratingNumber: 3.8,
+                                  );
+                                }),
+                          ],
                         )
                     else
                       for (int i = 0;

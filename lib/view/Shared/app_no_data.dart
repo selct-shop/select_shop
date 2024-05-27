@@ -14,23 +14,33 @@ class AppNoData extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        // const Image(
-        //   image: AssetImage(
-        //     AppImages.noData,
-        //   ),
-        //   width: 300,
-        //   height: 300,
-        //   fit: BoxFit.cover,
-        // ),
-        SizedBox(
-          child: Center(
-            child: SvgPicture.asset(
-              AppImagesSvg.noDataSvg,
-              width: 300,
-              height: 300,
-            ),
+        const Image(
+          image: AssetImage(
+            AppImages.noDataPng,
           ),
+          width: 100,
+          height: 100,
+          fit: BoxFit.cover,
         ),
+        // SizedBox(
+        //   child: Center(
+        //     child: SvgPicture.asset(
+        //       width: 300,
+        //       height: 300,
+        //       alignment: Alignment.center,
+        //       fit: BoxFit.cover,
+        //       placeholderBuilder: (context) {
+        //         return Center(
+        //           child: Icon(
+        //             Icons.error_outline_rounded,
+        //           ),
+        //         );
+        //       },
+        //       color: AppColors.mainColor,
+        //       AppImagesSvg.noDataSvg,
+        //     ),
+        //   ),
+        // ),
         Text(
           // S.of(context).shipment_no_data,
           S.of(context).noDataLikeThis,

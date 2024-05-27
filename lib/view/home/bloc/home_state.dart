@@ -25,3 +25,20 @@ final class HomeGetHomeCatiegorErrorState extends HomeState{
     required this.errorMessage, 
   });
 }
+
+  
+// home drawer states
+final class HomeNewProductsLoadingState extends HomeState {}
+final class HomeNewProductLoadedState extends HomeState {
+  final List<CollectionProduct> newProductCollectionList;
+  HomeNewProductLoadedState({ required this.newProductCollectionList});
+}
+final class HomeNewProductEmptyState extends HomeState {
+  final List<CollectionProduct> newProductCollectionList;
+  HomeNewProductEmptyState({ required this.newProductCollectionList}); 
+}
+final class HomeNewProductErrorState extends HomeState {
+  final String? errorMessage;
+  HomeNewProductErrorState({required this.errorMessage});
+}
+

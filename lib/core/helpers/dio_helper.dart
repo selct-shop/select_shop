@@ -20,6 +20,7 @@ class DioHelper {
 
   // the new getHomeMainCategoriesUrl
   static String getHomeMainCategoriesUrl = '/category/main';
+  static String getHomeCollectionUrl = '/product/collection';
 
   static const String getEmiratesUrl = "/address-city/all";
 
@@ -132,6 +133,26 @@ class DioHelper {
     try {
       final response = await _dio!.get(
         getHomeMainCategoriesUrl,
+      );
+      return response;
+    } catch (e) {
+      throw Exception('Failed to get main categories: $e');
+    }
+  }
+
+
+  
+  // #### the newwww get home categories #### //
+  static Future<Response> getNewProductsHome(
+    { required final  String? collection }
+  ) async {
+    try {
+      final response = await _dio!.post(
+        getHomeCollectionUrl,
+        data: {
+    "page" : 1,
+    "collection": collection, 
+}
       );
       return response;
     } catch (e) {

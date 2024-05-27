@@ -24,20 +24,18 @@ class ProductOfMainCategoryBloc
       {required final int theMainCategoryID}) async {
     loadingSubCategoriesState = true;
 
-    
     Response<dynamic> response =
         await DioHelper.getAllSubCategoryOfMainCategory(
             mainCategoryID: theMainCategoryID);
 
-if (response.statusCode!.isSuccessfulHttpStatusCode) {
-  // final httpStatus = HttpStatus.fromCode(response!.statusCode);
+    if (response.statusCode!.isSuccessfulHttpStatusCode) {
+      // final httpStatus = HttpStatus.fromCode(response!.statusCode);
 
-  // return {
-  //   'statusCode': res.statusCode,
-  //   'httpStatus': httpStatus,
-  //   'data': res.body
-  // };
-
+      // return {
+      //   'statusCode': res.statusCode,
+      //   'httpStatus': httpStatus,
+      //   'data': res.body
+      // };
 
       print("geeeeeet allllllll sub cate donnnnnnnnnnnnnnnnnnnnne");
       GetAllSubCategoriesOfMainCateIdModle subCategoriesOfMainCateIdModle =
@@ -52,10 +50,7 @@ if (response.statusCode!.isSuccessfulHttpStatusCode) {
       loadingSubCategoriesState = false;
       // emit(ProductsOfMainCategoryLoadedState());
       return true;
-}
-
-
-     else {
+    } else {
       return false;
     }
   }
@@ -70,11 +65,10 @@ if (response.statusCode!.isSuccessfulHttpStatusCode) {
         mainCategoryID: theMainCategoryID);
 
     if (
-      // response.statusCode == 200
+        // response.statusCode == 200
 
-      response.statusCode!.isSuccessfulHttpStatusCode
-    ) {
-      print("geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne");
+        response.statusCode!.isSuccessfulHttpStatusCode) {
+      // print("geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne");
       GetAllProductsOfACategoryModel getAllProductsOfACategoryModel =
           GetAllProductsOfACategoryModel.fromJson(response.data);
 
@@ -86,6 +80,8 @@ if (response.statusCode!.isSuccessfulHttpStatusCode) {
       // emit loaded or success state
       // emit(ProductsOfMainCategoryGetSubCategoriesSuccessState());
       loadingTheProductsState = false;
+      print(
+          "geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne$productsOfACategoryResultList");
       // emit(ProductsOfMainCategoryLoadedState());
       return true;
     } else {
@@ -224,7 +220,3 @@ if (response.statusCode!.isSuccessfulHttpStatusCode) {
     //   }
   }
 }
-
-
-
-

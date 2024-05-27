@@ -40,7 +40,7 @@ class GetCollectionModel {
 }
 
 class CollectionResult {
-    List<Product> products;
+    List<CollectionProduct> products;
     int totalCount;
 
     CollectionResult({
@@ -49,7 +49,7 @@ class CollectionResult {
     });
 
     CollectionResult copyWith({
-        List<Product>? products,
+        List<CollectionProduct>? products,
         int? totalCount,
     }) => 
         CollectionResult(
@@ -62,7 +62,7 @@ class CollectionResult {
     String toRawJson() => json.encode(toJson());
 
     factory CollectionResult.fromJson(Map<String, dynamic> json) => CollectionResult(
-        products: List<Product>.from(json["products"].map((x) => Product.fromJson(x))),
+        products: List<CollectionProduct>.from(json["products"].map((x) => CollectionProduct.fromJson(x))),
         totalCount: json["totalCount"],
     );
 
@@ -72,7 +72,7 @@ class CollectionResult {
     };
 }
 
-class Product {
+class CollectionProduct {
     int id;
     String nameEn;
     String nameAr;
@@ -101,7 +101,7 @@ class Product {
     List<ProductStatus> productStatus;
     List<ProductAttribute> productAttributes;
 
-    Product({
+    CollectionProduct({
         required this.id,
         required this.nameEn,
         required this.nameAr,
@@ -131,7 +131,7 @@ class Product {
         required this.productAttributes,
     });
 
-    Product copyWith({
+    CollectionProduct copyWith({
         int? id,
         String? nameEn,
         String? nameAr,
@@ -160,7 +160,7 @@ class Product {
         List<ProductStatus>? productStatus,
         List<ProductAttribute>? productAttributes,
     }) => 
-        Product(
+        CollectionProduct(
             id: id ?? this.id,
             nameEn: nameEn ?? this.nameEn,
             nameAr: nameAr ?? this.nameAr,
@@ -190,11 +190,11 @@ class Product {
             productAttributes: productAttributes ?? this.productAttributes,
         );
 
-    factory Product.fromRawJson(String str) => Product.fromJson(json.decode(str));
+    factory CollectionProduct.fromRawJson(String str) => CollectionProduct.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory Product.fromJson(Map<String, dynamic> json) => Product(
+    factory CollectionProduct.fromJson(Map<String, dynamic> json) => CollectionProduct(
         id: json["id"],
         nameEn: json["nameEn"],
         nameAr: json["nameAr"],

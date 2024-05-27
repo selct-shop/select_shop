@@ -17,6 +17,8 @@ class _HomeBodyState extends State<_HomeBody> {
     print("hoooooooooooooooomememem init state");
 
     context.read<HomeBloc>().add(HomeGetHomeCategoEvent());
+    context.read<HomeBloc>().add(HomeGetHomeNewProductsEvent());
+
     super.initState();
   }
 
@@ -58,25 +60,28 @@ class _HomeBodyState extends State<_HomeBody> {
             ///
             ///////////////////////////
 
-            _CustomBanar(),
+            _CustomBanar(
+              banarTitle: "new",
+              banarTag: "new",
+            ),
 
             ////////////////////////////
             ///
             ///
             ///////////////////////////
-            _CustomBanar(),
+            // _CustomBanar(),
 
             ////////////////////////////
             ///
             ///
             ///////////////////////////
-            _CustomBanar(),
+            // _CustomBanar(),
 
             ////////////////////////////
             ///
             ///
             ///////////////////////////
-            _CustomBanar(),
+            // _CustomBanar(),
 
             ////////////////////////////
             ///

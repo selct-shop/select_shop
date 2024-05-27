@@ -15,6 +15,7 @@ import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/l10n/app_localizations.dart';
 import 'package:select_shop/main.dart';
+import 'package:select_shop/view/Shared/app_no_data.dart';
 import 'package:select_shop/view/Shared/appbar.dart';
 import 'package:select_shop/view/Shared/bottom_nav_bar.dart';
 import 'package:select_shop/view/Shared/drawer.dart';
@@ -31,6 +32,8 @@ import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/favourite/favourite_screen.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
+import 'package:select_shop/view/product%20details/product_details_screen.dart';
+import 'package:select_shop/view/product/products_screen.dart';
 import 'package:select_shop/view/settings/settings_screen.dart';
 import 'dart:math' as math;
 
