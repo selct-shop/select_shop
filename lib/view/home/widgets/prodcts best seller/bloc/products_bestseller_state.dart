@@ -1,28 +1,28 @@
 part of 'product_bestseller_bloc.dart';
 
-sealed class GetNewProductsState extends Equatable {
-  const GetNewProductsState();
+sealed class ProductsBestsellerState extends Equatable {
+  const ProductsBestsellerState();
   
   @override
   List<Object> get props => [];
 }
 
-final class GetNewProductsInitial extends GetNewProductsState {}
+final class ProductsBestSellerInitalState extends ProductsBestsellerState {}
 
 
 
   
 // home drawer states
-final class GetNewProductsLoadingState extends GetNewProductsState {}
-final class GetNewProductLoadedState extends GetNewProductsState {
-  final List<CollectionProduct> newProductCollectionList;
-  GetNewProductLoadedState({ required this.newProductCollectionList});
+final class ProductsBestSellerLoadingState extends ProductsBestsellerState {}
+final class ProductsBestSellerLoadedState extends ProductsBestsellerState {
+  final List<CollectionProduct> bestSellerCollectionList;
+  ProductsBestSellerLoadedState({ required this.bestSellerCollectionList});
 }
-final class GetNewProductEmptyState extends GetNewProductsState {
-  final List<CollectionProduct> newProductCollectionList;
-  GetNewProductEmptyState({ required this.newProductCollectionList}); 
+final class ProductsBestSellerEmptyState extends ProductsBestsellerState {
+  final List<CollectionProduct> bestSellerCollectionList;
+  ProductsBestSellerEmptyState({ required this.bestSellerCollectionList}); 
 }
-final class GetNewProductErrorState extends GetNewProductsState {
+final class ProductsBestSellerErrorState extends ProductsBestsellerState {
   final String? errorMessage;
-  GetNewProductErrorState({required this.errorMessage});
+  ProductsBestSellerErrorState({required this.errorMessage});
 }
