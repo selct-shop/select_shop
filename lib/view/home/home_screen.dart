@@ -32,7 +32,7 @@ import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/favourite/favourite_screen.dart';
-import 'package:select_shop/view/home/bloc/get_new_products_bloc.dart';
+import 'package:select_shop/view/home/widgets/products%20new/bloc/products_new_bloc.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/product%20details/product_details_screen.dart';
 import 'package:select_shop/view/product/products_screen.dart';
@@ -43,7 +43,7 @@ import 'dart:math' as math;
 //
 //
 // part '../Shared/drawer.dart';
-part 'custom_paner.dart';
+part 'widgets/custom_baner.dart';
 part 'body.dart';
 part 'package:select_shop/view/search/search_screen.dart';
 

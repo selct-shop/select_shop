@@ -5,8 +5,8 @@ import 'package:http_status/http_status.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/models/collection/get_collection_modle.dart';
 
-part 'get_new_products_event.dart';
-part 'get_new_products_state.dart';
+part 'products_new_event.dart';
+part 'products_new_state.dart';
 
 class GetNewProductsBloc extends Bloc<GetNewProductsEvent, GetNewProductsState> {
 

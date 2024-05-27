@@ -1,4 +1,4 @@
-part of 'get_new_products_bloc.dart';
+part of 'products_discounts_bloc.dart';
 
 sealed class GetNewProductsState extends Equatable {
   const GetNewProductsState();

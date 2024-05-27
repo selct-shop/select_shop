@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-part of 'home_screen.dart';
+part of '../home_screen.dart';
 
 class _CustomBanar extends StatelessWidget {
   final String? banarTitle, banarTag, theProductsStats;
