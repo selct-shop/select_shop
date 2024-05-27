@@ -2,7 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 
 class UserExperinceHelper {
@@ -204,6 +206,28 @@ class UserExperinceHelper {
       // }
       //
     );
+  }
+
+
+
+  // #### custom network checker dialog #### //
+  showNetorkCheckerDialog(
+    {required final BuildContext theContext}
+  ){
+
+
+showCustomDialog(theContext: theContext, 
+  
+  dialogTitle: S.of(theContext ).error, 
+  dialogContent: S.of(theContext).checkNetwork, 
+  confirmButtonTitle: S.of(theContext).confirm, 
+  onConfirm: () {
+    Navigator.of(theContext).pop(); 
+  },
+  
+  );
+
+
   }
 }
 

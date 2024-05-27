@@ -165,4 +165,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get shopNow => 'تسوق الان';
+
+  @override
+  String get error => 'خطاء';
+
+  @override
+  String get checkNetwork => 'الرجاء تفحص الانترنت لديك';
 }

@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "backToSignIn": MessageLookupByLibrary.simpleMessage("back to signin"),
         "category": MessageLookupByLibrary.simpleMessage("category"),
         "categorys": MessageLookupByLibrary.simpleMessage("categorys"),
+        "checkNetwork":
+            MessageLookupByLibrary.simpleMessage("please check your network"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("confirm new password"),
@@ -36,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("enter your email to reset"),
         "enterEmailToResetTwo":
             MessageLookupByLibrary.simpleMessage("your password"),
+        "error": MessageLookupByLibrary.simpleMessage("error"),
         "favourts": MessageLookupByLibrary.simpleMessage("favourts"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("forgot password?"),

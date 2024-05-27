@@ -587,7 +587,9 @@ class _SignUpButtonState extends State<_SignUpButton> {
 
           // #### every thing is true #### //
           if (_userAgreementChecked == true) {
-            context.read<AuthBloc>().add(AuthSignupEvet());
+            context.read<AuthBloc>().add(AuthSignupEvet(
+                  theContext: context,
+                ));
           }
         }
       },

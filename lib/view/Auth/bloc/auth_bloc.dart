@@ -3,10 +3,13 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:meta/meta.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/helpers/cache_helper.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
+import 'package:select_shop/core/helpers/user_experience_helper.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/models/auth/sign_in_modle.dart';
 import 'package:select_shop/models/auth/sign_up_modle.dart';
@@ -134,7 +137,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       // #### log in #### //
       if (event is AuthLogInEvent) {
 // check for network
-
+bool result = await InternetConnectionChecker().hasConnection;
+if(result == true) {
+  
+  
 // form validation
 // print("tttttttttttttttttttttttttttttttttt${signInFormKey.currentState!.validate()}");
         // if (signInFormKey.currentState == null) {
@@ -211,6 +217,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         // });
         // }
 
+} else {
+  
+UserExperinceHelper().showNetorkCheckerDialog(theContext: event.theContext);
+
+}
+
         //
         //
         //
@@ -219,7 +231,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       if (event is AuthSignupEvet) {
 // #### sign up #### //
 
-// check for network connectivty
+
+
+
+
+
+// check for network
+bool result = await InternetConnectionChecker().hasConnection;
+if(result == true) {
+  
+
+
+
+
+
 // form validation
 
         emit(AuthLoadingStateSignUp());
@@ -285,6 +310,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         // });
         // }
 
+
+
+
+} else {
+  
+UserExperinceHelper().showNetorkCheckerDialog(theContext: event.theContext);
+
+}
         //
         //
         //

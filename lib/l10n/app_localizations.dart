@@ -416,6 +416,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'shop now'**
   String get shopNow;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'error'**
+  String get error;
+
+  /// No description provided for @checkNetwork.
+  ///
+  /// In en, this message translates to:
+  /// **'please check your network'**
+  String get checkNetwork;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

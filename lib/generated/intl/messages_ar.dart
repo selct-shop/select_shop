@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
         "category": MessageLookupByLibrary.simpleMessage("التصنيف"),
         "categorys": MessageLookupByLibrary.simpleMessage("التصنيفات"),
+        "checkNetwork":
+            MessageLookupByLibrary.simpleMessage("الرجاء تفحص الانترنت لديك"),
         "confirm": MessageLookupByLibrary.simpleMessage("تاكيد"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
@@ -37,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "أدخل بريدك الإلكتروني لإعادة تعيين"),
         "enterEmailToResetTwo":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الخاصة بك"),
+        "error": MessageLookupByLibrary.simpleMessage("خطاء"),
         "favourts": MessageLookupByLibrary.simpleMessage("المفضله"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),

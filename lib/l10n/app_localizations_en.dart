@@ -165,4 +165,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get shopNow => 'shop now';
+
+  @override
+  String get error => 'error';
+
+  @override
+  String get checkNetwork => 'please check your network';
 }

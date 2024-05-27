@@ -340,7 +340,7 @@ class _LoginBodyState extends State<_LoginBody> {
                   //     ? print("${signInFormKey.currentState!.validate()}")
                   //     : print("${signInFormKey.currentState!.validate()}");
                   if (signInFormKey.currentState!.validate() == true) {
-                    context.read<AuthBloc>().add(AuthLogInEvent());
+                    context.read<AuthBloc>().add(AuthLogInEvent(theContext: context, ));
                   }
 
                   // print(

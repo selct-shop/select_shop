@@ -589,6 +589,26 @@ class S {
       args: [],
     );
   }
+
+  /// `error`
+  String get error {
+    return Intl.message(
+      'error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `please check your network`
+  String get checkNetwork {
+    return Intl.message(
+      'please check your network',
+      name: 'checkNetwork',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -67,12 +67,14 @@
     "category": "category", 
     "showAll": "show all",
     "searchYourProduct": "search your product", 
-    "aed": "AED"
+    "aed": "AED",
+    "shopNow": "shop now",
 
-, 
 
-    "shopNow": "shop now"
 
+
+    "error": "error",
+    "checkNetwork": "please check your network"
 
 
     

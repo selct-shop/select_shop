@@ -72,13 +72,14 @@
     "category": "التصنيف", 
     "showAll": "عرض الكل",
     "searchYourProduct": "ابحث عن منتجك", 
-    "aed": "درهم"
-
+    "aed": "درهم",
     
     
-, 
+    "shopNow": "تسوق الان", 
 
-"shopNow": "تسوق الان"
+
+    "error": "خطاء",
+    "checkNetwork": "الرجاء تفحص الانترنت لديك"
   }
 
 
