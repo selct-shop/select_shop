@@ -410,6 +410,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'AED'**
   String get aed;
+
+  /// No description provided for @shopNow.
+  ///
+  /// In en, this message translates to:
+  /// **'shop now'**
+  String get shopNow;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

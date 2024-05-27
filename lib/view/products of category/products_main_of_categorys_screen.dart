@@ -179,15 +179,16 @@ class _TheBody extends StatelessWidget {
                     Tab(
                       iconMargin: EdgeInsets.zero,
                       icon: _TabTitle(
-                        theTitle: Localizations.localeOf(context) == "ar"
-                            ? context
-                                .read<ProductOfMainCategoryBloc>()
-                                .subCategoriesList[i]
-                                .nameAr
-                            : context
-                                .read<ProductOfMainCategoryBloc>()
-                                .subCategoriesList[i]
-                                .nameEn,
+                        theTitle:
+                            Localizations.localeOf(context).languageCode == "ar"
+                                ? context
+                                    .read<ProductOfMainCategoryBloc>()
+                                    .subCategoriesList[i]
+                                    .nameAr
+                                : context
+                                    .read<ProductOfMainCategoryBloc>()
+                                    .subCategoriesList[i]
+                                    .nameEn,
                       ),
                     ),
                 ],

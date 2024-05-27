@@ -10,6 +10,7 @@ import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/models/categories/categories_modle.dart';
 import 'package:select_shop/models/categories/get_main_categories_deatails.dart';
@@ -152,7 +153,11 @@ class _CustomCategory extends StatelessWidget {
                 ) {
               // navigate to products of category screen
               // pass the category id
-              navigateTo(context, ProductsOfCategoryScreen(mainCategoryId: categoriesResult.id!, ));
+              navigateTo(
+                  context,
+                  ProductsOfCategoryScreen(
+                    mainCategoryId: categoriesResult.id!,
+                  ));
             },
             child: Container(
               height: 100,
@@ -179,10 +184,15 @@ class _CustomCategory extends StatelessWidget {
                     width: 160,
                     height: 22,
                     child: Align(
-                      alignment: Alignment.centerLeft,
+                      alignment:
+                          Localizations.localeOf(context).languageCode == "ar"
+                              ? Alignment.centerRight
+                              : Alignment.centerLeft,
                       child: Text(
                         // category name ,
-                        categoriesResult.nameEn!,
+                        Localizations.localeOf(context).languageCode == "ar"
+                            ? categoriesResult.nameAr!
+                            : categoriesResult.nameEn!,
                         style: _titleTextStyle.copyWith(
                           height: .8,
                           fontWeight: FontWeight.bold,
@@ -227,7 +237,9 @@ class _CustomCategory extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "shop now",
+                          // "shop now",
+
+                          S.of(context).shopNow,
                           style: TextStyle(
                               fontSize: 12, color: AppColors.mainColor),
                         ),

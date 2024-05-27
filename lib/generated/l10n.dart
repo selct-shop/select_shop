@@ -579,6 +579,16 @@ class S {
       args: [],
     );
   }
+
+  /// `shop now`
+  String get shopNow {
+    return Intl.message(
+      'shop now',
+      name: 'shopNow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

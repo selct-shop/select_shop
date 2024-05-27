@@ -235,7 +235,7 @@ class ProductCard extends StatelessWidget {
                           //     ? "${S.of(context).aed} $newPrice".toUpperCase()
                           //     : "${S.of(context).aed} uk".toUpperCase(),
 
-                          theProduct.price != null ? theProduct.price : "uk",
+                          theProduct.price ?? "uk",
                           style: TextStyle(
                             fontSize: 12,
                             color: AppColors.mainColor,

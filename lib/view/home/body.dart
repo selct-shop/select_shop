@@ -154,7 +154,7 @@ class _HomeCategoriesRow extends StatelessWidget {
             clipBehavior: Clip.hardEdge,
             padding: EdgeInsets.symmetric(vertical: 15),
             decoration: BoxDecoration(
-              color: AppColors.mainColor.withOpacity(.15),
+              color: AppColors.mainColor.withOpacity(.1),
               borderRadius: BorderRadius.circular(6),
             ),
             child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
@@ -317,7 +317,8 @@ class _HomeCategoriesRow extends StatelessWidget {
                             Text(
                               // S.of(context).categorys,
                               // AppLocalizations.of(context)!.localeName
-                              Localizations.localeOf(context) == "ar"
+                              Localizations.localeOf(context).languageCode ==
+                                      "ar"
                                   ? context
                                       .read<HomeBloc>()
                                       .categoresListForHomeScreen[index]!

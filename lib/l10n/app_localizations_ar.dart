@@ -162,4 +162,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aed => 'درهم';
+
+  @override
+  String get shopNow => 'تسوق الان';
 }

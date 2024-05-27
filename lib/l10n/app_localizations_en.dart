@@ -162,4 +162,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aed => 'AED';
+
+  @override
+  String get shopNow => 'shop now';
 }
