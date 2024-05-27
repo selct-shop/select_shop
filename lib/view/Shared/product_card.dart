@@ -19,24 +19,25 @@ class ProductCard extends StatelessWidget {
   // final String? productCategory, productName, brandName;
   // i use this shadow to give it card affect, and it's defalt true
   bool? withShado = true;
-final String? theeProductStates;
+  final String? theeProductStates;
   final CollectionProduct theProduct;
 
-  ProductCard(
-      {super.key,
-      required this.onTap,
-      this.height,
-      this.width,
-      // this.shadow,
-      // required this.ratingNumber,
-      // required this.newPrice,
-      // this.oldPrice,
-      // required this.productCategory,
-      // required this.productName,
-      // this.brandName,
-      this.withShado,
-      this.theeProductStates, 
-      required this.theProduct, });
+  ProductCard({
+    super.key,
+    required this.onTap,
+    this.height,
+    this.width,
+    // this.shadow,
+    // required this.ratingNumber,
+    // required this.newPrice,
+    // this.oldPrice,
+    // required this.productCategory,
+    // required this.productName,
+    // this.brandName,
+    this.withShado,
+    this.theeProductStates,
+    required this.theProduct,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -81,35 +82,34 @@ final String? theeProductStates;
                   ),
                   Row(
                     children: [
+                      theeProductStates == null || theeProductStates == ""
+                          ? const SizedBox()
+                          :
 
-theeProductStates == null || theeProductStates == "" ? const SizedBox() :
+                          // theProduct.productStatus.where(theeProductStates) == true?
+                          Container(
+                              width: 45,
+                              height: 25,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(8),
+                                ),
+                                color: Colors.yellow,
+                              ),
+                              child: Text(
+                                // new, disscount, laktah,
+                                // S.of(context).theNew,
 
-                      
-                      
-
-                          // theProduct.productStatus.where(theeProductStates) == true? 
-                      Container(
-                        width: 45,
-                        height: 25,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(8),
-                          ),
-                          color: Colors.yellow,
-                        ),
-                        child: Text(
-                          // new, disscount, laktah, 
-                          // S.of(context).theNew,
-
-                          // theProduct.productStatus.where(theeProductStates) == true ?
-                          theeProductStates!, 
-                          style: AppConstants.customTitleTextStyle.copyWith(
-                            color: Colors.white,
-                            fontSize: 14,
-                          ),
-                        ),
-                      )
+                                // theProduct.productStatus.where(theeProductStates) == true ?
+                                theeProductStates!,
+                                style:
+                                    AppConstants.customTitleTextStyle.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            )
                     ],
                   )
                 ],

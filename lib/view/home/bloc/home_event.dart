@@ -22,6 +22,7 @@ final class DrawerTapdedEvent extends HomeEvent {
   DrawerTapdedEvent({
     required this.tappdedDrawerItemNumber,
   });
+  
 }
 
 

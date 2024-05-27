@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/helpers/cache_helper.dart';
 
 // changeLocal()async {
@@ -34,12 +35,12 @@ import 'package:select_shop/core/helpers/cache_helper.dart';
 //   // }
 // }
 
-changeLocal({required String langCode}) async {
+cachLocal({required String langCode}) async {
   // Locale myLocale = Locale(langCode);
 
   // Get.updateLocale(myLocale);
 
-  await CacheHelper.setData(key: 'lang', value: langCode);
+  await CacheHelper.setData(key: AppConstants.cachedUserLang, value: langCode);
 
 // RestartWidget.restartApp(context);
 }

@@ -140,20 +140,17 @@ class DioHelper {
     }
   }
 
-
-  
   // #### the newwww get home categories #### //
   static Future<Response> getNewProductsHome(
-    { required final  String? collection }
-  ) async {
+      {required final String? collection}) async {
     try {
-      final response = await _dio!.post(
-        getHomeCollectionUrl,
-        data: {
-    "page" : 1,
-    "collection": collection, 
-}
-      );
+      final response = await _dio!.post(getHomeCollectionUrl, data: {
+        "page": 1,
+        "collection": collection,
+      });
+
+      print(
+          "===========================================${globalCachedUserLang}");
       return response;
     } catch (e) {
       throw Exception('Failed to get main categories: $e');
