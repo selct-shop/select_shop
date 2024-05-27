@@ -31,7 +31,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("confirm new password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("contact us"),
-        "discaount": MessageLookupByLibrary.simpleMessage("discaount"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
         "enterEmailToResetOne":
             MessageLookupByLibrary.simpleMessage("enter your email to reset"),
@@ -76,7 +75,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "specialproducts":
             MessageLookupByLibrary.simpleMessage("special products"),
         "suppourt": MessageLookupByLibrary.simpleMessage("suppourt"),
+        "theDiscaount": MessageLookupByLibrary.simpleMessage("discaount"),
+        "theLakta": MessageLookupByLibrary.simpleMessage("lakta"),
         "theNew": MessageLookupByLibrary.simpleMessage("new"),
+        "thebestSeller": MessageLookupByLibrary.simpleMessage("best seller"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("trad marks"),
         "userAgrement": MessageLookupByLibrary.simpleMessage(
             "I agree to all terms, privacy policy and fees"),

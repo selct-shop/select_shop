@@ -128,7 +128,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get theNew => 'new';
 
   @override
-  String get discaount => 'discaount';
+  String get thebestSeller => 'best seller';
+
+  @override
+  String get theLakta => 'lakta';
+
+  @override
+  String get theDiscaount => 'discaount';
 
   @override
   String get most_wanted => 'most wanted';

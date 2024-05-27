@@ -61,8 +61,9 @@ class _HomeBodyState extends State<_HomeBody> {
             ///////////////////////////
 
             _CustomBanar(
-              banarTitle: "new",
-              banarTag: "new",
+              banarTitle: S.of(context).theNew,
+              banarTag: S.of(context).theNew,
+              theProductsStats: S.of(context).theNew,
             ),
 
             ////////////////////////////

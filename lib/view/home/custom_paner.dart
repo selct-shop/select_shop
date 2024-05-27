@@ -3,12 +3,13 @@
 part of 'home_screen.dart';
 
 class _CustomBanar extends StatelessWidget {
-  final String? banarTitle, banarTag;
+  final String? banarTitle, banarTag, theProductsStats;
 
   const _CustomBanar({
     super.key,
     required this.banarTitle,
     required this.banarTag,
+    required this.theProductsStats,
   });
 
   @override
@@ -23,8 +24,16 @@ class _CustomBanar extends StatelessWidget {
             Row(
               children: [
                 Text(
+                  banarTitle == S.of(context).theNew
+                      ? "${S.of(context).theNew} :"
+                      : (banarTitle == S.of(context).theLakta
+                          ? "${S.of(context).theLakta} :"
+                          : (banarTitle == S.of(context).thebestSeller
+                              ? "${S.of(context).thebestSeller} :"
+                              : (banarTitle == S.of(context).theDiscaount
+                                  ? "${S.of(context).theDiscaount} :"
+                                  : ""))),
                   style: _customTitleTextStyle,
-                  "${S.of(context).most_wanted} :",
                 ),
                 Spacer(),
                 InkWell(
@@ -61,7 +70,7 @@ class _CustomBanar extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(6),
               ),
-    
+
               // child: context.read<HomeBloc>().loadingNewProducts == true
               //     ? Center(
               //         child: CustomLoadingScreen(),
@@ -126,9 +135,9 @@ class _CustomBanar extends StatelessWidget {
               //                 ratingNumber: 3.8,
               //               );
               //             }
-    
+
               //             //////
-    
+
               //             // children: [
               //             //   for (int i = 0; i < 10; i++)
               //             //     ProductCard(
@@ -148,14 +157,14 @@ class _CustomBanar extends StatelessWidget {
               //             //     ),
               //             // ],
               //             ),
-    
+
               ////
               ///
               ///
               ///
               ///
               ///
-    
+
               child: state is GetNewProductsLoadingState
                   ? Center(
                       child: CustomLoadingScreen(),
@@ -171,74 +180,67 @@ class _CustomBanar extends StatelessWidget {
                                   errorMessage:
                                       state.errorMessage ?? "unknonErro",
                                 )
-                              : 
-    
-                              (
-    
-    
-    state is GetNewProductLoadedState ? 
-    
-    ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount:
-                                      state.newProductCollectionList.length,
-                                  padding: EdgeInsets.symmetric(
-                                      // horizontal: 15,
-                                      ),
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder: (context, index) {
-                                    return ProductCard(
-                                      width: 180,
-                                      height: 170,
-                                      withShado: true,
-                                      onTap: () {
-                                        navigateTo(
-                                            context, ProductDetailsScreen());
-                                        // and then pass the product of state.newProductsList[index]
-                                      },
-                                      newPrice: state
-                                                  .newProductCollectionList[
-                                                      index]
-                                                  .price !=
-                                              null
-                                          ? double.parse(state
-                                              .newProductCollectionList[index]
-                                              .price)
-                                          : 0.0,
-                                      productCategory: globalCachedUserLang ==
-                                              "ar"
-                                          ? state
-                                              .newProductCollectionList[index]
-                                              .categories
-                                              .first
-                                              .category
-                                              .nameAr
-                                          : state
-                                              .newProductCollectionList[index]
-                                              .categories
-                                              .first
-                                              .category
-                                              .nameEn,
-                                      productName: globalCachedUserLang ==
-                                              "ar"
-                                          ? state
-                                              .newProductCollectionList[index]
-                                              .nameAr
-                                          : state
-                                              .newProductCollectionList[index]
-                                              .nameEn,
-                                      ratingNumber: 3.8,
-                                    );
-                                  }
-    
-                                  //////
-    
-                                  )
-                                  : const SizedBox()
-    
-                              )
-                                  
-                                  ),
+                              : (state is GetNewProductLoadedState
+                                  ? ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount:
+                                          state.newProductCollectionList.length,
+                                      padding: EdgeInsets.symmetric(
+                                          // horizontal: 15,
+                                          ),
+                                      scrollDirection: Axis.horizontal,
+                                      itemBuilder: (context, index) {
+                                        return ProductCard(
+                                          width: 180,
+                                          height: 170,
+                                          withShado: true,
+                                          onTap: () {
+                                            navigateTo(context,
+                                                ProductDetailsScreen());
+                                            // and then pass the product of state.newProductsList[index]
+                                          },
+                                          // newPrice: state
+                                          //             .newProductCollectionList[
+                                          //                 index]
+                                          //             .price !=
+                                          //         null
+                                          //     ? double.parse(state
+                                          //         .newProductCollectionList[index]
+                                          //         .price)
+                                          //     : 0.0,
+                                          // productCategory: globalCachedUserLang ==
+                                          //         "ar"
+                                          //     ? state
+                                          //         .newProductCollectionList[index]
+                                          //         .categories
+                                          //         .first
+                                          //         .category
+                                          //         .nameAr
+                                          //     : state
+                                          //         .newProductCollectionList[index]
+                                          //         .categories
+                                          //         .first
+                                          //         .category
+                                          //         .nameEn,
+                                          // productName: globalCachedUserLang ==
+                                          //         "ar"
+                                          //     ? state
+                                          //         .newProductCollectionList[index]
+                                          //         .nameAr
+                                          //     : state
+                                          //         .newProductCollectionList[index]
+                                          //         .nameEn,
+                                          // ratingNumber: 3.8,
+                                          theeProductStates: theProductsStats,
+                                          theProduct: state
+                                              .newProductCollectionList[index],
+                                        );
+                                      }
+
+                                      //////
+
+                                      )
+                                  : const SizedBox())),
             ),
           ],
         );

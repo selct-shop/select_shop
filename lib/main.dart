@@ -87,7 +87,8 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
         providers: [
           BlocProvider<HomeBloc>(create: (context) => HomeBloc()),
-          BlocProvider<GetNewProductsBloc>(create: (context) => GetNewProductsBloc()),
+          BlocProvider<GetNewProductsBloc>(
+              create: (context) => GetNewProductsBloc()),
           // BlocProvider(create:(context) => HomeBloc()..add(HomeGetItemsEvent( ))),
           BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
           BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),

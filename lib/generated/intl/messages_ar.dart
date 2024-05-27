@@ -32,7 +32,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
-        "discaount": MessageLookupByLibrary.simpleMessage("خصم"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "enterEmailToResetOne": MessageLookupByLibrary.simpleMessage(
             "أدخل بريدك الإلكتروني لإعادة تعيين"),
@@ -78,7 +77,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تسجيل الحساب بنجاح"),
         "specialproducts": MessageLookupByLibrary.simpleMessage("منتجات مميزه"),
         "suppourt": MessageLookupByLibrary.simpleMessage("الدعم"),
+        "theDiscaount": MessageLookupByLibrary.simpleMessage("خصم"),
+        "theLakta": MessageLookupByLibrary.simpleMessage("لقطه"),
         "theNew": MessageLookupByLibrary.simpleMessage("جديد"),
+        "thebestSeller": MessageLookupByLibrary.simpleMessage("الافضل مبيعا"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("العلامات التجاريه"),
         "userAgrement": MessageLookupByLibrary.simpleMessage(
             "أوافق على جميع الشروط وسياسة الخصوصية والرسوم"),

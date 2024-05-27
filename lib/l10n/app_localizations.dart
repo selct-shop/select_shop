@@ -339,11 +339,23 @@ abstract class AppLocalizations {
   /// **'new'**
   String get theNew;
 
-  /// No description provided for @discaount.
+  /// No description provided for @thebestSeller.
+  ///
+  /// In en, this message translates to:
+  /// **'best seller'**
+  String get thebestSeller;
+
+  /// No description provided for @theLakta.
+  ///
+  /// In en, this message translates to:
+  /// **'lakta'**
+  String get theLakta;
+
+  /// No description provided for @theDiscaount.
   ///
   /// In en, this message translates to:
   /// **'discaount'**
-  String get discaount;
+  String get theDiscaount;
 
   /// No description provided for @most_wanted.
   ///

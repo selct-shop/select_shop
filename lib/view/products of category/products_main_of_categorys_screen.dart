@@ -247,18 +247,20 @@ class _TheBody extends StatelessWidget {
                                   mainAxisSpacing: 15,
                                 ),
                                 itemBuilder: (context, index) {
-                                  return ProductCard(
-                                    width: 180,
-                                    height: 170,
-                                    withShado: true,
-                                    onTap: () {
-                                      navigateTo(context, UnderDevScreen());
-                                    },
-                                    newPrice: 400,
-                                    productCategory: "men",
-                                    productName: "t-shirt",
-                                    ratingNumber: 3.8,
-                                  );
+                                  // return ProductCard(
+                                  //   width: 180,
+                                  //   height: 170,
+                                  //   withShado: true,
+                                  //   onTap: () {
+                                  //     navigateTo(context, UnderDevScreen());
+                                  //   },
+                                  //   // newPrice: 400,
+                                  //   // productCategory: "men",
+                                  //   // productName: "t-shirt",
+                                  //   // ratingNumber: 3.8,                                    ,
+                                  // );
+
+                                  return const SizedBox();
                                 }),
                           ],
                         )

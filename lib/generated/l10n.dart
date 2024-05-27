@@ -460,11 +460,31 @@ class S {
     );
   }
 
+  /// `best seller`
+  String get thebestSeller {
+    return Intl.message(
+      'best seller',
+      name: 'thebestSeller',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `lakta`
+  String get theLakta {
+    return Intl.message(
+      'lakta',
+      name: 'theLakta',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `discaount`
-  String get discaount {
+  String get theDiscaount {
     return Intl.message(
       'discaount',
-      name: 'discaount',
+      name: 'theDiscaount',
       desc: '',
       args: [],
     );

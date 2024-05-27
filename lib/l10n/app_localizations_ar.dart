@@ -128,7 +128,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get theNew => 'جديد';
 
   @override
-  String get discaount => 'خصم';
+  String get thebestSeller => 'الافضل مبيعا';
+
+  @override
+  String get theLakta => 'لقطه';
+
+  @override
+  String get theDiscaount => 'خصم';
 
   @override
   String get most_wanted => 'الاكثر طلبا';
