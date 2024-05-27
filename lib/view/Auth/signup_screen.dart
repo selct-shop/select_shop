@@ -72,7 +72,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 35,
+                  horizontal: 15,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -130,98 +130,94 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc() : super(AuthInitialState()) {
     on<AuthEvent>((event, emit) async {
-      ///
-      ///
-      ///
-      ///
       // #### log in #### //
+      emit(AuthLoadingStateSignIn());
+
       if (event is AuthLogInEvent) {
 // check for network
-bool result = await InternetConnectionChecker().hasConnection;
-if(result == true) {
-  
-  
+        bool result = await InternetConnectionChecker().hasConnection;
+        if (result == true) {
 // form validation
 // print("tttttttttttttttttttttttttttttttttt${signInFormKey.currentState!.validate()}");
-        // if (signInFormKey.currentState == null) {
-        // if (signInFormKey.currentState!.validate() == true) {
-        // signInFormKey.currentState!.save();
-        emit(AuthLoadingStateSignIn());
+          // if (signInFormKey.currentState == null) {
+          // if (signInFormKey.currentState!.validate() == true) {
+          // signInFormKey.currentState!.save();
 
-        // start sign in
+          // start sign in
 
-        Response logInResponse = await DioHelper.login(
-          phoneNumber: phoneNumberTextEditingController.text,
-          password: passwordTextEditingController.text,
-          // phoneNumber: '1234',
-          // password: '1234',
-        );
+          Response logInResponse = await DioHelper.login(
+            phoneNumber: phoneNumberTextEditingController.text,
+            password: passwordTextEditingController.text,
+            // phoneNumber: '1234',
+            // password: '1234',
+          );
 
-        print(logInResponse.statusCode);
+          print(logInResponse.statusCode);
 
-        // await DioHelper.login(phoneNumber: '1234', password: '1234');
-        if (logInResponse.statusCode == 200) {
-          // save token
-          // show toast
-          // navigate to home screen
-          //  var jsonMap = json.decode(logInResponse.data);
-          // SignInModle responseData = SignInModle.fromJson(jsonMap);
+          // await DioHelper.login(phoneNumber: '1234', password: '1234');
+          if (logInResponse.statusCode == 200) {
+            // save token
+            // show toast
+            // navigate to home screen
+            //  var jsonMap = json.decode(logInResponse.data);
+            // SignInModle responseData = SignInModle.fromJson(jsonMap);
 
-          //
-          //
-          //
-          print("ddddddddddddddddddddddd");
+            //
+            //
+            //
+            print("ddddddddddddddddddddddd");
 
-          SignInModle signnnnModle = SignInModle.fromJson(logInResponse.data);
-          // Result userResult = signnnnModle.result!;
-          // Customer customer = userResult.customer!;
+            SignInModle signnnnModle = SignInModle.fromJson(logInResponse.data);
+            // Result userResult = signnnnModle.result!;
+            // Customer customer = userResult.customer!;
 
-          Customer? customer = signnnnModle.result?.customer;
-          if (customer != null) {
-            // caching the user info
-            signnnnModle.result != null
-                ? await _cashUserData(
-                    token: signnnnModle.result!.accessToken!,
-                    userName: customer.name!,
-                    userID: customer.id.toString(),
-                    userEmail: customer.email,
-                    userPhoneNumber: customer.phoneNumber,
-                  )
-                : emit(AuthErrorStateSignIn(errorMessage: 'user not founded'));
+            Customer? customer = signnnnModle.result?.customer;
+            if (customer != null) {
+              // caching the user info
+              signnnnModle.result != null
+                  ? await _cashUserData(
+                      token: signnnnModle.result!.accessToken!,
+                      userName: customer.name!,
+                      userID: customer.id.toString(),
+                      userEmail: customer.email,
+                      userPhoneNumber: customer.phoneNumber,
+                    )
+                  : emit(
+                      AuthErrorStateSignIn(errorMessage: 'user not founded'));
+            } else {
+              // if the response is != ok
+              emit(AuthErrorStateSignIn(
+                  errorMessage:
+                      "${logInResponse.statusCode} \n ${logInResponse.statusMessage}"));
+            }
+
+            // Map<String, dynamic> customerMap =
+            // Result customerData = Result.fromJson(responseData.result)
+            //  Result   useerData = Result.fromJson(   responseData.   );
+            // print(
+            //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
+            // print(
+            //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
+            emit(AuthSuccessStateSignIn());
+            // emit(AuthInitialState());
           } else {
-            // if the response is != ok
+            print("ooooooooooooooooooooooooo");
+
             emit(AuthErrorStateSignIn(
-                errorMessage:
-                    "${logInResponse.statusCode} \n ${logInResponse.statusMessage}"));
+                errorMessage: logInResponse.statusMessage ?? "unknown Error"));
           }
 
-          // Map<String, dynamic> customerMap =
-          // Result customerData = Result.fromJson(responseData.result)
-          //  Result   useerData = Result.fromJson(   responseData.   );
-          // print(
-          //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
-          // print(
-          //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
-          emit(AuthSuccessStateSignIn());
-          // emit(AuthInitialState());
+          // } else {
+          // setState(() {
+          //   _autoValidate = AutovalidateMode.always;
+          // });
+          // }
         } else {
-          print("ooooooooooooooooooooooooo");
+          emit(AuthSuccessStateSignIn());
 
-          emit(AuthErrorStateSignIn(
-              errorMessage: logInResponse.statusMessage ?? "unknown Error"));
+          UserExperinceHelper()
+              .showNetorkCheckerDialog(theContext: event.theContext);
         }
-
-        // } else {
-        // setState(() {
-        //   _autoValidate = AutovalidateMode.always;
-        // });
-        // }
-
-} else {
-  
-UserExperinceHelper().showNetorkCheckerDialog(theContext: event.theContext);
-
-}
 
         //
         //
@@ -230,94 +226,77 @@ UserExperinceHelper().showNetorkCheckerDialog(theContext: event.theContext);
 
       if (event is AuthSignupEvet) {
 // #### sign up #### //
-
-
-
-
-
-
-// check for network
-bool result = await InternetConnectionChecker().hasConnection;
-if(result == true) {
-  
-
-
-
-
-
-// form validation
-
         emit(AuthLoadingStateSignUp());
 
-        Response signupResponse = await DioHelper.signUp(
-          name: signUPUserNameTextEditingContorller.text,
-          email: signUpUserEmailTextEditingController.text,
-          phoneNumber: signUpUserPhonNumTextEditingController.text,
-          password: signUpPasswordTextEditingController.text,
-        );
+// check for network
+        bool result = await InternetConnectionChecker().hasConnection;
+        if (result == true) {
+          Response signupResponse = await DioHelper.signUp(
+            name: signUPUserNameTextEditingContorller.text,
+            email: signUpUserEmailTextEditingController.text,
+            phoneNumber: signUpUserPhonNumTextEditingController.text,
+            password: signUpPasswordTextEditingController.text,
+          );
 
-        if (signupResponse.statusCode == 200) {
-          // save token
-          // show toast
-          // navigate to home screen
+          if (signupResponse.statusCode == 200) {
+            // save token
+            // show toast
+            // navigate to home screen
 
-          //
-          //
-          //
-          print("ddddddddddddddddddddddd");
+            //
+            //
+            //
+            print("ddddddddddddddddddddddd");
 
-          SignUpModle signUpModle = SignUpModle.fromJson(signupResponse.data);
-          // Result userResult = signnnnModle.result!;
-          // Customer customer = userResult.customer!;
+            SignUpModle signUpModle = SignUpModle.fromJson(signupResponse.data);
+            // Result userResult = signnnnModle.result!;
+            // Customer customer = userResult.customer!;
 
-          // ResultSignup? resultSignup = signUpModle.result?.customer;
-          if (signUpModle.resultSignUp != null) {
-            // caching the user info
-            await _cashUserData(
-              token: signUpModle.resultSignUp!.accessToken!,
-              userName: signUpModle.resultSignUp!.customerSignUp!.name!,
-              userID: signUpModle.resultSignUp!.customerSignUp!.id!.toString(),
-              userEmail: signUpModle.resultSignUp!.customerSignUp!.email,
-              userPhoneNumber:
-                  signUpModle.resultSignUp!.customerSignUp!.phoneNumber,
-            );
+            // ResultSignup? resultSignup = signUpModle.result?.customer;
+            if (signUpModle.resultSignUp != null) {
+              // caching the user info
+              await _cashUserData(
+                token: signUpModle.resultSignUp!.accessToken!,
+                userName: signUpModle.resultSignUp!.customerSignUp!.name!,
+                userID:
+                    signUpModle.resultSignUp!.customerSignUp!.id!.toString(),
+                userEmail: signUpModle.resultSignUp!.customerSignUp!.email,
+                userPhoneNumber:
+                    signUpModle.resultSignUp!.customerSignUp!.phoneNumber,
+              );
+            } else {
+              // if the response is != ok
+              emit(AuthErrorStateSignUp(
+                  errorMessage:
+                      "${signupResponse.statusCode} \n ${signupResponse.statusMessage}"));
+            }
+
+            // Map<String, dynamic> customerMap =
+            // Result customerData = Result.fromJson(responseData.result)
+            //  Result   useerData = Result.fromJson(   responseData.   );
+            // print(
+            //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
+            // print(
+            //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
+            emit(AuthSuccessStateSignUp());
+            // emit(AuthInitialState());
           } else {
-            // if the response is != ok
+            print("ooooooooooooooooooooooooo ${signupResponse.statusMessage}");
+
             emit(AuthErrorStateSignUp(
-                errorMessage:
-                    "${signupResponse.statusCode} \n ${signupResponse.statusMessage}"));
+                errorMessage: signupResponse.statusMessage ?? "unknown Error"));
           }
 
-          // Map<String, dynamic> customerMap =
-          // Result customerData = Result.fromJson(responseData.result)
-          //  Result   useerData = Result.fromJson(   responseData.   );
-          // print(
-          //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.runtimeType}");
-          // print(
-          //     "ruuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuun${responseData.userData!.name ?? 'tseeeeeeeett'}");
-          emit(AuthSuccessStateSignUp());
-          // emit(AuthInitialState());
+          // } else {
+          // setState(() {
+          //   _autoValidate = AutovalidateMode.always;
+          // });
+          // }
         } else {
-          print("ooooooooooooooooooooooooo ${signupResponse.statusMessage}");
-
-          emit(AuthErrorStateSignUp(
-              errorMessage: signupResponse.statusMessage ?? "unknown Error"));
+          emit(AuthSuccessStateSignUp());
+          UserExperinceHelper()
+              .showNetorkCheckerDialog(theContext: event.theContext);
         }
-
-        // } else {
-        // setState(() {
-        //   _autoValidate = AutovalidateMode.always;
-        // });
-        // }
-
-
-
-
-} else {
-  
-UserExperinceHelper().showNetorkCheckerDialog(theContext: event.theContext);
-
-}
         //
         //
         //

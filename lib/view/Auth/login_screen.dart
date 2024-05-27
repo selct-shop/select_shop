@@ -68,7 +68,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   child: _AuthCustomIcon(size: size)),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 35,
+                  horizontal: 15,
                 ),
                 child: BlocConsumer<AuthBloc, AuthState>(
                   listener: (context, state) {
@@ -340,7 +340,9 @@ class _LoginBodyState extends State<_LoginBody> {
                   //     ? print("${signInFormKey.currentState!.validate()}")
                   //     : print("${signInFormKey.currentState!.validate()}");
                   if (signInFormKey.currentState!.validate() == true) {
-                    context.read<AuthBloc>().add(AuthLogInEvent(theContext: context, ));
+                    context.read<AuthBloc>().add(AuthLogInEvent(
+                          theContext: context,
+                        ));
                   }
 
                   // print(

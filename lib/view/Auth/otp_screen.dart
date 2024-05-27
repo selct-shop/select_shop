@@ -22,7 +22,9 @@ class OtpScreen extends StatelessWidget {
           width: double.infinity,
           height: 600,
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.symmetric(horizontal: 15, 
+            vertical: 20, 
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +48,7 @@ class OtpScreen extends StatelessWidget {
                 ),
                 Text(
                     style: TextStyle(
-                      color: AppColors.grey2Color ,
+                      color: AppColors.grey2Color,
                       fontSize: 20,
                     ),
                     'mhli.outlook.sa@gmail.com'),
