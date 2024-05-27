@@ -31,6 +31,7 @@ import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/favourite/favourite_screen.dart';
+import 'package:select_shop/view/home/bloc/get_new_products_bloc.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/product%20details/product_details_screen.dart';
 import 'package:select_shop/view/product/products_screen.dart';

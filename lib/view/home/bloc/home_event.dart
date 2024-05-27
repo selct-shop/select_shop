@@ -32,11 +32,6 @@ final class HomeGetHomeCategoEvent extends HomeEvent {
 
 
 
-final class HomeGetHomeNewProductsEvent extends HomeEvent {
-
-}
-
-
 // final class SetLanguageEvent extends HomeEvent {
 //  final String languageCode;
 

@@ -13,7 +13,7 @@ class _CustomBanar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<GetNewProductsBloc, GetNewProductsState>(
       builder: (context, state) {
         return Column(
           children: [
@@ -61,7 +61,7 @@ class _CustomBanar extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(6),
               ),
-
+    
               // child: context.read<HomeBloc>().loadingNewProducts == true
               //     ? Center(
               //         child: CustomLoadingScreen(),
@@ -126,9 +126,9 @@ class _CustomBanar extends StatelessWidget {
               //                 ratingNumber: 3.8,
               //               );
               //             }
-
+    
               //             //////
-
+    
               //             // children: [
               //             //   for (int i = 0; i < 10; i++)
               //             //     ProductCard(
@@ -148,74 +148,97 @@ class _CustomBanar extends StatelessWidget {
               //             //     ),
               //             // ],
               //             ),
-
-////
-///
-///
-///
-///
-///
-              
-              child: state is HomeNewProductsLoadingState
+    
+              ////
+              ///
+              ///
+              ///
+              ///
+              ///
+    
+              child: state is GetNewProductsLoadingState
                   ? Center(
                       child: CustomLoadingScreen(),
                     )
-                  :
-                  
-                  
-                  
-                   state is HomeNewProductEmptyState
+                  : state is GetNewProductEmptyState
                       ? Center(
                           child: AppNoData(),
                         )
-                      : 
-                      (
-                        // if it's loaded or error state
-                      state is HomeNewProductLoadedState ?
-                      
-                      ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: state.newProductCollectionList.length,
-                          padding: EdgeInsets.symmetric(
-                              // horizontal: 15,
-                              ),
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return ProductCard(
-                              width: 180,
-                              height: 170,
-                              withShado: true,
-                              onTap: () {
-                                navigateTo(context, ProductDetailsScreen());
-                                // and then pass the product of state.newProductsList[index]
-                              },
-                              newPrice: state.newProductCollectionList[index].price !=
-                                      null
-                                  ? double.parse(state.newProductCollectionList[index].price)
-                                  : 0.0,
-                              productCategory: globalCachedUserLang == "ar"
-                                  ? state.newProductCollectionList[index].categories
-                                      .first
-                                      .category
-                                      .nameAr
-                                  :  state.newProductCollectionList[index].categories
-                                      .first
-                                      .category
-                                      .nameEn, 
-                              productName: globalCachedUserLang == "ar"
-                                  ? state.newProductCollectionList[index]
-                                      .nameAr
-                                  : state.newProductCollectionList[index]
-                                      .nameEn, 
-                             
-                              ratingNumber: 3.8,
-                            );
-                          }
-
-                          //////
-
-                          )
-                           : const SizedBox()),
+                      : (
+                          // if it's loaded or error state
+                          state is GetNewProductErrorState
+                              ? ErrorScreen(
+                                  errorMessage:
+                                      state.errorMessage ?? "unknonErro",
+                                )
+                              : 
+    
+                              (
+    
+    
+    state is GetNewProductLoadedState ? 
+    
+    ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount:
+                                      state.newProductCollectionList.length,
+                                  padding: EdgeInsets.symmetric(
+                                      // horizontal: 15,
+                                      ),
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return ProductCard(
+                                      width: 180,
+                                      height: 170,
+                                      withShado: true,
+                                      onTap: () {
+                                        navigateTo(
+                                            context, ProductDetailsScreen());
+                                        // and then pass the product of state.newProductsList[index]
+                                      },
+                                      newPrice: state
+                                                  .newProductCollectionList[
+                                                      index]
+                                                  .price !=
+                                              null
+                                          ? double.parse(state
+                                              .newProductCollectionList[index]
+                                              .price)
+                                          : 0.0,
+                                      productCategory: globalCachedUserLang ==
+                                              "ar"
+                                          ? state
+                                              .newProductCollectionList[index]
+                                              .categories
+                                              .first
+                                              .category
+                                              .nameAr
+                                          : state
+                                              .newProductCollectionList[index]
+                                              .categories
+                                              .first
+                                              .category
+                                              .nameEn,
+                                      productName: globalCachedUserLang ==
+                                              "ar"
+                                          ? state
+                                              .newProductCollectionList[index]
+                                              .nameAr
+                                          : state
+                                              .newProductCollectionList[index]
+                                              .nameEn,
+                                      ratingNumber: 3.8,
+                                    );
+                                  }
+    
+                                  //////
+    
+                                  )
+                                  : const SizedBox()
+    
+                              )
+                                  
+                                  ),
             ),
           ],
         );

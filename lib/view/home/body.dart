@@ -17,7 +17,7 @@ class _HomeBodyState extends State<_HomeBody> {
     print("hoooooooooooooooomememem init state");
 
     context.read<HomeBloc>().add(HomeGetHomeCategoEvent());
-    context.read<HomeBloc>().add(HomeGetHomeNewProductsEvent());
+    context.read<GetNewProductsBloc>().add(HomeGetHomeNewProductsInitalEvent());
 
     super.initState();
   }
