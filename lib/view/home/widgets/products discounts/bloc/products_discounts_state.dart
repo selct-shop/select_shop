@@ -1,28 +1,27 @@
 part of 'products_discounts_bloc.dart';
 
-sealed class GetNewProductsState extends Equatable {
-  const GetNewProductsState();
+sealed class ProductsDiscountsState extends Equatable {
+  const ProductsDiscountsState();
   
   @override
   List<Object> get props => [];
 }
 
-final class GetNewProductsInitial extends GetNewProductsState {}
+final class ProductsDiscountInitalState extends ProductsDiscountsState {}
 
 
 
   
-// home drawer states
-final class GetNewProductsLoadingState extends GetNewProductsState {}
-final class GetNewProductLoadedState extends GetNewProductsState {
+final class ProductsDiscountLoadingState extends ProductsDiscountsState {}
+final class ProductsDiscountSucsessState extends ProductsDiscountsState {
   final List<CollectionProduct> newProductCollectionList;
-  GetNewProductLoadedState({ required this.newProductCollectionList});
+  ProductsDiscountSucsessState({ required this.newProductCollectionList});
 }
-final class GetNewProductEmptyState extends GetNewProductsState {
+final class ProductsDiscountEmptyState extends ProductsDiscountsState {
   final List<CollectionProduct> newProductCollectionList;
-  GetNewProductEmptyState({ required this.newProductCollectionList}); 
+  ProductsDiscountEmptyState({ required this.newProductCollectionList}); 
 }
-final class GetNewProductErrorState extends GetNewProductsState {
+final class ProductDiscountErrorState extends ProductsDiscountsState {
   final String? errorMessage;
-  GetNewProductErrorState({required this.errorMessage});
+  ProductDiscountErrorState({required this.errorMessage});
 }

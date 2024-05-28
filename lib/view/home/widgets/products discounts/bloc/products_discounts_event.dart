@@ -1,22 +1,24 @@
 part of 'products_discounts_bloc.dart';
 
-sealed class GetNewProductsEvent extends Equatable {
-  const GetNewProductsEvent();
+sealed class ProductsDiscountsEvent 
+// extends Equatable
+ {
+  // const ProductsDiscountsEvent();
 
-  @override
-  List<Object> get props => [];
+  // @override
+  // List<Object> get props => [];
 }
 
 
 
 
-final class HomeGetHomeNewProductsInitalEvent extends GetNewProductsEvent {
+final class ProductDiscountsInitalEven extends ProductsDiscountsEvent {
 
 }
 
 
 
 
-// final class HomeGetHomeNewProductsEvent extends GetNewProductsEvent {
+// final class HomeGetHomeNewProductsEvent extends ProductsDiscountsEvent {
 
 // }

@@ -4,45 +4,46 @@ import 'package:equatable/equatable.dart';
 import 'package:http_status/http_status.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/models/collection/get_collection_modle.dart';
+import 'package:select_shop/view/home/widgets/prodcts%20best%20seller/bloc/product_bestseller_bloc.dart';
 
 part 'products_discounts_event.dart';
 part 'products_discounts_state.dart';
 
-class GetNewProductsBloc extends Bloc<GetNewProductsEvent, GetNewProductsState> {
+class ProductsDiscountsBloc extends Bloc<ProductsDiscountsEvent, ProductsDiscountsState> {
 
 
-  // bool loadingNewProducts = true;
+  // bool loadingProductsDiscounts = true;
 
-  // List<CollectionProduct> newCollctionProductsList = [];
+  // List<ProductCollection> newCollctionProductsList = [];
 
 
 
-  GetNewProductsBloc() : super(GetNewProductsInitial())  {
-    on<GetNewProductsEvent>((event, emit) async  {
+  ProductsDiscountsBloc() : super(ProductsDiscountInitalState())  {
+    on<ProductsDiscountsEvent>((event, emit) async  {
       // TODO: implement event handler
 
 
 
       
-// #### get the new products #### //
-        if (event is HomeGetHomeNewProductsInitalEvent) {
-          emit(GetNewProductsLoadingState());
+// #### get the disscounts products #### //
+        if (event is ProductDiscountsInitalEven) {
+          emit(ProductsDiscountLoadingState());
           // loadingNewProducts = true;
           // get all the categories
           try {
-            Response getHomeNewProducts =
-                await DioHelper.getNewProductsHome(collection: "new");
-            if (getHomeNewProducts.statusCode != null) {
-              if (getHomeNewProducts.statusCode!.isSuccessfulHttpStatusCode) {
-                print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
-                print("${getHomeNewProducts.data}");
+            Response getDiscountProducts =
+                await DioHelper.getNewProductsHome(collection: "descounted");
+            if (getDiscountProducts.statusCode != null) {
+              if (getDiscountProducts.statusCode!.isSuccessfulHttpStatusCode) {
+                // print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
+                // print("${getDiscountProducts.data}");
                 GetCollectionModel getCollectionModel =
-                    GetCollectionModel.fromJson(getHomeNewProducts.data);
+                    GetCollectionModel.fromJson(getDiscountProducts.data);
                 // newCollctionProductsList = getCollectionModel.result.products;
                 if (getCollectionModel.result.products.isEmpty) {
                   // categoresListForHomeScreen = mainCategoResutList;
                   // loadingNewProducts = false;
-                  emit(GetNewProductEmptyState(
+                  emit(ProductsDiscountEmptyState(
                     newProductCollectionList:
                         getCollectionModel.result.products,
                   ));
@@ -51,7 +52,7 @@ class GetNewProductsBloc extends Bloc<GetNewProductsEvent, GetNewProductsState> 
                 if (getCollectionModel.result.products.isNotEmpty) {
                   // categoresListForHomeScreen = mainCategoResutList;
                   // loadingNewProducts = false;
-                  emit(GetNewProductLoadedState(
+                  emit(ProductsDiscountSucsessState(
                     newProductCollectionList:
                         getCollectionModel.result.products,
                   ));
@@ -63,13 +64,13 @@ class GetNewProductsBloc extends Bloc<GetNewProductsEvent, GetNewProductsState> 
                 // }
                 // emit(HomeGetHomeCatiegorsucseesState());
               } else {
-                // emit(HomeGetHomeCatiegorErrorState(
-                //     errorMessage: getHomeMainCateResponse.statusMessage ??
-                //         "unknown Error"));
+                emit(ProductDiscountErrorState(
+                    errorMessage: getDiscountProducts.statusMessage ??
+                        "unknown Error"));
               }
             }
           } catch (exception) {
-            emit(GetNewProductErrorState(
+            emit(ProductDiscountErrorState(
                 errorMessage: exception.toString()));
           }
         }

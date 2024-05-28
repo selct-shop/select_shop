@@ -89,13 +89,21 @@ class _HomeBodyState extends State<_HomeBody> {
             ///
             ///
             ///////////////////////////
-            // _CustomBanar(),
+            _CustomBanarDisscount(
+              banarTag: S.of(context).theDiscaount,
+              banarTitle: S.of(context).theDiscaount,
+              theProductsStats: S.of(context).theDiscaount,
+            ),
 
             ////////////////////////////
             ///
             ///
             ///////////////////////////
-            // _CustomBanar(),
+            // _CustomBanarLaktah(
+            //   banarTag: S.of(context).theLakta,
+            //   banarTitle: S.of(context).theDiscaount,
+            //   theProductsStats: S.of(context).theDiscaount,
+            // ),
 
             ////////////////////////////
             ///

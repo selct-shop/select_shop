@@ -5,13 +5,7 @@ sealed class HomeEvent {
 // sealed class HomeEvent extends Equatable {
 }
 
-
-
-
-
-final class HomeGetHomeCategoEvent extends HomeEvent {
-
-}
+final class HomeGetHomeCategoEvent extends HomeEvent {}
 
 
 
