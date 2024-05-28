@@ -15,7 +15,6 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   int activePageNumber = 1;
-  int activeDrawerPage = 1;
   int currentCarouselSliderIndex = 0;
   List<MainCategoriesResult?> categoresListForHomeScreen = [];
 
@@ -29,71 +28,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   bottomNavBarTapded({required int newPageNumber}) {
     activePageNumber = newPageNumber;
   }
-
-  drawerTapded({required int newDrawerPage}) {
-    activeDrawerPage = newDrawerPage;
-    // switch (newDrawerPage) {
-    //   case 1:
-    //     // 1 in the drawer is ( my home )
-    //     bottomNavBarTapded(newPageNumber: newDrawerPage);
-    //     break;
-    //   // case 6 :
-    //   // // 6 in the drawer is ( my cart )
-    //   // bottomNavBarTapded(newPageNumber: newDrawerPage);
-    //   // break;
-    //   case 5:
-    //     // 5 in the drawer is ( my favouret ), and it's 3 in the bottoNavBAr
-    //     bottomNavBarTapded(newPageNumber: 3);
-    //     break;
-    //   case 8:
-    //     // 8 in the drawer is ( my setting, or personal )
-    //     bottomNavBarTapded(newPageNumber: 4);
-    //     break;
-    // }
-
-//
-//
-
-//     if (newDrawerPage == 1) {
-//       // 1 in the drawer is ( my home )
-//       bottomNavBarTapded(newPageNumber: 1);
-//       activePageNumber = 1;
-//     }
-
-// // this section is canceled
-//     // if (newDrawerPage == 5) {
-//     //   //     // 5 in the drawer is ( my favouret ), and it's 3 in the bottoNavBAr
-//     //   bottomNavBarTapded(newPageNumber: 3);
-//     //   activePageNumber = 3;
-
-//     // }
-
-//     if (newDrawerPage == 6) {
-//       // 6 in the drawer is ( my cart )
-//       // bottomNavBarTapded(newPageNumber: 6);
-//       // activePageNumber = 1;
-//     }
-
-//     if (newDrawerPage == 5) {
-//       // 5 in the drawer is ( my favouret ), and it's 3 in the bottoNavBAr
-//       bottomNavBarTapded(newPageNumber: 3);
-//       activePageNumber = 3;
-//     }
-
-//     if (newDrawerPage == 8) {
-//       // 8 in the drawer is ( my setting, or personal )
-//       bottomNavBarTapded(newPageNumber: 4);
-//       activePageNumber = 4;
-//       print("seeeeeeeeeeeeeeeeeting");
-//     }
-
-    //
-    //
-    //
-
-    // print("DDDDDDDDdrrrrrrrrrrrrrrrwer$activeDrawerPage");
-  }
-
   HomeBloc() : super(HomeInitialState()) {
     on<HomeEvent>(
       (event, emit) async {
@@ -139,47 +73,47 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         if (event is BottomNavBarTapdedEvent) {
           emit(HomeLoadingState());
 
-          switch (event.tappdedPageNumber) {
-            case 1:
-              // 1 is the home
-              activeDrawerPage = 1;
-              // print(
-              //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+          // switch (event.tappdedPageNumber) {
+          //   case 1:
+          //     // 1 is the home
+          //     activeDrawerPage = 1;
+          //     // print(
+          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
 
-              break;
+          //     break;
 
-            // case 2:
-            //   // 2 is the categoryes
-            //   activeDrawerPage = 5;
+          //   case 2:
+          //     // 2 is the categoryes
+          //     activeDrawerPage = 2;
 
-            //   // print(
-            //   //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
-            //   break;
+          //     // print(
+          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+          //     break;
 
-            case 4:
-              // 4 is the favourest
-              activeDrawerPage = 5;
+          //   case 3:
+          //     // 3 is the favourest
+          //     activeDrawerPage = 6;
 
-              // print(
-              //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
-              break;
+          //     // print(
+          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+          //     break;
 
-            // case 3:
-            //   // 3 is the favourest
-            //   activeDrawerPage = 5;
+          //   case 4:
+          //     // 4 is the favourest
+          //     activeDrawerPage = 5;
 
-            //   // print(
-            //   //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
-            //   break;
+          //     // print(
+          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+          //     break;
 
-            case 5:
-              // 4 is the personal
-              activeDrawerPage = 8;
-              // print(
-              //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+          //   case 5:
+          //     // 4 is the personal
+          //     activeDrawerPage = 8;
+          //     // print(
+          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
 
-              break;
-          }
+          //     break;
+          // }
 
           // bottomNavBarTapded(newPageNumber) {
           // activePageNumber == newPageNumber;
@@ -191,68 +125,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           // activePageNumber = BottomNavBarTapdedEvent(tappdedPageNumber: tappdedPageNumber)
 
           emit(HomeLoadedState());
-          emit(HomeDrawerLoadedState());
-          print("home drawereererererer Loaded state $activeDrawerPage");
+          // emit(HomeDrawerLoadedState());
+          // print("home drawereererererer Loaded state $activeDrawerPage");
         }
 
         //
         //
         //
 
-        if (event is DrawerTapdedEvent) {
-          emit(HomeLoadingState());
-          emit(HomeDrawerLoadingState());
-
-          activeDrawerPage = event.tappdedDrawerItemNumber;
-          // print("ddddddddddddddddddddddddddddddrawer nav bar tapped  ");
-
-          // bottomNavBarTapded(newPageNumber) {
-          // activePageNumber == newPageNumber;
-          // activePageNumber == BottomNavBarTapdedEvent. ;
-          // }
-
-          drawerTapded(newDrawerPage: event.tappdedDrawerItemNumber);
-
-//
-//
-          // if (activeDrawerPage == 1) {
-          //   // 1 in the drawer is ( my home )
-          //   // bottomNavBarTapded(newPageNumber: 1);
-          //   add(BottomNavBarTapdedEvent(tappdedPageNumber: 1));
-          // }
-
-          // if (activeDrawerPage == 5) {
-          //   //     // 5 in the drawer is ( my favouret ), and it's 3 in the bottoNavBAr
-          //   // bottomNavBarTapded(newPageNumber: 3);
-          //   add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
-          // }
-
-          // if (activeDrawerPage == 6) {
-          //   // 6 in the drawer is ( my cart )
-          //   // bottomNavBarTapded(newPageNumber: 6);
-          //   // add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
-          // }
-
-          // if (activeDrawerPage == 5) {
-          //   // 5 in the drawer is ( my favouret ), and it's 3 in the bottoNavBAr
-          //   bottomNavBarTapded(newPageNumber: 3);
-          //   add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
-          // }
-
-          // if (activeDrawerPage == 8) {
-          //   // 8 in the drawer is ( my setting, or personal )
-          //   bottomNavBarTapded(newPageNumber: 4);
-          //   add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
-          // }
-
-//
-//
-
-          // activePageNumber = BottomNavBarTapdedEvent(tappdedPageNumber: tappdedPageNumber)
-
-          emit(HomeLoadedState());
-          emit(HomeDrawerLoadedState());
-        }
 
         //       if (event is SetLanguageEvent) {
         //    Locale(event.languageCode);

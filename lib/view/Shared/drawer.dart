@@ -16,6 +16,7 @@ import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
+import 'package:select_shop/view/home/widgets/drawer/bloc/drawer_bloc.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
   color: AppColors.mainGreyColor,
@@ -43,13 +44,17 @@ class CustomDrawer extends StatelessWidget {
         child: BlocConsumer<HomeBloc, HomeState>(
           listener: (context, state) {},
           builder: (context, state) {
-            if (state is HomeDrawerLoadingState) {
+            if (state is DrawerLoadingState) {
               return Center(
                 child: CustomLoadingScreen(),
               );
-            } else if (state is HomeDrawerErrorState) {
-              return ErrorScreen(errorMessage: "unknown Error");
-            } else if (state is HomeDrawerLoadedState) {
+            }
+            
+            //  else if (state is DrawerErrorState) {
+            //   return ErrorScreen(errorMessage: "unknown Error");
+            // } 
+            
+            else if (state is DrawerSucsessState) {
               return _DrawerBody(theHomeBuildContext: theHomeBuildContext);
             } else {
               return _DrawerBody(theHomeBuildContext: theHomeBuildContext);
@@ -71,7 +76,7 @@ class _DrawerBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<DrawerBloc, DrawerState>(
       builder: (context, state) {
         return Container(
           height: double.infinity,
@@ -141,17 +146,18 @@ class _DrawerBody extends StatelessWidget {
                 title: S.of(context).homePage,
                 onTap: () {
                   // change the drawer for home screen
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 1));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 1));
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 1)); 
 
                   // change the bottom nav bar for home screen icon
-                  theHomeBuildContext
-                      .read<HomeBloc>()
-                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 1));
+                  // theHomeBuildContext
+                  //     .read<HomeBloc>()
+                  //     .add(BottomNavBarTapdedEvent(tappdedPageNumber: 1));
                 },
                 listTileNumber: 1,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 1
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 1
                     ? true
                     : false,
                 leading: AppImagesSvg.homeSvg,
@@ -159,12 +165,15 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).products,
                 onTap: () {
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 2));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 2));
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 2)); 
+                
+                
                 },
                 listTileNumber: 2,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 2
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 2
                     ? true
                     : false,
                 leading: AppImagesSvg.productsSvg,
@@ -172,15 +181,18 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).tradeMark,
                 onTap: () {
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3)); 
+
+
 
                   // BlocProvider.of<HomeBloc>(context)
                   //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
                 },
                 listTileNumber: 3,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 3
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 3
                     ? true
                     : false,
                 leading: AppImagesSvg.tradeMarkSvg,
@@ -188,12 +200,16 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).specialproducts,
                 onTap: () {
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 4));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 4));
+
+
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 4)); 
+
                 },
                 listTileNumber: 4,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 4
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 4
                     ? true
                     : false,
                 leading: AppImagesSvg.specialproductsSvg,
@@ -203,17 +219,20 @@ class _DrawerBody extends StatelessWidget {
                 title: S.of(context).favourts,
                 onTap: () {
                   // change the drawer for the favouret Drawer List Tile
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5));
+
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5)); 
+
 
                   // change the home screen for the favouret tab
-                  theHomeBuildContext
-                      .read<HomeBloc>()
-                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
+                  // theHomeBuildContext
+                  //     .read<HomeBloc>()
+                  //     .add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
                 },
                 listTileNumber: 5,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 5
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 5
                     ? true
                     : false,
                 leading: AppImagesSvg.favourtsStorkSvg,
@@ -221,20 +240,24 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).mycart,
                 onTap: () {
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 6));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 6));
+
+
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 6)); 
+
                   // pop the drawer and go directley to car screen
                   // Navigator.pop(context);
                   // navigateTo(context, CartScreen());
 
                   // change the home screen for the favouret tab
-                  theHomeBuildContext
-                      .read<HomeBloc>()
-                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
+                  // theHomeBuildContext
+                  //     .read<HomeBloc>()
+                  //     .add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
                 },
                 listTileNumber: 6,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 6
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 6
                     ? true
                     : false,
                 leading: AppImagesSvg.mycartSvg,
@@ -242,12 +265,15 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).orders,
                 onTap: () {
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 7));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 7));
+
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 7)); 
+
                 },
                 listTileNumber: 7,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 7
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 7
                     ? true
                     : false,
                 leading: AppImagesSvg.ordersSvg,
@@ -256,17 +282,20 @@ class _DrawerBody extends StatelessWidget {
                 title: S.of(context).personalPage,
                 onTap: () {
                   // change the drawer ListTile for the personal ListTile
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 8));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 8));
+
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 8)); 
+
 
                   // change the home screen and bottom nav bar for the personal page
-                  theHomeBuildContext
-                      .read<HomeBloc>()
-                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 5));
+                  // theHomeBuildContext
+                  //     .read<HomeBloc>()
+                  //     .add(BottomNavBarTapdedEvent(tappdedPageNumber: 5));
                 },
                 listTileNumber: 8,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 8
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 8
                     ? true
                     : false,
                 leading: AppImagesSvg.personalPageSvg,
@@ -274,12 +303,16 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).suppourt,
                 onTap: () {
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 9));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 9));
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 9)); 
+                
+                
+                
                 },
                 listTileNumber: 9,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 9
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 9
                     ? true
                     : false,
                 leading: AppImagesSvg.suppourtSvg,
@@ -287,12 +320,15 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).contactUs,
                 onTap: () {
-                  context
-                      .read<HomeBloc>()
-                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 10));
+                  // context
+                  //     .read<HomeBloc>()
+                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 10));
+
+                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 10)); 
+
                 },
                 listTileNumber: 10,
-                isActive: context.read<HomeBloc>().activeDrawerPage == 10
+                isActive: context.read<DrawerBloc>().activeDrawerPage == 10
                     ? true
                     : false,
                 leading: AppImagesSvg.contactUsSvg,
@@ -436,7 +472,7 @@ class _CustomDrawerListTile extends StatelessWidget {
                 isActive == true
                     ? const SizedBox()
                     : listTileNumber ==
-                            context.read<HomeBloc>().activeDrawerPage - 1
+                            context.read<DrawerBloc>().activeDrawerPage - 1
                         ? const SizedBox()
                         : Divider(
                             endIndent: 10,

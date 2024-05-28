@@ -9,10 +9,10 @@ final class HomeLoadedState extends HomeState {}
 final class HomeErrorState extends HomeState {}
 // final class HomeLoadingState extends HomeState {}
 
-// home drawer states
-final class HomeDrawerLoadingState extends HomeState {}
-final class HomeDrawerLoadedState extends HomeState {}
-final class HomeDrawerErrorState extends HomeState {}
+// // home drawer states
+// final class HomeDrawerLoadingState extends HomeState {}
+// final class HomeDrawerLoadedState extends HomeState {}
+// final class HomeDrawerErrorState extends HomeState {}
 
 // get catigoris states
 final class HomeGetHomeCatiegorInitalState extends HomeState{}

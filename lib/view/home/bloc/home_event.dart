@@ -14,16 +14,6 @@ final class BottomNavBarTapdedEvent extends HomeEvent {
   });
 }
 
-final class DrawerTapdedEvent extends HomeEvent {
-//  int tappdedPageNumber = 1;
-  // final int tappdedDrawerItemNumber; 
-  int tappdedDrawerItemNumber;
-
-  DrawerTapdedEvent({
-    required this.tappdedDrawerItemNumber,
-  });
-  
-}
 
 
 
