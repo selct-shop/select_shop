@@ -206,15 +206,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "edit personal profile",
-                      theSvgPictuer: AppImagesSvg.homeSvg,
+                      theSvgPictuer: AppImagesSvg.editUserSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to edit personal details
+                        navigateTo(context, UnderDevScreen());
                       },
                     ),
                     _CustomSettingListTile(
                       theTitle: "add location",
-                      theSvgPictuer: AppImagesSvg.homeSvg,
+                      theSvgPictuer: AppImagesSvg.locationFilledSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to add new location screen
@@ -223,7 +224,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "change language",
-                      theSvgPictuer: AppImagesSvg.homeSvg,
+                      theSvgPictuer: AppImagesSvg.langSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to edit language screen
@@ -233,7 +234,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "notifications settings",
-                      theSvgPictuer: AppImagesSvg.homeSvg,
+                      theSvgPictuer: AppImagesSvg.notificationSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to edit personal details
@@ -242,7 +243,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "help center",
-                      theSvgPictuer: AppImagesSvg.homeSvg,
+                      theSvgPictuer: AppImagesSvg.suppourtSvg,
                       hasADivier: true,
                       onTap: () {
                         // navigate to help center screen
@@ -251,27 +252,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     _CustomSettingListTile(
                       theTitle: "sign out",
-                      theSvgPictuer: AppImagesSvg.homeSvg,
+                      theSvgPictuer: AppImagesSvg.signOutSvg,
                       onTap: () async {
                         // sign out
                         // if (await signOut()) {
                         //   navigateToWithReplacement(context, LogInScreen());
                         // }
 
-                  UserExperinceHelper().showCustomDialog(
-                    theContext: context,
-                    dialogContent: "you sure you want to signout !!",
-                    confirmButtonTitle: S.of(context).signOut,
-                    onConfirm: () async {
-                      print("coococococococococococ"); // sign out
-                      bool siiiignout = await signOut();
-                      // if (await signOut()) {
-                      if (siiiignout == true) {
-                        navigateToWithReplacement(context, const LogInScreen());
-                      }
-                    },
-                  );
-                
+                        UserExperinceHelper().showCustomDialog(
+                          theContext: context,
+                          dialogContent: "you sure you want to signout !!",
+                          confirmButtonTitle: S.of(context).signOut,
+                          onConfirm: () async {
+                            print("coococococococococococ"); // sign out
+                            bool siiiignout = await signOut();
+                            // if (await signOut()) {
+                            if (siiiignout == true) {
+                              navigateToWithReplacement(
+                                  context, const LogInScreen());
+                            }
+                          },
+                        );
                       },
                     ),
                   ],
@@ -288,6 +289,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 class _CustomSettingListTile extends StatelessWidget {
   final void Function()? onTap;
   final String theTitle, theSvgPictuer;
+  final Color? theSvgColor;
   final bool? hasADivier;
 
   const _CustomSettingListTile({
@@ -295,6 +297,7 @@ class _CustomSettingListTile extends StatelessWidget {
     required this.onTap,
     required this.theTitle,
     required this.theSvgPictuer,
+    this.theSvgColor,
     this.hasADivier,
   });
 
@@ -318,7 +321,8 @@ class _CustomSettingListTile extends StatelessWidget {
                     width: 24,
                     alignment: Alignment.center,
                     color: AppColors.mainColor,
-                    AppImagesSvg.homeSvg,
+                    // AppImagesSvg.homeSvg,
+                    theSvgPictuer,
                   ),
                   SizedBox(
                     width: 15,

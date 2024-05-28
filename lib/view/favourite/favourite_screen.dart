@@ -14,11 +14,9 @@ class FavoureitesScreen extends StatefulWidget {
 class _FavoureitesScreenState extends State<FavoureitesScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // body: ProductsScreen(),
-      body: Center(
-        child: Text("Favouret screen"),
-      ),
-    );
+    return ProductsScreen();
+    // body: Center(
+    //   child: Text("Favouret screen"),
+    // );
   }
 }
