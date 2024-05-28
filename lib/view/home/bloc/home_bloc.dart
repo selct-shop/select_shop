@@ -148,15 +148,31 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
               break;
 
-            case 3:
-              // 3 is the favourest
+            // case 2:
+            //   // 2 is the categoryes
+            //   activeDrawerPage = 5;
+
+            //   // print(
+            //   //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+            //   break;
+
+            case 4:
+              // 4 is the favourest
               activeDrawerPage = 5;
 
               // print(
               //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
               break;
 
-            case 4:
+            // case 3:
+            //   // 3 is the favourest
+            //   activeDrawerPage = 5;
+
+            //   // print(
+            //   //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
+            //   break;
+
+            case 5:
               // 4 is the personal
               activeDrawerPage = 8;
               // print(

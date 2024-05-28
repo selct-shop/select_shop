@@ -210,7 +210,7 @@ class _DrawerBody extends StatelessWidget {
                   // change the home screen for the favouret tab
                   theHomeBuildContext
                       .read<HomeBloc>()
-                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
                 },
                 listTileNumber: 5,
                 isActive: context.read<HomeBloc>().activeDrawerPage == 5
@@ -225,8 +225,13 @@ class _DrawerBody extends StatelessWidget {
                       .read<HomeBloc>()
                       .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 6));
                   // pop the drawer and go directley to car screen
-                  Navigator.pop(context);
-                  navigateTo(context, CartScreen());
+                  // Navigator.pop(context);
+                  // navigateTo(context, CartScreen());
+
+                  // change the home screen for the favouret tab
+                  theHomeBuildContext
+                      .read<HomeBloc>()
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
                 },
                 listTileNumber: 6,
                 isActive: context.read<HomeBloc>().activeDrawerPage == 6
@@ -258,7 +263,7 @@ class _DrawerBody extends StatelessWidget {
                   // change the home screen and bottom nav bar for the personal page
                   theHomeBuildContext
                       .read<HomeBloc>()
-                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 5));
                 },
                 listTileNumber: 8,
                 isActive: context.read<HomeBloc>().activeDrawerPage == 8

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
+import 'package:select_shop/view/product/products_screen.dart';
 
 class FavoureitesScreen extends StatefulWidget {
   const FavoureitesScreen({super.key});
@@ -13,8 +14,11 @@ class FavoureitesScreen extends StatefulWidget {
 class _FavoureitesScreenState extends State<FavoureitesScreen> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: UnderDevScreen(),
+    return Scaffold(
+      // body: ProductsScreen(),
+      body: Center(
+        child: Text("Favouret screen"),
+      ),
     );
   }
 }

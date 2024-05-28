@@ -13,6 +13,10 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     // return const UnderDevScreen();
-    return const ProductsScreen();
+    // return const ProductsScreen();
+
+    return Center(
+      child: Text("cart screen"),
+    );
   }
 }

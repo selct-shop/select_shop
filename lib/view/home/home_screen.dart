@@ -89,8 +89,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     } else if (context.read<HomeBloc>().activePageNumber == 2) {
                       return CategoriesScreen();
                     } else if (context.read<HomeBloc>().activePageNumber == 3) {
+                      return CartScreen();
+                    }else if (context.read<HomeBloc>().activePageNumber == 4) {
                       return FavoureitesScreen();
-                    } else if (context.read<HomeBloc>().activePageNumber == 4) {
+                    } else if (context.read<HomeBloc>().activePageNumber == 5) {
                       return SettingsScreen();
                     } else {
                       return CustomLoadingScreen();

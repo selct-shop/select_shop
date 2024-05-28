@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -57,14 +59,14 @@ class CustomBottomNavBar extends StatelessWidget {
           _bottomNavBarIcon(
             title: S.of(context).favourts,
             svgImageName: AppImagesSvg.favourtsStorkSvg,
-            screenNumber: 3,
+            screenNumber: 4,
           ),
           Spacer(),
 
           _bottomNavBarIcon(
             title: S.of(context).personalPage,
             svgImageName: AppImagesSvg.personalPageSvg,
-            screenNumber: 4,
+            screenNumber: 5,
           ),
 
           AppConstants.emptySpaceTenPixl,
@@ -111,7 +113,7 @@ class _bottomNavBarIcon extends StatelessWidget {
                 width: 25,
                 // all this if conditions for the fav icon,
                 // to determine if its active or not
-                screenNumber == 3
+                screenNumber == 4
                     ? (context.read<HomeBloc>().activePageNumber == screenNumber
                         ? AppImagesSvg.favourFilledSvg
                         : svgImageName)

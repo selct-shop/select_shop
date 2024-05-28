@@ -23,46 +23,39 @@ class ProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Scaffold(
-          appBar: CustomAppBar(),
-          body: ListView(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            children: [
-              AppConstants.emptySpaceTenPixl,
-              AppConstants.emptySpaceTenPixl,
-              AppConstants.emptySpaceTenPixl,
-              for (int i = 1; i < 20; i++)
-                ProductContainer(
-                  brandName: "zara",
-                  brandNetworkImage: null,
-                  isDisscountOrNew: true,
-                  isFavourated: true,
-                  isDiscountOrNew: true,
-                  hasPaddings: true,
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          children: [
+            AppConstants.emptySpaceTenPixl,
+            AppConstants.emptySpaceTenPixl,
+            AppConstants.emptySpaceTenPixl,
+            for (int i = 1; i < 20; i++)
+              ProductContainer(
+                brandName: "zara",
+                brandNetworkImage: null,
+                isDisscountOrNew: true,
+                isFavourated: true,
+                isDiscountOrNew: true,
+                hasPaddings: true,
 
-                  productName: 't-shirt',
-                  categoryName: 'men',
-                  productDiscreption:
-                      'this is just a test for the product discription, and so on',
-                  oldPrice: '499',
-                  newPrice: '299',
-                  productNetworkImage: null,
-                  productRating: 4.5,
-                  // width: ,
-                  // height: null,
-                  onTapProductWidget: () {
-                    navigateTo(context, ProductDetailsScreen());
-                  },
-                  onTapAddOrRemoveFav: () {
-                    navigateTo(context, UnderDevScreen());
-                  },
-                ),
-            ],
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: CustomFloatingAcctionButton(),
-          bottomNavigationBar: CustomBottomNavBar(),
+                productName: 't-shirt',
+                categoryName: 'men',
+                productDiscreption:
+                    'this is just a test for the product discription, and so on',
+                oldPrice: '499',
+                newPrice: '299',
+                productNetworkImage: null,
+                productRating: 4.5,
+                // width: ,
+                // height: null,
+                onTapProductWidget: () {
+                  navigateTo(context, ProductDetailsScreen());
+                },
+                onTapAddOrRemoveFav: () {
+                  navigateTo(context, UnderDevScreen());
+                },
+              ),
+          ],
         ),
       ),
     );

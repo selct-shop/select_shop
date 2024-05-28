@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
 import 'dart:math' as math;
+
+import 'package:select_shop/view/home/bloc/home_bloc.dart';
 
 class CustomFloatingAcctionButton extends StatelessWidget {
   const CustomFloatingAcctionButton({
@@ -18,7 +21,13 @@ class CustomFloatingAcctionButton extends StatelessWidget {
       child: FloatingActionButton(
         heroTag: null,
         onPressed: () {
-          navigateTo(context, CartScreen());
+          // navigateTo(context, CartScreen());
+          // context.read<HomeBloc>().bottomNavBarTapded(newPageNumber: 3);
+          context
+                .read<HomeBloc>()
+                .add(BottomNavBarTapdedEvent(
+                  // 3 to change the main active page into the new page, and page 3 is the FAB page, or let's say it's cart page
+                  tappdedPageNumber: 3, ));
         },
         backgroundColor: AppColors.main2Color,
         child: Transform.rotate(
