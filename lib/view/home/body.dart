@@ -139,6 +139,8 @@ class _HomeCategoriesRow extends StatelessWidget {
                     context
                         .read<BottomNavBloc>()
                         .add(BottomNavBarTapdedEvent(tappdedPageNumber: 2));
+
+                    context.read<DrawerBloc>().activeDrawerPage = 2;
                   },
                   child: Text(
                     "${S.of(context).showAll}:",
