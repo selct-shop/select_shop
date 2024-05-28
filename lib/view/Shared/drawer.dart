@@ -14,6 +14,7 @@ import 'package:select_shop/main.dart';
 import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
+import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/widgets/drawer/bloc/drawer_bloc.dart';
@@ -49,11 +50,11 @@ class CustomDrawer extends StatelessWidget {
                 child: CustomLoadingScreen(),
               );
             }
-            
+
             //  else if (state is DrawerErrorState) {
             //   return ErrorScreen(errorMessage: "unknown Error");
-            // } 
-            
+            // }
+
             else if (state is DrawerSucsessState) {
               return _DrawerBody(theHomeBuildContext: theHomeBuildContext);
             } else {
@@ -149,12 +150,18 @@ class _DrawerBody extends StatelessWidget {
                   // context
                   //     .read<HomeBloc>()
                   //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 1));
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 1)); 
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 1));
 
                   // change the bottom nav bar for home screen icon
-                  // theHomeBuildContext
-                  //     .read<HomeBloc>()
-                  //     .add(BottomNavBarTapdedEvent(tappdedPageNumber: 1));
+                  theHomeBuildContext
+                      .read<HomeBloc>()
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 1));
+                  // context.read<HomeBloc>().activePageNumber = 1;
+
+                  // print(
+                  //     "===================================${context.read<HomeBloc>().activePageNumber}");
                 },
                 listTileNumber: 1,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 1
@@ -165,12 +172,14 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).products,
                 onTap: () {
-                  // context
-                  //     .read<HomeBloc>()
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 2));
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 2)); 
-                
-                
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 2));
+
+                  // change the bottom nav bar for home screen icon
+                  theHomeBuildContext
+                      .read<HomeBloc>()
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 2));
                 },
                 listTileNumber: 2,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 2
@@ -181,15 +190,12 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).tradeMark,
                 onTap: () {
-                  // context
-                  //     .read<HomeBloc>()
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3)); 
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
 
-
-
-                  // BlocProvider.of<HomeBloc>(context)
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 3));
+                  Navigator.pop(context);
+                  navigateTo(context, UnderDevScreen());
                 },
                 listTileNumber: 3,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 3
@@ -200,13 +206,12 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).specialproducts,
                 onTap: () {
-                  // context
-                  //     .read<HomeBloc>()
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 4));
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 4));
+                  Navigator.pop(context);
 
-
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 4)); 
-
+                  navigateTo(context, UnderDevScreen());
                 },
                 listTileNumber: 4,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 4
@@ -219,17 +224,16 @@ class _DrawerBody extends StatelessWidget {
                 title: S.of(context).favourts,
                 onTap: () {
                   // change the drawer for the favouret Drawer List Tile
-                  // context
-                  //     .read<HomeBloc>()
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5));
-
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5)); 
-
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5));
 
                   // change the home screen for the favouret tab
-                  // theHomeBuildContext
-                  //     .read<HomeBloc>()
-                  //     .add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
+
+                  // change the bottom nav bar for home screen icon
+                  theHomeBuildContext
+                      .read<HomeBloc>()
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
                 },
                 listTileNumber: 5,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 5
@@ -240,21 +244,14 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).mycart,
                 onTap: () {
-                  // context
-                  //     .read<HomeBloc>()
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 6));
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 6));
 
-
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 6)); 
-
-                  // pop the drawer and go directley to car screen
-                  // Navigator.pop(context);
-                  // navigateTo(context, CartScreen());
-
-                  // change the home screen for the favouret tab
-                  // theHomeBuildContext
-                  //     .read<HomeBloc>()
-                  //     .add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
+                  // change the bottom nav bar for home screen icon
+                  theHomeBuildContext
+                      .read<HomeBloc>()
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
                 },
                 listTileNumber: 6,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 6
@@ -265,12 +262,12 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).orders,
                 onTap: () {
-                  // context
-                  //     .read<HomeBloc>()
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 7));
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 7));
 
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 7)); 
-
+                  Navigator.pop(context);
+                  navigateTo(context, UnderDevScreen());
                 },
                 listTileNumber: 7,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 7
@@ -281,18 +278,14 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).personalPage,
                 onTap: () {
-                  // change the drawer ListTile for the personal ListTile
-                  // context
-                  //     .read<HomeBloc>()
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 8));
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 8));
 
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 8)); 
-
-
-                  // change the home screen and bottom nav bar for the personal page
-                  // theHomeBuildContext
-                  //     .read<HomeBloc>()
-                  //     .add(BottomNavBarTapdedEvent(tappdedPageNumber: 5));
+                  // change the bottom nav bar for home screen icon
+                  theHomeBuildContext
+                      .read<HomeBloc>()
+                      .add(BottomNavBarTapdedEvent(tappdedPageNumber: 5));
                 },
                 listTileNumber: 8,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 8
@@ -303,13 +296,12 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).suppourt,
                 onTap: () {
-                  // context
-                  //     .read<HomeBloc>()
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 9));
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 9)); 
-                
-                
-                
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 9));
+
+                  Navigator.pop(context);
+                  navigateTo(context, UnderDevScreen());
                 },
                 listTileNumber: 9,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 9
@@ -320,12 +312,12 @@ class _DrawerBody extends StatelessWidget {
               _CustomDrawerListTile(
                 title: S.of(context).contactUs,
                 onTap: () {
-                  // context
-                  //     .read<HomeBloc>()
-                  //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 10));
+                  context
+                      .read<DrawerBloc>()
+                      .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 10));
 
-                  context.read<DrawerBloc> (). add(DrawerTapdedEvent(tappdedDrawerItemNumber: 10)); 
-
+                  Navigator.pop(context);
+                  navigateTo(context, UnderDevScreen());
                 },
                 listTileNumber: 10,
                 isActive: context.read<DrawerBloc>().activeDrawerPage == 10
@@ -491,150 +483,139 @@ class _CustomDrawerListTile extends StatelessWidget {
   }
 }
 
+// ///
+// ///
+// ///
 
+// Container(
+//   width: double.infinity,
+//   height: 45,
+//   margin: const EdgeInsets.only(
+//     bottom: 15,
+//   ),
+//   decoration: BoxDecoration(
+//     borderRadius: BorderRadius.circular(15),
+//     color: Colors.white,
+//     boxShadow: const [
+//       // BoxShadow(
+//       //   color: AppColors.mainGreyColor.withOpacity(.2),
+//       //   blurRadius: 5,
+//       //   offset: Offset(3, 5),
+//       // ),
+//     ],
+//   ),
+//   child: Row(
+//     children: [
+//       SizedBox(
+//         width: 20,
+//       ),
+//       SizedBox(
+//         width: 22,
+//         height: 22,
+//         // child: Image.asset(
+//         //   width: 22,
+//         //   height: 22,
+//         //   AppImagesSvg.home,
+//         // ),
+//       ),
+//       SizedBox(
+//         width: 10,
+//       ),
+//       Text(
+//         style:
+//             TextStyle(color: AppColors.mainGreyColor, fontSize: 18),
+//         S.of(context).backToSignIn,
+//       ),
+//       SizedBox(
+//         width: 20,
+//       ),
+//     ],
+//   ),
+// ),
 
+// ///
+// ///
+// ///
 
+// Container(
+//   width: double.infinity,
+//   height: 45,
+//   margin: const EdgeInsets.only(
+//     bottom: 15,
+//   ),
+//   decoration: BoxDecoration(
+//     borderRadius: BorderRadius.circular(15),
+//     color: Colors.white,
+//     boxShadow: const [
+//       // BoxShadow(
+//       //   color: AppColors.mainGreyColor.withOpacity(.2),
+//       //   blurRadius: 5,
+//       //   offset: Offset(3, 5),
+//       // ),
+//     ],
+//   ),
+//   child: const Row(
+//     children: [
+//       SizedBox(
+//         width: 20,
+//       ),
+//       SizedBox(
+//         width: 22,
+//         height: 22,
+//         // child: Image.asset(
+//         //   width: 22,
+//         //   height: 22,
+//         //   AppImages.home,
+//         // ),
+//       ),
+//       SizedBox(
+//         width: 10,
+//       ),
+//       Text(
+//           style: TextStyle(
+//               color: AppColors.mainGreyColor, fontSize: 18),
+//           "home page"),
+//       SizedBox(
+//         width: 20,
+//       ),
+//     ],
+//   ),
+// ),
 
+// ///
+// ///
+// ///
 
+//   ListTile(
+//   contentPadding:
+//       EdgeInsets.symmetric(vertical: 0, horizontal: 10.0),
+//   // minVerticalPadding: 1,
+//   titleAlignment: ListTileTitleAlignment.center,
+//   // selected: true,
+//   // selectedColor: AppColors.mainColor,
+//   // selectedTileColor: AppColors.mainColor,
+//   leading: SizedBox(
+//     height: 22,
+//     width: 22,
+//     child: SvgPicture.asset(
+//       color: isActive == true ? Colors.white : AppColors.mainColor,
+//       leading,
+//     ),
+//   ),
+//   title: Text(
+//     title,
+//     style: _customTitleTextStyle.copyWith(
+//       height: .5,
+//       color: isActive == true ? Colors.white : AppColors.greyColor,
+//     ),
+//   ),
 
-            // ///
-            // ///
-            // ///
-
-            // Container(
-            //   width: double.infinity,
-            //   height: 45,
-            //   margin: const EdgeInsets.only(
-            //     bottom: 15,
-            //   ),
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(15),
-            //     color: Colors.white,
-            //     boxShadow: const [
-            //       // BoxShadow(
-            //       //   color: AppColors.mainGreyColor.withOpacity(.2),
-            //       //   blurRadius: 5,
-            //       //   offset: Offset(3, 5),
-            //       // ),
-            //     ],
-            //   ),
-            //   child: Row(
-            //     children: [
-            //       SizedBox(
-            //         width: 20,
-            //       ),
-            //       SizedBox(
-            //         width: 22,
-            //         height: 22,
-            //         // child: Image.asset(
-            //         //   width: 22,
-            //         //   height: 22,
-            //         //   AppImagesSvg.home,
-            //         // ),
-            //       ),
-            //       SizedBox(
-            //         width: 10,
-            //       ),
-            //       Text(
-            //         style:
-            //             TextStyle(color: AppColors.mainGreyColor, fontSize: 18),
-            //         S.of(context).backToSignIn,
-            //       ),
-            //       SizedBox(
-            //         width: 20,
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
-            // ///
-            // ///
-            // ///
-
-            // Container(
-            //   width: double.infinity,
-            //   height: 45,
-            //   margin: const EdgeInsets.only(
-            //     bottom: 15,
-            //   ),
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(15),
-            //     color: Colors.white,
-            //     boxShadow: const [
-            //       // BoxShadow(
-            //       //   color: AppColors.mainGreyColor.withOpacity(.2),
-            //       //   blurRadius: 5,
-            //       //   offset: Offset(3, 5),
-            //       // ),
-            //     ],
-            //   ),
-            //   child: const Row(
-            //     children: [
-            //       SizedBox(
-            //         width: 20,
-            //       ),
-            //       SizedBox(
-            //         width: 22,
-            //         height: 22,
-            //         // child: Image.asset(
-            //         //   width: 22,
-            //         //   height: 22,
-            //         //   AppImages.home,
-            //         // ),
-            //       ),
-            //       SizedBox(
-            //         width: 10,
-            //       ),
-            //       Text(
-            //           style: TextStyle(
-            //               color: AppColors.mainGreyColor, fontSize: 18),
-            //           "home page"),
-            //       SizedBox(
-            //         width: 20,
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
-            // ///
-            // ///
-            // ///
-
-
-
-
-
-
-                //   ListTile(
-                //   contentPadding:
-                //       EdgeInsets.symmetric(vertical: 0, horizontal: 10.0),
-                //   // minVerticalPadding: 1,
-                //   titleAlignment: ListTileTitleAlignment.center,
-                //   // selected: true,
-                //   // selectedColor: AppColors.mainColor,
-                //   // selectedTileColor: AppColors.mainColor,
-                //   leading: SizedBox(
-                //     height: 22,
-                //     width: 22,
-                //     child: SvgPicture.asset(
-                //       color: isActive == true ? Colors.white : AppColors.mainColor,
-                //       leading,
-                //     ),
-                //   ),
-                //   title: Text(
-                //     title,
-                //     style: _customTitleTextStyle.copyWith(
-                //       height: .5,
-                //       color: isActive == true ? Colors.white : AppColors.greyColor,
-                //     ),
-                //   ),
-                
-                //   trailing: SizedBox(
-                //     height: 22,
-                //     width: 22,
-                //     child: Icon(
-                //       color: isActive == true ? Colors.white : AppColors.greyColor,
-                //       Icons.arrow_forward_ios,
-                //     ),
-                //   ),
-                // ),
+//   trailing: SizedBox(
+//     height: 22,
+//     width: 22,
+//     child: Icon(
+//       color: isActive == true ? Colors.white : AppColors.greyColor,
+//       Icons.arrow_forward_ios,
+//     ),
+//   ),
+// ),

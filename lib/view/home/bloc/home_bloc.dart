@@ -28,6 +28,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   bottomNavBarTapded({required int newPageNumber}) {
     activePageNumber = newPageNumber;
   }
+
   HomeBloc() : super(HomeInitialState()) {
     on<HomeEvent>(
       (event, emit) async {
@@ -132,7 +133,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         //
         //
         //
-
 
         //       if (event is SetLanguageEvent) {
         //    Locale(event.languageCode);
