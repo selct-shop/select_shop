@@ -14,7 +14,6 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  int activePageNumber = 1;
   int currentCarouselSliderIndex = 0;
   List<MainCategoriesResult?> categoresListForHomeScreen = [];
 
@@ -25,9 +24,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     currentCarouselSliderIndex = index;
   }
 
-  bottomNavBarTapded({required int newPageNumber}) {
-    activePageNumber = newPageNumber;
-  }
 
   HomeBloc() : super(HomeInitialState()) {
     on<HomeEvent>(
@@ -71,68 +67,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           }
         }
 
-        if (event is BottomNavBarTapdedEvent) {
-          emit(HomeLoadingState());
 
-          // switch (event.tappdedPageNumber) {
-          //   case 1:
-          //     // 1 is the home
-          //     activeDrawerPage = 1;
-          //     // print(
-          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
 
-          //     break;
-
-          //   case 2:
-          //     // 2 is the categoryes
-          //     activeDrawerPage = 2;
-
-          //     // print(
-          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
-          //     break;
-
-          //   case 3:
-          //     // 3 is the favourest
-          //     activeDrawerPage = 6;
-
-          //     // print(
-          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
-          //     break;
-
-          //   case 4:
-          //     // 4 is the favourest
-          //     activeDrawerPage = 5;
-
-          //     // print(
-          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
-          //     break;
-
-          //   case 5:
-          //     // 4 is the personal
-          //     activeDrawerPage = 8;
-          //     // print(
-          //     //     "hoooooooooooooooooooooooooooooome nav bar eveeeeeeeeeeeeeeeeeeeeeeeent $activeDrawerPage");
-
-          //     break;
-          // }
-
-          // bottomNavBarTapded(newPageNumber) {
-          // activePageNumber == newPageNumber;
-          // activePageNumber == BottomNavBarTapdedEvent. ;
-          // }
-
-          bottomNavBarTapded(newPageNumber: event.tappdedPageNumber);
-
-          // activePageNumber = BottomNavBarTapdedEvent(tappdedPageNumber: tappdedPageNumber)
-
-          emit(HomeLoadedState());
-          // emit(HomeDrawerLoadedState());
-          // print("home drawereererererer Loaded state $activeDrawerPage");
-        }
-
-        //
-        //
-        //
 
         //       if (event is SetLanguageEvent) {
         //    Locale(event.languageCode);

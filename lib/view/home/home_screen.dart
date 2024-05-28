@@ -32,6 +32,7 @@ import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/favourite/favourite_screen.dart';
+import 'package:select_shop/view/home/widgets/bottom%20nav%20bar/bloc/bottom_nav_bloc.dart';
 import 'package:select_shop/view/home/widgets/prodcts%20best%20seller/bloc/product_bestseller_bloc.dart';
 import 'package:select_shop/view/home/widgets/products%20new/bloc/products_new_bloc.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
@@ -48,7 +49,6 @@ import 'dart:math' as math;
 part 'widgets/custom_baner.dart';
 part 'body.dart';
 part 'package:select_shop/view/search/search_screen.dart';
-
 
 TextStyle _customTitleTextStyle = TextStyle(
   color: AppColors.mainColor,
@@ -82,21 +82,29 @@ class _HomeScreenState extends State<HomeScreen> {
               appBar: CustomAppBar(),
 
               body: SafeArea(
-                child: BlocBuilder<HomeBloc, HomeState>(
+                child: BlocBuilder<BottomNavBloc, BottomNavState>(
                   builder: (context, state) {
-                    if (context.read<HomeBloc>().activePageNumber == 1) {
-                      return _HomeBody();
-                    } else if (context.read<HomeBloc>().activePageNumber == 2) {
-                      return CategoriesScreen();
-                    } else if (context.read<HomeBloc>().activePageNumber == 3) {
-                      return CartScreen();
-                    }else if (context.read<HomeBloc>().activePageNumber == 4) {
-                      return FavoureitesScreen();
-                    } else if (context.read<HomeBloc>().activePageNumber == 5) {
-                      return SettingsScreen();
-                    } else {
-                      return CustomLoadingScreen();
-                    }
+                    return BlocBuilder<HomeBloc, HomeState>(
+                      builder: (context, state) {
+                        if (context.read<BottomNavBloc>().activePageNumber == 1) {
+                          return _HomeBody();
+                        } else if (context.read<BottomNavBloc>().activePageNumber ==
+                            2) {
+                          return CategoriesScreen();
+                        } else if (context.read<BottomNavBloc>().activePageNumber ==
+                            3) {
+                          return CartScreen();
+                        } else if (context.read<BottomNavBloc>().activePageNumber ==
+                            4) {
+                          return FavoureitesScreen();
+                        } else if (context.read<BottomNavBloc>().activePageNumber ==
+                            5) {
+                          return SettingsScreen();
+                        } else {
+                          return CustomLoadingScreen();
+                        }
+                      },
+                    );
                   },
                 ),
               ),

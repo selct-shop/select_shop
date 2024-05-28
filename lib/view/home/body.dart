@@ -120,32 +120,36 @@ class _HomeCategoriesRow extends StatelessWidget {
         Row(
           children: [
             Text(
-              style: _customTitleTextStyle,
               "${S.of(context).categorys}: ",
+              style: _customTitleTextStyle,
             ),
             Spacer(),
-            InkWell(
-              onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return UnderDevScreen();
-                // }));
+            BlocBuilder<BottomNavBloc, BottomNavState>(
+              builder: (context, state) {
+                return InkWell(
+                  onTap: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    //   return UnderDevScreen();
+                    // }));
 
-                // context
-                //     .read<HomeBloc>()
-                //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5));
+                    // context
+                    //     .read<HomeBloc>()
+                    //     .add(DrawerTapdedEvent(tappdedDrawerItemNumber: 5));
 
-                context
-                    .read<HomeBloc>()
-                    .add(BottomNavBarTapdedEvent(tappdedPageNumber: 2));
+                    context
+                        .read<BottomNavBloc>()
+                        .add(BottomNavBarTapdedEvent(tappdedPageNumber: 2));
+                  },
+                  child: Text(
+                    "${S.of(context).showAll}:",
+                    style: _customTitleTextStyle.copyWith(
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.mainColor),
+                  ),
+                );
               },
-              child: Text(
-                style: _customTitleTextStyle.copyWith(
-                    fontSize: 12,
-                    fontWeight: FontWeight.normal,
-                    decoration: TextDecoration.underline,
-                    decorationColor: AppColors.mainColor),
-                "${S.of(context).showAll}:",
-              ),
             ),
           ],
         ),

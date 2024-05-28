@@ -25,6 +25,7 @@ import 'package:select_shop/view/categories/bloc/categories_bloc.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/check%20out/check_out.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
+import 'package:select_shop/view/home/widgets/bottom%20nav%20bar/bloc/bottom_nav_bloc.dart';
 import 'package:select_shop/view/home/widgets/drawer/bloc/drawer_bloc.dart';
 import 'package:select_shop/view/home/widgets/prodcts%20best%20seller/bloc/product_bestseller_bloc.dart';
 import 'package:select_shop/view/home/widgets/products%20new/bloc/products_new_bloc.dart';
@@ -59,13 +60,13 @@ void main() async {
     overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top],
   );
 
-    // Set the status bar to be transparent
+  // Set the status bar to be transparent
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent, // Transparent status bar
-    statusBarIconBrightness: Brightness.dark, // For dark icons on a light background
+    statusBarIconBrightness:
+        Brightness.dark, // For dark icons on a light background
   ));
 
-  
   await CacheHelper.init();
   await DioHelper.init();
   // Locale myLocal = await getLocal();
@@ -98,6 +99,8 @@ class _MyAppState extends State<MyApp> {
         providers: [
           BlocProvider<HomeBloc>(create: (context) => HomeBloc()),
           BlocProvider<DrawerBloc>(create: (context) => DrawerBloc()),
+          BlocProvider<BottomNavBloc>(create: (context) => BottomNavBloc()),
+
           BlocProvider<GetNewProductsBloc>(
               create: (context) => GetNewProductsBloc()),
 

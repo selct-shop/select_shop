@@ -8,6 +8,8 @@ import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
+import 'package:select_shop/view/home/widgets/bottom%20nav%20bar/bloc/bottom_nav_bloc.dart';
+import 'package:select_shop/view/home/widgets/drawer/bloc/drawer_bloc.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
@@ -90,7 +92,7 @@ class _bottomNavBarIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeBloc, HomeState>(
+    return BlocConsumer<BottomNavBloc, BottomNavState>(
       listener: (context, state) {
         // TODO: implement listener
       },
@@ -98,12 +100,27 @@ class _bottomNavBarIcon extends StatelessWidget {
         return IconButton(
           onPressed: () {
             context
-                .read<HomeBloc>()
+                .read<BottomNavBloc>()
                 .add(BottomNavBarTapdedEvent(tappdedPageNumber: screenNumber));
 
             // context.read<HomeBloc>().add(BottomNavBarTapdedEvent(
             //     tappdedPageNumber: screenNumber
             //     ));
+
+            if (screenNumber == 1)
+              context.read<DrawerBloc>().activeDrawerPage = 1;
+
+            if (screenNumber == 2)
+              context.read<DrawerBloc>().activeDrawerPage = 2;
+
+            if (screenNumber == 3)
+              context.read<DrawerBloc>().activeDrawerPage = 6;
+
+            if (screenNumber == 4)
+              context.read<DrawerBloc>().activeDrawerPage = 5;
+
+            if (screenNumber == 5)
+              context.read<DrawerBloc>().activeDrawerPage = 8;
           },
           icon: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -114,7 +131,8 @@ class _bottomNavBarIcon extends StatelessWidget {
                 // all this if conditions for the fav icon,
                 // to determine if its active or not
                 screenNumber == 4
-                    ? (context.read<HomeBloc>().activePageNumber == screenNumber
+                    ? (context.read<BottomNavBloc>().activePageNumber ==
+                            screenNumber
                         ? AppImagesSvg.favourFilledSvg
                         : svgImageName)
                     : svgImageName
@@ -123,14 +141,15 @@ class _bottomNavBarIcon extends StatelessWidget {
 
                 // color: isActive ? AppColors.mainColor: AppColors.grey2Color,
                 ,
-                color: context.read<HomeBloc>().activePageNumber == screenNumber
+                color: context.read<BottomNavBloc>().activePageNumber ==
+                        screenNumber
                     ? AppColors.mainColor
                     : AppColors.greyColor,
               ),
               Text(
                 title,
                 style: TextStyle(
-                    color: context.read<HomeBloc>().activePageNumber ==
+                    color: context.read<BottomNavBloc>().activePageNumber ==
                             screenNumber
                         ? AppColors.mainColor
                         : AppColors.greyColor,

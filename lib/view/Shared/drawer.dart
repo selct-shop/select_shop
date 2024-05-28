@@ -17,6 +17,7 @@ import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/view/cart/cart_screen.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
+import 'package:select_shop/view/home/widgets/bottom%20nav%20bar/bloc/bottom_nav_bloc.dart';
 import 'package:select_shop/view/home/widgets/drawer/bloc/drawer_bloc.dart';
 
 TextStyle _customLocalTextStyle = TextStyle(
@@ -156,7 +157,7 @@ class _DrawerBody extends StatelessWidget {
 
                   // change the bottom nav bar for home screen icon
                   theHomeBuildContext
-                      .read<HomeBloc>()
+                      .read<BottomNavBloc>()
                       .add(BottomNavBarTapdedEvent(tappdedPageNumber: 1));
                   // context.read<HomeBloc>().activePageNumber = 1;
 
@@ -178,7 +179,7 @@ class _DrawerBody extends StatelessWidget {
 
                   // change the bottom nav bar for home screen icon
                   theHomeBuildContext
-                      .read<HomeBloc>()
+                      .read<BottomNavBloc>()
                       .add(BottomNavBarTapdedEvent(tappdedPageNumber: 2));
                 },
                 listTileNumber: 2,
@@ -232,7 +233,7 @@ class _DrawerBody extends StatelessWidget {
 
                   // change the bottom nav bar for home screen icon
                   theHomeBuildContext
-                      .read<HomeBloc>()
+                      .read<BottomNavBloc>()
                       .add(BottomNavBarTapdedEvent(tappdedPageNumber: 4));
                 },
                 listTileNumber: 5,
@@ -250,7 +251,7 @@ class _DrawerBody extends StatelessWidget {
 
                   // change the bottom nav bar for home screen icon
                   theHomeBuildContext
-                      .read<HomeBloc>()
+                      .read<BottomNavBloc>()
                       .add(BottomNavBarTapdedEvent(tappdedPageNumber: 3));
                 },
                 listTileNumber: 6,
@@ -284,7 +285,7 @@ class _DrawerBody extends StatelessWidget {
 
                   // change the bottom nav bar for home screen icon
                   theHomeBuildContext
-                      .read<HomeBloc>()
+                      .read<BottomNavBloc>()
                       .add(BottomNavBarTapdedEvent(tappdedPageNumber: 5));
                 },
                 listTileNumber: 8,
