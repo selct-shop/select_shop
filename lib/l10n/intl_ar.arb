@@ -79,7 +79,24 @@
 
 
     "error": "خطاء",
-    "checkNetwork": "الرجاء تفحص الانترنت لديك"
+    "checkNetwork": "الرجاء تفحص الانترنت لديك", 
+
+    
+
+
+
+
+    "editUser":"تعديل الملف الشخصي", 
+    "addLocation":"المواقع",
+    "changeLanguage":"تغير اللغه", 
+    "notificationSettings":"اعدادات الاشعارات", 
+    "helpCenter":"مركز المساعده",
+    "accountSettings":"اعدادت الحساب"
+
+
+
+
+
   }
 
 

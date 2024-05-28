@@ -81,7 +81,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             height: 45,
                             width: 200,
                             child: Text(
-                              globalCachedUserName ?? "Select Shop",
+                              globalCachedUserName ?? S.of(context).selectShop,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   color: AppColors.mainColor,
@@ -192,7 +192,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "account settings",
+                      S.of(context).accountSettings,
                       style: TextStyle(
                         color: AppColors.mainColor,
                         fontWeight: FontWeight.bold,
@@ -205,7 +205,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       width: 30,
                     ),
                     _CustomSettingListTile(
-                      theTitle: "edit personal profile",
+                      theTitle: S.of(context).editUser,
                       theSvgPictuer: AppImagesSvg.editUserSvg,
                       hasADivier: true,
                       onTap: () {
@@ -214,7 +214,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       },
                     ),
                     _CustomSettingListTile(
-                      theTitle: "add location",
+                      theTitle: S.of(context).addLocation,
                       theSvgPictuer: AppImagesSvg.locationFilledSvg,
                       hasADivier: true,
                       onTap: () {
@@ -223,7 +223,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       },
                     ),
                     _CustomSettingListTile(
-                      theTitle: "change language",
+                      theTitle: S.of(context).changeLanguage,
                       theSvgPictuer: AppImagesSvg.langSvg,
                       hasADivier: true,
                       onTap: () {
@@ -233,7 +233,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       },
                     ),
                     _CustomSettingListTile(
-                      theTitle: "notifications settings",
+                      theTitle: S.of(context).notificationSettings,
                       theSvgPictuer: AppImagesSvg.notificationSvg,
                       hasADivier: true,
                       onTap: () {
@@ -242,7 +242,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       },
                     ),
                     _CustomSettingListTile(
-                      theTitle: "help center",
+                      theTitle: S.of(context).helpCenter,
                       theSvgPictuer: AppImagesSvg.suppourtSvg,
                       hasADivier: true,
                       onTap: () {
@@ -251,7 +251,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       },
                     ),
                     _CustomSettingListTile(
-                      theTitle: "sign out",
+                      theTitle: S.of(context).signOut,
                       theSvgPictuer: AppImagesSvg.signOutSvg,
                       onTap: () async {
                         // sign out
@@ -333,22 +333,20 @@ class _CustomSettingListTile extends StatelessWidget {
 
                     width: 230,
 
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        theTitle,
-                        overflow: TextOverflow.ellipsis,
-                        // textAlign: TextAlign.start,
-                        maxLines: 1,
-                        style: TextStyle(
-                          color: AppColors.grey2Color,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          height: .8,
-                        ),
+                    child: Text(
+                      theTitle,
+                      overflow: TextOverflow.ellipsis,
+                      // textAlign: TextAlign.start,
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: AppColors.grey2Color,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        height: .8,
                       ),
                     ),
                   ),
+                  Spacer(),
                 ],
               ),
             ),

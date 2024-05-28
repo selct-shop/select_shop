@@ -171,4 +171,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get checkNetwork => 'please check your network';
+
+  @override
+  String get editUser => 'edit personal profile';
+
+  @override
+  String get addLocation => 'add location';
+
+  @override
+  String get changeLanguage => 'change language';
+
+  @override
+  String get notificationSettings => 'notifications settings';
+
+  @override
+  String get helpCenter => 'help center';
+
+  @override
+  String get accountSettings => 'account settings';
 }

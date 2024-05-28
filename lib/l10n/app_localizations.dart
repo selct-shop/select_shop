@@ -428,6 +428,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'please check your network'**
   String get checkNetwork;
+
+  /// No description provided for @editUser.
+  ///
+  /// In en, this message translates to:
+  /// **'edit personal profile'**
+  String get editUser;
+
+  /// No description provided for @addLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'add location'**
+  String get addLocation;
+
+  /// No description provided for @changeLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'change language'**
+  String get changeLanguage;
+
+  /// No description provided for @notificationSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'notifications settings'**
+  String get notificationSettings;
+
+  /// No description provided for @helpCenter.
+  ///
+  /// In en, this message translates to:
+  /// **'help center'**
+  String get helpCenter;
+
+  /// No description provided for @accountSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'account settings'**
+  String get accountSettings;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

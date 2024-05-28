@@ -176,7 +176,8 @@ class TheProductResult {
         brandId: json["brandId"],
         isDeleted: json["isDeleted"],
         deletedBy: json["deletedBy"],
-        createdAt: DateTime.parse(json["createdAt"]),
+        createdAt: DateTime.parse(json["createdAt"]), 
+        
         createdBy: json["createdBy"],
         updatedAt: DateTime.parse(json["updatedAt"]),
         updatedBy: json["updatedBy"],

@@ -171,4 +171,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get checkNetwork => 'الرجاء تفحص الانترنت لديك';
+
+  @override
+  String get editUser => 'تعديل الملف الشخصي';
+
+  @override
+  String get addLocation => 'المواقع';
+
+  @override
+  String get changeLanguage => 'تغير اللغه';
+
+  @override
+  String get notificationSettings => 'اعدادات الاشعارات';
+
+  @override
+  String get helpCenter => 'مركز المساعده';
+
+  @override
+  String get accountSettings => 'اعدادت الحساب';
 }

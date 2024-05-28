@@ -22,18 +22,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accountSettings":
+            MessageLookupByLibrary.simpleMessage("اعدادت الحساب"),
+        "addLocation": MessageLookupByLibrary.simpleMessage("المواقع"),
         "aed": MessageLookupByLibrary.simpleMessage("درهم"),
         "allCategoris": MessageLookupByLibrary.simpleMessage("كل التصنيفات "),
         "backToSignIn":
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
         "category": MessageLookupByLibrary.simpleMessage("التصنيف"),
         "categorys": MessageLookupByLibrary.simpleMessage("التصنيفات"),
+        "changeLanguage": MessageLookupByLibrary.simpleMessage("تغير اللغه"),
         "checkNetwork":
             MessageLookupByLibrary.simpleMessage("الرجاء تفحص الانترنت لديك"),
         "confirm": MessageLookupByLibrary.simpleMessage("تاكيد"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+        "editUser": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "enterEmailToResetOne": MessageLookupByLibrary.simpleMessage(
             "أدخل بريدك الإلكتروني لإعادة تعيين"),
@@ -43,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "favourts": MessageLookupByLibrary.simpleMessage("المفضله"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+        "helpCenter": MessageLookupByLibrary.simpleMessage("مركز المساعده"),
         "homePage": MessageLookupByLibrary.simpleMessage("الرئسيه"),
         "limitedOffers":
             MessageLookupByLibrary.simpleMessage("العروض المحدودة"),
@@ -53,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "newPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديده"),
         "noDataLikeThis": MessageLookupByLibrary.simpleMessage("no data"),
+        "notificationSettings":
+            MessageLookupByLibrary.simpleMessage("اعدادات الاشعارات"),
         "orByUsing": MessageLookupByLibrary.simpleMessage("أو بإستخدام"),
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
         "otpCodeSended":

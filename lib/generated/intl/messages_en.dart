@@ -22,17 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accountSettings":
+            MessageLookupByLibrary.simpleMessage("account settings"),
+        "addLocation": MessageLookupByLibrary.simpleMessage("add location"),
         "aed": MessageLookupByLibrary.simpleMessage("AED"),
         "allCategoris": MessageLookupByLibrary.simpleMessage("all catigory "),
         "backToSignIn": MessageLookupByLibrary.simpleMessage("back to signin"),
         "category": MessageLookupByLibrary.simpleMessage("category"),
         "categorys": MessageLookupByLibrary.simpleMessage("categorys"),
+        "changeLanguage":
+            MessageLookupByLibrary.simpleMessage("change language"),
         "checkNetwork":
             MessageLookupByLibrary.simpleMessage("please check your network"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("confirm new password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("contact us"),
+        "editUser":
+            MessageLookupByLibrary.simpleMessage("edit personal profile"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
         "enterEmailToResetOne":
             MessageLookupByLibrary.simpleMessage("enter your email to reset"),
@@ -42,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "favourts": MessageLookupByLibrary.simpleMessage("favourts"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("forgot password?"),
+        "helpCenter": MessageLookupByLibrary.simpleMessage("help center"),
         "homePage": MessageLookupByLibrary.simpleMessage("home"),
         "limitedOffers": MessageLookupByLibrary.simpleMessage("limited offers"),
         "lowToHighPrice":
@@ -51,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "newPassword": MessageLookupByLibrary.simpleMessage("new password"),
         "noDataLikeThis":
             MessageLookupByLibrary.simpleMessage("no data like this"),
+        "notificationSettings":
+            MessageLookupByLibrary.simpleMessage("notifications settings"),
         "orByUsing": MessageLookupByLibrary.simpleMessage("or by using"),
         "orders": MessageLookupByLibrary.simpleMessage("orders"),
         "otpCodeSended":

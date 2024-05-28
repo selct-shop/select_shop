@@ -74,7 +74,20 @@
 
 
     "error": "error",
-    "checkNetwork": "please check your network"
+    "checkNetwork": "please check your network", 
+
+
+
+
+    "editUser":"edit personal profile", 
+    "addLocation":"add location",
+    "changeLanguage":"change language", 
+    "notificationSettings":"notifications settings", 
+    "helpCenter":"help center",
+    "accountSettings":"account settings"
+
+
+
 
 
     
