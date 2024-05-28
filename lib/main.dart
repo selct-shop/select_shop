@@ -57,6 +57,14 @@ void main() async {
     SystemUiMode.manual,
     overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top],
   );
+
+    // Set the status bar to be transparent
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent, // Transparent status bar
+    statusBarIconBrightness: Brightness.dark, // For dark icons on a light background
+  ));
+
+  
   await CacheHelper.init();
   await DioHelper.init();
   // Locale myLocal = await getLocal();
