@@ -47,7 +47,7 @@ import 'dart:math' as math;
 //
 //
 // part '../Shared/drawer.dart';
-// part 'widgets/custom_baner.dart';
+part 'widgets/custom_baner.dart';
 part 'body.dart';
 part 'package:select_shop/view/search/search_screen.dart';
 
