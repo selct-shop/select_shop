@@ -49,7 +49,7 @@ class ProductsScreen extends StatelessWidget {
                 // width: ,
                 // height: null,
                 onTapProductWidget: () {
-                  navigateTo(context, ProductDetailsScreen());
+                  // navigateTo(context, ProductDetailsScreen());  
                 },
                 onTapAddOrRemoveFav: () {
                   navigateTo(context, UnderDevScreen());

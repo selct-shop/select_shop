@@ -6,14 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/models/collection/get_collection_modle.dart';
 import 'package:flutter/src/widgets/image.dart' as FreamWorkImage;
+import 'package:select_shop/view/product%20details/product_details_screen.dart';
 
 class ProductCard extends StatelessWidget {
-  final void Function()? onTap;
+  // final void Function()? onTap;
   final double? height, width;
   // final double? ratingNumber, newPrice, oldPrice;
   // final String? productCategory, productName, brandName;
@@ -24,7 +26,7 @@ class ProductCard extends StatelessWidget {
 
   ProductCard({
     super.key,
-    required this.onTap,
+    // required this.onTap,
     this.height,
     this.width,
     // this.shadow,
@@ -42,7 +44,12 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      // onTap: onTap,
+      onTap: () {
+        // navigateTo(context, 
+        // ProductDetailsScreen(theProductModle: theProduct)
+        // ); 
+      },
       // borderRadius: BorderRadius.circular(
       //   10,
       // ),

@@ -13,6 +13,8 @@ import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
+// import 'package:select_shop/models/collection/get_collection_modle.dart';
+// import 'package:select_shop/models/the%20product/the_product_modle.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 
 // Key prodcutImageKey = key();
@@ -36,7 +38,12 @@ TextStyle _customDropdownlistItemTextStyle = TextStyle(
 );
 
 class ProductDetailsScreen extends StatefulWidget {
-  const ProductDetailsScreen({super.key});
+  // final CollectionProduct theCollectionProductModle; 
+  // final TheProductModle theProductModle; 
+  const ProductDetailsScreen({super.key, 
+  // required this.theProductModle, 
+  // required this.theCollectionProductModle, 
+  });
 
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
@@ -72,10 +79,10 @@ class _Body extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _TitleRow(
-                oldPrice: "120",
-                newPrice: "199",
-              ),
+              // _TitleRow(
+              //   oldPrice: "120",
+              //   newPrice: "199",
+              // ),
               const SizedBox(
                 height: 5,
               ),
@@ -315,7 +322,7 @@ class _Body extends StatelessWidget {
         ///
         ///
 
-        _AddToCartAndFavRow(),
+        // _AddToCartAndFavRow(),
 
         const SizedBox(
           height: 45,
@@ -356,8 +363,12 @@ class _Body extends StatelessWidget {
 }
 
 class _AddToCartAndFavRow extends StatelessWidget {
-  const _AddToCartAndFavRow({
+  // final CollectionProduct theProductModle; 
+
+
+   _AddToCartAndFavRow({
     super.key,
+  //  required  this.theProductModle, 
   });
 
   @override
@@ -1769,13 +1780,14 @@ class _CustomShipmentListTile extends StatelessWidget {
 }
 
 class _TitleRow extends StatelessWidget {
+  final String? theImageLink,  oldPrice, newPrice;
   const _TitleRow({
     super.key,
     required this.oldPrice,
     required this.newPrice,
+    required this.theImageLink
   });
 
-  final String? oldPrice, newPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -1805,7 +1817,7 @@ class _TitleRow extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
+                Row(  
                   children: [
                     SizedBox(
                       // brand name and picture
@@ -1833,10 +1845,11 @@ class _TitleRow extends StatelessWidget {
                       // barnd image
                       height: 20,
                       width: 30,
-                      child: Image.asset(
-                        AppImages.chanelLogoJfif,
-                        fit: BoxFit.fitHeight,
-                      ),
+                      // child: Image.asset(
+                      //   AppImages.chanelLogoJfif,
+                      //   fit: BoxFit.fitHeight,
+                      // ),
+                      // child: Image(image: NetworkImage(theImageLink, )), 
                     ),
                     Spacer(),
                   ],
