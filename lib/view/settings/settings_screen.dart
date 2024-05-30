@@ -73,41 +73,44 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         width: 30,
                         height: 30,
                       ),
-                      Column(
-                        children: [
-                          Container(
-                            // user name container
-                            alignment: Alignment.centerLeft,
-                            height: 45,
-                            width: 200,
-                            child: Text(
-                              globalCachedUserName ?? S.of(context).selectShop,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  color: AppColors.mainColor,
-                                  fontSize: 27,
-                                  fontWeight: FontWeight.bold,
-                                  height: .8),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                              // user name container
+                              alignment: Alignment.centerLeft,
+                              height: 45,
+                              width: 200,
+                              child: Text(
+                                globalCachedUserName ??
+                                    S.of(context).selectShop,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    color: AppColors.mainColor,
+                                    fontSize: 27,
+                                    fontWeight: FontWeight.bold,
+                                    height: .8),
+                              ),
                             ),
-                          ),
-                          Container(
-                            // user ID container
-                            alignment: Alignment.centerLeft,
-                            height: 30,
-                            width: 200,
-                            child: Text(
-                              "ID #${globalCachedUserID ?? "Select Shop"}",
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  color: AppColors.grey2Color,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  height: .8),
+                            Container(
+                              // user ID container
+                              alignment: Alignment.centerLeft,
+                              height: 30,
+                              width: 200,
+                              child: Text(
+                                "ID #${globalCachedUserID ?? "Select Shop"}",
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    color: AppColors.grey2Color,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    height: .8),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                      Spacer(),
+                      // Spacer(),
                       const SizedBox(
                         width: 30,
                         height: 30,
