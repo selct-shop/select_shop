@@ -10,8 +10,9 @@ import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
-import 'package:select_shop/models/collection/get_collection_modle.dart';
+import 'package:select_shop/models/collection/the_collection_modle.dart';
 import 'package:flutter/src/widgets/image.dart' as FreamWorkImage;
+import 'package:select_shop/models/the%20product/the_product_modle.dart';
 import 'package:select_shop/view/product%20details/product_details_screen.dart';
 
 class ProductCard extends StatelessWidget {
@@ -22,7 +23,7 @@ class ProductCard extends StatelessWidget {
   // i use this shadow to give it card affect, and it's defalt true
   bool? withShado = true;
   final String? theeProductStates;
-  final CollectionProduct theProduct;
+  final TheProductModel theProduct;
 
   ProductCard({
     super.key,
@@ -83,7 +84,7 @@ class ProductCard extends StatelessWidget {
 
 // image: FreamWorkImage.Image(image: FreamWorkImage.NetworkImage,)
                           image: FreamWorkImage.NetworkImage(
-                            theProduct.mainImages,
+                            theProduct.result.mainImages[0] ?? globalDefaltCachedNetworkImage ,
                           )),
                     ),
                   ),
@@ -139,8 +140,9 @@ class ProductCard extends StatelessWidget {
                         Text(
                           // productCategory ?? S.of(context).homePage,
                           Localizations.localeOf(context).languageCode == "ar"
-                              ? theProduct.categories.first.category.nameAr
-                              : theProduct.categories.first.category.nameEn,
+                              // ? theProduct..categories.first.category.nameAr
+                              ? theProduct.result.categories[0].category.nameAr
+                              : theProduct.result.categories[0].category.nameEn,
                           style: TextStyle(
                               fontSize: 10, color: AppColors.mainColor),
                         ),
@@ -196,8 +198,8 @@ class ProductCard extends StatelessWidget {
                         Text(
                           // productName ?? "shirt",
                           Localizations.localeOf(context).languageCode == "ar"
-                              ? theProduct.nameAr
-                              : theProduct.nameEn,
+                              ? theProduct.result.nameAr
+                              : theProduct.result.nameEn,
                           style: TextStyle(
                             fontSize: 10,
                             fontWeight: FontWeight.bold,
@@ -210,8 +212,8 @@ class ProductCard extends StatelessWidget {
                           //     : "chanel".toUpperCase(),
 
                           Localizations.localeOf(context).languageCode == "ar"
-                              ? theProduct.brand.nameAr
-                              : theProduct.brand.nameEn,
+                              ? theProduct.result.brand.nameAr
+                              : theProduct.result.brand.nameEn,
                           style: AppConstants.customTitleTextStyle.copyWith(
                             fontSize: 10,
                           ),
@@ -242,7 +244,7 @@ class ProductCard extends StatelessWidget {
                           //     ? "${S.of(context).aed} $newPrice".toUpperCase()
                           //     : "${S.of(context).aed} uk".toUpperCase(),
 
-                          theProduct.price ?? "uk",
+                          theProduct.result.price ?? "uk",
                           style: TextStyle(
                             fontSize: 12,
                             color: AppColors.mainColor,
@@ -268,10 +270,10 @@ class ProductCard extends StatelessWidget {
                         //       )
                         //     : const SizedBox(),
 
-                        theProduct.compareToPrice != null
+                        theProduct.result.compareToPrice != null
                             ? Text(
-                                theProduct.compareToPrice != null
-                                    ? "${S.of(context).aed} ${theProduct.compareToPrice}"
+                                theProduct.result.compareToPrice != null
+                                    ? "${S.of(context).aed} ${theProduct.result.compareToPrice}"
                                         .toUpperCase()
                                     : "${S.of(context).aed} uk".toUpperCase(),
                                 style:
@@ -299,7 +301,7 @@ class ProductCard extends StatelessWidget {
 
                           // child: Image.Image.asset(name),
                           child: FreamWorkImage.Image.network(
-                            theProduct.brand.image,
+                            theProduct.result.brand.image,
                             // cacheHeight: double.infinity.toInt(),
                           ),
                         ),

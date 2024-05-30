@@ -14,11 +14,11 @@ final class ProductsDiscountInitalState extends ProductsDiscountsState {}
   
 final class ProductsDiscountLoadingState extends ProductsDiscountsState {}
 final class ProductsDiscountSucsessState extends ProductsDiscountsState {
-  final List<CollectionProduct> newProductCollectionList;
+  final List<TheProductModel> newProductCollectionList;
   ProductsDiscountSucsessState({ required this.newProductCollectionList});
 }
 final class ProductsDiscountEmptyState extends ProductsDiscountsState {
-  final List<CollectionProduct> newProductCollectionList;
+  final List<TheProductModel> newProductCollectionList;
   ProductsDiscountEmptyState({ required this.newProductCollectionList}); 
 }
 final class ProductDiscountErrorState extends ProductsDiscountsState {

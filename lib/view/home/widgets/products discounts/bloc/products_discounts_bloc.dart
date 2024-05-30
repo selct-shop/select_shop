@@ -3,7 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http_status/http_status.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
-import 'package:select_shop/models/collection/get_collection_modle.dart';
+import 'package:select_shop/models/collection/the_collection_modle.dart';
+import 'package:select_shop/models/the%20product/the_product_modle.dart';
 import 'package:select_shop/view/home/widgets/prodcts%20best%20seller/bloc/product_bestseller_bloc.dart';
 
 part 'products_discounts_event.dart';
@@ -37,24 +38,24 @@ class ProductsDiscountsBloc extends Bloc<ProductsDiscountsEvent, ProductsDiscoun
               if (getDiscountProducts.statusCode!.isSuccessfulHttpStatusCode) {
                 // print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
                 // print("${getDiscountProducts.data}");
-                GetCollectionModel getCollectionModel =
-                    GetCollectionModel.fromJson(getDiscountProducts.data);
+                TheCollectionModel theCollectionModel =
+                    TheCollectionModel.fromJson(getDiscountProducts.data);
                 // newCollctionProductsList = getCollectionModel.result.products;
-                if (getCollectionModel.result.products.isEmpty) {
+                if (theCollectionModel.result.products.isEmpty) {
                   // categoresListForHomeScreen = mainCategoResutList;
                   // loadingNewProducts = false;
                   emit(ProductsDiscountEmptyState(
                     newProductCollectionList:
-                        getCollectionModel.result.products,
+                        theCollectionModel.result.products,
                   ));
                 }
 
-                if (getCollectionModel.result.products.isNotEmpty) {
+                if (theCollectionModel.result.products.isNotEmpty) {
                   // categoresListForHomeScreen = mainCategoResutList;
                   // loadingNewProducts = false;
                   emit(ProductsDiscountSucsessState(
                     newProductCollectionList:
-                        getCollectionModel.result.products,
+                        theCollectionModel.result.products,
                   ));
                 }
                 // else {

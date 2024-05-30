@@ -3,7 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http_status/http_status.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
-import 'package:select_shop/models/collection/get_collection_modle.dart';
+import 'package:select_shop/models/collection/the_collection_modle.dart';
+import 'package:select_shop/models/the%20product/the_product_modle.dart';
 
 part 'products_laktah_event.dart';
 part 'products_laktah_state.dart';
@@ -36,24 +37,24 @@ class GetNewProductsBloc extends Bloc<GetNewProductsEvent, GetNewProductsState> 
               if (getHomeNewProducts.statusCode!.isSuccessfulHttpStatusCode) {
                 print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
                 print("${getHomeNewProducts.data}");
-                GetCollectionModel getCollectionModel =
-                    GetCollectionModel.fromJson(getHomeNewProducts.data);
+                TheCollectionModel theCollectionModel =
+                    TheCollectionModel.fromJson(getHomeNewProducts.data);
                 // newCollctionProductsList = getCollectionModel.result.products;
-                if (getCollectionModel.result.products.isEmpty) {
+                if (theCollectionModel.result.products.isEmpty) {
                   // categoresListForHomeScreen = mainCategoResutList;
                   // loadingNewProducts = false;
                   emit(GetNewProductEmptyState(
                     newProductCollectionList:
-                        getCollectionModel.result.products,
+                        theCollectionModel.result.products,
                   ));
                 }
 
-                if (getCollectionModel.result.products.isNotEmpty) {
+                if (theCollectionModel.result.products.isNotEmpty) {
                   // categoresListForHomeScreen = mainCategoResutList;
                   // loadingNewProducts = false;
                   emit(GetNewProductLoadedState(
                     newProductCollectionList:
-                        getCollectionModel.result.products,
+                        theCollectionModel.result.products,
                   ));
                 }
                 // else {

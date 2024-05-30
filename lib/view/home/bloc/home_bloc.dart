@@ -9,7 +9,7 @@ import 'package:select_shop/core/helpers/cache_helper.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/models/categories/categories_modle.dart';
 import 'package:select_shop/models/categories/get_main_categories_deatails.dart';
-import 'package:select_shop/models/collection/get_collection_modle.dart';
+import 'package:select_shop/models/collection/the_collection_modle.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';

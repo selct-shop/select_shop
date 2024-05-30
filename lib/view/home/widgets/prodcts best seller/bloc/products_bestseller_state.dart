@@ -15,11 +15,11 @@ final class ProductsBestSellerInitalState extends ProductsBestsellerState {}
 // home drawer states
 final class ProductsBestSellerLoadingState extends ProductsBestsellerState {}
 final class ProductsBestSellerLoadedState extends ProductsBestsellerState {
-  final List<CollectionProduct> bestSellerCollectionList;
+  final List<TheProductModel> bestSellerCollectionList;
   ProductsBestSellerLoadedState({ required this.bestSellerCollectionList});
 }
 final class ProductsBestSellerEmptyState extends ProductsBestsellerState {
-  final List<CollectionProduct> bestSellerCollectionList;
+  final List<TheProductModel> bestSellerCollectionList;
   ProductsBestSellerEmptyState({ required this.bestSellerCollectionList}); 
 }
 final class ProductsBestSellerErrorState extends ProductsBestsellerState {
