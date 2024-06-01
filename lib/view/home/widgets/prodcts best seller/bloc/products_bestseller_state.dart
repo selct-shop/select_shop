@@ -14,13 +14,13 @@ final class ProductsBestSellerInitalState extends ProductsBestsellerState {}
   
 // home drawer states
 final class ProductsBestSellerLoadingState extends ProductsBestsellerState {}
-final class ProductsBestSellerLoadedState extends ProductsBestsellerState {
-  final List<TheProductModel> bestSellerCollectionList;
-  ProductsBestSellerLoadedState({ required this.bestSellerCollectionList});
+final class ProductsBestSellerSucsessState extends ProductsBestsellerState {
+  final List<TheCollectionProduct> bestSellerCollectionProductList;
+  ProductsBestSellerSucsessState({ required this.bestSellerCollectionProductList});
 }
 final class ProductsBestSellerEmptyState extends ProductsBestsellerState {
-  final List<TheProductModel> bestSellerCollectionList;
-  ProductsBestSellerEmptyState({ required this.bestSellerCollectionList}); 
+  final List<TheCollectionProduct> bestSellerCollectionProductList;
+  ProductsBestSellerEmptyState({ required this.bestSellerCollectionProductList}); 
 }
 final class ProductsBestSellerErrorState extends ProductsBestsellerState {
   final String? errorMessage;

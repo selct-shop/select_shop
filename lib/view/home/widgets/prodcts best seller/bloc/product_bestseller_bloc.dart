@@ -33,7 +33,7 @@ class ProductBestsellerBloc extends Bloc<ProductsBestSellerInitalEvent, Products
           try {
             Response getHomeNewProducts =
                 await DioHelper.getNewProductsHome(collection: "bestSeller");
-            if (getHomeNewProducts.statusCode != null) {
+          
               if (getHomeNewProducts.statusCode!.isSuccessfulHttpStatusCode) {
                 // print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
                 // print("${getHomeNewProducts.data}");
@@ -44,16 +44,17 @@ class ProductBestsellerBloc extends Bloc<ProductsBestSellerInitalEvent, Products
                   // categoresListForHomeScreen = mainCategoResutList;
                   // loadingNewProducts = false;
                   emit(ProductsBestSellerEmptyState(
-                    bestSellerCollectionList:
-                        theCollectionModel.result.products,
+                    bestSellerCollectionProductList:
+                    theCollectionModel.result.products
+                    ,
                   ));
                 }
 
                 if (theCollectionModel.result.products.isNotEmpty) {
                   // categoresListForHomeScreen = mainCategoResutList;
                   // loadingNewProducts = false;
-                  emit(ProductsBestSellerLoadedState(
-                    bestSellerCollectionList:
+                  emit(ProductsBestSellerSucsessState(
+                    bestSellerCollectionProductList:
                         theCollectionModel.result.products,
                   ));
                 }
@@ -64,11 +65,11 @@ class ProductBestsellerBloc extends Bloc<ProductsBestSellerInitalEvent, Products
                 // }
                 // emit(HomeGetHomeCatiegorsucseesState());
               } else {
-                // emit(HomeGetHomeCatiegorErrorState(
-                //     errorMessage: getHomeMainCateResponse.statusMessage ??
-                //         "unknown Error"));
+                emit(ProductsBestSellerErrorState(
+                    errorMessage: "${getHomeNewProducts.statusMessage } \n ${getHomeNewProducts.statusMessage} "??
+                        "unknown Error"));
               }
-            }
+            
           } catch (exception) {
             emit(ProductsBestSellerErrorState(
                 errorMessage: exception.toString()));
