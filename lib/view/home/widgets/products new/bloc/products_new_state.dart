@@ -1,28 +1,28 @@
 part of 'products_new_bloc.dart';
 
-sealed class GetNewProductsState extends Equatable {
-  const GetNewProductsState();
+sealed class ProductsNewState extends Equatable {
+  const ProductsNewState();
   
   @override
   List<Object> get props => [];
 }
 
-final class GetNewProductsInitial extends GetNewProductsState {}
+final class ProductsNewInitalState extends ProductsNewState {}
 
 
 
   
 // home drawer states
-final class GetNewProductsLoadingState extends GetNewProductsState {}
-final class GetNewProductLoadedState extends GetNewProductsState {
-  final List<TheProductModel> newProductCollectionList;
-  GetNewProductLoadedState({ required this.newProductCollectionList});
+final class ProductsNewLoadingState extends ProductsNewState {}
+final class ProductsNewSucsessState extends ProductsNewState {
+  final List<TheCollectionProduct> newProductCollectionList;
+  ProductsNewSucsessState({ required this.newProductCollectionList});
 }
-final class GetNewProductEmptyState extends GetNewProductsState {
-  final List<TheProductModel> newProductCollectionList;
-  GetNewProductEmptyState({ required this.newProductCollectionList}); 
+final class ProductsNewEmptyState extends ProductsNewState {
+  final List<TheCollectionProduct> newProductCollectionList;
+  ProductsNewEmptyState({ required this.newProductCollectionList}); 
 }
-final class GetNewProductErrorState extends GetNewProductsState {
+final class ProductsNewErrorState extends ProductsNewState {
   final String? errorMessage;
-  GetNewProductErrorState({required this.errorMessage});
+  ProductsNewErrorState({required this.errorMessage});
 }
