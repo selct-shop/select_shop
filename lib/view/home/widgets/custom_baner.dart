@@ -749,7 +749,17 @@ class _CustomBanarNew extends StatelessWidget {
                                       //////
 
                                       )
-                                  : const SizedBox())),
+
+                                  // ? Container(
+                                  //     width: double.infinity,
+                                  //     height: 200,
+                                  //     color: Colors.amberAccent,
+                                  //   )
+                                  : Container(
+                                      width: double.infinity,
+                                      height: 200,
+                                      color: Colors.red,
+                                    ))),
             ),
           ],
         );

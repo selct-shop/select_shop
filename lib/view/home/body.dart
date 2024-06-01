@@ -17,10 +17,10 @@ class _HomeBodyState extends State<_HomeBody> {
     // print("=========================================${Localizations.localeOf(context).languageCode }");
 
     context.read<HomeBloc>().add(HomeGetHomeCategoEvent());
-    // context.read<GetNewProductsBloc>().add(HomeGetHomeNewProductsInitalEvent());
+    context.read<ProductsNewBloc>().add(ProductsNewInitalEvent());
     context.read<ProductBestsellerBloc>().add(ProductsBestSellerInitalEvent());
     context.read<ProductsDiscountsBloc>().add(ProductDiscountsInitalEven());
-    context.read<ProductBestsellerBloc>().add(ProductsBestSellerInitalEvent());
+    context.read<ProductsLaktahBloc>().add(ProductsLaktahInitalEvent());
 
     super.initState();
   }
@@ -103,8 +103,8 @@ class _HomeBodyState extends State<_HomeBody> {
             ///////////////////////////
             _CustomBanarLaktah(
               banarTag: S.of(context).theLakta,
-              banarTitle: S.of(context).theDiscaount,
-              theProductsStats: S.of(context).theDiscaount,
+              banarTitle: S.of(context).theLakta,
+              theProductsStats: S.of(context).theLakta,
             ),
 
             ////////////////////////////

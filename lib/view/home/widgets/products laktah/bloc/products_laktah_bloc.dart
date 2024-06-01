@@ -9,18 +9,23 @@ import 'package:select_shop/models/the%20product/the_product_modle.dart';
 part 'products_laktah_event.dart';
 part 'products_laktah_state.dart';
 
-class ProductsLaktahBloc
-    extends Bloc<GetNewProductsEvent, ProductsLaktahState> {
+class ProductsLaktahBloc extends Bloc<ProductsLaktahEvent, ProductsLaktahState> {
+
+
   // bool loadingNewProducts = true;
 
   // List<CollectionProduct> newCollctionProductsList = [];
 
-  ProductsLaktahBloc() : super(ProductsLaktahInitalState()) {
-    on<GetNewProductsEvent>((event, emit) async {
+
+
+  ProductsLaktahBloc() : super(ProductsLaktahInitalState())  {
+    on<ProductsLaktahInitalEvent>((event, emit) async  {
       // TODO: implement event handler
 
+
+
 // #### get the new products #### //
-      if (event is HomeGetHomeNewProductsInitalEvent) {
+      if (event is ProductsLaktahInitalEvent) {
         emit(ProductsLaktahLoadingState());
         // loadingNewProducts = true;
         // get all the categories

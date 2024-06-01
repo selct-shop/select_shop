@@ -9,8 +9,7 @@ import 'package:select_shop/models/the%20product/the_product_modle.dart';
 part 'products_new_event.dart';
 part 'products_new_state.dart';
 
-class ProductsNewBloc
-    extends Bloc<ProductsNewEvent, ProductsNewState> {
+class ProductsNewBloc extends Bloc<ProductsNewEvent, ProductsNewState> {
   // bool loadingNewProducts = true;
 
   // List<CollectionProduct> newCollctionProductsList = [];
@@ -28,39 +27,40 @@ class ProductsNewBloc
         try {
           Response getHomeNewProducts =
               await DioHelper.getNewProductsHome(collection: "new");
-            if (getHomeNewProducts.statusCode!.isSuccessfulHttpStatusCode) {
-              // print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
-              // print("${getHomeNewProducts.data}");
-              TheCollectionModel theCollectionModel =
-                  TheCollectionModel.fromJson(getHomeNewProducts.data);
-              // newCollctionProductsList = getCollectionModel.result.products;
-              if (theCollectionModel.result.products.isEmpty) {
-                // categoresListForHomeScreen = mainCategoResutList;
-                // loadingNewProducts = false;
-                emit(ProductsNewEmptyState(
-                  newProductCollectionList: theCollectionModel.result.products,
-                ));
-              }
+          if (getHomeNewProducts.statusCode!.isSuccessfulHttpStatusCode) {
+            print("succcccccccccccccccccccccccccccccccccccccccccccccccc");
 
-              if (theCollectionModel.result.products.isNotEmpty) {
-                // categoresListForHomeScreen = mainCategoResutList;
-                // loadingNewProducts = false;
-                emit(ProductsNewSucsessState(
-                  newProductCollectionList: theCollectionModel.result.products,
-                ));
-              }
-              else {
-                emit(ProductsNewErrorState(
-                    errorMessage:
-                        "${getHomeNewProducts.statusCode} \n ${getHomeNewProducts.statusMessage}"));
-              }
-              // emit(HomeGetHomeCatiegorsucseesState());
-            } else {
-              
-                emit(ProductsNewErrorState(
-                    errorMessage:
-                        "${getHomeNewProducts.statusCode} \n ${getHomeNewProducts.statusMessage}"));
+            // print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
+            // print("${getHomeNewProducts.data}");
+            TheCollectionModel theCollectionModel =
+                TheCollectionModel.fromJson(getHomeNewProducts.data);
+            // newCollctionProductsList = getCollectionModel.result.products;
+            if (theCollectionModel.result.products.isEmpty) {
+              // categoresListForHomeScreen = mainCategoResutList;
+              // loadingNewProducts = false;
+              emit(ProductsNewEmptyState(
+                newProductCollectionList: theCollectionModel.result.products,
+              ));
             }
+
+            if (theCollectionModel.result.products.isNotEmpty) {
+              // categoresListForHomeScreen = mainCategoResutList;
+              // loadingNewProducts = false;
+              print("succcccccccccccccccccccccccccccccccccccccccccccccccc");
+              emit(ProductsNewSucsessState(
+                newProductCollectionList: theCollectionModel.result.products,
+              ));
+            } else {
+              emit(ProductsNewErrorState(
+                  errorMessage:
+                      "${getHomeNewProducts.statusCode} \n ${getHomeNewProducts.statusMessage}"));
+            }
+            // emit(HomeGetHomeCatiegorsucseesState());
+          } else {
+            emit(ProductsNewErrorState(
+                errorMessage:
+                    "${getHomeNewProducts.statusCode} \n ${getHomeNewProducts.statusMessage}"));
+          }
         } catch (exception) {
           emit(ProductsNewErrorState(errorMessage: exception.toString()));
         }
