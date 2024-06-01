@@ -28,6 +28,8 @@ import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_
 import 'package:select_shop/view/home/widgets/bottom%20nav%20bar/bloc/bottom_nav_bloc.dart';
 import 'package:select_shop/view/home/widgets/drawer/bloc/drawer_bloc.dart';
 import 'package:select_shop/view/home/widgets/prodcts%20best%20seller/bloc/product_bestseller_bloc.dart';
+import 'package:select_shop/view/home/widgets/products%20discounts/bloc/products_discounts_bloc.dart';
+import 'package:select_shop/view/home/widgets/products%20laktah/bloc/products_laktah_bloc.dart';
 import 'package:select_shop/view/home/widgets/products%20new/bloc/products_new_bloc.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/home_screen.dart';
@@ -101,11 +103,17 @@ class _MyAppState extends State<MyApp> {
           BlocProvider<DrawerBloc>(create: (context) => DrawerBloc()),
           BlocProvider<BottomNavBloc>(create: (context) => BottomNavBloc()),
 
-          BlocProvider<GetNewProductsBloc>(
-              create: (context) => GetNewProductsBloc()),
+          // BlocProvider<GetNewProductsBloc>(
+          //     create: (context) => GetNewProductsBloc()),
 
           BlocProvider<ProductBestsellerBloc>(
               create: (context) => ProductBestsellerBloc()),
+          BlocProvider<ProductsDiscountsBloc>(
+              create: (context) => ProductsDiscountsBloc()),
+          BlocProvider<ProductsLaktahBloc>(
+              create: (context) => ProductsLaktahBloc()),
+              BlocProvider<ProductsNewBloc>(
+              create: (context) => ProductsNewBloc()),
           // BlocProvider(create:(context) => HomeBloc()..add(HomeGetItemsEvent( ))),
           BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
           BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),

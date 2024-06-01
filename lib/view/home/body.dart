@@ -17,7 +17,9 @@ class _HomeBodyState extends State<_HomeBody> {
     // print("=========================================${Localizations.localeOf(context).languageCode }");
 
     context.read<HomeBloc>().add(HomeGetHomeCategoEvent());
-    context.read<GetNewProductsBloc>().add(HomeGetHomeNewProductsInitalEvent());
+    // context.read<GetNewProductsBloc>().add(HomeGetHomeNewProductsInitalEvent());
+    context.read<ProductBestsellerBloc>().add(ProductsBestSellerInitalEvent());
+    context.read<ProductsDiscountsBloc>().add(ProductDiscountsInitalEven());
     context.read<ProductBestsellerBloc>().add(ProductsBestSellerInitalEvent());
 
     super.initState();
@@ -69,21 +71,21 @@ class _HomeBodyState extends State<_HomeBody> {
             ///
             ///////////////////////////
 
-            // _CustomBanarNew(
-            //   banarTitle: S.of(context).theNew,
-            //   banarTag: S.of(context).theNew,
-            //   theProductsStats: S.of(context).theNew,
-            // ),
+            _CustomBanarNew(
+              banarTitle: S.of(context).theNew,
+              banarTag: S.of(context).theNew,
+              theProductsStats: S.of(context).theNew,
+            ),
 
             ////////////////////////////
             ///
             ///
             ///////////////////////////
-            // _CustomBanarBestSeller(
-            //   banarTitle: S.of(context).thebestSeller,
-            //   banarTag: S.of(context).thebestSeller,
-            //   theProductsStats: S.of(context).thebestSeller,
-            // ),
+            _CustomBanarBestSeller(
+              banarTitle: S.of(context).thebestSeller,
+              banarTag: S.of(context).thebestSeller,
+              theProductsStats: S.of(context).thebestSeller,
+            ),
 
             ////////////////////////////
             ///
@@ -99,11 +101,11 @@ class _HomeBodyState extends State<_HomeBody> {
             ///
             ///
             ///////////////////////////
-            // _CustomBanarLaktah(
-            //   banarTag: S.of(context).theLakta,
-            //   banarTitle: S.of(context).theDiscaount,
-            //   theProductsStats: S.of(context).theDiscaount,
-            // ),
+            _CustomBanarLaktah(
+              banarTag: S.of(context).theLakta,
+              banarTitle: S.of(context).theDiscaount,
+              theProductsStats: S.of(context).theDiscaount,
+            ),
 
             ////////////////////////////
             ///
