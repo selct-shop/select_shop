@@ -20,6 +20,7 @@ import 'package:select_shop/models/collection/the_collection_modle.dart';
 // import 'package:select_shop/models/the%20product/the_product_modle.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/product%20details%20collection/bloc/product_details_bloc.dart';
+import 'package:select_shop/view/product%20details%20collection/cubit/active_product_image_tag_cubit.dart';
 
 // Key prodcutImageKey = key();
 TextStyle _customTitleTextStyle = TextStyle(
@@ -45,13 +46,13 @@ class ProductDetailsCollectionScreen extends StatefulWidget {
   final TheCollectionProduct theCollectionProduct;
   // final TheProductModle theProductModle;
   // final int? theStockNumber;
-  final TheCollectionModel theCollectionModel; 
+  final TheCollectionModel theCollectionModel;
   const ProductDetailsCollectionScreen({
     super.key,
     // required this.theProductModle,
     required this.theCollectionProduct,
     // required this.theStockNumber,
-    required this.theCollectionModel, 
+    required this.theCollectionModel,
   });
 
   @override
@@ -65,8 +66,15 @@ class _ProductDetailsCollectionScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: BlocProvider(
-        create: (context) => ProductDetailsBloc(),
+          child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => ProductDetailsBloc(),
+          ),
+          BlocProvider(
+            create: (context) => ActiveProductImageTagCubit(),
+          ),
+        ],
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -92,7 +100,7 @@ class _Body extends StatelessWidget {
   // final List<ProductCollectionImage?>? theListOfProductImages;
   final TheCollectionProduct theCollectionProduct;
   // final int? theStockNumber;
-  final TheCollectionModel theCollectionModel; 
+  final TheCollectionModel theCollectionModel;
   // final String? oldPrice;
   const _Body({
     super.key,
@@ -101,7 +109,7 @@ class _Body extends StatelessWidget {
 
     required this.theCollectionProduct,
     // required this.theStockNumber,
-    required this.theCollectionModel, 
+    required this.theCollectionModel,
   });
 
   @override
@@ -113,10 +121,12 @@ class _Body extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // _TitleRow(
-              //   oldPrice: "120",
-              //   newPrice: "199",
-              // ),
+              _TitleRow(
+                oldPrice:
+                    theCollectionProduct.compareToPrice.toString() ?? "uk",
+                newPrice: theCollectionProduct.price.toString() ?? "uk",
+                theImageLink: theCollectionProduct.brand.image,
+              ),
               const SizedBox(
                 height: 5,
               ),
@@ -223,7 +233,6 @@ class _Body extends StatelessWidget {
               _RatingContainer(
                 ratingNumber: 4.55,
                 theRatingQuestion: "is the size good",
-                
               ),
 
               const SizedBox(
@@ -263,8 +272,10 @@ class _Body extends StatelessWidget {
             horizontal: 10,
           ),
           child: _BrandNameAndDetialsWidget(
-            theBrandName: "chanel",
-            theNumberOfProducts: 342.0,
+            // theNumberOfProducts: theCollectionProduct.brand.,
+            theNumberOfProducts:
+                theCollectionModel.result.totalCount.toDouble(),
+            theCollectionBrand: theCollectionProduct.brand,
           ),
         ),
         Container(
@@ -415,313 +426,326 @@ class _AddToCartAndFavRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // ( add to cart, fav ) Row
+    return BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
+      builder: (context, state) {
+        return Container(
+          // ( add to cart, fav ) Row
 
-      // width: double.infinity,
-      width: MediaQuery.of(context).size.width,
-      height: 135,
-      alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 20,
-      ),
+          // width: double.infinity,
+          width: MediaQuery.of(context).size.width,
+          height: 135,
+          alignment: Alignment.center,
+          padding: EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 20,
+          ),
 
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
-        ),
-        boxShadow: [
-          BoxShadow(
-              blurRadius: 3,
-              color: AppColors.greyColor.withOpacity(.3),
-              offset: Offset(3, 6)),
-        ],
-        // boxShadow: AppConstants.theBoxShdow,
-      ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
+            boxShadow: [
+              BoxShadow(
+                  blurRadius: 3,
+                  color: AppColors.greyColor.withOpacity(.3),
+                  offset: Offset(3, 6)),
+            ],
+            // boxShadow: AppConstants.theBoxShdow,
+          ),
 
-      child: SizedBox(
-        // width: double.infinity,
-        width: MediaQuery.of(context).size.width,
+          child: SizedBox(
+            // width: double.infinity,
+            width: MediaQuery.of(context).size.width,
 
-        height: 45,
-        child: Row(
-          children: [
-            Expanded(
-              flex: 4,
-              child: Container(
-                height: 45,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppColors.mainColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    // add to cart and navigate to cart
+            height: 45,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    height: 45,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: AppColors.mainColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: () {
+                        // add to cart and navigate to cart
 
-                    // print("teeeeeeeeeeeeeesttttt addddd to cart");
-                  },
-                  child: Center(
-                    child: Text(
-                      "add to cart",
-                      // textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        // print("teeeeeeeeeeeeeesttttt addddd to cart");
+                      },
+                      child: Center(
+                        child: Text(
+                          "add to cart",
+                          // textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-            Container(
-              width: 55,
-              // width: 100,
-
-              height: 45,
-              padding: EdgeInsets.symmetric(
-                horizontal: 12.5,
-              ),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: AppColors.mainColor,
+                SizedBox(
+                  height: 10,
+                  width: 10,
                 ),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(10),
-                onTap: () {
-                  // trigger add to fav
-                  // print('tesssssssssssssssttttt');
-                },
-                // onHover: (value) {},
-                child: Expanded(
-                  child: DropdownMenu(
-                    // label: Row(
-                    //   children: [
-                    //     Icon(
-                    //       Icons.arrow_downward_rounded,
-                    //       color: AppColors.mainColor,
-                    //     ),
-                    //     VerticalDivider(
-                    //       color: AppColors.mainColor,
-                    //       // thickness: 2,
-                    //     ),
-                    //     Text("22"),
-                    //   ],
-                    // ),
+                Container(
+                  width: 55,
+                  // width: 100,
 
-                    // leadingIcon: Row(
-                    //   children: [
-                    //     Icon(
-                    //       Icons.arrow_downward_rounded,
-                    //       color: AppColors.mainColor,
-                    //     ),
-                    //     VerticalDivider(
-                    //       color: AppColors.mainColor,
-                    //       // thickness: 2,
-                    //     ),
-                    //     Text("22"),
-                    //   ],
-                    // ),
-
-                    //
-                    //
-                    //
-
-                    // leadingIcon: Icon(
-                    //   Icons.arrow_downward_rounded,
-                    //   color: AppColors.mainColor,
-                    //   size: 10,
-                    // ),
-
-                    enableSearch: true,
-                    onSelected: (value) {
-                      print(value);
+                  height: 45,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 12.5,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColors.mainColor,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                  ),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () {
+                      // trigger add to fav
+                      // print('tesssssssssssssssttttt');
                     },
-                    initialSelection: "1",
-                    menuHeight: 150,
-                    width: 25,
+                    // onHover: (value) {},
+                    child: Expanded(
+                      child: DropdownMenu<String>(
+                        // label: Row(
+                        //   children: [
+                        //     Icon(
+                        //       Icons.arrow_downward_rounded,
+                        //       color: AppColors.mainColor,
+                        //     ),
+                        //     VerticalDivider(
+                        //       color: AppColors.mainColor,
+                        //       // thickness: 2,
+                        //     ),
+                        //     Text("22"),
+                        //   ],
+                        // ),
 
-                    menuStyle: MenuStyle(
-                      alignment: Alignment.center,
-                      // backgroundColor:
-                      // MaterialStateProperty.all(AppColors.mainColor),
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                        // leadingIcon: Row(
+                        //   children: [
+                        //     Icon(
+                        //       Icons.arrow_downward_rounded,
+                        //       color: AppColors.mainColor,
+                        //     ),
+                        //     VerticalDivider(
+                        //       color: AppColors.mainColor,
+                        //       // thickness: 2,
+                        //     ),
+                        //     Text("22"),
+                        //   ],
+                        // ),
 
-                      surfaceTintColor:
-                          MaterialStateProperty.all(AppColors.grey2Color),
-                      // surfaceTintColor:
-                      //     MaterialStatePropertyAll(Colors.transparent),
-                    ),
-                    dropdownMenuEntries: [
-                      DropdownMenuEntry(
-                        value: String,
-                        label: '1',
-                        labelWidget:
-                            Text('1', style: _customDropdownlistItemTextStyle),
+                        //
+                        //
+                        //
+
+                        // leadingIcon: Icon(
+                        //   Icons.arrow_downward_rounded,
+                        //   color: AppColors.mainColor,
+                        //   size: 10,
+                        // ),
+                        hintText: context
+                            .watch<ProductDetailsBloc>()
+                            .productToBuyCount,
+
+                        enableSearch: true,
+                        onSelected: (value) {
+                          print(context
+                              .watch<ProductDetailsBloc>()
+                              .productToBuyCount = value!);
+                          context
+                              .watch<ProductDetailsBloc>()
+                              .productToBuyCount = value!;
+                        },
+                        initialSelection: "1",
+                        menuHeight: 150,
+                        width: 25,
+
+                        menuStyle: MenuStyle(
+                          alignment: Alignment.center,
+                          // backgroundColor:
+                          // MaterialStateProperty.all(AppColors.mainColor),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.white),
+
+                          surfaceTintColor:
+                              MaterialStateProperty.all(AppColors.grey2Color),
+                          // surfaceTintColor:
+                          //     MaterialStatePropertyAll(Colors.transparent),
+                        ),
+                        dropdownMenuEntries: [
+                          DropdownMenuEntry(
+                            value: "1",
+                            label: '1',
+                            labelWidget: Text('1',
+                                style: _customDropdownlistItemTextStyle),
+                          ),
+                          DropdownMenuEntry(
+                              value: "2",
+                              label: '2',
+                              labelWidget: Text(
+                                "2",
+                                style: _customDropdownlistItemTextStyle,
+                              )),
+                          DropdownMenuEntry(
+                              value: "3",
+                              label: '3',
+                              labelWidget: Text(
+                                "3",
+                                style: _customDropdownlistItemTextStyle,
+                              )),
+                          DropdownMenuEntry(
+                              value: "4",
+                              label: '4',
+                              labelWidget: Text(
+                                "4",
+                                style: _customDropdownlistItemTextStyle,
+                              )),
+                          DropdownMenuEntry(
+                              value: "5",
+                              label: '5',
+                              labelWidget: Text(
+                                "5",
+                                style: _customDropdownlistItemTextStyle,
+                              )),
+                          DropdownMenuEntry(
+                              value: "6",
+                              label: '6',
+                              labelWidget: Text(
+                                "6",
+                                style: _customDropdownlistItemTextStyle,
+                              )),
+                          DropdownMenuEntry(
+                              value: "7",
+                              label: '7',
+                              labelWidget: Text(
+                                "7",
+                                style: _customDropdownlistItemTextStyle,
+                              )),
+                          DropdownMenuEntry(
+                              value: "8",
+                              label: '8',
+                              labelWidget: Text(
+                                "8",
+                                style: _customDropdownlistItemTextStyle,
+                              )),
+                          DropdownMenuEntry(
+                              value: "9",
+                              label: '9',
+                              labelWidget: Text(
+                                "9",
+                                style: _customDropdownlistItemTextStyle,
+                              )),
+                        ],
+
+                        // initialSelection: int,
                       ),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '2',
-                          labelWidget: Text(
-                            "2",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '3',
-                          labelWidget: Text(
-                            "3",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '4',
-                          labelWidget: Text(
-                            "4",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '5',
-                          labelWidget: Text(
-                            "5",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '6',
-                          labelWidget: Text(
-                            "6",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '7',
-                          labelWidget: Text(
-                            "7",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '8',
-                          labelWidget: Text(
-                            "8",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '9',
-                          labelWidget: Text(
-                            "9",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                    ],
 
-                    // initialSelection: int,
-                  ),
+                      //                   child: CustomDropdown<String>(
 
-//                   child: CustomDropdown<String>(
+                      //                     // canCloseOutsideBounds: true,
+                      // // overlayHeight:  ,
 
-//                     // canCloseOutsideBounds: true,
-// // overlayHeight:  ,
+                      //                     listItemPadding: EdgeInsets.symmetric(
+                      //                       horizontal: 6,
+                      //                       vertical: 10,
+                      //                     ),
+                      //                     // hintText: 'Select items count',
+                      //                     items: [
+                      //                       "1",
+                      //                       "2",
+                      //                       "3",
+                      //                       "4",
+                      //                       "5",
+                      //                       "6",
+                      //                       "7",
+                      //                       "8",
+                      //                       "9",
+                      //                     ],
+                      //                     initialItem: "1",
+                      //                     maxlines: 1,
+                      // // listItemBuilder: (context, item, isSelected, onItemSelect) {
 
-//                     listItemPadding: EdgeInsets.symmetric(
-//                       horizontal: 6,
-//                       vertical: 10,
-//                     ),
-//                     // hintText: 'Select items count',
-//                     items: [
-//                       "1",
-//                       "2",
-//                       "3",
-//                       "4",
-//                       "5",
-//                       "6",
-//                       "7",
-//                       "8",
-//                       "9",
-//                     ],
-//                     initialItem: "1",
-//                     maxlines: 1,
-// // listItemBuilder: (context, item, isSelected, onItemSelect) {
+                      // // },
 
-// // },
+                      //                     itemsListPadding: EdgeInsets.symmetric(
+                      //                       horizontal: 0,
+                      //                       vertical: 0,
+                      //                     ),
+                      //                     // headerBuilder: (context, selectedItem) {
+                      //                     //   return const SizedBox();
+                      //                     // },
 
-//                     itemsListPadding: EdgeInsets.symmetric(
-//                       horizontal: 0,
-//                       vertical: 0,
-//                     ),
-//                     // headerBuilder: (context, selectedItem) {
-//                     //   return const SizedBox();
-//                     // },
-
-//                     decoration: CustomDropdownDecoration(
-//                         listItemStyle: TextStyle(
-//                       color: AppColors.mainColor,
-//                       fontWeight: FontWeight.bold,
-//                       fontSize: 20,
-//                       height: .5,
-//                     )),
-//                     onChanged: (value) {
-//                       log('changing value to: $value');
-//                     },
-//                   ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-            Container(
-              width: 55,
-              height: 45,
-              padding: EdgeInsets.symmetric(
-                horizontal: 12.5,
-              ),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: AppColors.mainColor,
-                ),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(10),
-                onTap: () {
-                  // trigger add to fav
-                  // print('tesssssssssssssssttttt');
-                },
-                // onHover: (value) {},
-                child: SizedBox(
-                  width: 30,
-                  height: 30,
-                  child: SvgPicture.asset(
-                    AppImagesSvg.favourtsStorkSvg,
-                    // alignment: Alignment.center,
+                      //                     decoration: CustomDropdownDecoration(
+                      //                         listItemStyle: TextStyle(
+                      //                       color: AppColors.mainColor,
+                      //                       fontWeight: FontWeight.bold,
+                      //                       fontSize: 20,
+                      //                       height: .5,
+                      //                     )),
+                      //                     onChanged: (value) {
+                      //                       log('changing value to: $value');
+                      //                     },
+                      //                   ),
+                    ),
                   ),
                 ),
-              ),
+                SizedBox(
+                  height: 10,
+                  width: 10,
+                ),
+                Container(
+                  width: 55,
+                  height: 45,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 12.5,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColors.mainColor,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                  ),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () {
+                      // trigger add to fav
+                      // print('tesssssssssssssssttttt');
+                    },
+                    // onHover: (value) {},
+                    child: SizedBox(
+                      width: 30,
+                      height: 30,
+                      child: SvgPicture.asset(
+                        AppImagesSvg.favourtsStorkSvg,
+                        // alignment: Alignment.center,
+                      ),
+                    ),
+                  ),
+                ),
+                // SizedBox(
+                //   height: 10,
+                //   width: 10,
+                // ),
+              ],
             ),
-            // SizedBox(
-            //   height: 10,
-            //   width: 10,
-            // ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
@@ -775,12 +799,14 @@ class _NavigateToAllCommentsWidget extends StatelessWidget {
 }
 
 class _BrandNameAndDetialsWidget extends StatelessWidget {
-  final String? theBrandName;
+  // final String? theBrandName;
   final double? theNumberOfProducts;
+  final TheCollectionBrand theCollectionBrand;
   const _BrandNameAndDetialsWidget({
     super.key,
-    required this.theBrandName,
+    // required this.theBrandName,
     required this.theNumberOfProducts,
+    required this.theCollectionBrand,
   });
 
   @override
@@ -798,14 +824,16 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(
               10,
             ),
-            color: AppColors.mainColor,
+            color: AppColors.greyColor.withOpacity(
+              .2,
+            ),
           ),
-          // child: NetworkImage(
-          //   // imageUrl: AppConstants.cachedRandomeImage,
-          //   // fit: BoxFit.cover,
-
-          //   AppConstants.cachedRandomeImage
-          // ),
+          child: FramworkImage.Image(
+            fit: BoxFit.cover,
+            image: NetworkImage(
+              theCollectionBrand.image ?? globalDefaltCachedNetworkImage,
+            ),
+          ),
         ),
         const SizedBox(
           height: 15,
@@ -844,7 +872,12 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
                               ),
                             ),
                             TextSpan(
-                              text: theBrandName ?? "brand",
+                              text: (Localizations.localeOf(context)
+                                              .languageCode ==
+                                          "ar"
+                                      ? theCollectionBrand.nameAr
+                                      : theCollectionBrand.nameEn) ??
+                                  "brand",
                               style: TextStyle(
                                 overflow: TextOverflow.ellipsis,
                                 color: AppColors.greyColor,
@@ -1892,7 +1925,10 @@ class _TitleRow extends StatelessWidget {
                       //   AppImages.chanelLogoJfif,
                       //   fit: BoxFit.fitHeight,
                       // ),
-                      // child: Image(image: NetworkImage(theImageLink, )),
+                      child: FramworkImage.Image(
+                          image: NetworkImage(
+                        theImageLink ?? globalDefaltCachedNetworkImage,
+                      )),
                     ),
                     Spacer(),
                   ],
@@ -1998,35 +2034,36 @@ class _ProductPicticher extends StatelessWidget {
                         topLeft: Radius.circular(15),
                         topRight: Radius.circular(15)),
                   ),
-                  child: BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
+                  child: BlocBuilder<ActiveProductImageTagCubit,
+                      ActiveProductImageTagState>(
                     builder: (context, state) {
-                      return Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          for (int i = 1;
-                              i <= theListOfProductImages!.length;
-                              i++)
-                            _SmallTagContainer(
-                              isActive: context
-                                          .read<ProductDetailsBloc>()
-                                          .activeProductImage ==
-                                      i
-                                  ? true
-                                  : false,
-                            ),
-                          // _SmallTagContainer(
-                          //   isActive: true,
-                          // ),
-                          // _SmallTagContainer(
-                          //   isActive: false,
-                          // ),
-                          // _SmallTagContainer(
-                          //   isActive: false,
-                          // ),
-                        ],
-                      );
+                      if (state is ActiveProductImageTagUpdatedState) {
+                        return Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            for (int i = 1;
+                                i <= theListOfProductImages!.length;
+                                i++)
+                              _SmallTagContainer(
+                                  // isActive: context
+                                  //             .read<ActiveProductImageTagCubit>()
+                                  //             .activeProductImage ==
+                                  //         i
+                                  //     ? true
+                                  //     : false,
+
+                                  isActive: i == state.theNewImageIndex
+                                      ? true
+                                      : false),
+                          ],
+                        );
+                      } else {
+                        return _SmallTagContainer(
+                          isActive: true,
+                        );
+                      }
                     },
                   ),
                 ),
@@ -2068,7 +2105,11 @@ class _CustomCarsoulSlider extends StatelessWidget {
               autoPlayInterval: Duration(seconds: 3),
 
               onPageChanged: (index, reason) {
-                context.read<ProductDetailsBloc>().activeProductImage = index;
+                context
+                    .read<ActiveProductImageTagCubit>()
+                    .changeTheActiveImage(index);
+                // print(
+                //     "neeeeeeeeeeeeeeeeeeeeeeeeeee${context.read<ProductDetailsBloc>().activeProductImage}");
               },
             ),
             items: theListOfProductImages!.map((productImage) {
@@ -2131,17 +2172,21 @@ class _SmallTagContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: 3,
-      ),
-      width: 20,
-      height: 5,
-      decoration: BoxDecoration(
-          color: isActive == true ? AppColors.mainColor : Colors.white,
-          border: Border.all(
-            color: AppColors.mainColor,
-          )),
+    return BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
+      builder: (context, state) {
+        return Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: 3,
+          ),
+          width: 20,
+          height: 5,
+          decoration: BoxDecoration(
+              color: isActive == true ? AppColors.mainColor : Colors.white,
+              border: Border.all(
+                color: AppColors.mainColor,
+              )),
+        );
+      },
     );
   }
 }

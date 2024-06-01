@@ -6,7 +6,7 @@ part 'product_details_event.dart';
 part 'product_details_state.dart';
 
 class ProductDetailsBloc extends Bloc<ProductDetailsEvent, ProductDetailsState> {
-  int activeProductImage = 1;
+  String productToBuyCount = "0";
   ProductDetailsBloc() : super(ProductDetailsInitialState()) {
     on<ProductDetailsEvent>((event, emit) {
       // TODO: implement event handler

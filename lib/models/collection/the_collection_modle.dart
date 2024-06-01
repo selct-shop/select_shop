@@ -103,7 +103,7 @@ class TheCollectionProduct {
   int productActivityId;
   dynamic guide;
   String productType;
-  Brand brand;
+  TheCollectionBrand brand;
   List<CategoryElement> categories;
   List<ProductStatus> productStatus;
   List<ProductAttribute> productAttributes;
@@ -162,7 +162,7 @@ class TheCollectionProduct {
     int? productActivityId,
     dynamic guide,
     String? productType,
-    Brand? brand,
+    TheCollectionBrand? brand,
     List<CategoryElement>? categories,
     List<ProductStatus>? productStatus,
     List<ProductAttribute>? productAttributes,
@@ -227,7 +227,7 @@ class TheCollectionProduct {
         productActivityId: json["productActivityId"],
         guide: json["guide"],
         productType: json["productType"],
-        brand: Brand.fromJson(json["brand"]),
+        brand: TheCollectionBrand.fromJson(json["brand"]),
         categories: List<CategoryElement>.from(
             json["categories"].map((x) => CategoryElement.fromJson(x))),
         productStatus: List<ProductStatus>.from(
@@ -269,7 +269,7 @@ class TheCollectionProduct {
       };
 }
 
-class Brand {
+class TheCollectionBrand {
   int id;
   String nameEn;
   String nameAr;
@@ -286,7 +286,7 @@ class Brand {
   bool isDeleted;
   int activityId;
 
-  Brand({
+  TheCollectionBrand({
     required this.id,
     required this.nameEn,
     required this.nameAr,
@@ -304,7 +304,7 @@ class Brand {
     required this.activityId,
   });
 
-  Brand copyWith({
+  TheCollectionBrand copyWith({
     int? id,
     String? nameEn,
     String? nameAr,
@@ -321,7 +321,7 @@ class Brand {
     bool? isDeleted,
     int? activityId,
   }) =>
-      Brand(
+      TheCollectionBrand(
         id: id ?? this.id,
         nameEn: nameEn ?? this.nameEn,
         nameAr: nameAr ?? this.nameAr,
@@ -339,11 +339,11 @@ class Brand {
         activityId: activityId ?? this.activityId,
       );
 
-  factory Brand.fromRawJson(String str) => Brand.fromJson(json.decode(str));
+  factory TheCollectionBrand.fromRawJson(String str) => TheCollectionBrand.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Brand.fromJson(Map<String, dynamic> json) => Brand(
+  factory TheCollectionBrand.fromJson(Map<String, dynamic> json) => TheCollectionBrand(
         id: json["id"],
         nameEn: json["nameEn"],
         nameAr: json["nameAr"],
