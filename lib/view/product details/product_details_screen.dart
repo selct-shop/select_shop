@@ -3,6 +3,7 @@
 import 'dart:developer';
 
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
+import 'package:select_shop/main.dart';
 // import 'package:select_shop/models/collection/get_collection_modle.dart';
 // import 'package:select_shop/models/the%20product/the_product_modle.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
@@ -38,11 +40,12 @@ TextStyle _customDropdownlistItemTextStyle = TextStyle(
 );
 
 class ProductDetailsScreen extends StatefulWidget {
-  // final CollectionProduct theCollectionProductModle; 
-  // final TheProductModle theProductModle; 
-  const ProductDetailsScreen({super.key, 
-  // required this.theProductModle, 
-  // required this.theCollectionProductModle, 
+  // final CollectionProduct theCollectionProductModle;
+  // final TheProductModle theProductModle;
+  const ProductDetailsScreen({
+    super.key,
+    // required this.theProductModle,
+    // required this.theCollectionProductModle,
   });
 
   @override
@@ -56,7 +59,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
-          children: [_ProductPicticher(), _Body()],
+          children: [
+            _ProductPicticher(),
+            _Body(),
+          ],
         ),
       )),
     );
@@ -322,7 +328,7 @@ class _Body extends StatelessWidget {
         ///
         ///
 
-        // _AddToCartAndFavRow(),
+        _AddToCartAndFavRow(),
 
         const SizedBox(
           height: 45,
@@ -363,12 +369,11 @@ class _Body extends StatelessWidget {
 }
 
 class _AddToCartAndFavRow extends StatelessWidget {
-  // final CollectionProduct theProductModle; 
+  // final CollectionProduct theProductModle;
 
-
-   _AddToCartAndFavRow({
+  _AddToCartAndFavRow({
     super.key,
-  //  required  this.theProductModle, 
+    //  required  this.theProductModle,
   });
 
   @override
@@ -1780,14 +1785,12 @@ class _CustomShipmentListTile extends StatelessWidget {
 }
 
 class _TitleRow extends StatelessWidget {
-  final String? theImageLink,  oldPrice, newPrice;
-  const _TitleRow({
-    super.key,
-    required this.oldPrice,
-    required this.newPrice,
-    required this.theImageLink
-  });
-
+  final String? theImageLink, oldPrice, newPrice;
+  const _TitleRow(
+      {super.key,
+      required this.oldPrice,
+      required this.newPrice,
+      required this.theImageLink});
 
   @override
   Widget build(BuildContext context) {
@@ -1817,7 +1820,7 @@ class _TitleRow extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(  
+                Row(
                   children: [
                     SizedBox(
                       // brand name and picture
@@ -1849,7 +1852,7 @@ class _TitleRow extends StatelessWidget {
                       //   AppImages.chanelLogoJfif,
                       //   fit: BoxFit.fitHeight,
                       // ),
-                      // child: Image(image: NetworkImage(theImageLink, )), 
+                      // child: Image(image: NetworkImage(theImageLink, )),
                     ),
                     Spacer(),
                   ],
@@ -1929,12 +1932,16 @@ class _ProductPicticher extends StatelessWidget {
       width: double.infinity,
       child: Stack(
         children: [
-          Expanded(
-              child: Image.asset(
-                  // key:
+          // Expanded(
+          //     child: Image.asset(
+          //         // key:
 
-                  fit: BoxFit.cover,
-                  AppImages.mainCarouselSliderPng)),
+          //         fit: BoxFit.cover,
+          //         AppImages.mainCarouselSliderPng)),
+
+          Expanded(
+            child: _CustomCarsoulSlider(),
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -1969,6 +1976,84 @@ class _ProductPicticher extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _CustomCarsoulSlider extends StatelessWidget {
+  const _CustomCarsoulSlider({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+          clipBehavior: Clip.hardEdge,
+          child: CarouselSlider(
+            options: CarouselOptions(
+              viewportFraction: 1,
+              // height: 75,
+
+              // scrollDirection: Axis.vertical,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+
+              onPageChanged: (index, reason) {
+                // context
+                //     .read<HomeBloc>()
+                //     .onCarouselSliderPageChanged(index: index);
+              },
+            ),
+            items: [1, 2, 3].map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return Image(
+                      height: double.infinity,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        globalDefaltCachedNetworkImage,
+                      ));
+                },
+              );
+            }).toList(),
+          ),
+        ),
+        // Positioned(
+        //   left: 10,
+        //   top: 46,
+        //   child: SizedBox(
+        //     height: 80,
+        //     // width: 5,
+        //     child: Column(
+        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //       children: [
+        //         for (int i = 0; i < 3; i++)
+        //           AnimatedContainer(
+        //             duration: Duration(seconds: 1),
+        //             // width: _currentIndex == i ? 20 : 8.0,
+        //             width: 5,
+        //             height: 20,
+        //             margin: EdgeInsets.symmetric(horizontal: 2.0),
+        //             decoration: BoxDecoration(
+        //                 // shape: BoxShape.circle,
+        //                 // color:
+        //                 //     context.read<HomeBloc>().currentCarouselSliderIndex ==
+        //                 //             i
+        //                 //         ? AppColors.mainColor
+        //                 //         : Colors.grey,
+        //                 ),
+        //           ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
+      ],
     );
   }
 }
