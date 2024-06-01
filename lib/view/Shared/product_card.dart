@@ -13,7 +13,8 @@ import 'package:select_shop/main.dart';
 import 'package:select_shop/models/collection/the_collection_modle.dart';
 import 'package:flutter/src/widgets/image.dart' as FreamWorkImage;
 import 'package:select_shop/models/the%20product/the_product_modle.dart';
-import 'package:select_shop/view/product%20details/product_details_screen.dart';
+import 'package:select_shop/view/product%20details%20collection/product_details_collection_screen.dart';
+import 'package:select_shop/view/product%20details%20genral/product_details_genral_screen.dart';
 
 class ProductCard extends StatelessWidget {
   // final void Function()? onTap;
@@ -49,9 +50,9 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       // onTap: onTap,
       onTap: () {
-        // navigateTo(context,
-        // ProductDetailsScreen(theProductModle: theProduct)
-        // );
+        navigateTo(context,
+        ProductDetailsCollectionScreen(theCollectionProduct: theCollectionProduct)
+        );
       },
       // borderRadius: BorderRadius.circular(
       //   10,

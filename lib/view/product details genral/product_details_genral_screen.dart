@@ -39,20 +39,20 @@ TextStyle _customDropdownlistItemTextStyle = TextStyle(
   height: .5,
 );
 
-class ProductDetailsScreen extends StatefulWidget {
+class ProductDetailsGenralScreen extends StatefulWidget {
   // final CollectionProduct theCollectionProductModle;
   // final TheProductModle theProductModle;
-  const ProductDetailsScreen({
+  const ProductDetailsGenralScreen({
     super.key,
     // required this.theProductModle,
     // required this.theCollectionProductModle,
   });
 
   @override
-  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
+  State<ProductDetailsGenralScreen> createState() => _ProductDetailsGenralScreenState();
 }
 
-class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+class _ProductDetailsGenralScreenState extends State<ProductDetailsGenralScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

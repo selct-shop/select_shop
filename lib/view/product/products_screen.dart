@@ -14,7 +14,7 @@ import 'package:select_shop/view/Shared/bottom_nav_bar.dart';
 import 'package:select_shop/view/Shared/floating_acction_button.dart';
 import 'package:select_shop/view/Shared/product_container.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
-import 'package:select_shop/view/product%20details/product_details_screen.dart';
+import 'package:select_shop/view/product%20details%20genral/product_details_genral_screen.dart';
 
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
