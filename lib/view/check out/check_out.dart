@@ -10,7 +10,9 @@ import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/main.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
+import 'package:select_shop/view/user%20location/user_location_screen.dart';
 
 class CheckOutScreen extends StatelessWidget {
   const CheckOutScreen({super.key});
@@ -541,9 +543,11 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      AppConstants.cachedUserName,
+                      globalCachedUserName ?? AppConstants.cachedUserName,
                       style: TextStyle(
-                          color: AppColors.mainColor, fontSize: 15, height: .8),
+                          color: AppColors.grey2Color,
+                          fontSize: 15,
+                          height: .8),
                     ),
                   ),
                 ],
@@ -557,7 +561,10 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
           ///
 
           InkWell(
-            onTap: () {},
+            // user Location ListTile
+            onTap: () {
+              navigateTo(context, UserLocationsScreen());
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -619,6 +626,7 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
                                 children: [
                                   Expanded(
                                     child: Text(
+                                      // cashed user location, longtude and lateute
                                       AppConstants.cachedUserName,
 
                                       // "fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre fdsfre ",
@@ -665,7 +673,7 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
           InkWell(
             onTap: () {
               // navigate to choose the payment type
-              // navigateTo(context, ChoosePaymentMethodScreen());
+              navigateTo(context, ChoosePaymentMethodScreen());
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

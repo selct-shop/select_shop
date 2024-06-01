@@ -38,7 +38,7 @@ import 'package:select_shop/view/language/chose_language_screen.dart';
 import 'package:select_shop/view/product%20details%20genral/product_details_genral_screen.dart';
 import 'package:select_shop/view/products%20of%20category/bloc/product_of_main_category_bloc.dart';
 import 'package:select_shop/view/products%20of%20category/products_main_of_categorys_screen.dart';
-import 'package:select_shop/view/product/products_screen.dart';
+import 'package:select_shop/view/products/products_screen.dart';
 import 'package:select_shop/view/track%20order/track_order_screen.dart';
 import 'package:select_shop/view/user%20location/bloc/user_location_bloc.dart';
 import 'package:select_shop/view/user%20location/create_new_location.dart';
@@ -112,8 +112,7 @@ class _MyAppState extends State<MyApp> {
               create: (context) => ProductsDiscountsBloc()),
           BlocProvider<ProductsLaktahBloc>(
               create: (context) => ProductsLaktahBloc()),
-              BlocProvider<ProductsNewBloc>(
-              create: (context) => ProductsNewBloc()),
+          BlocProvider<ProductsNewBloc>(create: (context) => ProductsNewBloc()),
           // BlocProvider(create:(context) => HomeBloc()..add(HomeGetItemsEvent( ))),
           BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
           BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),

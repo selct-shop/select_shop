@@ -40,7 +40,7 @@ import 'package:select_shop/view/home/widgets/products%20laktah/bloc/products_la
 import 'package:select_shop/view/home/widgets/products%20new/bloc/products_new_bloc.dart';
 import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/product%20details%20genral/product_details_genral_screen.dart';
-import 'package:select_shop/view/product/products_screen.dart';
+import 'package:select_shop/view/products/products_screen.dart';
 import 'package:select_shop/view/products%20of%20category/bloc/product_of_main_category_bloc.dart';
 import 'package:select_shop/view/settings/settings_screen.dart';
 import 'dart:math' as math;

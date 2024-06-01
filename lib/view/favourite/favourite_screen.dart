@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
-import 'package:select_shop/view/product/products_screen.dart';
+import 'package:select_shop/view/products/products_screen.dart';
 
 class FavoureitesScreen extends StatefulWidget {
   const FavoureitesScreen({super.key});
