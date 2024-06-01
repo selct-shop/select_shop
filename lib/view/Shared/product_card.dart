@@ -21,9 +21,10 @@ class ProductCard extends StatelessWidget {
   // final double? ratingNumber, newPrice, oldPrice;
   // final String? productCategory, productName, brandName;
   // i use this shadow to give it card affect, and it's defalt true
-  bool? withShado = true;
-  final String? theeProductStates;
-  final TheProductModel theProduct;
+  final bool? withShado;
+  final String? theeProductStatus;
+  // final TheProductModel theProduct;
+  final TheCollectionProduct theCollectionProduct;
 
   ProductCard({
     super.key,
@@ -37,9 +38,10 @@ class ProductCard extends StatelessWidget {
     // required this.productCategory,
     // required this.productName,
     // this.brandName,
-    this.withShado,
-    this.theeProductStates,
-    required this.theProduct,
+    required this.withShado,
+    this.theeProductStatus,
+    // required this.theProduct,
+    required this.theCollectionProduct,
   });
 
   @override
@@ -47,9 +49,9 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       // onTap: onTap,
       onTap: () {
-        // navigateTo(context, 
+        // navigateTo(context,
         // ProductDetailsScreen(theProductModle: theProduct)
-        // ); 
+        // );
       },
       // borderRadius: BorderRadius.circular(
       //   10,
@@ -76,21 +78,30 @@ class ProductCard extends StatelessWidget {
                     // margin: EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          fit: BoxFit.cover,
-                          // fit: BoxFit.none,
-                          // image: AssetImage(
-                          //   AppImages.mainCarouselSliderPng,
-                          // ),
+                        fit: BoxFit.cover,
+                        // fit: BoxFit.none,
+                        // image: AssetImage(
+                        //   AppImages.mainCarouselSliderPng,
+                        // ),
 
 // image: FreamWorkImage.Image(image: FreamWorkImage.NetworkImage,)
-                          image: FreamWorkImage.NetworkImage(
-                            theProduct.result.mainImages[0] ?? globalDefaltCachedNetworkImage ,
-                          )),
+                        image: FreamWorkImage.NetworkImage(
+                            // theCollectionProduct.mainImages[0].
+                            theCollectionProduct.mainImages
+
+                            // ??
+                            //     globalDefaltCachedNetworkImage,
+                            ),
+
+                        //  image: FreamWorkImage.NetworkImage(
+                        //   theProduct.result.mainImages[0] ?? globalDefaltCachedNetworkImage ,
+                        // ),
+                      ),
                     ),
                   ),
                   Row(
                     children: [
-                      theeProductStates == null || theeProductStates == ""
+                      theeProductStatus == null || theeProductStatus == ""
                           ? const SizedBox()
                           :
 
@@ -110,7 +121,7 @@ class ProductCard extends StatelessWidget {
                                 // S.of(context).theNew,
 
                                 // theProduct.productStatus.where(theeProductStates) == true ?
-                                theeProductStates!,
+                                theeProductStatus!,
                                 style:
                                     AppConstants.customTitleTextStyle.copyWith(
                                   color: Colors.white,
@@ -141,8 +152,16 @@ class ProductCard extends StatelessWidget {
                           // productCategory ?? S.of(context).homePage,
                           Localizations.localeOf(context).languageCode == "ar"
                               // ? theProduct..categories.first.category.nameAr
-                              ? theProduct.result.categories[0].category.nameAr
-                              : theProduct.result.categories[0].category.nameEn,
+                              // ? theProduct.result.categories[0].category.nameAr
+                              // : theProduct.result.categories[0].category.nameEn,
+
+                              ///
+                              ///
+
+                              ? theCollectionProduct
+                                  .categories[0].category.nameAr
+                              : theCollectionProduct
+                                  .categories[0].category.nameEn,
                           style: TextStyle(
                               fontSize: 10, color: AppColors.mainColor),
                         ),
@@ -198,8 +217,15 @@ class ProductCard extends StatelessWidget {
                         Text(
                           // productName ?? "shirt",
                           Localizations.localeOf(context).languageCode == "ar"
-                              ? theProduct.result.nameAr
-                              : theProduct.result.nameEn,
+                              // ? theProduct.result.nameAr
+                              // : theProduct.result.nameEn,
+
+                              ///
+                              ///
+
+                              ? theCollectionProduct.nameAr
+                              : theCollectionProduct.nameEn,
+
                           style: TextStyle(
                             fontSize: 10,
                             fontWeight: FontWeight.bold,
@@ -212,8 +238,13 @@ class ProductCard extends StatelessWidget {
                           //     : "chanel".toUpperCase(),
 
                           Localizations.localeOf(context).languageCode == "ar"
-                              ? theProduct.result.brand.nameAr
-                              : theProduct.result.brand.nameEn,
+                              // ? theProduct.result.brand.nameAr
+                              // : theProduct.result.brand.nameEn,
+                              ///
+                              ///
+
+                              ? theCollectionProduct.brand.nameAr
+                              : theCollectionProduct.brand.nameEn,
                           style: AppConstants.customTitleTextStyle.copyWith(
                             fontSize: 10,
                           ),
@@ -244,7 +275,10 @@ class ProductCard extends StatelessWidget {
                           //     ? "${S.of(context).aed} $newPrice".toUpperCase()
                           //     : "${S.of(context).aed} uk".toUpperCase(),
 
-                          theProduct.result.price ?? "uk",
+                          // theProduct.result.price ?? "uk",
+
+                          theCollectionProduct.price ?? "uk",
+
                           style: TextStyle(
                             fontSize: 12,
                             color: AppColors.mainColor,
@@ -270,10 +304,15 @@ class ProductCard extends StatelessWidget {
                         //       )
                         //     : const SizedBox(),
 
-                        theProduct.result.compareToPrice != null
+                        // theProduct.result.compareToPrice != null
+                        ///
+                        ///
+                        ///
+
+                        theCollectionProduct.compareToPrice != null
                             ? Text(
-                                theProduct.result.compareToPrice != null
-                                    ? "${S.of(context).aed} ${theProduct.result.compareToPrice}"
+                                theCollectionProduct.compareToPrice != null
+                                    ? "${S.of(context).aed} ${theCollectionProduct.compareToPrice}"
                                         .toUpperCase()
                                     : "${S.of(context).aed} uk".toUpperCase(),
                                 style:
@@ -301,7 +340,7 @@ class ProductCard extends StatelessWidget {
 
                           // child: Image.Image.asset(name),
                           child: FreamWorkImage.Image.network(
-                            theProduct.result.brand.image,
+                            theCollectionProduct.brand.image,
                             // cacheHeight: double.infinity.toInt(),
                           ),
                         ),
