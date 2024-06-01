@@ -1,28 +1,28 @@
 part of 'products_laktah_bloc.dart';
 
-sealed class GetNewProductsState extends Equatable {
-  const GetNewProductsState();
+sealed class ProductsLaktahState extends Equatable {
+  const ProductsLaktahState();
   
   @override
   List<Object> get props => [];
 }
 
-final class GetNewProductsInitial extends GetNewProductsState {}
+final class ProductsLaktahInitalState extends ProductsLaktahState {}
 
 
 
   
 // home drawer states
-final class GetNewProductsLoadingState extends GetNewProductsState {}
-final class GetNewProductLoadedState extends GetNewProductsState {
-  final List<TheProductModel> newProductCollectionList;
-  GetNewProductLoadedState({ required this.newProductCollectionList});
+final class ProductsLaktahLoadingState extends ProductsLaktahState {}
+final class ProductsLaktahSucsessState extends ProductsLaktahState {
+  final List<TheCollectionProduct> newProductCollectionList;
+  ProductsLaktahSucsessState({ required this.newProductCollectionList});
 }
-final class GetNewProductEmptyState extends GetNewProductsState {
-  final List<TheProductModel> newProductCollectionList;
-  GetNewProductEmptyState({ required this.newProductCollectionList}); 
+final class ProductsLaktahEmptyState extends ProductsLaktahState {
+  final List<TheCollectionProduct> newProductCollectionList;
+  ProductsLaktahEmptyState({ required this.newProductCollectionList}); 
 }
-final class GetNewProductErrorState extends GetNewProductsState {
+final class ProductsLaktahErrorState extends ProductsLaktahState {
   final String? errorMessage;
-  GetNewProductErrorState({required this.errorMessage});
+  ProductsLaktahErrorState({required this.errorMessage});
 }
