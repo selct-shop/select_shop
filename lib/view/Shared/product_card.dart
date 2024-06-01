@@ -26,6 +26,8 @@ class ProductCard extends StatelessWidget {
   final String? theeProductStatus;
   // final TheProductModel theProduct;
   final TheCollectionProduct theCollectionProduct;
+  // final int theStockNumber;
+  final TheCollectionModel theCollectionModel; 
 
   ProductCard({
     super.key,
@@ -43,6 +45,8 @@ class ProductCard extends StatelessWidget {
     this.theeProductStatus,
     // required this.theProduct,
     required this.theCollectionProduct,
+    // required this.theStockNumber, 
+    required this.theCollectionModel, 
   });
 
   @override
@@ -51,7 +55,11 @@ class ProductCard extends StatelessWidget {
       // onTap: onTap,
       onTap: () {
         navigateTo(context,
-        ProductDetailsCollectionScreen(theCollectionProduct: theCollectionProduct)
+        ProductDetailsCollectionScreen(theCollectionProduct: theCollectionProduct , 
+        // theStockNumber: theStockNumber,
+        theCollectionModel: theCollectionModel,
+        
+        ), 
         );
       },
       // borderRadius: BorderRadius.circular(

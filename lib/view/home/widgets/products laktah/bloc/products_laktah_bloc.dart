@@ -43,6 +43,8 @@ class ProductsLaktahBloc extends Bloc<ProductsLaktahEvent, ProductsLaktahState> 
               // loadingNewProducts = false;
               emit(ProductsLaktahEmptyState(
                 newProductCollectionList: theCollectionModel.result.products,
+                    theCollectionModel: theCollectionModel,
+
               ));
             }
 
@@ -51,6 +53,8 @@ class ProductsLaktahBloc extends Bloc<ProductsLaktahEvent, ProductsLaktahState> 
               // loadingNewProducts = false;
               emit(ProductsLaktahSucsessState(
                 newProductCollectionList: theCollectionModel.result.products,
+                    theCollectionModel: theCollectionModel,
+
               ));
             } else {
               emit(ProductsLaktahErrorState(

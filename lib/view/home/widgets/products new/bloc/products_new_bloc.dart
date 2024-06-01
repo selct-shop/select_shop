@@ -40,6 +40,9 @@ class ProductsNewBloc extends Bloc<ProductsNewEvent, ProductsNewState> {
               // loadingNewProducts = false;
               emit(ProductsNewEmptyState(
                 newProductCollectionList: theCollectionModel.result.products,
+
+                    theCollectionModel: theCollectionModel,
+
               ));
             }
 
@@ -49,6 +52,9 @@ class ProductsNewBloc extends Bloc<ProductsNewEvent, ProductsNewState> {
               print("succcccccccccccccccccccccccccccccccccccccccccccccccc");
               emit(ProductsNewSucsessState(
                 newProductCollectionList: theCollectionModel.result.products,
+
+                    theCollectionModel: theCollectionModel,
+
               ));
             } else {
               emit(ProductsNewErrorState(

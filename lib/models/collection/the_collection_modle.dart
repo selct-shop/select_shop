@@ -533,7 +533,7 @@ class ProductAttribute {
   DateTime createdAt;
   DateTime updatedAt;
   dynamic updatedBy;
-  List<Image> images;
+  List<ProductCollectionImage> images;
   PropValue propValue;
   dynamic color;
   Inventory inventory;
@@ -566,7 +566,7 @@ class ProductAttribute {
     DateTime? createdAt,
     DateTime? updatedAt,
     dynamic updatedBy,
-    List<Image>? images,
+    List<ProductCollectionImage>? images,
     PropValue? propValue,
     dynamic color,
     Inventory? inventory,
@@ -605,7 +605,8 @@ class ProductAttribute {
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         updatedBy: json["updatedBy"],
-        images: List<Image>.from(json["images"].map((x) => Image.fromJson(x))),
+        images: List<ProductCollectionImage>.from(
+            json["images"].map((x) => ProductCollectionImage.fromJson(x))),
         propValue: PropValue.fromJson(json["propValue"]),
         color: json["color"],
         inventory: Inventory.fromJson(json["inventory"]),
@@ -629,7 +630,7 @@ class ProductAttribute {
       };
 }
 
-class Image {
+class ProductCollectionImage {
   int id;
   String imageUrl;
   int productAttributesId;
@@ -638,7 +639,7 @@ class Image {
   DateTime updatedAt;
   dynamic productId;
 
-  Image({
+  ProductCollectionImage({
     required this.id,
     required this.imageUrl,
     required this.productAttributesId,
@@ -648,7 +649,7 @@ class Image {
     required this.productId,
   });
 
-  Image copyWith({
+  ProductCollectionImage copyWith({
     int? id,
     String? imageUrl,
     int? productAttributesId,
@@ -657,7 +658,7 @@ class Image {
     DateTime? updatedAt,
     dynamic productId,
   }) =>
-      Image(
+      ProductCollectionImage(
         id: id ?? this.id,
         imageUrl: imageUrl ?? this.imageUrl,
         productAttributesId: productAttributesId ?? this.productAttributesId,
@@ -667,11 +668,13 @@ class Image {
         productId: productId ?? this.productId,
       );
 
-  factory Image.fromRawJson(String str) => Image.fromJson(json.decode(str));
+  factory ProductCollectionImage.fromRawJson(String str) =>
+      ProductCollectionImage.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Image.fromJson(Map<String, dynamic> json) => Image(
+  factory ProductCollectionImage.fromJson(Map<String, dynamic> json) =>
+      ProductCollectionImage(
         id: json["id"],
         imageUrl: json["imageUrl"],
         productAttributesId: json["productAttributesId"],

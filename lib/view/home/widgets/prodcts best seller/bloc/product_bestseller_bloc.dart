@@ -45,7 +45,8 @@ class ProductBestsellerBloc extends Bloc<ProductsBestSellerInitalEvent, Products
                   // loadingNewProducts = false;
                   emit(ProductsBestSellerEmptyState(
                     bestSellerCollectionProductList:
-                    theCollectionModel.result.products
+                    theCollectionModel.result.products, 
+                    theCollectionModel: theCollectionModel
                     ,
                   ));
                 }
@@ -56,6 +57,8 @@ class ProductBestsellerBloc extends Bloc<ProductsBestSellerInitalEvent, Products
                   emit(ProductsBestSellerSucsessState(
                     bestSellerCollectionProductList:
                         theCollectionModel.result.products,
+                    theCollectionModel: theCollectionModel,
+
                   ));
                 }
                 // else {

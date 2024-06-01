@@ -16,11 +16,21 @@ final class ProductsBestSellerInitalState extends ProductsBestsellerState {}
 final class ProductsBestSellerLoadingState extends ProductsBestsellerState {}
 final class ProductsBestSellerSucsessState extends ProductsBestsellerState {
   final List<TheCollectionProduct> bestSellerCollectionProductList;
-  ProductsBestSellerSucsessState({ required this.bestSellerCollectionProductList});
+  final TheCollectionModel theCollectionModel;
+
+  ProductsBestSellerSucsessState({ required this.bestSellerCollectionProductList, 
+  required  this.theCollectionModel, 
+  
+  });
 }
 final class ProductsBestSellerEmptyState extends ProductsBestsellerState {
   final List<TheCollectionProduct> bestSellerCollectionProductList;
-  ProductsBestSellerEmptyState({ required this.bestSellerCollectionProductList}); 
+  final TheCollectionModel theCollectionModel;
+
+  ProductsBestSellerEmptyState({ required this.bestSellerCollectionProductList, 
+  required this.theCollectionModel, 
+  
+  }); 
 }
 final class ProductsBestSellerErrorState extends ProductsBestsellerState {
   final String? errorMessage;

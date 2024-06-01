@@ -16,11 +16,21 @@ final class ProductsLaktahInitalState extends ProductsLaktahState {}
 final class ProductsLaktahLoadingState extends ProductsLaktahState {}
 final class ProductsLaktahSucsessState extends ProductsLaktahState {
   final List<TheCollectionProduct> newProductCollectionList;
-  ProductsLaktahSucsessState({ required this.newProductCollectionList});
+  final TheCollectionModel theCollectionModel;
+
+  ProductsLaktahSucsessState({ required this.newProductCollectionList, 
+  required this.theCollectionModel, 
+  });
 }
 final class ProductsLaktahEmptyState extends ProductsLaktahState {
   final List<TheCollectionProduct> newProductCollectionList;
-  ProductsLaktahEmptyState({ required this.newProductCollectionList}); 
+
+  final TheCollectionModel theCollectionModel;
+
+  ProductsLaktahEmptyState({ required this.newProductCollectionList, 
+  
+  required this.theCollectionModel, 
+  }); 
 }
 final class ProductsLaktahErrorState extends ProductsLaktahState {
   final String? errorMessage;

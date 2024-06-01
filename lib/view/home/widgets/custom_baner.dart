@@ -4,12 +4,14 @@ part of '../home_screen.dart';
 
 class _CustomBanarLaktah extends StatelessWidget {
   final String? banarTitle, banarTag, theProductsStats;
+  // final TheCollectionModel theCollectionModel; 
 
   const _CustomBanarLaktah({
     super.key,
     required this.banarTitle,
     required this.banarTag,
     required this.theProductsStats,
+    // required this.theCollectionModel, 
   });
 
   @override
@@ -71,92 +73,6 @@ class _CustomBanarLaktah extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
               ),
 
-              // child: context.read<HomeBloc>().loadingNewProducts == true
-              //     ? Center(
-              //         child: CustomLoadingScreen(),
-              //       )
-              //     : context.read<HomeBloc>().newCollctionProductsList.isEmpty
-              //         ? Center(
-              //             child: AppNoData(),
-              //           )
-              //         : ListView.builder(
-              //             shrinkWrap: true,
-              //             itemCount: context
-              //                 .read<HomeBloc>()
-              //                 .newCollctionProductsList
-              //                 .length,
-              //             padding: EdgeInsets.symmetric(
-              //                 // horizontal: 15,
-              //                 ),
-              //             scrollDirection: Axis.horizontal,
-              //             itemBuilder: (context, index) {
-              //               return ProductCard(
-              //                 width: 180,
-              //                 height: 170,
-              //                 withShado: true,
-              //                 onTap: () {
-              //                   navigateTo(context, ProductDetailsScreen());
-              //                 },
-              //                 newPrice: context
-              //                             .read<HomeBloc>()
-              //                             .newCollctionProductsList[index]
-              //                             .price !=
-              //                         null
-              //                     ? double.parse(context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .price)
-              //                     : 0.0,
-              //                 productCategory: globalCachedUserLang == "ar"
-              //                     ? context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .categories
-              //                         .first
-              //                         .category
-              //                         .nameAr
-              //                     : context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .categories
-              //                         .first
-              //                         .category
-              //                         .nameEn,
-              //                 productName: globalCachedUserLang == "ar"
-              //                     ? context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .nameAr
-              //                     : context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .nameEn,
-              //                 // ratingNumber:  context.read<HomeBloc>().newCollctionProductsList[index].productAttributes.first.,
-              //                 ratingNumber: 3.8,
-              //               );
-              //             }
-
-              //             //////
-
-              //             // children: [
-              //             //   for (int i = 0; i < 10; i++)
-              //             //     ProductCard(
-              //             //       width: 180,
-              //             //       height: 170,
-              //             //       withShado: true,
-              //             //       onTap: () {
-              //             //         Navigator.push(context,
-              //             //             MaterialPageRoute(builder: (context) {
-              //             //           return UnderDevScreen();
-              //             //         }));
-              //             //       },
-              //             //       newPrice: 400,
-              //             //       productCategory: "men",
-              //             //       productName: "t-shirt",
-              //             //       ratingNumber: 3.8,
-              //             //     ),
-              //             // ],
-              //             ),
 
               ////
               ///
@@ -236,6 +152,9 @@ class _CustomBanarLaktah extends StatelessWidget {
                                           theeProductStatus: theProductsStats,
                                           theCollectionProduct: state
                                               .newProductCollectionList[index],
+                                              // theStockNumber: state.theCollectionModel.result.totalCount,
+
+theCollectionModel: state.theCollectionModel,
                                         );
                                       }
 
@@ -261,12 +180,14 @@ class _CustomBanarLaktah extends StatelessWidget {
 
 class _CustomBanarBestSeller extends StatelessWidget {
   final String? banarTitle, banarTag, theProductsStats;
+  // final TheCollectionModel theCollectionModel; 
 
   const _CustomBanarBestSeller({
     super.key,
     required this.banarTitle,
     required this.banarTag,
     required this.theProductsStats,
+    // required this.theCollectionModel, 
   });
 
   @override
@@ -327,93 +248,6 @@ class _CustomBanarBestSeller extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(6),
               ),
-
-              // child: context.read<HomeBloc>().loadingNewProducts == true
-              //     ? Center(
-              //         child: CustomLoadingScreen(),
-              //       )
-              //     : context.read<HomeBloc>().newCollctionProductsList.isEmpty
-              //         ? Center(
-              //             child: AppNoData(),
-              //           )
-              //         : ListView.builder(
-              //             shrinkWrap: true,
-              //             itemCount: context
-              //                 .read<HomeBloc>()
-              //                 .newCollctionProductsList
-              //                 .length,
-              //             padding: EdgeInsets.symmetric(
-              //                 // horizontal: 15,
-              //                 ),
-              //             scrollDirection: Axis.horizontal,
-              //             itemBuilder: (context, index) {
-              //               return ProductCard(
-              //                 width: 180,
-              //                 height: 170,
-              //                 withShado: true,
-              //                 onTap: () {
-              //                   navigateTo(context, ProductDetailsScreen());
-              //                 },
-              //                 newPrice: context
-              //                             .read<HomeBloc>()
-              //                             .newCollctionProductsList[index]
-              //                             .price !=
-              //                         null
-              //                     ? double.parse(context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .price)
-              //                     : 0.0,
-              //                 productCategory: globalCachedUserLang == "ar"
-              //                     ? context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .categories
-              //                         .first
-              //                         .category
-              //                         .nameAr
-              //                     : context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .categories
-              //                         .first
-              //                         .category
-              //                         .nameEn,
-              //                 productName: globalCachedUserLang == "ar"
-              //                     ? context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .nameAr
-              //                     : context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .nameEn,
-              //                 // ratingNumber:  context.read<HomeBloc>().newCollctionProductsList[index].productAttributes.first.,
-              //                 ratingNumber: 3.8,
-              //               );
-              //             }
-
-              //             //////
-
-              //             // children: [
-              //             //   for (int i = 0; i < 10; i++)
-              //             //     ProductCard(
-              //             //       width: 180,
-              //             //       height: 170,
-              //             //       withShado: true,
-              //             //       onTap: () {
-              //             //         Navigator.push(context,
-              //             //             MaterialPageRoute(builder: (context) {
-              //             //           return UnderDevScreen();
-              //             //         }));
-              //             //       },
-              //             //       newPrice: 400,
-              //             //       productCategory: "men",
-              //             //       productName: "t-shirt",
-              //             //       ratingNumber: 3.8,
-              //             //     ),
-              //             // ],
-              //             ),
 
               ////
               ///
@@ -493,6 +327,10 @@ class _CustomBanarBestSeller extends StatelessWidget {
                                           theCollectionProduct: state
                                                   .bestSellerCollectionProductList[
                                               index],
+
+                                              // theStockNumber: state.theCollectionModel.result.totalCount,
+
+theCollectionModel: state.theCollectionModel,
                                         );
                                       }
 
@@ -518,12 +356,17 @@ class _CustomBanarBestSeller extends StatelessWidget {
 
 class _CustomBanarNew extends StatelessWidget {
   final String? banarTitle, banarTag, theProductsStats;
+  // final int? theStockNumber;
+  // final TheCollectionModel theCollectionModel; 
 
   const _CustomBanarNew({
     super.key,
     required this.banarTitle,
     required this.banarTag,
     required this.theProductsStats,
+    // required this.theStockNumber, 
+
+    // required this.theCollectionModel, 
   });
 
   @override
@@ -580,92 +423,6 @@ class _CustomBanarNew extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
               ),
 
-              // child: context.read<HomeBloc>().loadingNewProducts == true
-              //     ? Center(
-              //         child: CustomLoadingScreen(),
-              //       )
-              //     : context.read<HomeBloc>().newCollctionProductsList.isEmpty
-              //         ? Center(
-              //             child: AppNoData(),
-              //           )
-              //         : ListView.builder(
-              //             shrinkWrap: true,
-              //             itemCount: context
-              //                 .read<HomeBloc>()
-              //                 .newCollctionProductsList
-              //                 .length,
-              //             padding: EdgeInsets.symmetric(
-              //                 // horizontal: 15,
-              //                 ),
-              //             scrollDirection: Axis.horizontal,
-              //             itemBuilder: (context, index) {
-              //               return ProductCard(
-              //                 width: 180,
-              //                 height: 170,
-              //                 withShado: true,
-              //                 onTap: () {
-              //                   navigateTo(context, ProductDetailsScreen());
-              //                 },
-              //                 newPrice: context
-              //                             .read<HomeBloc>()
-              //                             .newCollctionProductsList[index]
-              //                             .price !=
-              //                         null
-              //                     ? double.parse(context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .price)
-              //                     : 0.0,
-              //                 productCategory: globalCachedUserLang == "ar"
-              //                     ? context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .categories
-              //                         .first
-              //                         .category
-              //                         .nameAr
-              //                     : context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .categories
-              //                         .first
-              //                         .category
-              //                         .nameEn,
-              //                 productName: globalCachedUserLang == "ar"
-              //                     ? context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .nameAr
-              //                     : context
-              //                         .read<HomeBloc>()
-              //                         .newCollctionProductsList[index]
-              //                         .nameEn,
-              //                 // ratingNumber:  context.read<HomeBloc>().newCollctionProductsList[index].productAttributes.first.,
-              //                 ratingNumber: 3.8,
-              //               );
-              //             }
-
-              //             //////
-
-              //             // children: [
-              //             //   for (int i = 0; i < 10; i++)
-              //             //     ProductCard(
-              //             //       width: 180,
-              //             //       height: 170,
-              //             //       withShado: true,
-              //             //       onTap: () {
-              //             //         Navigator.push(context,
-              //             //             MaterialPageRoute(builder: (context) {
-              //             //           return UnderDevScreen();
-              //             //         }));
-              //             //       },
-              //             //       newPrice: 400,
-              //             //       productCategory: "men",
-              //             //       productName: "t-shirt",
-              //             //       ratingNumber: 3.8,
-              //             //     ),
-              //             // ],
-              //             ),
 
               ////
               ///
@@ -700,6 +457,7 @@ class _CustomBanarNew extends StatelessWidget {
                                       scrollDirection: Axis.horizontal,
                                       itemBuilder: (context, index) {
                                         return ProductCard(
+                                          
                                           width: 180,
                                           height: 170,
                                           withShado: true,
@@ -743,7 +501,11 @@ class _CustomBanarNew extends StatelessWidget {
                                           theeProductStatus: theProductsStats,
                                           theCollectionProduct: state
                                               .newProductCollectionList[index],
-                                        );
+                                              
+                                              // theStockNumber: state.theCollectionModel.result.totalCount,
+                                              theCollectionModel: state.theCollectionModel,
+
+                                      );
                                       }
 
                                       //////
@@ -778,12 +540,14 @@ class _CustomBanarNew extends StatelessWidget {
 
 class _CustomBanarDisscount extends StatelessWidget {
   final String? banarTitle, banarTag, theProductsStats;
+  // final TheCollectionModel theCollectionModel; 
 
   const _CustomBanarDisscount({
     super.key,
     required this.banarTitle,
     required this.banarTag,
     required this.theProductsStats,
+    // required this.theCollectionModel, 
   });
 
   @override
@@ -879,7 +643,12 @@ class _CustomBanarDisscount extends StatelessWidget {
                                           //     .newProductCollectionList[index].productStatus[0].status,
                                           theCollectionProduct: state
                                               .newProductCollectionList[index],
-                                        );
+
+                                              // theStockNumber: state.theCollectionModel.result.totalCount,
+
+                                              theCollectionModel: state.theCollectionModel,
+
+                                      );
 
                                         // return Container(
                                         //   color: Colors.amber,

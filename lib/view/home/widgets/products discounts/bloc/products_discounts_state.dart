@@ -34,11 +34,19 @@ final class ProductsDiscountLoadingState extends ProductsDiscountsState {}
 
 final class ProductsDiscountSucsessState extends ProductsDiscountsState {
   final List<TheCollectionProduct> newProductCollectionList;
-  ProductsDiscountSucsessState({ required this.newProductCollectionList});
+  final TheCollectionModel theCollectionModel;
+
+  ProductsDiscountSucsessState({ required this.newProductCollectionList, 
+  required this.theCollectionModel, 
+  });
 }
 final class ProductsDiscountEmptyState extends ProductsDiscountsState {
   final List<TheCollectionProduct> newProductCollectionList;
-  ProductsDiscountEmptyState({ required this.newProductCollectionList});
+  final TheCollectionModel theCollectionModel;
+  
+  ProductsDiscountEmptyState({ required this.newProductCollectionList, 
+  required this.theCollectionModel, 
+  });
 }
 
 ///

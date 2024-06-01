@@ -75,6 +75,7 @@ class _HomeBodyState extends State<_HomeBody> {
               banarTitle: S.of(context).theNew,
               banarTag: S.of(context).theNew,
               theProductsStats: S.of(context).theNew,
+              
             ),
 
             ////////////////////////////

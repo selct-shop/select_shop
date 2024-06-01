@@ -53,7 +53,10 @@ class ProductsDiscountsBloc
                 // loadingNewProducts = false;
                 emit(ProductsDiscountEmptyState(
                   // newProductCollectionList: theCollectionModel.result.products,
-                  newProductCollectionList: theCollectionModel.result.products
+                  newProductCollectionList: theCollectionModel.result.products, 
+
+                    theCollectionModel: theCollectionModel,
+
                 ));
               }
 
@@ -68,6 +71,9 @@ class ProductsDiscountsBloc
                 emit(ProductsDiscountSucsessState(
                   newProductCollectionList: theCollectionModel.result.products,
                   // newProductCollectionList: theProductModel,
+
+                    theCollectionModel: theCollectionModel,
+
                 ));
 
                 // print(

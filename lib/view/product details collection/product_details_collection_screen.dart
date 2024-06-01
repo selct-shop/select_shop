@@ -7,6 +7,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as FramworkImage;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
@@ -18,6 +19,7 @@ import 'package:select_shop/models/collection/the_collection_modle.dart';
 // import 'package:select_shop/models/collection/get_collection_modle.dart';
 // import 'package:select_shop/models/the%20product/the_product_modle.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
+import 'package:select_shop/view/product%20details%20collection/bloc/product_details_bloc.dart';
 
 // Key prodcutImageKey = key();
 TextStyle _customTitleTextStyle = TextStyle(
@@ -28,7 +30,7 @@ TextStyle _customTitleTextStyle = TextStyle(
 );
 TextStyle _customBodyTextStyle = TextStyle(
   color: AppColors.grey2Color,
-  height: .7,
+  height: .8,
   // fontWeight: FontWeight.bold,
   fontSize: 16,
 );
@@ -42,27 +44,44 @@ TextStyle _customDropdownlistItemTextStyle = TextStyle(
 class ProductDetailsCollectionScreen extends StatefulWidget {
   final TheCollectionProduct theCollectionProduct;
   // final TheProductModle theProductModle;
+  // final int? theStockNumber;
+  final TheCollectionModel theCollectionModel; 
   const ProductDetailsCollectionScreen({
     super.key,
     // required this.theProductModle,
     required this.theCollectionProduct,
+    // required this.theStockNumber,
+    required this.theCollectionModel, 
   });
 
   @override
-  State<ProductDetailsCollectionScreen> createState() => _ProductDetailsCollectionScreenState();
+  State<ProductDetailsCollectionScreen> createState() =>
+      _ProductDetailsCollectionScreenState();
 }
 
-class _ProductDetailsCollectionScreenState extends State<ProductDetailsCollectionScreen> {
+class _ProductDetailsCollectionScreenState
+    extends State<ProductDetailsCollectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            _ProductPicticher(),
-            _Body(),
-          ],
+          child: BlocProvider(
+        create: (context) => ProductDetailsBloc(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _ProductPicticher(
+                  theListOfProductImages:
+                      widget.theCollectionProduct.productAttributes[0].images),
+              _Body(
+                // theListOfProductImages:
+                // widget.theCollectionProduct.productAttributes[0].images,
+                theCollectionProduct: widget.theCollectionProduct,
+                // theStockNumber: widget.theCollectionModel.result.totalCount,
+                theCollectionModel: widget.theCollectionModel,
+              ),
+            ],
+          ),
         ),
       )),
     );
@@ -70,10 +89,19 @@ class _ProductDetailsCollectionScreenState extends State<ProductDetailsCollectio
 }
 
 class _Body extends StatelessWidget {
+  // final List<ProductCollectionImage?>? theListOfProductImages;
+  final TheCollectionProduct theCollectionProduct;
+  // final int? theStockNumber;
+  final TheCollectionModel theCollectionModel; 
   // final String? oldPrice;
   const _Body({
     super.key,
     // this.oldPrice,
+    // required this.theListOfProductImages,
+
+    required this.theCollectionProduct,
+    // required this.theStockNumber,
+    required this.theCollectionModel, 
   });
 
   @override
@@ -93,18 +121,25 @@ class _Body extends StatelessWidget {
                 height: 5,
               ),
               _RatingWidget(
-                ratingNumber: 3.5,
+                ratingNumber: 3.6,
+                // ratingNumber: theCollectionProduct.,
               ),
               // const SizedBox(
               //   height: 5,
               // ),
 
               _CategoryDiscriptionRow(
-                catigoryDiscription: "men",
+                catigoryDiscription:
+                    Localizations.localeOf(context).languageCode == "ar"
+                        ? theCollectionProduct.categories[0].category.nameAr
+                        : theCollectionProduct.categories[0].category.nameEn,
               ),
               _DiscriptionRow(
-                  discription:
-                      "men t-shirt with long slives and high coalas, men t-shirt with long slives and high coalas, "),
+                discription:
+                    Localizations.localeOf(context).languageCode == "ar"
+                        ? theCollectionProduct.descriptionAr
+                        : theCollectionProduct.descriptionEn,
+              ),
 
               _ColorRow(
                   // discription: discription,
@@ -114,7 +149,8 @@ class _Body extends StatelessWidget {
               ),
 
               _NumberOfStock(
-                stockNumber: 20.toString(),
+                // stockNumber: 20.toString(),
+                stockNumber: theCollectionModel.result.totalCount,
               ),
             ],
           ),
@@ -133,7 +169,7 @@ class _Body extends StatelessWidget {
                 discription: "fast shipment",
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImagesSvg.homeSvg,
+                svgImgName: AppImagesSvg.truckSvg,
                 onTap: () {},
                 haveDivider: true,
               ),
@@ -141,7 +177,7 @@ class _Body extends StatelessWidget {
                 discription: "payment on recive",
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImagesSvg.homeSvg,
+                svgImgName: AppImagesSvg.cashSvg,
                 onTap: () {},
                 haveDivider: true,
               ),
@@ -149,7 +185,7 @@ class _Body extends StatelessWidget {
                 discription: "free return",
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImagesSvg.homeSvg,
+                svgImgName: AppImagesSvg.returnSvg,
                 onTap: () {},
                 haveDivider: true,
               ),
@@ -157,7 +193,7 @@ class _Body extends StatelessWidget {
                 discription: "earn free points",
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImagesSvg.homeSvg,
+                svgImgName: AppImagesSvg.giftSvg,
                 onTap: () {},
                 // haveDivider: true,
               ),
@@ -187,12 +223,13 @@ class _Body extends StatelessWidget {
               _RatingContainer(
                 ratingNumber: 4.55,
                 theRatingQuestion: "is the size good",
+                
               ),
 
               const SizedBox(
                 height: 10,
               ),
-
+// if(theCollectionProduct.review isNotEmpty  )
               _RandomUserComment(
                 theRandomeUserComment:
                     "honslly it's very great product, i really convince you to buy it, without thinking",
@@ -1439,8 +1476,11 @@ class _DiscriptionRow extends StatelessWidget {
           Expanded(
             child: Text(
               discription!,
+              maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: _customBodyTextStyle,
+              style: _customBodyTextStyle.copyWith(
+                height: 1,
+              ),
             ),
           ),
         ],
@@ -1450,7 +1490,7 @@ class _DiscriptionRow extends StatelessWidget {
 }
 
 class _NumberOfStock extends StatelessWidget {
-  final String? stockNumber;
+  final int? stockNumber;
 
   _NumberOfStock({
     super.key,
@@ -1474,7 +1514,7 @@ class _NumberOfStock extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              stockNumber! ?? 0.toString(),
+              stockNumber.toString() ?? 0.toString(),
               overflow: TextOverflow.ellipsis,
               style: _customBodyTextStyle.copyWith(
                 fontSize: 14,
@@ -1921,68 +1961,90 @@ class _TitleRow extends StatelessWidget {
 }
 
 class _ProductPicticher extends StatelessWidget {
-  const _ProductPicticher({
-    super.key,
-  });
+  final List<ProductCollectionImage?>? theListOfProductImages;
+  const _ProductPicticher({super.key, required this.theListOfProductImages});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 350,
-      width: double.infinity,
-      child: Stack(
-        children: [
-          // Expanded(
-          //     child: Image.asset(
-          //         // key:
+    return BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
+      builder: (context, state) {
+        return SizedBox(
+          // height: 350,
+          height: 600,
 
-          //         fit: BoxFit.cover,
-          //         AppImages.mainCarouselSliderPng)),
+          width: double.infinity,
+          child: Stack(
+            children: [
+              // Expanded(
+              //     child: Image.asset(
+              //         // key:
 
-          Expanded(
-            child: _CustomCarsoulSlider(),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 30,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15)),
+              //         fit: BoxFit.cover,
+              //         AppImages.mainCarouselSliderPng)),
+
+              Expanded(
+                child: _CustomCarsoulSlider(
+                  theListOfProductImages: theListOfProductImages,
+                ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  _SmallTagContainer(
-                    isActive: false,
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  height: 30,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15)),
                   ),
-                  _SmallTagContainer(
-                    isActive: true,
+                  child: BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
+                    builder: (context, state) {
+                      return Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          for (int i = 1;
+                              i <= theListOfProductImages!.length;
+                              i++)
+                            _SmallTagContainer(
+                              isActive: context
+                                          .read<ProductDetailsBloc>()
+                                          .activeProductImage ==
+                                      i
+                                  ? true
+                                  : false,
+                            ),
+                          // _SmallTagContainer(
+                          //   isActive: true,
+                          // ),
+                          // _SmallTagContainer(
+                          //   isActive: false,
+                          // ),
+                          // _SmallTagContainer(
+                          //   isActive: false,
+                          // ),
+                        ],
+                      );
+                    },
                   ),
-                  _SmallTagContainer(
-                    isActive: false,
-                  ),
-                  _SmallTagContainer(
-                    isActive: false,
-                  ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
 
 class _CustomCarsoulSlider extends StatelessWidget {
+  final List<ProductCollectionImage?>? theListOfProductImages;
+
   const _CustomCarsoulSlider({
     super.key,
+    required this.theListOfProductImages,
   });
 
   @override
@@ -1992,32 +2054,34 @@ class _CustomCarsoulSlider extends StatelessWidget {
         Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+          decoration: BoxDecoration(
+              // borderRadius: BorderRadius.circular(15),
+              ),
           clipBehavior: Clip.hardEdge,
           child: CarouselSlider(
             options: CarouselOptions(
               viewportFraction: 1,
-              // height: 75,
+              height: double.infinity,
 
               // scrollDirection: Axis.vertical,
               autoPlay: true,
               autoPlayInterval: Duration(seconds: 3),
 
               onPageChanged: (index, reason) {
-                // context
-                //     .read<HomeBloc>()
-                //     .onCarouselSliderPageChanged(index: index);
+                context.read<ProductDetailsBloc>().activeProductImage = index;
               },
             ),
-            items: [1, 2, 3].map((i) {
+            items: theListOfProductImages!.map((productImage) {
               return Builder(
-                builder: (BuildContext context) {
+                builder: (
+                  BuildContext context,
+                ) {
                   return FramworkImage.Image(
                       height: double.infinity,
                       width: double.infinity,
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                        globalDefaltCachedNetworkImage,
+                        productImage!.imageUrl,
                       ));
                 },
               );
