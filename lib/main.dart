@@ -120,8 +120,8 @@ class _MyAppState extends State<MyApp> {
           BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),
           BlocProvider<UserLocationBloc>(
               create: (context) => UserLocationBloc()),
-          // BlocProvider<ProductOfMainCategoryBloc>(
-          //     create: (context) => ProductOfMainCategoryBloc()),
+          BlocProvider<ProductOfMainCategoryBloc>(
+              create: (context) => ProductOfMainCategoryBloc()),
 
           
           BlocProvider<SupCategoriesOfMainCategoryBloc>(
