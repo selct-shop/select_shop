@@ -55,6 +55,8 @@ String? globalCachedUserPhoneNum;
 const String globalDefaltCachedNetworkImage =
     "https://cdn4.iconfinder.com/data/icons/social-media-2070/140/_shopify-512.png";
 
+// the last stable version of select shop 2/6/2024
+
 // final GlobalKey mainAppKey = GlobalKey();
 void main() async {
   // runApp(const MyApp());
@@ -123,14 +125,10 @@ class _MyAppState extends State<MyApp> {
           BlocProvider<ProductOfMainCategoryBloc>(
               create: (context) => ProductOfMainCategoryBloc()),
 
-          
           BlocProvider<SupCategoriesOfMainCategoryBloc>(
               create: (context) => SupCategoriesOfMainCategoryBloc()),
 
-              
-          BlocProvider<ProOfCatBloc>(
-              create: (context) => ProOfCatBloc()),
-              
+          BlocProvider<ProOfCatBloc>(create: (context) => ProOfCatBloc()),
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
           builder: (context, state) {
