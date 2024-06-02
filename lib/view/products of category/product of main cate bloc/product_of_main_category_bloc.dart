@@ -104,7 +104,7 @@ class ProductOfMainCategoryBloc
       // #### #### //
       // #### inital of the screen event #### //
       if (event is ProductsOfCategoryInitalEvent) {
-        print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit  ininintalll");
+        // print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit  ininintalll");
 
         // initalization code
 
@@ -133,7 +133,7 @@ class ProductOfMainCategoryBloc
           // emit loaded sucsses state
           // print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit Sucsess");
           emit(ProductsOfMainCategorySucsessState());
-          print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
+          // print("emmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmiiitititit");
         } else {
           emit(ProductsOfMainCategoryErrorState(
               errorMessage: "get all products error on the controller"));

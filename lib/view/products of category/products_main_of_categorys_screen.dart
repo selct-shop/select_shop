@@ -3,13 +3,16 @@
 //this import casing broplems
 // import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as FreamWorkImage;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:http_status/http_status.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
+import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
@@ -213,12 +216,12 @@ class _TheBody extends StatelessWidget {
                       Tab(
                         iconMargin: EdgeInsets.zero,
                         icon: _TabTitle(
-                            theTitle:
-                                // Localizations.localeOf(context).languageCode ==
-                                //         "ar"
-                                //     ? theState[i].nameAr
-                                //     : theState[i].nameEn,
-                                "tessst"),
+                          theTitle:
+                              Localizations.localeOf(context).languageCode ==
+                                      "ar"
+                                  ? theState[i].nameAr
+                                  : theState[i].nameEn,
+                        ),
                       ),
                   ],
                 ),
@@ -241,8 +244,78 @@ class _TheBody extends StatelessWidget {
                           children: [
                             // #### all product pages #### //
                             // if (theState.isEmpty)
-                            Center(
-                              child: AppNoData(),
+                            // Center(
+                            //   child: AppNoData(),
+                            // ),
+                            // #### all product pages #### //
+
+                            Column(
+                              // List theList = context.read<ProductOfMainCategoryBloc> ().productsOfACategoryResultList;
+                              children: [
+                                const SizedBox(
+                                  height: 10,
+                                  width: 10,
+                                ),
+                                GridView.builder(
+                                    shrinkWrap: true,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      childAspectRatio: .6,
+                                      crossAxisSpacing: 5,
+                                      mainAxisSpacing: 15,
+                                    ),
+                                    itemCount: context
+                                        .read<ProductOfMainCategoryBloc>()
+                                        .productsOfACategoryResultList
+                                        .length,
+                                    // itemCount: context
+                                    //     .read<ProductOfMainCategoryBloc>()
+                                    //     .productsOfACategoryResultList
+                                    //      .where((product) => product.categories.contains(theState[i]) == searchName),
+
+                                    // itemBuilder: (context, index) {
+                                    //   return _ProductCard(
+                                    //     width: 180,
+                                    //     height: 170,
+                                    //     withShado: true,
+                                    //     // onTap: () {
+                                    //     //   navigateTo(context, UnderDevScreen());
+                                    //     // },
+                                    //     // newPrice: 400,
+                                    //     // productCategory: "men",
+                                    //     // productName: "t-shirt",
+                                    //     // ratingNumber: 3.8,                                    ,
+                                    //   );
+
+                                    //   // return const SizedBox(
+                                    //   //   child: Icon(Icons.directions_car),
+                                    //   // );
+                                    // },
+
+                                    itemBuilder: (context, index) {
+                                      return _ProductCard(
+                                        width: 180,
+                                        height: 170,
+                                        withShado: true,
+                                        // onTap: () {
+                                        //   navigateTo(context,
+                                        //       ProductDetailsScreen(
+                                        //         theProductModle: ,
+                                        //       ));
+                                        //   // and then pass the product of state.newProductsList[index]
+                                        // },
+                                        theeProductStatus: null,
+                                        theCategoryProduct: context
+                                                .read<ProductOfMainCategoryBloc>()
+                                                .productsOfACategoryResultList[
+                                            index]!,
+                                        // theStockNumber: state.theCollectionModel.result.totalCount,
+
+                                        // theCollectionModel: state.theCollectionModel,
+                                      );
+                                    }),
+                              ],
                             ),
                             // else
                             //   Icon(
@@ -274,7 +347,10 @@ class _TheBody extends StatelessWidget {
                               //   // child: Text(theState[i].nameAr),
                               // )
 
+                              // _CustomProductPage()
+
                               Column(
+                                // List theList = context.read<ProductOfMainCategoryBloc> ().productsOfACategoryResultList;
                                 children: [
                                   const SizedBox(
                                     height: 10,
@@ -285,11 +361,19 @@ class _TheBody extends StatelessWidget {
                                       gridDelegate:
                                           SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2,
-                                        
                                         childAspectRatio: .6,
                                         crossAxisSpacing: 5,
                                         mainAxisSpacing: 15,
                                       ),
+                                      itemCount: context
+                                          .read<ProductOfMainCategoryBloc>()
+                                          .productsOfACategoryResultList
+                                          .length,
+                                      // itemCount: context
+                                      //     .read<ProductOfMainCategoryBloc>()
+                                      //     .productsOfACategoryResultList
+                                      //      .where((product) => product.categories.contains(theState[i]) == searchName),
+
                                       // itemBuilder: (context, index) {
                                       //   return _ProductCard(
                                       //     width: 180,
@@ -307,11 +391,9 @@ class _TheBody extends StatelessWidget {
                                       //   // return const SizedBox(
                                       //   //   child: Icon(Icons.directions_car),
                                       //   // );
-                                      // }, 
+                                      // },
 
-
-                                       itemBuilder: (context, index) {
-                                        
+                                      itemBuilder: (context, index) {
                                         return _ProductCard(
                                           width: 180,
                                           height: 170,
@@ -324,16 +406,14 @@ class _TheBody extends StatelessWidget {
                                           //   // and then pass the product of state.newProductsList[index]
                                           // },
                                           theeProductStatus: null,
-                                          theCategoryProduct: context.read<ProductOfMainCategoryBloc>().productsOfACategoryResultList[index]!   ,
-                                              // theStockNumber: state.theCollectionModel.result.totalCount,
+                                          theCategoryProduct: context
+                                              .read<ProductOfMainCategoryBloc>()
+                                              .productsOfACategoryResultList[index]!,
+                                          // theStockNumber: state.theCollectionModel.result.totalCount,
 
-// theCollectionModel: state.theCollectionModel,
+                                          // theCollectionModel: state.theCollectionModel,
                                         );
-                                      }
-                                      
-                                      
-                                      
-                                      ),
+                                      }),
                                 ],
                               )
                             // else
@@ -391,6 +471,135 @@ class _TheBody extends StatelessWidget {
   }
 }
 
+// Future <List<CategoryProduct> >  _getAllProductsOfACategoryFunc(
+//       {required final int theMainCategoryID}) async {
+//     // loadingTheProductsState = true;
+//     Response<dynamic> response = await DioHelper.getAllProductsOfMainCategory(
+//         mainCategoryID: theMainCategoryID);
+
+//     if (        response.statusCode!.isSuccessfulHttpStatusCode) {
+//       // print("geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne");
+//       GetAllProductsOfACategoryModel getAllProductsOfACategoryModel =
+//           GetAllProductsOfACategoryModel.fromJson(response.data);
+
+//       // clear the cached data and add new one
+//       // productsOfACategoryResultList.clear();
+//       // productsOfACategoryResultList.addAll(
+//       //   getAllProductsOfACategoryModel.result.categoryProducts,
+//       // );
+
+//       // emit loaded or success state
+//       // emit(ProductsOfMainCategoryGetSubCategoriesSuccessState());
+//       // loadingTheProductsState = false;
+//       // print(
+//       // "geeeeeet allllllll products donnnnnnnnnnnnnnnnnnnnne$productsOfACategoryResultList");
+//       // emit(ProductsOfMainCategoryLoadedState());
+//       return getAllProductsOfACategoryModel.result.categoryProducts;
+//     } else {
+//       return [];
+//     }
+//   }
+
+// class _CustomProductPage extends StatefulWidget {
+//   final int theCateId;
+//   const _CustomProductPage({
+//     super.key,
+//     required this.theCateId,
+//   });
+
+//   @override
+//   State<_CustomProductPage> createState() => _CustomProductPageState();
+// }
+
+// class _CustomProductPageState extends State<_CustomProductPage> {
+
+//   @override
+//   void initState() {
+
+// _getAllProductsOfACategoryFunc(theMainCategoryID: widget.theCateId);
+
+//     super.initState();
+//   }
+
+//   @override
+
+//   Widget build(BuildContext context) {
+// bool loadingState = true;
+// bool emptyState = false;
+// bool errorState = false;
+
+//     List<CategoryProduct> theLissst = [ ];
+
+//     return Column(
+//       // List theList = context.read<ProductOfMainCategoryBloc> ().productsOfACategoryResultList;
+//       children: [
+//         const SizedBox(
+//           height: 10,
+//           width: 10,
+//         ),
+//         GridView.builder(
+//             shrinkWrap: true,
+//             gridDelegate:
+//                 SliverGridDelegateWithFixedCrossAxisCount(
+//               crossAxisCount: 2,
+//               childAspectRatio: .6,
+//               crossAxisSpacing: 5,
+//               mainAxisSpacing: 15,
+//             ),
+//             itemCount: context
+//                 .read<ProductOfMainCategoryBloc>()
+//                 .productsOfACategoryResultList
+//                 .length,
+//             // itemCount: context
+//             //     .read<ProductOfMainCategoryBloc>()
+//             //     .productsOfACategoryResultList
+//             //      .where((product) => product.categories.contains(theState[i]) == searchName),
+
+//             // itemBuilder: (context, index) {
+//             //   return _ProductCard(
+//             //     width: 180,
+//             //     height: 170,
+//             //     withShado: true,
+//             //     // onTap: () {
+//             //     //   navigateTo(context, UnderDevScreen());
+//             //     // },
+//             //     // newPrice: 400,
+//             //     // productCategory: "men",
+//             //     // productName: "t-shirt",
+//             //     // ratingNumber: 3.8,                                    ,
+//             //   );
+
+//             //   // return const SizedBox(
+//             //   //   child: Icon(Icons.directions_car),
+//             //   // );
+//             // },
+
+//             itemBuilder: (context, index) {
+//               return _ProductCard(
+//                 width: 180,
+//                 height: 170,
+//                 withShado: true,
+//                 // onTap: () {
+//                 //   navigateTo(context,
+//                 //       ProductDetailsScreen(
+//                 //         theProductModle: ,
+//                 //       ));
+//                 //   // and then pass the product of state.newProductsList[index]
+//                 // },
+//                 theeProductStatus: null,
+//                 theCategoryProduct: context
+//                     .read<ProductOfMainCategoryBloc>()
+//                     .productsOfACategoryResultList[index]!,
+//                 // theStockNumber: state.theCollectionModel.result.totalCount,
+
+//     // theCollectionModel: state.theCollectionModel,
+//               );
+//             }),
+//       ],
+//     );
+//   }
+// }
+
 class _CustomTabChild extends StatelessWidget {
   const _CustomTabChild({super.key});
 
@@ -442,21 +651,12 @@ class _TabTitle extends StatelessWidget {
   }
 }
 
-
-
-
-
-
 // #### #### //
 // #### #### //
 // #### #### //
 // #### #### //
 // #### #### //
 // #### #### //
-
-
-
-
 
 class _ProductCard extends StatelessWidget {
   // final void Function()? onTap;
@@ -469,7 +669,7 @@ class _ProductCard extends StatelessWidget {
   // final TheProductModel theProduct;
   final CategoryProduct theCategoryProduct;
   // final int theStockNumber;
-  // final TheCollectionModel theCollectionModel; 
+  // final TheCollectionModel theCollectionModel;
 
   _ProductCard({
     super.key,
@@ -487,8 +687,8 @@ class _ProductCard extends StatelessWidget {
     this.theeProductStatus,
     // required this.theProduct,
     required this.theCategoryProduct,
-    // required this.theStockNumber, 
-    // required this.theCollectionModel, 
+    // required this.theStockNumber,
+    // required this.theCollectionModel,
   });
 
   @override
@@ -497,11 +697,11 @@ class _ProductCard extends StatelessWidget {
       // onTap: onTap,
       onTap: () {
         // navigateTo(context,
-        // ProductDetailsCollectionScreen(theCollectionProduct: theCollectionProduct , 
+        // ProductDetailsCollectionScreen(theCollectionProduct: theCollectionProduct ,
         // // theStockNumber: theStockNumber,
         // theCollectionModel: theCollectionModel,
-        
-        // ), 
+
+        // ),
         // );
       },
       // borderRadius: BorderRadius.circular(
@@ -609,8 +809,7 @@ class _ProductCard extends StatelessWidget {
                               ///
                               ///
 
-                              ? theCategoryProduct
-                                  .categories[0].category.nameAr
+                              ? theCategoryProduct.categories[0].category.nameAr
                               : theCategoryProduct
                                   .categories[0].category.nameEn,
                           style: TextStyle(
@@ -807,7 +1006,6 @@ class _ProductCard extends StatelessWidget {
     );
   }
 }
-
 
 // #### #### //
 // #### #### //
