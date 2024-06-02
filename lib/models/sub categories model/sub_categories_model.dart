@@ -1,32 +1,32 @@
 import 'dart:convert';
 
-class GetAllSubCategoriesOfMainCateIdModle {
+class SubCategoriesOfMainCategoresModle {
     List<SubCategoriesResult> result;
     int statusCode;
     String message;
 
-    GetAllSubCategoriesOfMainCateIdModle({
+    SubCategoriesOfMainCategoresModle({
         required this.result,
         required this.statusCode,
         required this.message,
     });
 
-    GetAllSubCategoriesOfMainCateIdModle copyWith({
+    SubCategoriesOfMainCategoresModle copyWith({
         List<SubCategoriesResult>? result,
         int? statusCode,
         String? message,
     }) => 
-        GetAllSubCategoriesOfMainCateIdModle(
+        SubCategoriesOfMainCategoresModle(
             result: result ?? this.result,
             statusCode: statusCode ?? this.statusCode,
             message: message ?? this.message,
         );
 
-    factory GetAllSubCategoriesOfMainCateIdModle.fromRawJson(String str) => GetAllSubCategoriesOfMainCateIdModle.fromJson(json.decode(str));
+    factory SubCategoriesOfMainCategoresModle.fromRawJson(String str) => SubCategoriesOfMainCategoresModle.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory GetAllSubCategoriesOfMainCateIdModle.fromJson(Map<String, dynamic> json) => GetAllSubCategoriesOfMainCateIdModle(
+    factory SubCategoriesOfMainCategoresModle.fromJson(Map<String, dynamic> json) => SubCategoriesOfMainCategoresModle(
         result: List<SubCategoriesResult>.from(json["result"].map((x) => SubCategoriesResult.fromJson(x))),
         statusCode: json["statusCode"],
         message: json["message"],

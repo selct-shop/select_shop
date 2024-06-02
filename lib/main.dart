@@ -36,8 +36,10 @@ import 'package:select_shop/view/home/home_screen.dart';
 import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
 import 'package:select_shop/view/product%20details%20genral/product_details_genral_screen.dart';
-import 'package:select_shop/view/products%20of%20category/bloc/product_of_main_category_bloc.dart';
+import 'package:select_shop/view/products%20of%20category/pro%20of%20cat%20bloc/pro_of_cat_bloc.dart';
+import 'package:select_shop/view/products%20of%20category/product%20of%20main%20cate%20bloc/product_of_main_category_bloc.dart';
 import 'package:select_shop/view/products%20of%20category/products_main_of_categorys_screen.dart';
+import 'package:select_shop/view/products%20of%20category/sub%20cate%20bloc/sup_categories_of_main_category_bloc.dart';
 import 'package:select_shop/view/products/products_screen.dart';
 import 'package:select_shop/view/track%20order/track_order_screen.dart';
 import 'package:select_shop/view/user%20location/bloc/user_location_bloc.dart';
@@ -118,8 +120,17 @@ class _MyAppState extends State<MyApp> {
           BlocProvider<CategoriesBloc>(create: (context) => CategoriesBloc()),
           BlocProvider<UserLocationBloc>(
               create: (context) => UserLocationBloc()),
-          BlocProvider<ProductOfMainCategoryBloc>(
-              create: (context) => ProductOfMainCategoryBloc()),
+          // BlocProvider<ProductOfMainCategoryBloc>(
+          //     create: (context) => ProductOfMainCategoryBloc()),
+
+          
+          BlocProvider<SupCategoriesOfMainCategoryBloc>(
+              create: (context) => SupCategoriesOfMainCategoryBloc()),
+
+              
+          BlocProvider<ProOfCatBloc>(
+              create: (context) => ProOfCatBloc()),
+              
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
           builder: (context, state) {
