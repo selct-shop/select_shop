@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -214,8 +215,6 @@ class UserExperinceHelper {
   showNetorkCheckerDialog(
     {required final BuildContext theContext}
   ){
-
-
 showCustomDialog(theContext: theContext, 
   
   dialogTitle: S.of(theContext ).error, 
@@ -229,6 +228,26 @@ showCustomDialog(theContext: theContext,
 
 
   }
+
+
+
+
+  //  final int milliseconds;
+  // VoidCallback action;
+  // Timer duration;
+
+  // Debouncer({required this.milliseconds, required this.action});
+
+   CustomDebouncer({required Function()? theFunction, required int  theMilliseconds,  }) async {
+    
+    
+   Duration duration = await  Duration(milliseconds: theMilliseconds);
+
+   theFunction; 
+  }
+
+
+
 }
 
 
