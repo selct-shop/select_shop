@@ -6,6 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as MaterrialFramwork;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_dash/flutter_dash.dart';
+import 'package:flutter_paytabs_bridge/BaseBillingShippingInfo.dart';
+import 'package:flutter_paytabs_bridge/IOSThemeConfiguration.dart';
+import 'package:flutter_paytabs_bridge/PaymentSdkApms.dart';
+import 'package:flutter_paytabs_bridge/PaymentSdkConfigurationDetails.dart';
 import 'package:flutter_paytabs_bridge/flutter_paytabs_bridge.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
@@ -17,6 +21,8 @@ import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
+
+part 'handeler.dart';
 
 class CheckOutScreen extends StatelessWidget {
   const CheckOutScreen({super.key});
@@ -85,79 +91,8 @@ class CheckOutScreen extends StatelessWidget {
             ),
 
             // confirm button
-            InkWell(
-              radius: 5,
-              onTap: () async {
-// confirm checkout, or go to payment screen
-
-// if payment method is card
-// navigate to card payment screen
-  Future<void> payPressed() async {
-    FlutterPaytabsBridge.startCardPayment(generateConfig(amount: widget.amount),
-        (event) {
-      setState(() {
-        if (event["status"] == "success") {
-          // Handle transaction details here.
-          var transactionDetails = event["data"];
-          print(transactionDetails);
-          if (transactionDetails["isSuccess"]) {
-            print("sucssssssssssssssssssssssssesss: $transactionDetails");
-
-            print("successful transaction");
-            if (transactionDetails["isPending"]) {
-              print("transaction pending");
-            }
-          } else {
-            print("failed transaction");
-          }
-
-          // print(transactionDetails["isSuccess"]);
-        } else if (event["status"] == "error") {
-          print("error");
-          // Handle error here.
-        } else if (event["status"] == "event") {
-          print("event");
-          // Handle events here.
-        }
-      });
-    });
-  }
-
-// if payment method is cash
-// send the reqest to the api
-
-// if no paymnet method selected
-                if (
-                    // selectPaymentMethod == false
-                    true == false
-                    // false == false
-                    ) {
-                  UserExperinceHelper().showCustomDialog(
-                    theContext: context,
-                    dialogTitle: "Payment Method!!",
-                    dialogContent: "please selcet payment method",
-                    confirmButtonTitle: "ok",
-                    onConfirm: () => Navigator.of(context).pop(),
-                  );
-                }
-              },
-              child: Container(
-                height: 37,
-                width: double.infinity,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColors.mainColor,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Text(
-                  S.of(context).confirm,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      height: .8),
-                ),
-              ),
+            _ConfirmButton(
+              amount: 260.55,
             ),
 
             ///
@@ -168,6 +103,387 @@ class CheckOutScreen extends StatelessWidget {
               height: 30,
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ConfirmButton extends StatefulWidget {
+  final double amount;
+  const _ConfirmButton({
+    super.key,
+    required this.amount,
+  });
+
+  @override
+  State<_ConfirmButton> createState() => _ConfirmButtonState();
+}
+
+class _ConfirmButtonState extends State<_ConfirmButton> {
+  @override
+  void initState() {
+// if( Localizations.localeOf(context).languageCode == "ar" ){
+//   PaymentResponseHandler handlerAr = PaymentResponseHandler(language: 'ar');
+
+// }
+
+// if( Localizations.localeOf(context).languageCode == "ar" ){
+//   PaymentResponseHandler handlerAr = PaymentResponseHandler(language: 'ar');
+
+// }
+
+    super.initState();
+  }
+
+  PaymentSdkConfigurationDetails generateConfig({
+    required double? amount,
+  }) {
+    BillingDetails billingDetails = BillingDetails(
+      "hummam",
+      "hamam@gmial.com",
+      "+971561430879",
+      "st. 12",
+      "AE",
+      "dubai",
+      "dubai",
+      "12345",
+    );
+    ShippingDetails shippingDetails = ShippingDetails(
+      "hummam",
+      "hamam@domain.com",
+      "+971561430879",
+      "st. 12",
+      "AE",
+      "dubai",
+      "dubai",
+      "12345",
+    );
+    // BillingDetails billingDetails = BillingDetails(
+    //   name: "hummam",
+    //   email: "hamam@gmial.com",
+    //   phone: "+971561430879",
+    //   addressLine: "st. 12",
+    //   country: "eg",
+    //   city: "dubai",
+    //   state: "dubai",
+    //   zipCode: "12345",
+    // );
+    // ShippingDetails shippingDetails = ShippingDetails(
+    //   name: "hummam",
+    //   email: "hamam@domain.com",
+    //   phone: "+971561430879",
+    //   addressLine: "st. 12",
+    //   country: "eg",
+    //   city: "dubai",
+    //   state: "dubai",
+    //   zipCode: "12345",
+    // );
+    List<PaymentSdkAPms> apms = [];
+    // apms.add(PaymentSdkAPms.AMAN);
+    apms.add(PaymentSdkAPms.TABBY);
+    final configuration = PaymentSdkConfigurationDetails(
+      profileId: "140553",
+      serverKey: "SGJ9NWBG9J-JHW6LZNJD9-HWW6RDJL62",
+      clientKey: "C2K2MK-Q2HH6H-VGB9Q6-H9BPMG",
+      cartId: "12433",
+      cartDescription: "Flowers",
+      merchantName: "Select Shop",
+      screentTitle: "Pay with Card",
+      amount: amount,
+      showBillingInfo: true,
+      forceShippingInfo: false,
+      currencyCode: "AED",
+      merchantCountryCode: "AE",
+      billingDetails: billingDetails,
+      // shippingDetails: shippingDetails,
+      alternativePaymentMethods: apms,
+      // linkBillingNameWithCardHolderName: true,
+    );
+    final theme = IOSThemeConfigurations();
+
+    configuration.iOSThemeConfigurations = theme;
+    // configuration.tokeniseType = PaymentSdkTokeniseType!.MERCHANT_MANDATORY;
+    configuration.cardDiscounts = [
+      // PaymentSDKCardDiscount(
+      //     discountCards: ["4111"],
+      //     discountValue: 50,
+      //     discountTitle: "50% discount on cards starting with 4111",
+      //     isPercentage: true),
+      // PaymentSDKCardDiscount(
+      //     discountCards: ["4000", "41111"],
+      //     discountValue: 2,
+      //     discountTitle: "2 discount on cards starting with 4000 and 41111",
+      //     isPercentage: false)
+    ];
+    return configuration;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      radius: 5,
+      onTap: () async {
+        // print("ttttttttttttttttttttttttttttttttttttttttttttt");
+        // confirm checkout, or go to payment screen
+
+        // if payment method is card
+        // navigate to card payment screen
+
+        Future<void> payPressed() async {
+          FlutterPaytabsBridge.startCardPayment(
+              generateConfig(amount: widget.amount), (event) {
+            setState(() {
+              if (event["status"] == "success") {
+                // Handle transaction details here.
+
+                // print("sucssssssssssssssssssssssssesss: $event");
+
+// // #### #### //
+//                 PaymentResponseHandler handlerAr =
+//                     PaymentResponseHandler(language: 'ar');
+
+//                 PaymentResponseHandler handlerEn =
+//                     PaymentResponseHandler(language: 'en');
+
+//                 String responseStatus = 'E';
+//                 String responseCode = '200';
+
+//                 print(
+//                     'English: ${handlerEn.handleResponse(responseStatus, responseCode)}');
+
+//                 print(
+//                     'Arabic: ${handlerAr.handleResponse(responseStatus, responseCode)}');
+
+// // #### #### //
+
+                var transactionDetails = event["data"];
+                // print(transactionDetails);
+                if (transactionDetails["isSuccess"]) {
+                  // print("sucssssssssssssssssssssssssesss: $transactionDetails");
+
+                  UserExperinceHelper().showCustomDialog(
+                    theContext: context,
+                    dialogTitle: "Success",
+                    confirmButtonTitle: "confirm",
+                    onConfirm: () => Navigator.pop,
+                  );
+
+                  // print("successful transaction");
+                  if (transactionDetails["isPending"]) {
+                    UserExperinceHelper().showCustomDialog(
+                      theContext: context,
+                      dialogTitle: "isPending",
+                      confirmButtonTitle: "confirm",
+                      onConfirm: () => Navigator.pop,
+                    );
+                    // print("transaction pending");
+                  }
+                } else {
+                  UserExperinceHelper().showCustomDialog(
+                    theContext: context,
+                    dialogTitle: "failed transaction",
+                    confirmButtonTitle: "confirm",
+                    onConfirm: () => Navigator.pop,
+                  );
+
+                  // print("failed transaction");
+                }
+
+                // print(transactionDetails["isSuccess"]);
+              } else if (event["status"] == "error") {
+                // print("error");
+                // Handle error here.
+
+                UserExperinceHelper().showCustomDialog(
+                  theContext: context,
+                  dialogTitle: "failed transaction, error",
+                  confirmButtonTitle: "confirm",
+                  onConfirm: () => Navigator.pop,
+                );
+              } else if (event["status"] == "event") {
+                // print("event");
+                // Handle events here.
+
+                UserExperinceHelper().showCustomDialog(
+                  theContext: context,
+                  dialogTitle: "error",
+                  dialogContent: event.toString(),
+                  confirmButtonTitle: "confirm",
+                  onConfirm: () => Navigator.pop,
+                );
+              }
+
+              // #### #### //
+              // #### #### //
+              // #### #### //
+
+              // void handleError(BuildContext context, String responseStatus,
+              //     String responseCode) {
+              //   String message;
+
+              //   if (responseStatus == 'E') {
+              //     switch (responseCode) {
+              //       case '200':
+              //         message =
+              //             'Unable to complete process, please try again later.';
+              //         break;
+              //       case '201':
+              //         message = 'Data mismatch.';
+              //         break;
+              //       case '400':
+              //         message = 'Unregistered user.';
+              //         break;
+              //       case '401':
+              //         message = 'Verification code mismatch.';
+              //         break;
+              //       case '402':
+              //         message = 'Incorrect identification number.';
+              //         break;
+              //       default:
+              //         message = 'An error occurred, please try again.';
+              //         break;
+              //     }
+              //   } else if (responseStatus == 'F') {
+              //     switch (responseCode) {
+              //       case '500':
+              //         message =
+              //             'Server is under maintenance, please try later.';
+              //         break;
+              //       default:
+              //         message = 'An error occurred, please try again.';
+              //         break;
+              //     }
+              //   } else {
+              //     message = 'Unknown status, please contact support.';
+              //   }
+
+              //   UserExperinceHelper().showCustomDialog(
+              //     theContext: context,
+              //     dialogTitle: "Error",
+              //     confirmButtonTitle: "Retry",
+              //     onConfirm: () {
+              //       Navigator.pop(context);
+              //       // Optionally, implement retry logic here
+              //     },
+              //   );
+
+              //   print(message);
+              // }
+
+              // void handlePaymentEvent(
+              //     Map<String, dynamic> event, BuildContext context) {
+              //   if (event["status"] == "success" ||
+              //       event["status"] == "error" ||
+              //       event["status"] == "event") {
+              //     var transactionDetails = event["data"];
+
+              //     if (event["status"] == "success") {
+              //       if (transactionDetails["isSuccess"]) {
+              //         UserExperinceHelper().showCustomDialog(
+              //           theContext: context,
+              //           dialogTitle: "success",
+              //           confirmButtonTitle: "confirm",
+              //           onConfirm: () => Navigator.pop(context),
+              //         );
+
+              //         if (transactionDetails["isPending"]) {
+              //           UserExperinceHelper().showCustomDialog(
+              //             theContext: context,
+              //             dialogTitle: "isPending",
+              //             confirmButtonTitle: "confirm",
+              //             onConfirm: () => Navigator.pop(context),
+              //           );
+              //         } else {
+              //           print("successful transaction");
+
+              //           UserExperinceHelper().showCustomDialog(
+              //             theContext: context,
+              //             dialogTitle: "successful",
+              //             confirmButtonTitle: "confirm",
+              //             onConfirm: () => Navigator.pop(context),
+              //           );
+              //         }
+              //       } else {
+              //         print("failed transaction");
+              //         handleError(context, transactionDetails["responseStatus"],
+              //             transactionDetails["responseCode"]);
+              //       }
+              //     } else if (event["status"] == "error") {
+              //       print("error");
+              //       handleError(context, transactionDetails["responseStatus"],
+              //           transactionDetails["responseCode"]);
+              //     }
+
+              //     /// other events here
+
+              //     else if (event["status"] == "event") {
+              //       var eventData = event["data"];
+
+              //       // Handle other events based on their types
+              //       switch (eventData["eventType"]) {
+              //         case "notification":
+              //           // Handle notification event
+              //           print(
+              //               "Received notification event: ${eventData["message"]}");
+              //           break;
+              //         case "update":
+              //           // Handle update event
+              //           print("Received update event: ${eventData["version"]}");
+              //           break;
+              //         default:
+              //           // Handle unknown event type
+              //           print(
+              //               "Received unknown event type: ${eventData["eventType"]}");
+              //       }
+              //     }
+              //   }
+              // }
+
+              // handlePaymentEvent(event, context);
+
+              // #### #### //
+              // #### #### //
+              // #### #### //
+            });
+          });
+        }
+
+        payPressed();
+
+        // if payment method is cash
+        // send the reqest to the api
+
+        // if no paymnet method selected
+        if (
+            // selectPaymentMethod == false
+            true == false
+            // false == false
+            ) {
+          UserExperinceHelper().showCustomDialog(
+            theContext: context,
+            dialogTitle: "Payment Method!!",
+            dialogContent: "please selcet payment method",
+            confirmButtonTitle: "ok",
+            onConfirm: () => Navigator.of(context).pop(),
+          );
+        }
+      },
+      child: Container(
+        height: 37,
+        width: double.infinity,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: AppColors.mainColor,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Text(
+          S.of(context).confirm,
+          style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+              height: .8),
         ),
       ),
     );

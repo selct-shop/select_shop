@@ -23,7 +23,7 @@ import 'package:select_shop/view/Auth/login_screen.dart';
 import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/categories/bloc/categories_bloc.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
-import 'package:select_shop/view/check%20out/check_out.dart';
+import 'package:select_shop/view/check%20out/check_out_screen.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
 import 'package:select_shop/view/home/widgets/bottom%20nav%20bar/bloc/bottom_nav_bloc.dart';
 import 'package:select_shop/view/home/widgets/drawer/bloc/drawer_bloc.dart';
