@@ -54,6 +54,6 @@ class AppConstants {
   //
   //
 
-  static const String cachedRandomeImage =
-      "http://74.208.189.16:3000/images/categories/beauty/beauty.png";
+  static const String cachedRandomeNetworkImage = "https://thispersondoesnotexist.com/"; 
+      // static const String cachedRandomeImage = "http://74.208.189.16:3000/images/categories/beauty/beauty.png";
 }

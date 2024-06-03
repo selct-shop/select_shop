@@ -3,13 +3,17 @@
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as MaterrialFramwork;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_dash/flutter_dash.dart';
+import 'package:flutter_paytabs_bridge/flutter_paytabs_bridge.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
+import 'package:select_shop/core/helpers/user_experience_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
@@ -83,8 +87,59 @@ class CheckOutScreen extends StatelessWidget {
             // confirm button
             InkWell(
               radius: 5,
-              onTap: () {
+              onTap: () async {
 // confirm checkout, or go to payment screen
+
+// if payment method is card
+// navigate to card payment screen
+  Future<void> payPressed() async {
+    FlutterPaytabsBridge.startCardPayment(generateConfig(amount: widget.amount),
+        (event) {
+      setState(() {
+        if (event["status"] == "success") {
+          // Handle transaction details here.
+          var transactionDetails = event["data"];
+          print(transactionDetails);
+          if (transactionDetails["isSuccess"]) {
+            print("sucssssssssssssssssssssssssesss: $transactionDetails");
+
+            print("successful transaction");
+            if (transactionDetails["isPending"]) {
+              print("transaction pending");
+            }
+          } else {
+            print("failed transaction");
+          }
+
+          // print(transactionDetails["isSuccess"]);
+        } else if (event["status"] == "error") {
+          print("error");
+          // Handle error here.
+        } else if (event["status"] == "event") {
+          print("event");
+          // Handle events here.
+        }
+      });
+    });
+  }
+
+// if payment method is cash
+// send the reqest to the api
+
+// if no paymnet method selected
+                if (
+                    // selectPaymentMethod == false
+                    true == false
+                    // false == false
+                    ) {
+                  UserExperinceHelper().showCustomDialog(
+                    theContext: context,
+                    dialogTitle: "Payment Method!!",
+                    dialogContent: "please selcet payment method",
+                    confirmButtonTitle: "ok",
+                    onConfirm: () => Navigator.of(context).pop(),
+                  );
+                }
               },
               child: Container(
                 height: 37,
@@ -95,7 +150,7 @@ class CheckOutScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Text(
-                  "Confirm Checkout",
+                  S.of(context).confirm,
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -522,15 +577,20 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: AppColors.mainColor.withOpacity(.2),
                       borderRadius: BorderRadius.circular(5),
+                      border: Border.all(
+                        color: AppColors.mainColor,
+                        width: 1,
+                      ),
                     ),
                     // user image
-                    //
 
-                    // child: CachedNetworkImage(
-                    //   height: 33,
-                    //   width: 33,
-                    //   imageUrl: AppConstants.cachedRandomeImage,
-                    // ),
+                    child: MaterrialFramwork.Image(
+                      height: 33,
+                      width: 33,
+                      image: NetworkImage(
+                        AppConstants.cachedRandomeNetworkImage,
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 15,

@@ -197,10 +197,14 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(body: SafeArea(child: HomeScreen()));
     // return const Scaffold(body: SafeArea(child: ProductDetailsScreen()));
     // return const Scaffold(body: SafeArea(child: ProductsScreen()));
-    // return const Scaffold(body: SafeArea(child: CheckOutScreen()));
+    return const Scaffold(body: SafeArea(child: CheckOutScreen()));
     // return const Scaffold(body: SafeArea(child: ChoosePaymentMethodScreen()));
     // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
-    return Scaffold(body: SafeArea(child: PaymentScreen()));
+    // return Scaffold(
+    //     body: SafeArea(
+    //         child: PaymentScreen(
+    //   amount: 350
+    // )));
 
     // return const Scaffold(
     //     body: SafeArea(
