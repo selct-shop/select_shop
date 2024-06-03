@@ -42,10 +42,12 @@ TextStyle _customDropdownlistItemTextStyle = TextStyle(
 class ProductDetailsGenralScreen extends StatefulWidget {
   // final CollectionProduct theCollectionProductModle;
   // final TheProductModle theProductModle;
+  final int productId ;
   const ProductDetailsGenralScreen({
     super.key,
     // required this.theProductModle,
     // required this.theCollectionProductModle,
+    required this.productId,
   });
 
   @override
