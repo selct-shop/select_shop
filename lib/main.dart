@@ -35,6 +35,7 @@ import 'package:select_shop/view/home/bloc/home_bloc.dart';
 import 'package:select_shop/view/home/home_screen.dart';
 import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
+import 'package:select_shop/view/payment/payment.dart';
 import 'package:select_shop/view/product%20details%20genral/product_details_genral_screen.dart';
 import 'package:select_shop/view/products%20of%20category/pro%20of%20cat%20bloc/pro_of_cat_bloc.dart';
 import 'package:select_shop/view/products%20of%20category/product%20of%20main%20cate%20bloc/product_of_main_category_bloc.dart';
@@ -183,11 +184,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    return Scaffold(
-        body: SafeArea(
-            child: globalCachedUserToken == null || globalCachedUserToken == ""
-                ? const LogInScreen()
-                : const HomeScreen()));
+    // return Scaffold(
+    //     body: SafeArea(
+    //         child: globalCachedUserToken == null || globalCachedUserToken == ""
+    //             ? const LogInScreen()
+    //             : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
@@ -199,6 +200,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(body: SafeArea(child: CheckOutScreen()));
     // return const Scaffold(body: SafeArea(child: ChoosePaymentMethodScreen()));
     // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
+    return Scaffold(body: SafeArea(child: PaymentScreen()));
 
     // return const Scaffold(
     //     body: SafeArea(
