@@ -30,79 +30,81 @@ class CheckOutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          children: [
-            ///
-            ///
-            ///
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            children: [
+              ///
+              ///
+              ///
 
-            const SizedBox(
-              height: 20,
-            ),
-            _UserNameAndDeliverInfo(),
+              const SizedBox(
+                height: 20,
+              ),
+              _UserNameAndDeliverInfo(),
 
-            ///
-            ///
-            ///
+              ///
+              ///
+              ///
 
-            const SizedBox(
-              height: 20,
-            ),
+              const SizedBox(
+                height: 20,
+              ),
 
-            // user ordered produects, or the products on the cart
+              // user ordered produects, or the products on the cart
 
-            ///
-            ///
-            ///
+              ///
+              ///
+              ///
 
-            const SizedBox(
-              height: 20,
-            ),
+              const SizedBox(
+                height: 20,
+              ),
 
-            // enter copones
-            //
-            _EnterYourCoponsRow(),
+              // enter copones
+              //
+              _EnterYourCoponsRow(),
 
-            ///
-            ///
-            ///
+              ///
+              ///
+              ///
 
-            const SizedBox(
-              height: 20,
-            ),
+              const SizedBox(
+                height: 20,
+              ),
 
-            // check out details
+              // check out details
 
-            _CheckOutDetails(
-              theNewPrice: "299",
-              theDiscount: "7",
-              deliveryPrice: "20",
-              totalPrice: "240",
-            ),
+              _CheckOutDetails(
+                theNewPrice: "299",
+                theDiscount: "7",
+                deliveryPrice: "20",
+                totalPrice: "240",
+              ),
 
-            ///
-            ///
-            ///
+              ///
+              ///
+              ///
 
-            const SizedBox(
-              height: 20,
-            ),
+              const SizedBox(
+                height: 20,
+              ),
 
-            // confirm button
-            _ConfirmButton(
-              amount: 260.55,
-            ),
+              // confirm button
+              _ConfirmButton(
+                amount: 260.55,
+              ),
 
-            ///
-            ///
-            ///
+              ///
+              ///
+              ///
 
-            const SizedBox(
-              height: 30,
-            ),
-          ],
+              const SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -266,7 +268,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
                     theContext: context,
                     dialogTitle: "Success",
                     confirmButtonTitle: "confirm",
-                    onConfirm: () => Navigator.pop,
+                    onConfirm: () => Navigator.of(context).pop(),
                   );
 
                   // print("successful transaction");
@@ -275,7 +277,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
                       theContext: context,
                       dialogTitle: "isPending",
                       confirmButtonTitle: "confirm",
-                      onConfirm: () => Navigator.pop,
+                      onConfirm: () => Navigator.of(context).pop(),
                     );
                     // print("transaction pending");
                   }
@@ -284,7 +286,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
                     theContext: context,
                     dialogTitle: "failed transaction",
                     confirmButtonTitle: "confirm",
-                    onConfirm: () => Navigator.pop,
+                    onConfirm: () => Navigator.of(context).pop(),
                   );
 
                   // print("failed transaction");
@@ -299,7 +301,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
                   theContext: context,
                   dialogTitle: "failed transaction, error",
                   confirmButtonTitle: "confirm",
-                  onConfirm: () => Navigator.pop,
+                  onConfirm: () => Navigator.of(context).pop(),
                 );
               } else if (event["status"] == "event") {
                 // print("event");
@@ -310,7 +312,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
                   dialogTitle: "error",
                   dialogContent: event.toString(),
                   confirmButtonTitle: "confirm",
-                  onConfirm: () => Navigator.pop,
+                  onConfirm: () => Navigator.of(context).pop(),
                 );
               }
 
@@ -384,7 +386,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
               //           theContext: context,
               //           dialogTitle: "success",
               //           confirmButtonTitle: "confirm",
-              //           onConfirm: () => Navigator.pop(context),
+              // onConfirm: () => Navigator.of(context).pop(),
               //         );
 
               //         if (transactionDetails["isPending"]) {
@@ -392,7 +394,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
               //             theContext: context,
               //             dialogTitle: "isPending",
               //             confirmButtonTitle: "confirm",
-              //             onConfirm: () => Navigator.pop(context),
+              // onConfirm: () => Navigator.of(context).pop(),
               //           );
               //         } else {
               //           print("successful transaction");
@@ -401,7 +403,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
               //             theContext: context,
               //             dialogTitle: "successful",
               //             confirmButtonTitle: "confirm",
-              //             onConfirm: () => Navigator.pop(context),
+              // onConfirm: () => Navigator.of(context).pop(),
               //           );
               //         }
               //       } else {
@@ -866,7 +868,7 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
         color: AppColors.grey2Color.withOpacity(.1),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
