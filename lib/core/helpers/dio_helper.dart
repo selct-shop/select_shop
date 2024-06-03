@@ -28,6 +28,7 @@ class DioHelper {
   static const String getProductsByCategoryIDUrl = "/product/categoryProducts/";
   static const String getProductsBySubCategoryIDUrl =
       "/product/categoryProducts/";
+  static const String getCartUrl = "/cart/open/";
 
   static Dio? _dio;
 
@@ -149,7 +150,6 @@ class DioHelper {
         "collection": collection,
       });
 
-      
       return response;
     } catch (e) {
       throw Exception('Failed to get main categories: $e');
@@ -202,6 +202,20 @@ class DioHelper {
     try {
       final Response response = await _dio!.post(
         getProductsBySubCategoryIDUrl + subCategoryID.toString(),
+      );
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  // #### get all user cart #### //
+  static Future<Response> getUserCart(
+      // {required final int subCategoryID}
+      ) async {
+    try {
+      final Response response = await _dio!.get(
+        getCartUrl,
       );
       return response;
     } catch (e) {
