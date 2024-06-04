@@ -30,7 +30,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
             if (getCartModel.result != null) {
               cartResult = getCartModel.result;
 
-              emit(CartSucsessState(cartResult: cartResult));
+              emit(CartSucsessState(cartModel: getCartModel));
             }
 
             if (getCartModel.result.cart.cartItems == null ||

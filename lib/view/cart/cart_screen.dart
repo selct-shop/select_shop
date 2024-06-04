@@ -57,7 +57,7 @@ class _CartScreenState extends State<CartScreen> {
               //     "cccccccccccccccccccccccccccccccccccccccccccsucssssessSSSS");
 
               return _ListCartSucsess(
-                cartResult: state.cartResult!,
+                cartModel: state.cartModel!,
               );
             } else {
               return ErrorScreen(errorMessage: "unknown Error");
@@ -70,15 +70,15 @@ class _CartScreenState extends State<CartScreen> {
 }
 
 class _ListCartSucsess extends StatelessWidget {
-  final CartResult cartResult;
+  final CartModel cartModel;
   const _ListCartSucsess({
     super.key,
-    required this.cartResult,
+    required this.cartModel,
   });
 
   @override
   Widget build(BuildContext context) {
-    List<CartItem> cartItems = cartResult.cart.cartItems;
+    List<CartItem> cartItems = cartModel.result.cart.cartItems;
     return Column(
       // mainAxisSize: MainAxisSize.max,
       children: [
@@ -112,7 +112,7 @@ class _ListCartSucsess extends StatelessWidget {
             borderRadius: 10,
             // textColor:  ,
             width: double.infinity,
-            onTap: () => navigateTo(context, CheckOutScreen()),
+            onTap: () => navigateTo(context, CheckOutScreen(cartModel: cartModel,)),
           ),
         ),
         AppConstants.emptySpaceTenPixl,

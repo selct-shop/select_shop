@@ -12,8 +12,8 @@ final class CartLoadingState extends CartState {}
 final class CartEmptyState extends CartState {}
 final class CartSucsessState extends CartState {
 
-  CartResult? cartResult; 
-  CartSucsessState({ required this.cartResult});
+  CartModel? cartModel; 
+  CartSucsessState({ required this.cartModel});
 }
 final class CartErrorState extends CartState {
 
