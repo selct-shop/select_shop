@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/functions/signout.dart';
@@ -57,17 +58,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         height: 75,
                         clipBehavior: Clip.hardEdge,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-
-                          border: Border.all(
-                            color: AppColors.mainColor,
-                          ),
-
-                          // image: DecorationImage(image: CachedNetworkImage(imageUrl:"+" ,))
-                          image: const DecorationImage(
-                              image: AssetImage(AppImages.tempPersonPng),
-                              fit: BoxFit.cover),
-                        ),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: AppColors.mainColor,
+                            ),
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    AppConstants.cachedRandomeNetworkImage), ), 
+                            // image: const DecorationImage(
+                            //     image: AssetImage(AppImages.tempPersonPng),
+                            //     fit: BoxFit.cover),
+                            ),
                       ),
                       const SizedBox(
                         width: 30,
