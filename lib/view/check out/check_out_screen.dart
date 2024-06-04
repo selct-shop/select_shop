@@ -10,6 +10,7 @@ import 'package:flutter_paytabs_bridge/BaseBillingShippingInfo.dart';
 import 'package:flutter_paytabs_bridge/IOSThemeConfiguration.dart';
 import 'package:flutter_paytabs_bridge/PaymentSdkApms.dart';
 import 'package:flutter_paytabs_bridge/PaymentSdkConfigurationDetails.dart';
+import 'package:flutter_paytabs_bridge/PaymentSdkLocale.dart';
 import 'package:flutter_paytabs_bridge/flutter_paytabs_bridge.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
@@ -19,13 +20,15 @@ import 'package:select_shop/core/helpers/user_experience_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
+import 'package:select_shop/view/cart/model/cart_model.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
 
 part 'handeler.dart';
 
 class CheckOutScreen extends StatelessWidget {
-  const CheckOutScreen({super.key});
+  final CartModel cartModel;
+  const CheckOutScreen({super.key, required this.cartModel});
 
   @override
   Widget build(BuildContext context) {
@@ -77,10 +80,10 @@ class CheckOutScreen extends StatelessWidget {
               // check out details
 
               _CheckOutDetails(
-                theNewPrice: "299",
+                theNewPrice: cartModel.result.cart.total.toString(),
                 theDiscount: "7",
                 deliveryPrice: "20",
-                totalPrice: "240",
+                totalPrice: cartModel.result.cart.total.toString(),
               ),
 
               ///
@@ -93,7 +96,8 @@ class CheckOutScreen extends StatelessWidget {
 
               // confirm button
               _ConfirmButton(
-                amount: 260.55,
+                // amount: 260.55,
+                cartModel: cartModel,
               ),
 
               ///
@@ -112,10 +116,12 @@ class CheckOutScreen extends StatelessWidget {
 }
 
 class _ConfirmButton extends StatefulWidget {
-  final double amount;
+  // final double amount;
+  final CartModel cartModel;
   const _ConfirmButton({
     super.key,
-    required this.amount,
+    // required this.amount,
+    required this.cartModel,
   });
 
   @override
@@ -184,6 +190,22 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
     List<PaymentSdkAPms> apms = [];
     // apms.add(PaymentSdkAPms.AMAN);
     apms.add(PaymentSdkAPms.TABBY);
+
+    final theme = IOSThemeConfigurations(
+      // backgroundColor: AppColors.mainColor
+      backgroundColor: "ff79B700",
+
+      buttonColor: "ff79B700",
+
+      inputsCornerRadius: 10,
+      logoImage: AppImages.logoPng,
+      primaryColor: "ff79B700",
+
+      // secondaryColor:
+    );
+
+    // PaymentSdkLocale paymentSdkLocale =PaymentSdkLocale(  );
+
     final configuration = PaymentSdkConfigurationDetails(
       profileId: "140553",
       serverKey: "SGJ9NWBG9J-JHW6LZNJD9-HWW6RDJL62",
@@ -192,19 +214,24 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
       cartDescription: "Flowers",
       merchantName: "Select Shop",
       screentTitle: "Pay with Card",
+      iOSThemeConfigurations: theme,
       amount: amount,
       showBillingInfo: true,
       forceShippingInfo: false,
       currencyCode: "AED",
       merchantCountryCode: "AE",
+      locale: Localizations.localeOf(context).languageCode == "ar"
+          ? PaymentSdkLocale.AR
+          : PaymentSdkLocale.EN,
+
+      expiryTime: 90,
       billingDetails: billingDetails,
       // shippingDetails: shippingDetails,
       alternativePaymentMethods: apms,
       // linkBillingNameWithCardHolderName: true,
     );
-    final theme = IOSThemeConfigurations();
 
-    configuration.iOSThemeConfigurations = theme;
+    // configuration.iOSThemeConfigurations = theme;
     // configuration.tokeniseType = PaymentSdkTokeniseType!.MERCHANT_MANDATORY;
     configuration.cardDiscounts = [
       // PaymentSDKCardDiscount(
@@ -226,6 +253,20 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
     return InkWell(
       radius: 5,
       onTap: () async {
+// check if i can parse the total from string to double or not
+        double? theTotal = double.tryParse(widget.cartModel.result.cart.total);
+        if (theTotal == null ||
+            theTotal.isNegative ||
+            theTotal.runtimeType != double) {
+          UserExperinceHelper().showCustomDialog(
+            theContext: context,
+            dialogTitle: S.of(context).error,
+            dialogContent: "$theTotal is not true",
+            confirmButtonTitle: "confirm",
+            onConfirm: () => Navigator.of(context).pop(),
+          );
+          return;
+        }
         // print("ttttttttttttttttttttttttttttttttttttttttttttt");
         // confirm checkout, or go to payment screen
 
@@ -234,7 +275,10 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
 
         Future<void> payPressed() async {
           FlutterPaytabsBridge.startCardPayment(
-              generateConfig(amount: widget.amount), (event) {
+              generateConfig(
+                // amount: widget.amount
+                amount: theTotal,
+              ), (event) {
             setState(() {
               if (event["status"] == "success") {
                 // Handle transaction details here.
@@ -674,7 +718,7 @@ class _CheckOutDetails extends StatelessWidget {
                     ),
                     Spacer(),
                     Text(
-                      "200.00" " " "AED",
+                      "$totalPrice" " " "AED",
                       style: TextStyle(
                           color: AppColors.mainColor,
                           fontWeight: FontWeight.bold,
@@ -758,7 +802,7 @@ class _EnterYourCoponsRow extends StatelessWidget {
           decoration: BoxDecoration(
             // color: AppColors.grey2Color.withOpacity(.2),
             color: Colors.white,
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(10),
             boxShadow: [
               // BoxShadow(
               //     blurRadius: 3,
@@ -773,9 +817,9 @@ class _EnterYourCoponsRow extends StatelessWidget {
               // ),
 
               BoxShadow(
-                offset: Offset(0, 2),
-                blurRadius: 2,
-                spreadRadius: 2,
+                offset: Offset(0, 1),
+                blurRadius: 1,
+                spreadRadius: 1,
                 color: Colors.black12,
               ),
             ],
@@ -785,11 +829,11 @@ class _EnterYourCoponsRow extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               color: AppColors.grey2Color.withOpacity(.1),
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(10),
               // boxShadow: AppConstants.theBoxShdow,
             ),
             child: InkWell(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(10),
               onTap: () {
                 // navigate to copon screen
               },
