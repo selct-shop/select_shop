@@ -43,7 +43,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             Response getHomeMainCateResponse =
                 await DioHelper.getHomeMainCategories();
 
-            if (getHomeMainCateResponse.statusCode == 200) {
+            if (getHomeMainCateResponse.statusCode!.isSuccessfulHttpStatusCode) {
               GetMainCategoriesModle getMainCategoriesModle =
                   GetMainCategoriesModle.fromJson(getHomeMainCateResponse.data);
               List<MainCategoriesResult?>? mainCategoResutList =

@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
+import 'package:http_status/http_status.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/models/Location%20models/getAllEmaritesModle.dart';
 
@@ -21,7 +22,7 @@ class UserLocationBloc extends Bloc<UserLocationEvent, UserLocationState> {
         try {
           Response<dynamic> getAllEmiratesResponse =
               await DioHelper.getAllEmirates();
-          if (getAllEmiratesResponse.statusCode == 200) {
+          if (getAllEmiratesResponse.statusCode!.isSuccessfulHttpStatusCode) {
             // listOfEmirtatesNames.clear();
             listOfEmirtates.clear();
             GetAllEmiratesModle getAllEmiratesModle =

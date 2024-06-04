@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:http_status/http_status.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:meta/meta.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
@@ -43,6 +44,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 //
 //
 //
+
+    print("cccccccccccccccccccccccccccccccccccccccccccccccccccccc$token");
     await CacheHelper.setData(key: AppConstants.cachedUserToken, value: token);
     await CacheHelper.setData(
         key: AppConstants.cachedUserName, value: userName);
@@ -58,6 +61,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     cashedUserEmail = userEmail ?? "";
     cashedUserToken = token;
     cashedUserPhoneNum = userPhoneNumber ?? "";
+
+    globalCachedUserToken = token;
+    // globalCachedUserLang = token;
+    globalCachedUserName = userName;
+    globalCachedUserID = userID;
+    globalCachedUserPhoneNum = userPhoneNumber;
   }
 
   String? validateName(String? value) {
@@ -155,7 +164,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           print(logInResponse.statusCode);
 
           // await DioHelper.login(phoneNumber: '1234', password: '1234');
-          if (logInResponse.statusCode == 200) {
+          if (logInResponse.statusCode!.isSuccessfulHttpStatusCode) {
             // save token
             // show toast
             // navigate to home screen
@@ -201,7 +210,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthSuccessStateSignIn());
             // emit(AuthInitialState());
           } else {
-            print("ooooooooooooooooooooooooo");
+            // print("ooooooooooooooooooooooooo");
 
             emit(AuthErrorStateSignIn(
                 errorMessage: logInResponse.statusMessage ?? "unknown Error"));
@@ -238,7 +247,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             password: signUpPasswordTextEditingController.text,
           );
 
-          if (signupResponse.statusCode == 200) {
+          if (signupResponse.statusCode!.isSuccessfulHttpStatusCode) {
             // save token
             // show toast
             // navigate to home screen

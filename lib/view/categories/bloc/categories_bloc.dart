@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:http_status/http_status.dart';
 import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/models/categories/categories_modle.dart';
 import 'package:select_shop/models/categories/get_main_categories_deatails.dart';
@@ -67,7 +68,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
         try {
           Response getCateResponse = await DioHelper.getHomeMainCategories();
 
-          if (getCateResponse.statusCode == 200) {
+          if (getCateResponse.statusCode!.isSuccessfulHttpStatusCode) {
             GetMainCategoriesModle mainCategoriesModle =
                 GetMainCategoriesModle.fromJson(getCateResponse.data);
             List<MainCategoriesResult?>? cateeegoriss =
