@@ -99,15 +99,18 @@ class _DrawerBody extends StatelessWidget {
                       height: 50,
                       clipBehavior: Clip.hardEdge,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          width: 2,
-                          color: AppColors.mainColor,
-                        ),
-                        // image: DecorationImage(image: CachedNetworkImage(imageUrl:"+" ,))
-                        image: const DecorationImage(
-                            image: AssetImage(AppImages.tempPersonPng)),
-                      ),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            width: 2,
+                            color: AppColors.mainColor,
+                          ),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                AppConstants.cachedRandomeNetworkImage),
+                          )
+                          // image: const DecorationImage(
+                          //     image: AssetImage(AppImages.tempPersonPng)),
+                          ),
                     ),
                     const SizedBox(
                       width: 10,
