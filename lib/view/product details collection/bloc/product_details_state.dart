@@ -17,3 +17,10 @@ final class ProductDetailsErrorState extends ProductDetailsState {
   final String? theErrorMessage;
   ProductDetailsErrorState({required this.theErrorMessage}); 
 }
+
+
+
+final class ProductDetailsAddedToCartState extends ProductDetailsState {
+  // final String? theErrorMessage;
+  // ProductDetailsAddedToCartState({required this.theErrorMessage}); 
+}

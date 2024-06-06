@@ -10,3 +10,10 @@ sealed class ProductDetailsEvent extends Equatable {
 class ProductDetailsInitalEvent extends ProductDetailsEvent {
   
 }
+
+
+class ProductDetailsAddToCartEvent extends ProductDetailsEvent {
+  final int productAttrubuteId;
+
+  ProductDetailsAddToCartEvent({ required this.productAttrubuteId });  
+}
