@@ -22,26 +22,32 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         try {
           Response getUserCartResponse = await DioHelper.getUserCart();
 
-          if (getUserCartResponse.statusCode!.isSuccessfulHttpStatusCode) {
-            CartModel getCartModel =
-                CartModel.fromJson(getUserCartResponse.data);
-            // print(
-            //     "ccccccccccccccccccccccccccccccccccccccccccc${getCartModel.result.cart.cartItems.length}");
-            if (getCartModel.result != null) {
-              cartResult = getCartModel.result;
+          if (getUserCartResponse.statusCode != null) {
+            if (getUserCartResponse.statusCode!.isSuccessfulHttpStatusCode) {
+              print(
+                  "cccccccccccccccccccccccccccccccccccccccccccsssssssssseeeeeiiiiiiiiiiiiiiiiiii${getUserCartResponse.statusMessage}===${getUserCartResponse.data}===${getUserCartResponse.statusCode}");
+              CartModel getCartModel =
+                  CartModel.fromJson(getUserCartResponse.data);
+              print(
+                  "ccccccccccccccccccccccccccccccccccccccccccc${getCartModel.result.cart.cartItems.length}");
+              print(
+                  "ccccccccccccccccccccccccccccccccccccccccccc${getCartModel.result}");
+              if (getCartModel.result != null) {
+                cartResult = getCartModel.result;
 
-              emit(CartSucsessState(cartModel: getCartModel));
-            }
+                emit(CartSucsessState(cartModel: getCartModel));
+              }
 
-            if (getCartModel.result.cart.cartItems == null ||
-                getCartModel.result.cart.cartItems.isEmpty) {
-              emit(CartEmptyState());
+              if (getCartModel.result.cart.cartItems == null ||
+                  getCartModel.result.cart.cartItems.isEmpty) {
+                emit(CartEmptyState());
+              }
+            } else {
+              emit(CartErrorState(
+                  errorMessage:
+                      "${getUserCartResponse.statusCode} \n ${getUserCartResponse.statusMessage}"));
             }
-          } else {
-            emit(CartErrorState(
-                errorMessage:
-                    "${getUserCartResponse.statusCode} \n ${getUserCartResponse.statusMessage}"));
-          }
+          } else {}
         } catch (exception) {
           emit(CartErrorState(errorMessage: exception.toString()));
         }

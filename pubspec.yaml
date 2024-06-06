@@ -70,6 +70,7 @@ dependencies:
   flutter_paytabs_bridge: ^2.6.12
   flutter_rating_bar: ^4.0.1
   animated_custom_dropdown: ^3.0.0
+  loader_overlay: ^4.0.0
   #this packge is not cool, i tryed all of its aspect put nothis is cool about it
   # btw i conseder it as bad packge
   # order_tracker_zen: ^1.0.0+4

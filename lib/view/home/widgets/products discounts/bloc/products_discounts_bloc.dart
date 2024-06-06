@@ -38,8 +38,8 @@ class ProductsDiscountsBloc
             // print(
             //     "reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo========================discounted${getDiscountProducts.statusCode}");
             if (getDiscountProducts.statusCode!.isSuccessfulHttpStatusCode) {
-              print(
-                  "reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo========================discounted${getDiscountProducts.statusCode}");
+              // print(
+                  // "reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo========================discounted${getDiscountProducts.statusCode}");
               // print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
               // print("${getDiscountProducts.data}");
               TheCollectionModel theCollectionModel =

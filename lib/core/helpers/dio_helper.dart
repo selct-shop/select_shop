@@ -28,7 +28,8 @@ class DioHelper {
   static const String getProductsByCategoryIDUrl = "/product/categoryProducts/";
   static const String getProductsBySubCategoryIDUrl =
       "/product/categoryProducts/";
-  static const String getCartUrl = "/cart/open/";
+  static const String getCartUrl = "/cartMobile/open/";
+  static const String postAddToCartUrl = "/cartMobile/add/";
 
   static Dio? _dio;
 
@@ -215,7 +216,7 @@ class DioHelper {
 
       // {required final int subCategoryID}
       ) async {
-    print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ==========");
+    // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ==========");
     // globalCachedUserToken =
     //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Imh1bW1hbSIsImVtYWlsIjpudWxsLCJnZW5kZXIiOm51bGwsIm5hdGlvbmFsaXR5IjpudWxsLCJET0IiOm51bGwsInBob25lTnVtYmVyIjoiMTIzNDU2Nzg5MCIsInBob25lVmVyaWZpZWRBdCI6bnVsbCwiZW1haWxWZXJpZmllZEF0IjpudWxsLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTI3VDA4OjM3OjE5LjkxN1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTI3VDA4OjM3OjE5LjkxN1oiLCJpc0RlbGV0ZWQiOmZhbHNlLCJpc0Jsb2NrZWQiOmZhbHNlLCJibG9ja2VkQnkiOm51bGwsImFkZHJlc3NlcyI6W10sImlhdCI6MTcxNzUwOTYzNiwiZXhwIjoxNzQ5MDY3MjM2fQ.kWKmBpWAITgphXtND1mnHGJzJ4pZV55TlDGOdt6c954";
     try {
@@ -224,7 +225,32 @@ class DioHelper {
         getCartUrl,
       );
 
-      print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr $response");
+      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr $response");
+      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ${globalCachedUserToken}");
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+
+
+  
+  // #### post add to user cart #### //
+  static Future<Response> postAddToUserCart(
+
+      {required final int productAttributeId, }
+      ) async {
+    // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ==========");
+    try {
+      final Response response = await _dio!.post(
+        // headers.  ,
+        postAddToCartUrl,
+        data: { "productAttributeId" : productAttributeId }, 
+
+      );
+
+      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr $response");
       // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ${globalCachedUserToken}");
       return response;
     } catch (e) {

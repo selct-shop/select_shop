@@ -28,7 +28,7 @@ class ProductsNewBloc extends Bloc<ProductsNewEvent, ProductsNewState> {
           Response getHomeNewProducts =
               await DioHelper.getNewProductsHome(collection: "new");
           if (getHomeNewProducts.statusCode!.isSuccessfulHttpStatusCode) {
-            print("succcccccccccccccccccccccccccccccccccccccccccccccccc");
+            // print("succcccccccccccccccccccccccccccccccccccccccccccccccc");
 
             // print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
             // print("${getHomeNewProducts.data}");
@@ -49,7 +49,7 @@ class ProductsNewBloc extends Bloc<ProductsNewEvent, ProductsNewState> {
             if (theCollectionModel.result.products.isNotEmpty) {
               // categoresListForHomeScreen = mainCategoResutList;
               // loadingNewProducts = false;
-              print("succcccccccccccccccccccccccccccccccccccccccccccccccc");
+              // print("succcccccccccccccccccccccccccccccccccccccccccccccccc");
               emit(ProductsNewSucsessState(
                 newProductCollectionList: theCollectionModel.result.products,
 
