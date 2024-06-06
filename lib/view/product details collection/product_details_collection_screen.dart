@@ -10,6 +10,7 @@ import 'package:flutter/material.dart' as FramworkImage;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/theme/colors.dart';
@@ -19,6 +20,7 @@ import 'package:select_shop/models/collection/the_collection_modle.dart';
 // import 'package:select_shop/models/collection/get_collection_modle.dart';
 // import 'package:select_shop/models/the%20product/the_product_modle.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
+import 'package:select_shop/view/product%20details%20collection/adding%20to%20cart%20button%20bloc/adding_to_cart_button_bloc.dart';
 import 'package:select_shop/view/product%20details%20collection/bloc/product_details_bloc.dart';
 import 'package:select_shop/view/product%20details%20collection/cubit/active_product_image_tag_cubit.dart';
 
@@ -62,6 +64,14 @@ class ProductDetailsCollectionScreen extends StatefulWidget {
 
 class _ProductDetailsCollectionScreenState
     extends State<ProductDetailsCollectionScreen> {
+  @override
+  initState() {
+// get user coments, get product calculations, get product atrbuite id
+    print(
+        "thhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhthththth ${widget.theCollectionModel.result}");
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -376,7 +386,9 @@ class _Body extends StatelessWidget {
         ///
         ///
 
-        _AddToCartAndFavRow(),
+        _AddToCartAndFavRow(
+          productAttributeId: theCollectionProduct.productAttributes.first.id,
+        ),
 
         const SizedBox(
           height: 45,
@@ -418,10 +430,12 @@ class _Body extends StatelessWidget {
 
 class _AddToCartAndFavRow extends StatelessWidget {
   // final CollectionProduct theProductModle;
+  final int productAttributeId;
 
   _AddToCartAndFavRow({
     super.key,
     //  required  this.theProductModle,
+    required this.productAttributeId,
   });
 
   @override
@@ -471,24 +485,42 @@ class _AddToCartAndFavRow extends StatelessWidget {
                       color: AppColors.mainColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(10),
-                      onTap: () {
-                        // add to cart and navigate to cart
+                    child: BlocBuilder<AddingToCartButtonBloc, AddingToCartButtonState>(
+                      builder: (context, state) {
+                        return InkWell(
+                          borderRadius: BorderRadius.circular(10),
+                          onTap: () {
+                            // add to cart and navigate to cart
 
-                        // print("teeeeeeeeeeeeeesttttt addddd to cart");
-                      },
-                      child: Center(
-                        child: Text(
-                          "add to cart",
-                          // textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                            // print("teeeeeeeeeeeeeesttttt addddd to cart");
+
+                           
+                              context.read<AddingToCartButtonBloc>().add(
+                                  AddToCarrrtEvent(
+                                      productAttrubuteId: productAttributeId));
+                            
+                          },
+                          child: Center(
+                            child: state is  AddiiiingToCartButtonLoadingState
+                                ? Center(
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                    ),
+                                  )
+                                : Text(
+                                    // "add to cart",
+                                    "adddddddddddddd to cart",
+
+                                    // textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                           ),
-                        ),
-                      ),
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -497,7 +529,7 @@ class _AddToCartAndFavRow extends StatelessWidget {
                   width: 10,
                 ),
                 Container(
-                  width: 55,
+                  width: 65,
                   // width: 100,
 
                   height: 45,
@@ -575,7 +607,7 @@ class _AddToCartAndFavRow extends StatelessWidget {
                         width: 25,
 
                         menuStyle: MenuStyle(
-                          alignment: Alignment.center,
+                          // alignment: Alignment.center,
                           // backgroundColor:
                           // MaterialStateProperty.all(AppColors.mainColor),
                           backgroundColor:
@@ -708,7 +740,7 @@ class _AddToCartAndFavRow extends StatelessWidget {
                   width: 10,
                 ),
                 Container(
-                  width: 55,
+                  width: 65,
                   height: 45,
                   padding: EdgeInsets.symmetric(
                     horizontal: 12.5,
@@ -728,11 +760,11 @@ class _AddToCartAndFavRow extends StatelessWidget {
                     },
                     // onHover: (value) {},
                     child: SizedBox(
-                      width: 30,
-                      height: 30,
+                      width: 24,
+                      height: 24,
                       child: SvgPicture.asset(
                         AppImagesSvg.favourtsStorkSvg,
-                        // alignment: Alignment.center,
+                        alignment: Alignment.center,
                       ),
                     ),
                   ),
@@ -908,6 +940,9 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
                       borderRadius: AppConstants.theNewBorderRadius,
                       onTap: () {
                         // navigate to brand details
+
+                        // as i set befor for this type of widgets i need to pass the
+                        // new par
                       },
                       child: Container(
                         width: double.infinity,
