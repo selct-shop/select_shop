@@ -10,7 +10,7 @@ class ActiveProductImageTagCubit extends Cubit<ActiveProductImageTagState> {
 
   void changeTheActiveImage(int theNewIndex) {
     activeProductImage == theNewIndex;
-    print("thhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh$theNewIndex");
+    // print("thhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh$theNewIndex");
     emit(ActiveProductImageTagUpdatedState(theNewImageIndex: theNewIndex));
   }
 }
