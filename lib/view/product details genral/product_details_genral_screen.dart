@@ -8,6 +8,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
@@ -18,6 +19,8 @@ import 'package:select_shop/main.dart';
 // import 'package:select_shop/models/collection/get_collection_modle.dart';
 // import 'package:select_shop/models/the%20product/the_product_modle.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
+import 'package:select_shop/view/Shared/loading_screen.dart';
+import 'package:select_shop/view/product%20details%20genral/prod%20deta%20gen%20bloc/prod%20calcu%20bloc/prod_calcu_bloc.dart';
 
 // Key prodcutImageKey = key();
 TextStyle _customTitleTextStyle = TextStyle(
@@ -42,7 +45,7 @@ TextStyle _customDropdownlistItemTextStyle = TextStyle(
 class ProductDetailsGenralScreen extends StatefulWidget {
   // final CollectionProduct theCollectionProductModle;
   // final TheProductModle theProductModle;
-  final int productId ;
+  final int productId;
   const ProductDetailsGenralScreen({
     super.key,
     // required this.theProductModle,
@@ -51,10 +54,12 @@ class ProductDetailsGenralScreen extends StatefulWidget {
   });
 
   @override
-  State<ProductDetailsGenralScreen> createState() => _ProductDetailsGenralScreenState();
+  State<ProductDetailsGenralScreen> createState() =>
+      _ProductDetailsGenralScreenState();
 }
 
-class _ProductDetailsGenralScreenState extends State<ProductDetailsGenralScreen> {
+class _ProductDetailsGenralScreenState
+    extends State<ProductDetailsGenralScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +68,9 @@ class _ProductDetailsGenralScreenState extends State<ProductDetailsGenralScreen>
         child: Column(
           children: [
             _ProductPicticher(),
-            _Body(),
+            _Body(
+              productID: widget.productId,
+            ),
           ],
         ),
       )),
@@ -73,9 +80,11 @@ class _ProductDetailsGenralScreenState extends State<ProductDetailsGenralScreen>
 
 class _Body extends StatelessWidget {
   // final String? oldPrice;
+  final int? productID;
   const _Body({
     super.key,
     // this.oldPrice,
+    required this.productID,
   });
 
   @override
@@ -95,7 +104,8 @@ class _Body extends StatelessWidget {
                 height: 5,
               ),
               _RatingWidget(
-                ratingNumber: 3.5,
+                // ratingNumber: 3.5,
+                productID: productID!.toDouble(),
               ),
               // const SizedBox(
               //   height: 5,
@@ -871,7 +881,9 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
             ///
             ///
             // const Spacer(),
-            const Spacer(),
+            // const Spacer(),
+            AppConstants.emptySpaceTenPixl,
+            AppConstants.emptySpaceTenPixl,
 
             ///
             ///
@@ -1323,58 +1335,100 @@ class _RatingContainer extends StatelessWidget {
   }
 }
 
-class _RatingWidget extends StatelessWidget {
-  final double? ratingNumber;
+class _RatingWidget extends StatefulWidget {
+  final double? productID;
 
   _RatingWidget({
     super.key,
-    this.ratingNumber,
+    required this.productID,
   });
 
   @override
+  State<_RatingWidget> createState() => _RatingWidgetState();
+}
+
+class _RatingWidgetState extends State<_RatingWidget> {
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    context
+        .read<ProdCalcuBloc>()
+        .add(ProdCalcuInitalEvent(productID: widget.productID));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 30,
-      width: double.infinity,
-      child: Row(
-        children: [
-          Text(
-            "rating :",
-            overflow: TextOverflow.ellipsis,
-            style: _customTitleTextStyle,
-          ),
-          const SizedBox(
-            width: 15,
-          ),
-          RatingBar(
-            glow: false,
-            ignoreGestures: true,
-            initialRating: ratingNumber ?? 0,
-            itemSize: 25,
-            direction: Axis.horizontal,
-            allowHalfRating: true,
-            itemCount: 5,
-            ratingWidget: RatingWidget(
-              full: Icon(
-                Icons.star_rounded,
-                color: AppColors.mainColor,
-              ),
-              half: Icon(
-                Icons.star_half_rounded,
-                color: AppColors.mainColor,
-              ),
-              empty: Icon(
-                Icons.star_outline_rounded,
-                color: AppColors.mainColor,
-              ),
+    return BlocBuilder<ProdCalcuBloc, ProdCalcuState>(
+      builder: (context, state) {
+        if (state is ProdCalcuErrorState) {
+          return SizedBox(
+            height: 10,
+            width: 200,
+            child: Center(
+              child: Text(state.errorMessage ?? S.of(context).unKnownError),
             ),
-            itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-            onRatingUpdate: (rating) {
-              print(rating);
-            },
-          ),
-        ],
-      ),
+          );
+        }
+
+        if (state is ProdCalcuSucsessState) {
+          return SizedBox(
+            height: 30,
+            width: double.infinity,
+            child: Row(
+              children: [
+                Text(
+                  "rating :",
+                  overflow: TextOverflow.ellipsis,
+                  style: _customTitleTextStyle,
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                RatingBar(
+                  glow: false,
+                  ignoreGestures: true,
+                  initialRating: state
+                          .productCalculationsModel.result.averageRating
+                          .toDouble() ??
+                      0,
+                  itemSize: 25,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  ratingWidget: RatingWidget(
+                    full: Icon(
+                      Icons.star_rounded,
+                      color: AppColors.mainColor,
+                    ),
+                    half: Icon(
+                      Icons.star_half_rounded,
+                      color: AppColors.mainColor,
+                    ),
+                    empty: Icon(
+                      Icons.star_outline_rounded,
+                      color: AppColors.mainColor,
+                    ),
+                  ),
+                  itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                  onRatingUpdate: (rating) {
+                    print(rating);
+                  },
+                ),
+              ],
+            ),
+          );
+        } else {
+          return SizedBox(
+            height: 10,
+            width: 200,
+            child: Center(
+              child: CustomLoadingScreen(),
+            ),
+          );
+        }
+      },
     );
   }
 }
