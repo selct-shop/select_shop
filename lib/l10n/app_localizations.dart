@@ -393,6 +393,12 @@ abstract class AppLocalizations {
   /// **'category'**
   String get category;
 
+  /// No description provided for @quantity.
+  ///
+  /// In en, this message translates to:
+  /// **'Quantity'**
+  String get quantity;
+
   /// No description provided for @showAll.
   ///
   /// In en, this message translates to:
@@ -464,6 +470,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'account settings'**
   String get accountSettings;
+
+  /// No description provided for @unKnownError.
+  ///
+  /// In en, this message translates to:
+  /// **'unKnown Error !!!'**
+  String get unKnownError;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

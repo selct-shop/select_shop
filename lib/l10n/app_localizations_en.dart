@@ -155,6 +155,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get category => 'category';
 
   @override
+  String get quantity => 'Quantity';
+
+  @override
   String get showAll => 'show all';
 
   @override
@@ -189,4 +192,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get accountSettings => 'account settings';
+
+  @override
+  String get unKnownError => 'unKnown Error !!!';
 }

@@ -155,6 +155,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get category => 'التصنيف';
 
   @override
+  String get quantity => 'الكمية';
+
+  @override
   String get showAll => 'عرض الكل';
 
   @override
@@ -189,4 +192,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get accountSettings => 'اعدادت الحساب';
+
+  @override
+  String get unKnownError => 'خطاء غير معروف';
 }
