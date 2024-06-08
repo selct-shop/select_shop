@@ -24,14 +24,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
           if (getUserCartResponse.statusCode != null) {
             if (getUserCartResponse.statusCode!.isSuccessfulHttpStatusCode) {
-              print(
-                  "cccccccccccccccccccccccccccccccccccccccccccsssssssssseeeeeiiiiiiiiiiiiiiiiiii${getUserCartResponse.statusMessage}===${getUserCartResponse.data}===${getUserCartResponse.statusCode}");
+              // print(
+              //     "cccccccccccccccccccccccccccccccccccccccccccsssssssssseeeeeiiiiiiiiiiiiiiiiiii${getUserCartResponse.statusMessage}===${getUserCartResponse.data}===${getUserCartResponse.statusCode}");
               CartModel getCartModel =
                   CartModel.fromJson(getUserCartResponse.data);
-              print(
-                  "ccccccccccccccccccccccccccccccccccccccccccc${getCartModel.result.cart.cartItems.length}");
-              print(
-                  "ccccccccccccccccccccccccccccccccccccccccccc${getCartModel.result}");
+              // print(
+              //     "ccccccccccccccccccccccccccccccccccccccccccc${getCartModel.result.cart.cartItems.length}");
+              // print(
+              //     "ccccccccccccccccccccccccccccccccccccccccccc${getCartModel.result}");
               if (getCartModel.result != null) {
                 cartResult = getCartModel.result;
 

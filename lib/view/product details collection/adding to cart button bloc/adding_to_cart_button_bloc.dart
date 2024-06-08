@@ -24,10 +24,10 @@ class AddingToCartButtonBloc
             if (response.statusCode!.isSuccessfulHttpStatusCode) {
               emit(AddiiiingToCartButtonSuccessState());
 
-              print(
-                  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+              // print(
+              //     'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
 
-              print('aaaaaaaaddddddeefeffefefefefefefeefefefee');
+              // print('aaaaaaaaddddddeefeffefefefefefefeefefefee');
             } else {
               emit(AddiiiingToCartButtonErrorState(
                   errorMessage:

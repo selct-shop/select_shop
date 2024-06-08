@@ -52,7 +52,13 @@ class _ProductCart extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         // onTap: onTapProductWidget ?? () {},
-        onTap:  () {navigateTo(context, ProductDetailsGenralScreen(productId: cartItem.productAttribute.productId,)); },
+        onTap: () {
+          navigateTo(
+              context,
+              ProductDetailsGenralScreen(
+                productId: cartItem.productAttribute.productId,
+              ));
+        },
         child: Container(
           width: double.infinity,
           height: 134,
@@ -86,6 +92,10 @@ class _ProductCart extends StatelessWidget {
                     isDiscountOrNew: true,
                     // addOrRemoveFav: onTapAddOrRemoveFav ?? () {},
                     addOrRemoveFav: () {},
+
+                    quantity: cartItem.quantity != null
+                        ? cartItem.quantity.toString()
+                        : "un k",
                   ),
                   _NameAndRatingRow(
                     productName:
@@ -211,6 +221,7 @@ class _DescriptionRow extends StatelessWidget {
               child: Text(
                 productDiscription ?? "",
                 overflow: TextOverflow.ellipsis,
+                maxLines: 1,
                 style: TextStyle(
                   fontSize: 10,
                   color: AppColors.grey2Color,
@@ -481,11 +492,13 @@ class _NameAndRatingRow extends StatelessWidget {
 class _TagAndFavRow extends StatelessWidget {
   final bool? isDiscountOrNew, isFavourated;
   final Function()? addOrRemoveFav;
+  final String? quantity;
   const _TagAndFavRow({
     super.key,
     required this.isDiscountOrNew,
     required this.isFavourated,
     required this.addOrRemoveFav,
+    required this.quantity,
   });
 
   @override
@@ -495,57 +508,182 @@ class _TagAndFavRow extends StatelessWidget {
       width: double.infinity,
       child: Row(
         children: [
+          if (isDiscountOrNew == true)
+            Container(
+              // tag for discount or new
+              alignment: Alignment.center,
+              height: 25,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(10),
+                  topLeft: Radius.circular(10),
+                ),
+              ),
+              child: Text(
+                _discountOrNewTag,
+                style: TextStyle(fontSize: 12, color: Colors.white),
+              ),
+            ),
+          SizedBox(width: 10),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-              isDiscountOrNew == true
-                  ? Container(
-                      // tag for disscount or new
-                      alignment: Alignment.center,
-                      width: 60,
-                      height: 25,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(10),
-                            topLeft: Radius.circular(10),
-                          )),
-                      child: Text(
-                        _discountOrNewTag,
-                        style: TextStyle(fontSize: 12, color: Colors.white),
-                      ),
-                    )
-                  : const SizedBox(),
+              Row(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "${S.of(context).Quantity}: ", // Assuming you have `quantity` in your localization file
+                    style: TextStyle(fontSize: 10, color: AppColors.mainColor),
+                    // textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    quantity ?? "uk",
+                    style: TextStyle(
+                        fontSize: 10,
+                        color: Colors
+                            .blue), // Replace `AppColors.mainColor` with a color
+                  ),
+                ],
+              ),
             ],
           ),
-          const Spacer(),
+          Spacer(),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              isFavourated == true
-                  ? InkWell(
-                      borderRadius: BorderRadius.circular(50),
-                      onTap: addOrRemoveFav,
-                      child: SvgPicture.asset(
-                        width: 20,
-                        height: 20,
-                        AppImagesSvg.favourFilledSvg,
-                      ),
-                    )
-                  : InkWell(
-                      borderRadius: BorderRadius.circular(50),
-                      onTap: addOrRemoveFav,
-                      child: SvgPicture.asset(
-                        width: 20,
-                        height: 20,
-                        AppImagesSvg.favourtsStorkSvg,
-                      ),
-                    ),
+              InkWell(
+                borderRadius: BorderRadius.circular(50),
+                onTap: addOrRemoveFav,
+                child: SvgPicture.asset(
+                    width: 20,
+                    height: 20,
+                    isFavourated == true
+                        ? AppImagesSvg.favourFilledSvg
+                        : AppImagesSvg.favourtsStorkSvg),
+              ),
             ],
-          )
+          ),
         ],
       ),
     );
   }
 }
+
+
+
+
+
+// class _TagAndFavRow extends StatelessWidget {
+//   final bool? isDiscountOrNew, isFavourated;
+//   final Function()? addOrRemoveFav;
+//   final String? quantity;
+//   const _TagAndFavRow({
+//     super.key,
+//     required this.isDiscountOrNew,
+//     required this.isFavourated,
+//     required this.addOrRemoveFav,
+//     required this.quantity,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       height: 30,
+//       width: double.infinity,
+//       child: Expanded(
+//         child: Row(
+//           children: [
+//             Column(
+//               mainAxisAlignment: MainAxisAlignment.start,
+//               mainAxisSize: MainAxisSize.max,
+//               children: [
+//                 SizedBox(
+//                   width: double.infinity,
+//                   height: 25,
+//                   child: Row(
+//                     children: [
+//                       isDiscountOrNew == true
+//                           ? Container(
+//                               // tag for disscount or new
+//                               alignment: Alignment.center,
+//                               // width: 60,
+//                               height: 25,
+//                               decoration: BoxDecoration(
+//                                   color: Colors.blue,
+//                                   borderRadius: BorderRadius.only(
+//                                     bottomRight: Radius.circular(10),
+//                                     topLeft: Radius.circular(10),
+//                                   )),
+//                               child: Text(
+//                                 _discountOrNewTag,
+//                                 style: TextStyle(
+//                                     fontSize: 12, color: Colors.white),
+//                               ),
+//                             )
+//                           : const SizedBox(),
+//                       Expanded(
+//                         child: SizedBox(
+//                           height: 15,
+//                           width: double.infinity,
+//                           child: Row(
+//                             mainAxisAlignment: MainAxisAlignment.start,
+//                             crossAxisAlignment: CrossAxisAlignment.center,
+//                             children: [
+//                               const SizedBox(
+//                                 width: 10,
+//                               ),
+//                               Text(
+//                                 "${S.of(context).Quantity}: ",
+//                                 style: TextStyle(
+//                                   fontSize: 10,
+//                                 ),
+//                               ),
+//                               Text(
+//                                 quantity ?? "uk",
+//                                 style: TextStyle(
+//                                     fontSize: 10, color: AppColors.mainColor),
+//                               ),
+//                               const Spacer(),
+//                             ],
+//                           ),
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 )
+//               ],
+//             ),
+//             // const Spacer(),
+//             Column(
+//               mainAxisAlignment: MainAxisAlignment.end,
+//               children: [
+//                 isFavourated == true
+//                     ? InkWell(
+//                         borderRadius: BorderRadius.circular(50),
+//                         onTap: addOrRemoveFav,
+//                         child: SvgPicture.asset(
+//                           width: 20,
+//                           height: 20,
+//                           AppImagesSvg.favourFilledSvg,
+//                         ),
+//                       )
+//                     : InkWell(
+//                         borderRadius: BorderRadius.circular(50),
+//                         onTap: addOrRemoveFav,
+//                         child: SvgPicture.asset(
+//                           width: 20,
+//                           height: 20,
+//                           AppImagesSvg.favourtsStorkSvg,
+//                         ),
+//                       ),
+//               ],
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

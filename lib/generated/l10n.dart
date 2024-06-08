@@ -550,6 +550,16 @@ class S {
     );
   }
 
+  /// `Quantity`
+  String get Quantity {
+    return Intl.message(
+      'Quantity',
+      name: 'Quantity',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `show all`
   String get showAll {
     return Intl.message(
