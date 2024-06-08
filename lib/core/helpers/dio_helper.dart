@@ -31,6 +31,12 @@ class DioHelper {
   static const String getCartUrl = "/cartMobile/open/";
   static const String postAddToCartUrl = "/cartMobile/add/";
 
+
+  static const String getProductsCalculationsUrl = "/review/calculate/";
+
+
+  
+
   static Dio? _dio;
 
   // #### dio init #### //
@@ -257,6 +263,24 @@ class DioHelper {
       throw Exception(e);
     }
   }
+
+
+  // #### getProductsCalculations #### //
+  static Future<Response> getProductsCalculations(
+      {required final String? productID}) async {
+    try {
+      final response = await _dio!.get(getProductsCalculationsUrl + productID.toString(), data: {
+        // "page": 1,
+        // "collection": productID,
+      });
+
+      return response;
+    } catch (e) {
+      throw Exception('Failed to get Product calculations: $e');
+    }
+  }
+
+
 
   // #### genral dio getData #### //
   static Future<Response> getData({
