@@ -70,7 +70,7 @@
     "allCategoris": "كل التصنيفات ", 
     "categorys": "التصنيفات", 
     "category": "التصنيف", 
-    "Quantity": "الكمية", 
+    "quantity": "الكمية", 
     "showAll": "عرض الكل",
     "searchYourProduct": "ابحث عن منتجك", 
     "aed": "درهم",
@@ -92,9 +92,14 @@
     "changeLanguage":"تغير اللغه", 
     "notificationSettings":"اعدادات الاشعارات", 
     "helpCenter":"مركز المساعده",
-    "accountSettings":"اعدادت الحساب"
+    "accountSettings":"اعدادت الحساب", 
 
 
+
+
+
+
+    "unKnownError":"خطاء غير معروف"
 
 
 

@@ -65,7 +65,7 @@
     "allCategoris": "all catigory ", 
     "categorys": "categorys", 
     "category": "category", 
-    "Quantity": "Quantity", 
+    "quantity": "Quantity", 
     "showAll": "show all",
     "searchYourProduct": "search your product", 
     "aed": "AED",
@@ -85,7 +85,14 @@
     "changeLanguage":"change language", 
     "notificationSettings":"notifications settings", 
     "helpCenter":"help center",
-    "accountSettings":"account settings"
+    "accountSettings":"account settings", 
+
+
+
+
+
+    "unKnownError":"unKnown Error !!!"
+
 
 
 
