@@ -551,10 +551,10 @@ class S {
   }
 
   /// `Quantity`
-  String get Quantity {
+  String get quantity {
     return Intl.message(
       'Quantity',
-      name: 'Quantity',
+      name: 'quantity',
       desc: '',
       args: [],
     );
@@ -675,6 +675,16 @@ class S {
     return Intl.message(
       'account settings',
       name: 'accountSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `unKnown Error !!!`
+  String get unKnownError {
+    return Intl.message(
+      'unKnown Error !!!',
+      name: 'unKnownError',
       desc: '',
       args: [],
     );

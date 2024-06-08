@@ -38,6 +38,7 @@ import 'package:select_shop/view/language/bloc/localization_bloc.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
 import 'package:select_shop/view/payment/payment.dart';
 import 'package:select_shop/view/product%20details%20collection/adding%20to%20cart%20button%20bloc/adding_to_cart_button_bloc.dart';
+import 'package:select_shop/view/product%20details%20genral/prod%20deta%20gen%20bloc/prod%20calcu%20bloc/prod_calcu_bloc.dart';
 import 'package:select_shop/view/product%20details%20genral/product_details_genral_screen.dart';
 import 'package:select_shop/view/products%20of%20category/pro%20of%20cat%20bloc/pro_of_cat_bloc.dart';
 import 'package:select_shop/view/products%20of%20category/product%20of%20main%20cate%20bloc/product_of_main_category_bloc.dart';
@@ -135,6 +136,11 @@ class _MyAppState extends State<MyApp> {
           BlocProvider<CartBloc>(create: (context) => CartBloc()),
           BlocProvider<AddingToCartButtonBloc>(
               create: (context) => AddingToCartButtonBloc()),
+
+ BlocProvider<ProdCalcuBloc>(
+              create: (context) => ProdCalcuBloc()),
+              
+
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
           builder: (context, state) {

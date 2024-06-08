@@ -535,7 +535,7 @@ class _TagAndFavRow extends StatelessWidget {
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "${S.of(context).Quantity}: ", // Assuming you have `quantity` in your localization file
+                    "${S.of(context).quantity}: ", // Assuming you have `quantity` in your localization file
                     style: TextStyle(fontSize: 10, color: AppColors.mainColor),
                     // textAlign: TextAlign.center,
                   ),

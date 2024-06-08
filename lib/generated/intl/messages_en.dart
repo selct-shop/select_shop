@@ -22,7 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "Quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "accountSettings":
             MessageLookupByLibrary.simpleMessage("account settings"),
         "addLocation": MessageLookupByLibrary.simpleMessage("add location"),
@@ -70,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "personalPage": MessageLookupByLibrary.simpleMessage("personal"),
         "phoneNum": MessageLookupByLibrary.simpleMessage("phone number"),
         "products": MessageLookupByLibrary.simpleMessage("products"),
+        "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("reset password"),
         "search": MessageLookupByLibrary.simpleMessage("search"),
         "searchYourProduct":
@@ -95,6 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "theNew": MessageLookupByLibrary.simpleMessage("new"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("best seller"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("trad marks"),
+        "unKnownError":
+            MessageLookupByLibrary.simpleMessage("unKnown Error !!!"),
         "userAgrement": MessageLookupByLibrary.simpleMessage(
             "I agree to all terms, privacy policy and fees"),
         "userEmail":

@@ -22,7 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "Quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "accountSettings":
             MessageLookupByLibrary.simpleMessage("اعدادت الحساب"),
         "addLocation": MessageLookupByLibrary.simpleMessage("المواقع"),
@@ -70,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "personalPage": MessageLookupByLibrary.simpleMessage("المستخدم"),
         "phoneNum": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
+        "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
         "search": MessageLookupByLibrary.simpleMessage("ابحث"),
@@ -95,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "theNew": MessageLookupByLibrary.simpleMessage("جديد"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("الافضل مبيعا"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("العلامات التجاريه"),
+        "unKnownError": MessageLookupByLibrary.simpleMessage("خطاء غير معروف"),
         "userAgrement": MessageLookupByLibrary.simpleMessage(
             "أوافق على جميع الشروط وسياسة الخصوصية والرسوم"),
         "userEmail":
