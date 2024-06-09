@@ -22,23 +22,30 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "PaymentOnRecive":
+            MessageLookupByLibrary.simpleMessage("payment on recive"),
         "accountSettings":
             MessageLookupByLibrary.simpleMessage("account settings"),
         "addLocation": MessageLookupByLibrary.simpleMessage("add location"),
         "aed": MessageLookupByLibrary.simpleMessage("AED"),
         "allCategoris": MessageLookupByLibrary.simpleMessage("all catigory "),
         "backToSignIn": MessageLookupByLibrary.simpleMessage("back to signin"),
+        "brand": MessageLookupByLibrary.simpleMessage("brand"),
+        "brandDetails": MessageLookupByLibrary.simpleMessage("brnad details"),
         "category": MessageLookupByLibrary.simpleMessage("category"),
         "categorys": MessageLookupByLibrary.simpleMessage("categorys"),
         "changeLanguage":
             MessageLookupByLibrary.simpleMessage("change language"),
         "checkNetwork":
             MessageLookupByLibrary.simpleMessage("please check your network"),
+        "checkOut": MessageLookupByLibrary.simpleMessage("checkOut"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("confirm new password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("contact us"),
         "description": MessageLookupByLibrary.simpleMessage("description"),
+        "earnFreePoints":
+            MessageLookupByLibrary.simpleMessage("earn free ponints"),
         "editUser":
             MessageLookupByLibrary.simpleMessage("edit personal profile"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
@@ -47,9 +54,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterEmailToResetTwo":
             MessageLookupByLibrary.simpleMessage("your password"),
         "error": MessageLookupByLibrary.simpleMessage("error"),
+        "fastShipment": MessageLookupByLibrary.simpleMessage("fast shipment"),
         "favourts": MessageLookupByLibrary.simpleMessage("favourts"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("forgot password?"),
+        "freeReturn": MessageLookupByLibrary.simpleMessage("free return"),
         "helpCenter": MessageLookupByLibrary.simpleMessage("help center"),
         "homePage": MessageLookupByLibrary.simpleMessage("home"),
         "limitedOffers": MessageLookupByLibrary.simpleMessage("limited offers"),
@@ -77,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("search your product"),
         "selectShop": MessageLookupByLibrary.simpleMessage("select shop"),
         "sendCode": MessageLookupByLibrary.simpleMessage("send code"),
+        "shipmentAllUAE":
+            MessageLookupByLibrary.simpleMessage("Shipment for all UAE"),
         "shopNow": MessageLookupByLibrary.simpleMessage("shop now"),
         "showAll": MessageLookupByLibrary.simpleMessage("show all"),
         "show_all": MessageLookupByLibrary.simpleMessage("show all"),

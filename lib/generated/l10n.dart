@@ -620,6 +620,86 @@ class S {
     );
   }
 
+  /// `Shipment for all UAE`
+  String get shipmentAllUAE {
+    return Intl.message(
+      'Shipment for all UAE',
+      name: 'shipmentAllUAE',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `fast shipment`
+  String get fastShipment {
+    return Intl.message(
+      'fast shipment',
+      name: 'fastShipment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `payment on recive`
+  String get PaymentOnRecive {
+    return Intl.message(
+      'payment on recive',
+      name: 'PaymentOnRecive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `free return`
+  String get freeReturn {
+    return Intl.message(
+      'free return',
+      name: 'freeReturn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `earn free ponints`
+  String get earnFreePoints {
+    return Intl.message(
+      'earn free ponints',
+      name: 'earnFreePoints',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `brand`
+  String get brand {
+    return Intl.message(
+      'brand',
+      name: 'brand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `brnad details`
+  String get brandDetails {
+    return Intl.message(
+      'brnad details',
+      name: 'brandDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `checkOut`
+  String get checkOut {
+    return Intl.message(
+      'checkOut',
+      name: 'checkOut',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `error`
   String get error {
     return Intl.message(

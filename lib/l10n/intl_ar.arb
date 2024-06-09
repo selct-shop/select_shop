@@ -76,9 +76,19 @@
     "showAll": "عرض الكل",
     "searchYourProduct": "ابحث عن منتجك", 
     "aed": "درهم",
-    
-    
-    "shopNow": "تسوق الان", 
+    "shopNow": "تسوق الان",
+    "shipmentAllUAE":"شحن لجميع انحاء الامارات", 
+    "fastShipment":"شحن سريع", 
+    "PaymentOnRecive":"الدفع عند الاستلام", 
+    "freeReturn":"اعاده مجانيه", 
+    "earnFreePoints":"احصل علي نقاط, و خصومات", 
+    "brand": "البراند",
+    "brandDetails": "تفاصيل البراند",
+    "checkOut": "اطلب",
+    "error": "خطاء",
+
+
+ 
 
 
     "error": "خطاء",

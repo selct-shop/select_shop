@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "PaymentOnRecive":
+            MessageLookupByLibrary.simpleMessage("الدفع عند الاستلام"),
         "accountSettings":
             MessageLookupByLibrary.simpleMessage("اعدادت الحساب"),
         "addLocation": MessageLookupByLibrary.simpleMessage("المواقع"),
@@ -29,16 +31,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "allCategoris": MessageLookupByLibrary.simpleMessage("كل التصنيفات "),
         "backToSignIn":
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
+        "brand": MessageLookupByLibrary.simpleMessage("البراند"),
+        "brandDetails": MessageLookupByLibrary.simpleMessage("تفاصيل البراند"),
         "category": MessageLookupByLibrary.simpleMessage("التصنيف"),
         "categorys": MessageLookupByLibrary.simpleMessage("التصنيفات"),
         "changeLanguage": MessageLookupByLibrary.simpleMessage("تغير اللغه"),
         "checkNetwork":
             MessageLookupByLibrary.simpleMessage("الرجاء تفحص الانترنت لديك"),
+        "checkOut": MessageLookupByLibrary.simpleMessage("اطلب"),
         "confirm": MessageLookupByLibrary.simpleMessage("تاكيد"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
+        "earnFreePoints":
+            MessageLookupByLibrary.simpleMessage("احصل علي نقاط, و خصومات"),
         "editUser": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "enterEmailToResetOne": MessageLookupByLibrary.simpleMessage(
@@ -46,9 +53,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterEmailToResetTwo":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الخاصة بك"),
         "error": MessageLookupByLibrary.simpleMessage("خطاء"),
+        "fastShipment": MessageLookupByLibrary.simpleMessage("شحن سريع"),
         "favourts": MessageLookupByLibrary.simpleMessage("المفضله"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+        "freeReturn": MessageLookupByLibrary.simpleMessage("اعاده مجانيه"),
         "helpCenter": MessageLookupByLibrary.simpleMessage("مركز المساعده"),
         "homePage": MessageLookupByLibrary.simpleMessage("الرئسيه"),
         "limitedOffers":
@@ -78,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ابحث عن منتجك"),
         "selectShop": MessageLookupByLibrary.simpleMessage("سيلكت شوب"),
         "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
+        "shipmentAllUAE":
+            MessageLookupByLibrary.simpleMessage("شحن لجميع انحاء الامارات"),
         "shopNow": MessageLookupByLibrary.simpleMessage("تسوق الان"),
         "showAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "show_all": MessageLookupByLibrary.simpleMessage("عرض الكل"),

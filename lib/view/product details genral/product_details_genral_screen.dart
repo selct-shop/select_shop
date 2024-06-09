@@ -149,17 +149,26 @@ class _Body extends StatelessWidget {
                           ? cartItem.productAttribute.product.descriptionAr
                           : cartItem.productAttribute.product.descriptionEn),
 
-if (cartItem.productAttribute.product.productType == "onlyColors"||cartItem.productAttribute.product.productType == "colorsAndProps")
-              _ColorRow(
-                  theColor: cartItem.productAttribute.color.value ,
-                  ),
-              _SizeRow(
-                isActive: true,
-              ),
+              if (cartItem.productAttribute.product.productType ==
+                      "onlyColors" ||
+                  cartItem.productAttribute.product.productType ==
+                      "colorsAndProps")
+                _ColorRow(
+                  theColor: cartItem.productAttribute.color.value,
+                ),
 
-              _NumberOfStock(
-                stockNumber: 20.toString(),
-              ),
+              if (cartItem.productAttribute.product.productType ==
+                      "onlyProps" ||
+                  cartItem.productAttribute.product.productType ==
+                      "colorsAndProps")
+                _SizeRow(
+                  // isActive: true,
+                  propValue: cartItem.productAttribute.propValue,
+                ),
+
+              // _NumberOfStock(
+              //   stockNumber: 20.toString(),
+              // ),
             ],
           ),
         ),
@@ -174,34 +183,34 @@ if (cartItem.productAttribute.product.productType == "onlyColors"||cartItem.prod
             children: [
               _ShipmentTitleRow(),
               _CustomShipmentListTile(
-                discription: "fast shipment",
+                discription: S.of(context).fastShipment,
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImagesSvg.homeSvg,
+                svgImgName: AppImagesSvg.truckSvg,
                 onTap: () {},
                 haveDivider: true,
               ),
               _CustomShipmentListTile(
-                discription: "payment on recive",
+                discription: S.of(context).PaymentOnRecive,
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImagesSvg.homeSvg,
+                svgImgName: AppImagesSvg.cashSvg,
                 onTap: () {},
                 haveDivider: true,
               ),
               _CustomShipmentListTile(
-                discription: "free return",
+                discription: S.of(context).freeReturn,
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImagesSvg.homeSvg,
+                svgImgName: AppImagesSvg.returnSvg,
                 onTap: () {},
                 haveDivider: true,
               ),
               _CustomShipmentListTile(
-                discription: "earn free points",
+                discription: S.of(context).earnFreePoints,
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
-                svgImgName: AppImagesSvg.homeSvg,
+                svgImgName: AppImagesSvg.giftSvg,
                 onTap: () {},
                 // haveDivider: true,
               ),
@@ -270,8 +279,11 @@ if (cartItem.productAttribute.product.productType == "onlyColors"||cartItem.prod
             horizontal: 10,
           ),
           child: _BrandNameAndDetialsWidget(
-            theBrandName: "chanel",
-            theNumberOfProducts: 342.0,
+            theImageUrl: cartItem.productAttribute.product.brand.image,
+            theBrandName: Localizations.localeOf(context).languageCode == "ar"
+                ? cartItem.productAttribute.product.brand.nameAr
+                : cartItem.productAttribute.product.brand.nameEn,
+            // theNumberOfProducts: 342.0,
           ),
         ),
         Container(
@@ -468,13 +480,13 @@ class _AddToCartAndFavRow extends StatelessWidget {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(10),
                   onTap: () {
-                    // add to cart and navigate to cart
+                    // navigate to checkout screen
 
                     // print("teeeeeeeeeeeeeesttttt addddd to cart");
                   },
                   child: Center(
                     child: Text(
-                      "add to cart",
+                      S.of(context).checkOut,
                       // textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -486,246 +498,246 @@ class _AddToCartAndFavRow extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-            Container(
-              width: 55,
-              // width: 100,
+//             SizedBox(
+//               height: 10,
+//               width: 10,
+//             ),
+//             Container(
+//               width: 55,
+//               // width: 100,
 
-              height: 45,
-              padding: EdgeInsets.symmetric(
-                horizontal: 12.5,
-              ),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: AppColors.mainColor,
-                ),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(10),
-                onTap: () {
-                  // trigger add to fav
-                  // print('tesssssssssssssssttttt');
-                },
-                // onHover: (value) {},
-                child: Expanded(
-                  child: DropdownMenu(
-                    // label: Row(
-                    //   children: [
-                    //     Icon(
-                    //       Icons.arrow_downward_rounded,
-                    //       color: AppColors.mainColor,
-                    //     ),
-                    //     VerticalDivider(
-                    //       color: AppColors.mainColor,
-                    //       // thickness: 2,
-                    //     ),
-                    //     Text("22"),
-                    //   ],
-                    // ),
+//               height: 45,
+//               padding: EdgeInsets.symmetric(
+//                 horizontal: 12.5,
+//               ),
+//               decoration: BoxDecoration(
+//                 border: Border.all(
+//                   color: AppColors.mainColor,
+//                 ),
+//                 borderRadius: BorderRadius.circular(10),
+//                 color: Colors.white,
+//               ),
+//               child: InkWell(
+//                 borderRadius: BorderRadius.circular(10),
+//                 onTap: () {
+//                   // trigger add to fav
+//                   // print('tesssssssssssssssttttt');
+//                 },
+//                 // onHover: (value) {},
+//                 child: Expanded(
+//                   child: DropdownMenu(
+//                     // label: Row(
+//                     //   children: [
+//                     //     Icon(
+//                     //       Icons.arrow_downward_rounded,
+//                     //       color: AppColors.mainColor,
+//                     //     ),
+//                     //     VerticalDivider(
+//                     //       color: AppColors.mainColor,
+//                     //       // thickness: 2,
+//                     //     ),
+//                     //     Text("22"),
+//                     //   ],
+//                     // ),
 
-                    // leadingIcon: Row(
-                    //   children: [
-                    //     Icon(
-                    //       Icons.arrow_downward_rounded,
-                    //       color: AppColors.mainColor,
-                    //     ),
-                    //     VerticalDivider(
-                    //       color: AppColors.mainColor,
-                    //       // thickness: 2,
-                    //     ),
-                    //     Text("22"),
-                    //   ],
-                    // ),
+//                     // leadingIcon: Row(
+//                     //   children: [
+//                     //     Icon(
+//                     //       Icons.arrow_downward_rounded,
+//                     //       color: AppColors.mainColor,
+//                     //     ),
+//                     //     VerticalDivider(
+//                     //       color: AppColors.mainColor,
+//                     //       // thickness: 2,
+//                     //     ),
+//                     //     Text("22"),
+//                     //   ],
+//                     // ),
 
-                    //
-                    //
-                    //
+//                     //
+//                     //
+//                     //
 
-                    // leadingIcon: Icon(
-                    //   Icons.arrow_downward_rounded,
-                    //   color: AppColors.mainColor,
-                    //   size: 10,
-                    // ),
+//                     // leadingIcon: Icon(
+//                     //   Icons.arrow_downward_rounded,
+//                     //   color: AppColors.mainColor,
+//                     //   size: 10,
+//                     // ),
 
-                    enableSearch: true,
-                    onSelected: (value) {
-                      print(value);
-                    },
-                    initialSelection: "1",
-                    menuHeight: 150,
-                    width: 25,
-
-                    menuStyle: MenuStyle(
-                      alignment: Alignment.center,
-                      // backgroundColor:
-                      // MaterialStateProperty.all(AppColors.mainColor),
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
-
-                      surfaceTintColor:
-                          MaterialStateProperty.all(AppColors.grey2Color),
-                      // surfaceTintColor:
-                      //     MaterialStatePropertyAll(Colors.transparent),
-                    ),
-                    dropdownMenuEntries: [
-                      DropdownMenuEntry(
-                        value: String,
-                        label: '1',
-                        labelWidget:
-                            Text('1', style: _customDropdownlistItemTextStyle),
-                      ),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '2',
-                          labelWidget: Text(
-                            "2",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '3',
-                          labelWidget: Text(
-                            "3",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '4',
-                          labelWidget: Text(
-                            "4",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '5',
-                          labelWidget: Text(
-                            "5",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '6',
-                          labelWidget: Text(
-                            "6",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '7',
-                          labelWidget: Text(
-                            "7",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '8',
-                          labelWidget: Text(
-                            "8",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                      DropdownMenuEntry(
-                          value: String,
-                          label: '9',
-                          labelWidget: Text(
-                            "9",
-                            style: _customDropdownlistItemTextStyle,
-                          )),
-                    ],
-
-                    // initialSelection: int,
-                  ),
-
-//                   child: CustomDropdown<String>(
-
-//                     // canCloseOutsideBounds: true,
-// // overlayHeight:  ,
-
-//                     listItemPadding: EdgeInsets.symmetric(
-//                       horizontal: 6,
-//                       vertical: 10,
-//                     ),
-//                     // hintText: 'Select items count',
-//                     items: [
-//                       "1",
-//                       "2",
-//                       "3",
-//                       "4",
-//                       "5",
-//                       "6",
-//                       "7",
-//                       "8",
-//                       "9",
-//                     ],
-//                     initialItem: "1",
-//                     maxlines: 1,
-// // listItemBuilder: (context, item, isSelected, onItemSelect) {
-
-// // },
-
-//                     itemsListPadding: EdgeInsets.symmetric(
-//                       horizontal: 0,
-//                       vertical: 0,
-//                     ),
-//                     // headerBuilder: (context, selectedItem) {
-//                     //   return const SizedBox();
-//                     // },
-
-//                     decoration: CustomDropdownDecoration(
-//                         listItemStyle: TextStyle(
-//                       color: AppColors.mainColor,
-//                       fontWeight: FontWeight.bold,
-//                       fontSize: 20,
-//                       height: .5,
-//                     )),
-//                     onChanged: (value) {
-//                       log('changing value to: $value');
+//                     enableSearch: true,
+//                     onSelected: (value) {
+//                       print(value);
 //                     },
+//                     initialSelection: "1",
+//                     menuHeight: 150,
+//                     width: 25,
+
+//                     menuStyle: MenuStyle(
+//                       alignment: Alignment.center,
+//                       // backgroundColor:
+//                       // MaterialStateProperty.all(AppColors.mainColor),
+//                       backgroundColor: MaterialStateProperty.all(Colors.white),
+
+//                       surfaceTintColor:
+//                           MaterialStateProperty.all(AppColors.grey2Color),
+//                       // surfaceTintColor:
+//                       //     MaterialStatePropertyAll(Colors.transparent),
+//                     ),
+//                     dropdownMenuEntries: [
+//                       DropdownMenuEntry(
+//                         value: String,
+//                         label: '1',
+//                         labelWidget:
+//                             Text('1', style: _customDropdownlistItemTextStyle),
+//                       ),
+//                       DropdownMenuEntry(
+//                           value: String,
+//                           label: '2',
+//                           labelWidget: Text(
+//                             "2",
+//                             style: _customDropdownlistItemTextStyle,
+//                           )),
+//                       DropdownMenuEntry(
+//                           value: String,
+//                           label: '3',
+//                           labelWidget: Text(
+//                             "3",
+//                             style: _customDropdownlistItemTextStyle,
+//                           )),
+//                       DropdownMenuEntry(
+//                           value: String,
+//                           label: '4',
+//                           labelWidget: Text(
+//                             "4",
+//                             style: _customDropdownlistItemTextStyle,
+//                           )),
+//                       DropdownMenuEntry(
+//                           value: String,
+//                           label: '5',
+//                           labelWidget: Text(
+//                             "5",
+//                             style: _customDropdownlistItemTextStyle,
+//                           )),
+//                       DropdownMenuEntry(
+//                           value: String,
+//                           label: '6',
+//                           labelWidget: Text(
+//                             "6",
+//                             style: _customDropdownlistItemTextStyle,
+//                           )),
+//                       DropdownMenuEntry(
+//                           value: String,
+//                           label: '7',
+//                           labelWidget: Text(
+//                             "7",
+//                             style: _customDropdownlistItemTextStyle,
+//                           )),
+//                       DropdownMenuEntry(
+//                           value: String,
+//                           label: '8',
+//                           labelWidget: Text(
+//                             "8",
+//                             style: _customDropdownlistItemTextStyle,
+//                           )),
+//                       DropdownMenuEntry(
+//                           value: String,
+//                           label: '9',
+//                           labelWidget: Text(
+//                             "9",
+//                             style: _customDropdownlistItemTextStyle,
+//                           )),
+//                     ],
+
+//                     // initialSelection: int,
 //                   ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
-            Container(
-              width: 55,
-              height: 45,
-              padding: EdgeInsets.symmetric(
-                horizontal: 12.5,
-              ),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: AppColors.mainColor,
-                ),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(10),
-                onTap: () {
-                  // trigger add to fav
-                  // print('tesssssssssssssssttttt');
-                },
-                // onHover: (value) {},
-                child: SizedBox(
-                  width: 30,
-                  height: 30,
-                  child: SvgPicture.asset(
-                    AppImagesSvg.favourtsStorkSvg,
-                    // alignment: Alignment.center,
-                  ),
-                ),
-              ),
-            ),
-            // SizedBox(
-            //   height: 10,
-            //   width: 10,
-            // ),
+
+// //                   child: CustomDropdown<String>(
+
+// //                     // canCloseOutsideBounds: true,
+// // // overlayHeight:  ,
+
+// //                     listItemPadding: EdgeInsets.symmetric(
+// //                       horizontal: 6,
+// //                       vertical: 10,
+// //                     ),
+// //                     // hintText: 'Select items count',
+// //                     items: [
+// //                       "1",
+// //                       "2",
+// //                       "3",
+// //                       "4",
+// //                       "5",
+// //                       "6",
+// //                       "7",
+// //                       "8",
+// //                       "9",
+// //                     ],
+// //                     initialItem: "1",
+// //                     maxlines: 1,
+// // // listItemBuilder: (context, item, isSelected, onItemSelect) {
+
+// // // },
+
+// //                     itemsListPadding: EdgeInsets.symmetric(
+// //                       horizontal: 0,
+// //                       vertical: 0,
+// //                     ),
+// //                     // headerBuilder: (context, selectedItem) {
+// //                     //   return const SizedBox();
+// //                     // },
+
+// //                     decoration: CustomDropdownDecoration(
+// //                         listItemStyle: TextStyle(
+// //                       color: AppColors.mainColor,
+// //                       fontWeight: FontWeight.bold,
+// //                       fontSize: 20,
+// //                       height: .5,
+// //                     )),
+// //                     onChanged: (value) {
+// //                       log('changing value to: $value');
+// //                     },
+// //                   ),
+//                 ),
+//               ),
+//             ),
+//             SizedBox(
+//               height: 10,
+//               width: 10,
+//             ),
+//             Container(
+//               width: 55,
+//               height: 45,
+//               padding: EdgeInsets.symmetric(
+//                 horizontal: 12.5,
+//               ),
+//               decoration: BoxDecoration(
+//                 border: Border.all(
+//                   color: AppColors.mainColor,
+//                 ),
+//                 borderRadius: BorderRadius.circular(10),
+//                 color: Colors.white,
+//               ),
+//               child: InkWell(
+//                 borderRadius: BorderRadius.circular(10),
+//                 onTap: () {
+//                   // trigger add to fav
+//                   // print('tesssssssssssssssttttt');
+//                 },
+//                 // onHover: (value) {},
+//                 child: SizedBox(
+//                   width: 30,
+//                   height: 30,
+//                   child: SvgPicture.asset(
+//                     AppImagesSvg.favourtsStorkSvg,
+//                     // alignment: Alignment.center,
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             // SizedBox(
+//             //   height: 10,
+//             //   width: 10,
+//             // ),
           ],
         ),
       ),
@@ -782,12 +794,13 @@ class _NavigateToAllCommentsWidget extends StatelessWidget {
 }
 
 class _BrandNameAndDetialsWidget extends StatelessWidget {
-  final String? theBrandName;
-  final double? theNumberOfProducts;
+  final String? theBrandName, theImageUrl;
+  // final double? theNumberOfProducts;
   const _BrandNameAndDetialsWidget({
     super.key,
     required this.theBrandName,
-    required this.theNumberOfProducts,
+    required this.theImageUrl,
+    // required this.theNumberOfProducts,
   });
 
   @override
@@ -798,29 +811,29 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
           height: 10,
         ),
         Container(
-          width: 120,
-          height: 80,
-          clipBehavior: Clip.hardEdge,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              10,
+            width: 120,
+            height: 80,
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                10,
+              ),
+              color: AppColors.mainColor,
             ),
-            color: AppColors.mainColor,
-          ),
-          // child: NetworkImage(
-          //   // imageUrl: AppConstants.cachedRandomeImage,
-          //   // fit: BoxFit.cover,
-
-          //   AppConstants.cachedRandomeImage
-          // ),
-        ),
+            child: Image(
+              image: NetworkImage(
+                theImageUrl ?? AppConstants.cachedRandomeNetworkImage,
+                // fit: BoxFit.cover,
+              ),
+              fit: BoxFit.cover,
+            )),
         const SizedBox(
           height: 15,
           width: 15,
         ),
         Row(
           children: [
-            const Spacer(),
+            // const Spacer(),
 
             Flexible(
               // first flexible
@@ -833,7 +846,7 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      alignment: Alignment.centerLeft,
+                      alignment: Alignment.center,
                       height: 32,
                       width: double.infinity,
                       child: RichText(
@@ -842,7 +855,7 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: "brand : ",
+                              text: "${S.of(context).brand} : ",
                               style: TextStyle(
                                 color: AppColors.mainColor,
                                 fontWeight: FontWeight.w400,
@@ -851,7 +864,7 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
                               ),
                             ),
                             TextSpan(
-                              text: theBrandName ?? "brand",
+                              text: theBrandName ?? S.of(context).brand,
                               style: TextStyle(
                                 overflow: TextOverflow.ellipsis,
                                 color: AppColors.greyColor,
@@ -895,7 +908,7 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          "brand details",
+                          S.of(context).brandDetails,
                           style: TextStyle(
                             color: AppColors.mainColor,
                             fontWeight: FontWeight.w400,
@@ -914,105 +927,105 @@ class _BrandNameAndDetialsWidget extends StatelessWidget {
             ///
             // const Spacer(),
             // const Spacer(),
-            AppConstants.emptySpaceTenPixl,
-            AppConstants.emptySpaceTenPixl,
+            // AppConstants.emptySpaceTenPixl,
+            // AppConstants.emptySpaceTenPixl,
 
             ///
             ///
 
-            Flexible(
-              // second flexible
-              flex: 5,
-              child: SizedBox(
-                height: 75,
-                width: double.infinity,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      height: 32,
-                      width: double.infinity,
-                      child: RichText(
-                        maxLines: 1,
-                        textAlign: TextAlign.start,
-                        text: TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: "show : ",
-                              style: TextStyle(
-                                color: AppColors.mainColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17,
-                                height: .8,
-                              ),
-                            ),
-                            TextSpan(
-                              text: theNumberOfProducts != null
-                                  ? theNumberOfProducts!.toInt().toString()
-                                  : "brand",
-                              style: TextStyle(
-                                overflow: TextOverflow.ellipsis,
-                                color: AppColors.greyColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17,
-                                height: .8,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    // SizedBox(
-                    //     height: 32,
-                    //     width: double.infinity,
-                    //     child: AppButton(
-                    //       title: "brand details",
-                    //       backgroundColor: Colors.white,
-                    //       onTap: () {
-                    //         // navigate to barnd details
-                    //       },
-                    //       borderColor: AppColors.mainColor,
-                    //       height: 25,
-                    //       textColor: AppColors.mainColor,
-                    //     )),
+            // Flexible(
+            //   // second flexible
+            //   flex: 5,
+            //   child: SizedBox(
+            //     height: 75,
+            //     width: double.infinity,
+            //     child: Column(
+            //       mainAxisSize: MainAxisSize.max,
+            //       crossAxisAlignment: CrossAxisAlignment.start,
+            //       children: [
+            //         Container(
+            //           alignment: Alignment.centerLeft,
+            //           height: 32,
+            //           width: double.infinity,
+            //           child: RichText(
+            //             maxLines: 1,
+            //             textAlign: TextAlign.start,
+            //             text: TextSpan(
+            //               children: <TextSpan>[
+            //                 TextSpan(
+            //                   text: "show : ",
+            //                   style: TextStyle(
+            //                     color: AppColors.mainColor,
+            //                     fontWeight: FontWeight.w400,
+            //                     fontSize: 17,
+            //                     height: .8,
+            //                   ),
+            //                 ),
+            //                 TextSpan(
+            //                   text: theNumberOfProducts != null
+            //                       ? theNumberOfProducts!.toInt().toString()
+            //                       : "brand",
+            //                   style: TextStyle(
+            //                     overflow: TextOverflow.ellipsis,
+            //                     color: AppColors.greyColor,
+            //                     fontWeight: FontWeight.w400,
+            //                     fontSize: 17,
+            //                     height: .8,
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //         ),
+            //         // SizedBox(
+            //         //     height: 32,
+            //         //     width: double.infinity,
+            //         //     child: AppButton(
+            //         //       title: "brand details",
+            //         //       backgroundColor: Colors.white,
+            //         //       onTap: () {
+            //         //         // navigate to barnd details
+            //         //       },
+            //         //       borderColor: AppColors.mainColor,
+            //         //       height: 25,
+            //         //       textColor: AppColors.mainColor,
+            //         //     )),
 
-                    InkWell(
-                      borderRadius: AppConstants.theNewBorderRadius,
-                      onTap: () {
-                        // navigate to brand details
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 32,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          // borderRadius: BorderRadius.circular(5),
-                          borderRadius: AppConstants.theNewBorderRadius,
-                          color: AppColors.mainColor,
-                          border: Border.all(
-                            color: AppColors.mainColor,
-                          ),
-                        ),
-                        child: Text(
-                          "show all products",
-                          style: TextStyle(
-                            // color: AppColors.mainColor,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14,
-                            height: .8,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            //         InkWell(
+            //           borderRadius: AppConstants.theNewBorderRadius,
+            //           onTap: () {
+            //             // navigate to brand details
+            //           },
+            //           child: Container(
+            //             width: double.infinity,
+            //             height: 32,
+            //             alignment: Alignment.center,
+            //             decoration: BoxDecoration(
+            //               // borderRadius: BorderRadius.circular(5),
+            //               borderRadius: AppConstants.theNewBorderRadius,
+            //               color: AppColors.mainColor,
+            //               border: Border.all(
+            //                 color: AppColors.mainColor,
+            //               ),
+            //             ),
+            //             child: Text(
+            //               "show all products",
+            //               style: TextStyle(
+            //                 // color: AppColors.mainColor,
+            //                 color: Colors.white,
+            //                 fontWeight: FontWeight.w500,
+            //                 fontSize: 14,
+            //                 height: .8,
+            //               ),
+            //             ),
+            //           ),
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // ),
 
-            const Spacer(),
+            // const Spacer(),
           ],
         )
       ],
@@ -1519,7 +1532,9 @@ class _DiscriptionRow extends StatelessWidget {
           Text(
             "${S.of(context).description}:",
             overflow: TextOverflow.ellipsis,
-            style: _customBodyTextStyle.copyWith(),
+            style: _customBodyTextStyle.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
             maxLines: 1,
           ),
           const SizedBox(
@@ -1596,7 +1611,6 @@ class _ColorRow extends StatelessWidget {
     return Color(int.parse(hexColor, radix: 16));
   }
 
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -1606,8 +1620,7 @@ class _ColorRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            S.of(context).theColor
-            ,
+            S.of(context).theColor,
             overflow: TextOverflow.ellipsis,
             style: _customTitleTextStyle,
           ),
@@ -1616,17 +1629,17 @@ class _ColorRow extends StatelessWidget {
           ),
           Row(
             children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 3),
-                  width: 18,
-                  height: 18,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    // color: Colors.yellowAccent,
-                     color: getColorFromHex(theColor!), // Convert the string to a Color
-                           
-                  ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 3),
+                width: 18,
+                height: 18,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  // color: Colors.yellowAccent,
+                  color: getColorFromHex(
+                      theColor!), // Convert the string to a Color
                 ),
+              ),
             ],
           ),
         ],
@@ -1636,13 +1649,16 @@ class _ColorRow extends StatelessWidget {
 }
 
 class _SizeRow extends StatelessWidget {
-  final bool? isActive;
+  // final bool? isActive;
   // final String? sizes;
+
+  final PropValue propValue;
 
   _SizeRow({
     super.key,
     // required this.sizes,
-    required this.isActive,
+    // required this.isActive,
+    required this.propValue,
   });
 
   @override
@@ -1654,7 +1670,9 @@ class _SizeRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "size :",
+            Localizations.localeOf(context).languageCode == "ar"
+                ? propValue.productPropName.nameAr
+                : propValue.productPropName.nameEn,
             overflow: TextOverflow.ellipsis,
             style: _customTitleTextStyle,
           ),
@@ -1667,19 +1685,24 @@ class _SizeRow extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 3, vertical: 3),
                 decoration: BoxDecoration(
-                    color:
-                        isActive == true ? AppColors.mainColor : Colors.white,
-                    border: Border.all(
-                      color: isActive == true
-                          ? AppColors.mainColor
-                          : AppColors.grey2Color,
-                    ),
-                    borderRadius: BorderRadius.circular(5)),
+                  color:
+                      // isActive == true ? AppColors.mainColor : Colors.white,
+                      AppColors.mainColor,
+                  border: Border.all(
+                    // color: isActive == true
+                    //     ? AppColors.mainColor
+                    //     : AppColors.grey2Color,
+                    color: AppColors.mainColor,
+                  ),
+                  borderRadius: BorderRadius.circular(5),
+                ),
                 child: Text(
-                  "XXL".toUpperCase(),
+                  // "XXL".toUpperCase(),
+                  propValue.value.toUpperCase(),
                   style: TextStyle(
                     color:
-                        isActive == true ? Colors.white : AppColors.grey2Color,
+                        // isActive == true ? Colors.white : AppColors.grey2Color,
+                        Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                     height: .8,
@@ -1708,7 +1731,7 @@ class _ShipmentTitleRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "Shipment for all UAE",
+            S.of(context).shipmentAllUAE,
             overflow: TextOverflow.ellipsis,
             style: _customTitleTextStyle.copyWith(
               color: AppColors.mainColor,
