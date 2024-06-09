@@ -57,6 +57,8 @@ class _ProductCart extends StatelessWidget {
               context,
               ProductDetailsGenralScreen(
                 productId: cartItem.productAttribute.productId,
+
+                cartItem:    cartItem,
               ));
         },
         child: Container(

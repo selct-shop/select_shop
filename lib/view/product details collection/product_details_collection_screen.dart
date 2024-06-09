@@ -485,7 +485,8 @@ class _AddToCartAndFavRow extends StatelessWidget {
                       color: AppColors.mainColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: BlocBuilder<AddingToCartButtonBloc, AddingToCartButtonState>(
+                    child: BlocBuilder<AddingToCartButtonBloc,
+                        AddingToCartButtonState>(
                       builder: (context, state) {
                         return InkWell(
                           borderRadius: BorderRadius.circular(10),
@@ -494,14 +495,12 @@ class _AddToCartAndFavRow extends StatelessWidget {
 
                             // print("teeeeeeeeeeeeeesttttt addddd to cart");
 
-                           
-                              context.read<AddingToCartButtonBloc>().add(
-                                  AddToCarrrtEvent(
-                                      productAttrubuteId: productAttributeId));
-                            
+                            context.read<AddingToCartButtonBloc>().add(
+                                AddToCarrrtEvent(
+                                    productAttrubuteId: productAttributeId));
                           },
                           child: Center(
-                            child: state is  AddiiiingToCartButtonLoadingState
+                            child: state is AddiiiingToCartButtonLoadingState
                                 ? Center(
                                     child: CircularProgressIndicator(
                                       color: Colors.white,

@@ -20,6 +20,7 @@ import 'package:select_shop/main.dart';
 // import 'package:select_shop/models/the%20product/the_product_modle.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
+import 'package:select_shop/view/cart/model/cart_model.dart';
 import 'package:select_shop/view/product%20details%20genral/prod%20deta%20gen%20bloc/prod%20calcu%20bloc/prod_calcu_bloc.dart';
 
 // Key prodcutImageKey = key();
@@ -45,11 +46,13 @@ TextStyle _customDropdownlistItemTextStyle = TextStyle(
 class ProductDetailsGenralScreen extends StatefulWidget {
   // final CollectionProduct theCollectionProductModle;
   // final TheProductModle theProductModle;
+  final CartItem cartItem;
   final int productId;
   const ProductDetailsGenralScreen({
     super.key,
     // required this.theProductModle,
     // required this.theCollectionProductModle,
+    required this.cartItem,
     required this.productId,
   });
 
@@ -67,7 +70,9 @@ class _ProductDetailsGenralScreenState
           child: SingleChildScrollView(
         child: Column(
           children: [
-            _ProductPicticher(),
+            _ProductPicticher(
+              imageCartProductList: widget.cartItem.productAttribute.images,
+            ),
             _Body(
               productID: widget.productId,
             ),
@@ -1977,8 +1982,10 @@ class _TitleRow extends StatelessWidget {
 }
 
 class _ProductPicticher extends StatelessWidget {
+  final List<ImageCartProduct> imageCartProductList;
   const _ProductPicticher({
     super.key,
+    required this.imageCartProductList,
   });
 
   @override
@@ -1996,7 +2003,9 @@ class _ProductPicticher extends StatelessWidget {
           //         AppImages.mainCarouselSliderPng)),
 
           Expanded(
-            child: _CustomCarsoulSlider(),
+            child: _CustomCarsoulSlider(
+              imageCartProductList: imageCartProductList,
+            ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -2036,9 +2045,101 @@ class _ProductPicticher extends StatelessWidget {
   }
 }
 
+// class _CustomCarsoulSlider extends StatelessWidget {
+//   final List<ImageCartProduct> imageCartProductList;
+
+//   const _CustomCarsoulSlider({super.key, required this.imageCartProductList});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Stack(
+//       children: [
+//         Container(
+//           width: double.infinity,
+//           height: double.infinity,
+//           decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+//           clipBehavior: Clip.hardEdge,
+//           child: CarouselSlider(
+//             options: CarouselOptions(
+//               viewportFraction: 1,
+//               // height: 75,
+
+//               // scrollDirection: Axis.vertical,
+//               autoPlay: true,
+//               autoPlayInterval: Duration(seconds: 3),
+
+//               onPageChanged: (index, reason) {
+//                 // context
+//                 //     .read<HomeBloc>()
+//                 //     .onCarouselSliderPageChanged(index: index);
+//               },
+//             ),
+//             // items: imageCartProductList.map((i) {
+//             //   return Builder(
+//             //     builder: (BuildContext context) {
+//             //       return Image(
+//             //           height: double.infinity,
+//             //           width: double.infinity,
+//             //           fit: BoxFit.cover,
+//             //           image: NetworkImage(
+//             //             globalDefaltCachedNetworkImage,
+//             //           ));
+//             //     },
+//             //   );
+//             // }).toList(),
+
+//             items: [
+//               for (int i = 1; i <= imageCartProductList.length; i++)
+//                 Image(
+//                     height: double.infinity,
+//                     width: double.infinity,
+//                     fit: BoxFit.cover,
+//                     image: NetworkImage(
+//                       imageCartProductList[i].imageUrl,
+//                     )),
+//             ],
+//           ),
+//         ),
+//         // Positioned(
+//         //   left: 10,
+//         //   top: 46,
+//         //   child: SizedBox(
+//         //     height: 80,
+//         //     // width: 5,
+//         //     child: Column(
+//         //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         //       children: [
+//         //         for (int i = 0; i < 3; i++)
+//         //           AnimatedContainer(
+//         //             duration: Duration(seconds: 1),
+//         //             // width: _currentIndex == i ? 20 : 8.0,
+//         //             width: 5,
+//         //             height: 20,
+//         //             margin: EdgeInsets.symmetric(horizontal: 2.0),
+//         //             decoration: BoxDecoration(
+//         //                 // shape: BoxShape.circle,
+//         //                 // color:
+//         //                 //     context.read<HomeBloc>().currentCarouselSliderIndex ==
+//         //                 //             i
+//         //                 //         ? AppColors.mainColor
+//         //                 //         : Colors.grey,
+//         //                 ),
+//         //           ),
+//         //       ],
+//         //     ),
+//         //   ),
+//         // ),
+//       ],
+//     );
+//   }
+// }
+
 class _CustomCarsoulSlider extends StatelessWidget {
+  final List<ImageCartProduct> imageCartProductList;
+
   const _CustomCarsoulSlider({
     super.key,
+    required this.imageCartProductList,
   });
 
   @override
@@ -2048,12 +2149,14 @@ class _CustomCarsoulSlider extends StatelessWidget {
         Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+          decoration: BoxDecoration(
+              // borderRadius: BorderRadius.circular(15),
+              ),
           clipBehavior: Clip.hardEdge,
           child: CarouselSlider(
             options: CarouselOptions(
               viewportFraction: 1,
-              // height: 75,
+              height: double.infinity,
 
               // scrollDirection: Axis.vertical,
               autoPlay: true,
@@ -2061,54 +2164,29 @@ class _CustomCarsoulSlider extends StatelessWidget {
 
               onPageChanged: (index, reason) {
                 // context
-                //     .read<HomeBloc>()
-                //     .onCarouselSliderPageChanged(index: index);
+                //     .read<ActiveProductImageTagCubit>()
+                //     .changeTheActiveImage(index);
+                // print(
+                //     "neeeeeeeeeeeeeeeeeeeeeeeeeee${context.read<ProductDetailsBloc>().activeProductImage}");
               },
             ),
-            items: [1, 2, 3].map((i) {
+            items: imageCartProductList.map((productImage) {
               return Builder(
-                builder: (BuildContext context) {
+                builder: (
+                  BuildContext context,
+                ) {
                   return Image(
                       height: double.infinity,
                       width: double.infinity,
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                        globalDefaltCachedNetworkImage,
+                        productImage.imageUrl,
                       ));
                 },
               );
             }).toList(),
           ),
         ),
-        // Positioned(
-        //   left: 10,
-        //   top: 46,
-        //   child: SizedBox(
-        //     height: 80,
-        //     // width: 5,
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //       children: [
-        //         for (int i = 0; i < 3; i++)
-        //           AnimatedContainer(
-        //             duration: Duration(seconds: 1),
-        //             // width: _currentIndex == i ? 20 : 8.0,
-        //             width: 5,
-        //             height: 20,
-        //             margin: EdgeInsets.symmetric(horizontal: 2.0),
-        //             decoration: BoxDecoration(
-        //                 // shape: BoxShape.circle,
-        //                 // color:
-        //                 //     context.read<HomeBloc>().currentCarouselSliderIndex ==
-        //                 //             i
-        //                 //         ? AppColors.mainColor
-        //                 //         : Colors.grey,
-        //                 ),
-        //           ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }
