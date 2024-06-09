@@ -203,6 +203,33 @@ class AppLocalizationsAr extends AppLocalizations {
   String get comments => 'التعليقات';
 
   @override
+  String get deliverTo => 'توصيل الي';
+
+  @override
+  String get location => 'الموقع';
+
+  @override
+  String get paymentMethod => 'وسيلة الدفع';
+
+  @override
+  String get doYouHaveCopons => 'هل لديك كوبونات خصم';
+
+  @override
+  String get enterCoponCode => 'ادخل رمز الكوبون';
+
+  @override
+  String get price => 'السعر';
+
+  @override
+  String get taxes => 'الضريبه';
+
+  @override
+  String get deliveryPrice => 'رسوم التوصيل';
+
+  @override
+  String get totalPrice => 'اجمالي السعر';
+
+  @override
   String get error => 'خطاء';
 
   @override

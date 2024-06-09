@@ -203,6 +203,33 @@ class AppLocalizationsEn extends AppLocalizations {
   String get comments => 'comments';
 
   @override
+  String get deliverTo => 'delever to';
+
+  @override
+  String get location => 'location';
+
+  @override
+  String get paymentMethod => 'payment method';
+
+  @override
+  String get doYouHaveCopons => 'do you have copons';
+
+  @override
+  String get enterCoponCode => 'enter copon code';
+
+  @override
+  String get price => 'price';
+
+  @override
+  String get taxes => 'taxes';
+
+  @override
+  String get deliveryPrice => 'delevery price';
+
+  @override
+  String get totalPrice => 'total price';
+
+  @override
   String get error => 'error';
 
   @override

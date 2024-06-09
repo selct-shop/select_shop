@@ -80,8 +80,20 @@
     "brandDetails": "brnad details",
     "checkOut": "checkOut",
     "comments": "comments",
-    "checkOut": "checkOut",
-    "checkOut": "checkOut",
+
+
+    
+    "deliverTo": "delever to",
+    "location": "location",
+    "paymentMethod": "payment method",
+    "doYouHaveCopons": "do you have copons",
+    "enterCoponCode": "enter copon code",
+    "price": "price",
+    "taxes": "taxes",
+    "deliveryPrice": "delevery price",
+    "totalPrice": "total price",
+
+
 
 
 

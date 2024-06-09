@@ -42,11 +42,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+        "deliverTo": MessageLookupByLibrary.simpleMessage("توصيل الي"),
+        "deliveryPrice": MessageLookupByLibrary.simpleMessage("رسوم التوصيل"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
+        "doYouHaveCopons":
+            MessageLookupByLibrary.simpleMessage("هل لديك كوبونات خصم"),
         "earnFreePoints":
             MessageLookupByLibrary.simpleMessage("احصل علي نقاط, و خصومات"),
         "editUser": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "enterCoponCode":
+            MessageLookupByLibrary.simpleMessage("ادخل رمز الكوبون"),
         "enterEmailToResetOne": MessageLookupByLibrary.simpleMessage(
             "أدخل بريدك الإلكتروني لإعادة تعيين"),
         "enterEmailToResetTwo":
@@ -61,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "homePage": MessageLookupByLibrary.simpleMessage("الرئسيه"),
         "limitedOffers":
             MessageLookupByLibrary.simpleMessage("العروض المحدودة"),
+        "location": MessageLookupByLibrary.simpleMessage("الموقع"),
         "lowToHighPrice":
             MessageLookupByLibrary.simpleMessage("السعر من الأعلى للأقل "),
         "most_wanted": MessageLookupByLibrary.simpleMessage("الاكثر طلبا"),
@@ -75,10 +82,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "otpCodeSended":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز المصادقة إلى"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "paymentMethod": MessageLookupByLibrary.simpleMessage("وسيلة الدفع"),
         "paymentOnRecive":
             MessageLookupByLibrary.simpleMessage("الدفع عند الاستلام"),
         "personalPage": MessageLookupByLibrary.simpleMessage("المستخدم"),
         "phoneNum": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "price": MessageLookupByLibrary.simpleMessage("السعر"),
         "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "resetPassword":
@@ -103,11 +112,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تسجيل الحساب بنجاح"),
         "specialproducts": MessageLookupByLibrary.simpleMessage("منتجات مميزه"),
         "suppourt": MessageLookupByLibrary.simpleMessage("الدعم"),
+        "taxes": MessageLookupByLibrary.simpleMessage("الضريبه"),
         "theColor": MessageLookupByLibrary.simpleMessage("اللون"),
         "theDiscaount": MessageLookupByLibrary.simpleMessage("خصم"),
         "theLakta": MessageLookupByLibrary.simpleMessage("لقطه"),
         "theNew": MessageLookupByLibrary.simpleMessage("جديد"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("الافضل مبيعا"),
+        "totalPrice": MessageLookupByLibrary.simpleMessage("اجمالي السعر"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("العلامات التجاريه"),
         "unKnownError": MessageLookupByLibrary.simpleMessage("خطاء غير معروف"),
         "userAgrement": MessageLookupByLibrary.simpleMessage(

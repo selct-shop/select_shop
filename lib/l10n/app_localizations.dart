@@ -489,6 +489,60 @@ abstract class AppLocalizations {
   /// **'comments'**
   String get comments;
 
+  /// No description provided for @deliverTo.
+  ///
+  /// In en, this message translates to:
+  /// **'delever to'**
+  String get deliverTo;
+
+  /// No description provided for @location.
+  ///
+  /// In en, this message translates to:
+  /// **'location'**
+  String get location;
+
+  /// No description provided for @paymentMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'payment method'**
+  String get paymentMethod;
+
+  /// No description provided for @doYouHaveCopons.
+  ///
+  /// In en, this message translates to:
+  /// **'do you have copons'**
+  String get doYouHaveCopons;
+
+  /// No description provided for @enterCoponCode.
+  ///
+  /// In en, this message translates to:
+  /// **'enter copon code'**
+  String get enterCoponCode;
+
+  /// No description provided for @price.
+  ///
+  /// In en, this message translates to:
+  /// **'price'**
+  String get price;
+
+  /// No description provided for @taxes.
+  ///
+  /// In en, this message translates to:
+  /// **'taxes'**
+  String get taxes;
+
+  /// No description provided for @deliveryPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'delevery price'**
+  String get deliveryPrice;
+
+  /// No description provided for @totalPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'total price'**
+  String get totalPrice;
+
   /// No description provided for @error.
   ///
   /// In en, this message translates to:

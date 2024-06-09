@@ -111,7 +111,7 @@ class _ListCartSucsess extends StatelessWidget {
             horizontal: 15,
           ),
           child: AppButton(
-            title: "check out",
+            title: S.of(context).checkOut,
             backgroundColor: AppColors.mainColor,
             borderRadius: 10,
             // textColor:  ,

@@ -81,7 +81,7 @@ class CheckOutScreen extends StatelessWidget {
 
               _CheckOutDetails(
                 theNewPrice: cartModel.result.cart.total.toString(),
-                theDiscount: "7",
+                theDiscount: "0",
                 deliveryPrice: "20",
                 totalPrice: cartModel.result.cart.total.toString(),
               ),
@@ -563,7 +563,7 @@ class _CheckOutDetails extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                "Price" " : ",
+                "${S.of(context).price} : ",
                 style: TextStyle(
                     color: AppColors.grey2Color,
                     fontWeight: FontWeight.w500,
@@ -595,7 +595,7 @@ class _CheckOutDetails extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "Discount" " : ",
+                      "${S.of(context).theDiscaount} : ",
                       style: TextStyle(
                           color: AppColors.grey2Color,
                           fontWeight: FontWeight.w500,
@@ -627,7 +627,7 @@ class _CheckOutDetails extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                "taxes" " : ",
+                "${S.of(context).taxes} : ",
                 style: TextStyle(
                     color: AppColors.grey2Color,
                     fontWeight: FontWeight.w500,
@@ -659,7 +659,7 @@ class _CheckOutDetails extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "delivery price" " : ",
+                      "${S.of(context).deliveryPrice} : ",
                       style: TextStyle(
                           color: AppColors.grey2Color,
                           fontWeight: FontWeight.w500,
@@ -709,7 +709,8 @@ class _CheckOutDetails extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "total price" " : ",
+                      
+                      "${S.of(context).totalPrice} : ",
                       style: TextStyle(
                           color: AppColors.grey2Color,
                           fontWeight: FontWeight.bold,
@@ -783,7 +784,7 @@ class _EnterYourCoponsRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "do you have copons",
+          S.of(context).doYouHaveCopons,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
@@ -816,12 +817,12 @@ class _EnterYourCoponsRow extends StatelessWidget {
               //   offset: Offset(0, 3), // changes position of shadow
               // ),
 
-              BoxShadow(
-                offset: Offset(0, 1),
-                blurRadius: 1,
-                spreadRadius: 1,
-                color: Colors.black12,
-              ),
+              // BoxShadow(
+              //   offset: Offset(0, 1),
+              //   blurRadius: 1,
+              //   spreadRadius: 1,
+              //   color: Colors.black12,
+              // ),
             ],
           ),
           child: Container(
@@ -859,7 +860,7 @@ class _EnterYourCoponsRow extends StatelessWidget {
                   ),
 
                   Text(
-                    "enter copon code",
+                    S.of(context).enterCoponCode,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -959,7 +960,7 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
                     width: 15,
                   ),
                   Text(
-                    "deliver to: ",
+                    "${S.of(context).deliverTo} : ",
                     style: TextStyle(
                         color: AppColors.mainColor, fontSize: 15, height: .8),
                   ),
@@ -1030,7 +1031,7 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  "Location",
+                                  S.of(context).location,
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
                                       color: AppColors.mainColor,
@@ -1140,7 +1141,7 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  "Payment method",
+                                  S.of(context).paymentMethod,
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
                                       color: AppColors.mainColor,

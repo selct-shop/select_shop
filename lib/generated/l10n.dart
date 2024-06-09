@@ -710,6 +710,96 @@ class S {
     );
   }
 
+  /// `delever to`
+  String get deliverTo {
+    return Intl.message(
+      'delever to',
+      name: 'deliverTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `location`
+  String get location {
+    return Intl.message(
+      'location',
+      name: 'location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `payment method`
+  String get paymentMethod {
+    return Intl.message(
+      'payment method',
+      name: 'paymentMethod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `do you have copons`
+  String get doYouHaveCopons {
+    return Intl.message(
+      'do you have copons',
+      name: 'doYouHaveCopons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `enter copon code`
+  String get enterCoponCode {
+    return Intl.message(
+      'enter copon code',
+      name: 'enterCoponCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `price`
+  String get price {
+    return Intl.message(
+      'price',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `taxes`
+  String get taxes {
+    return Intl.message(
+      'taxes',
+      name: 'taxes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `delevery price`
+  String get deliveryPrice {
+    return Intl.message(
+      'delevery price',
+      name: 'deliveryPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `total price`
+  String get totalPrice {
+    return Intl.message(
+      'total price',
+      name: 'totalPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `error`
   String get error {
     return Intl.message(

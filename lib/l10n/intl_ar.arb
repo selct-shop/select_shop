@@ -84,8 +84,19 @@
     "brandDetails": "تفاصيل البراند",
     "checkOut": "اطلب",
     "comments": "التعليقات",
-    "checkOut": "اطلب",
-    "checkOut": "اطلب",
+
+
+    
+    "deliverTo": "توصيل الي",
+    "location": "الموقع",
+    "paymentMethod": "وسيلة الدفع",
+    "doYouHaveCopons": "هل لديك كوبونات خصم",
+    "enterCoponCode": "ادخل رمز الكوبون",
+    "price": "السعر",
+    "taxes": "الضريبه",
+    "deliveryPrice": "رسوم التوصيل",
+    "totalPrice": "اجمالي السعر",
+
 
 
  

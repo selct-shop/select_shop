@@ -42,12 +42,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("confirm new password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("contact us"),
+        "deliverTo": MessageLookupByLibrary.simpleMessage("delever to"),
+        "deliveryPrice": MessageLookupByLibrary.simpleMessage("delevery price"),
         "description": MessageLookupByLibrary.simpleMessage("description"),
+        "doYouHaveCopons":
+            MessageLookupByLibrary.simpleMessage("do you have copons"),
         "earnFreePoints":
             MessageLookupByLibrary.simpleMessage("earn free ponints"),
         "editUser":
             MessageLookupByLibrary.simpleMessage("edit personal profile"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
+        "enterCoponCode":
+            MessageLookupByLibrary.simpleMessage("enter copon code"),
         "enterEmailToResetOne":
             MessageLookupByLibrary.simpleMessage("enter your email to reset"),
         "enterEmailToResetTwo":
@@ -61,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "helpCenter": MessageLookupByLibrary.simpleMessage("help center"),
         "homePage": MessageLookupByLibrary.simpleMessage("home"),
         "limitedOffers": MessageLookupByLibrary.simpleMessage("limited offers"),
+        "location": MessageLookupByLibrary.simpleMessage("location"),
         "lowToHighPrice":
             MessageLookupByLibrary.simpleMessage("low to hight price"),
         "most_wanted": MessageLookupByLibrary.simpleMessage("most wanted"),
@@ -75,10 +82,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "otpCodeSended":
             MessageLookupByLibrary.simpleMessage("otp code is sended to"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
+        "paymentMethod": MessageLookupByLibrary.simpleMessage("payment method"),
         "paymentOnRecive":
             MessageLookupByLibrary.simpleMessage("payment on recive"),
         "personalPage": MessageLookupByLibrary.simpleMessage("personal"),
         "phoneNum": MessageLookupByLibrary.simpleMessage("phone number"),
+        "price": MessageLookupByLibrary.simpleMessage("price"),
         "products": MessageLookupByLibrary.simpleMessage("products"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("reset password"),
@@ -103,11 +112,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "specialproducts":
             MessageLookupByLibrary.simpleMessage("special products"),
         "suppourt": MessageLookupByLibrary.simpleMessage("suppourt"),
+        "taxes": MessageLookupByLibrary.simpleMessage("taxes"),
         "theColor": MessageLookupByLibrary.simpleMessage("color"),
         "theDiscaount": MessageLookupByLibrary.simpleMessage("discaount"),
         "theLakta": MessageLookupByLibrary.simpleMessage("lakta"),
         "theNew": MessageLookupByLibrary.simpleMessage("new"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("best seller"),
+        "totalPrice": MessageLookupByLibrary.simpleMessage("total price"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("trad marks"),
         "unKnownError":
             MessageLookupByLibrary.simpleMessage("unKnown Error !!!"),
