@@ -118,6 +118,13 @@ class _Body extends StatelessWidget {
                 newPrice:
                     cartItem.productAttribute.product.price.toString() ?? "uk",
                 theImageLink: cartItem.productAttribute.product.brand.image,
+                productName:
+                    Localizations.localeOf(context).languageCode == "ar"
+                        ? cartItem.productAttribute.product.nameAr
+                        : cartItem.productAttribute.product.nameEn,
+                brandName: Localizations.localeOf(context).languageCode == "ar"
+                    ? cartItem.productAttribute.product.brand.nameAr
+                    : cartItem.productAttribute.product.brand.nameEn,
               ),
 
               const SizedBox(
@@ -1905,12 +1912,15 @@ class _CustomShipmentListTile extends StatelessWidget {
 }
 
 class _TitleRow extends StatelessWidget {
-  final String? theImageLink, oldPrice, newPrice;
-  const _TitleRow(
-      {super.key,
-      required this.oldPrice,
-      required this.newPrice,
-      required this.theImageLink});
+  final String? theImageLink, oldPrice, newPrice, productName, brandName;
+  const _TitleRow({
+    super.key,
+    required this.theImageLink,
+    required this.oldPrice,
+    required this.newPrice,
+    required this.productName,
+    required this.brandName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -1929,7 +1939,7 @@ class _TitleRow extends StatelessWidget {
                   height: 30,
                   width: double.infinity,
                   child: Text(
-                    "men t-shirt",
+                    productName!,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -1950,7 +1960,7 @@ class _TitleRow extends StatelessWidget {
 
                       child: Text(
                         // brand name
-                        "chanel".toUpperCase(),
+                        brandName!.toUpperCase(),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
