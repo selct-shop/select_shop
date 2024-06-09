@@ -193,13 +193,16 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
 
     final theme = IOSThemeConfigurations(
       // backgroundColor: AppColors.mainColor
-      backgroundColor: "ff79B700",
+      // backgroundColor: "ff79B700",
 
-      buttonColor: "ff79B700",
+      buttonColor: "#79B700",
 
       inputsCornerRadius: 10,
       logoImage: AppImages.logoPng,
-      primaryColor: "ff79B700",
+      primaryColor: "#79B700",
+      buttonFont: "Cairo",
+      titleFont: "Cairo",
+      primaryFont: "Cairo",
 
       // secondaryColor:
     );
@@ -709,7 +712,6 @@ class _CheckOutDetails extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      
                       "${S.of(context).totalPrice} : ",
                       style: TextStyle(
                           color: AppColors.grey2Color,

@@ -1,0 +1,18 @@
+<resourse> // to override colors
+<!-- all this related to paytabs screen -->
+<color name="payment_sdk_primary_color">#EBEBEB</color>
+<color name="payment_sdk_secondary_color">#79B700</color>
+<color name="payment_sdk_primary_font_color">#79B700</color>
+<!-- <color name="payment_sdk_primary_font_color">#414141</color> -->
+<!-- <color name="payment_sdk_secondary_font_color">#6D6C70</color>  -->
+<!-- <color name="payment_sdk_separators_color">#414141</color> -->
+<!-- <color name="payment_sdk_stroke_color">#673AB7</color> -->
+<color name="payment_sdk_button_text_color">#FFFFFF</color>
+<color name="payment_sdk_title_text_color">#79B700</color>
+<color name="payment_sdk_button_background_color">#79B700</color>
+<color name="payment_sdk_background_color">#FFFFFF</color>
+<!-- <color name="payment_sdk_card_background_color">#F9FAFD</color> -->
+<color name="payment_sdk_card_background_color">#EBEBEB</color>
+<color name="payment_sdk_status_bar_color">#79B700</color>
+<!-- primary color :#79B700  , secondry2Color: #414141 -->
+</resourse>
