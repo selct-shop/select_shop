@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "checkNetwork":
             MessageLookupByLibrary.simpleMessage("الرجاء تفحص الانترنت لديك"),
         "checkOut": MessageLookupByLibrary.simpleMessage("اطلب"),
+        "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
         "confirm": MessageLookupByLibrary.simpleMessage("تاكيد"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),

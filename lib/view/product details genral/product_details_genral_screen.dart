@@ -13,6 +13,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
@@ -21,6 +22,7 @@ import 'package:select_shop/main.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/cart/model/cart_model.dart';
+import 'package:select_shop/view/check%20out/check_out_screen.dart';
 import 'package:select_shop/view/product%20details%20genral/prod%20deta%20gen%20bloc/prod%20calcu%20bloc/prod_calcu_bloc.dart';
 
 // Key prodcutImageKey = key();
@@ -50,12 +52,14 @@ class ProductDetailsGenralScreen extends StatefulWidget {
   // final TheProductModle theProductModle;
   final CartItem cartItem;
   final int productId;
+  final CartModel cartModel;
   const ProductDetailsGenralScreen({
     super.key,
     // required this.theProductModle,
     // required this.theCollectionProductModle,
     required this.cartItem,
     required this.productId,
+    required this.cartModel,
   });
 
   @override
@@ -87,6 +91,7 @@ class _ProductDetailsGenralScreenState
             _Body(
               productID: widget.productId,
               cartItem: widget.cartItem,
+              cartModel: widget.cartModel,
             ),
           ],
         ),
@@ -97,6 +102,7 @@ class _ProductDetailsGenralScreenState
 
 class _Body extends StatelessWidget {
   final int? productID;
+  final CartModel cartModel; 
 
   final CartItem cartItem;
 
@@ -104,6 +110,7 @@ class _Body extends StatelessWidget {
     super.key,
     required this.productID,
     required this.cartItem,
+    required this.cartModel,
   });
 
   @override
@@ -401,7 +408,7 @@ class _Body extends StatelessWidget {
         ///
         ///
 
-        _AddToCartAndFavRow(),
+        _AddToCartAndFavRow(cartModel: cartModel,),
 
         const SizedBox(
           height: 45,
@@ -443,10 +450,12 @@ class _Body extends StatelessWidget {
 
 class _AddToCartAndFavRow extends StatelessWidget {
   // final CollectionProduct theProductModle;
+  final CartModel cartModel;
 
   _AddToCartAndFavRow({
     super.key,
     //  required  this.theProductModle,
+    required this.cartModel
   });
 
   @override
@@ -496,11 +505,11 @@ class _AddToCartAndFavRow extends StatelessWidget {
                 ),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    // navigate to checkout screen
-
-                    // print("teeeeeeeeeeeeeesttttt addddd to cart");
-                  },
+                   onTap: () => navigateTo(
+                context,
+                CheckOutScreen(
+                  cartModel: cartModel,
+                )),
                   child: Center(
                     child: Text(
                       S.of(context).checkOut,
@@ -783,7 +792,7 @@ class _NavigateToAllCommentsWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "show all comments",
+                S.of(context).showAll,
                 style: TextStyle(
                   color: AppColors.mainColor,
                   fontSize: 8,
@@ -1776,7 +1785,7 @@ class _ComentsTitleRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "comments",
+            S.of(context).comments,
             // overflow: TextOverflow.ellipsis,
             style: _customTitleTextStyle.copyWith(
               color: AppColors.mainColor,
@@ -1790,7 +1799,7 @@ class _ComentsTitleRow extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "show all",
+                S.of(context).showAll,
                 // overflow: TextOverflow.ellipsis,
                 style: _customTitleTextStyle.copyWith(
                   color: AppColors.mainColor,

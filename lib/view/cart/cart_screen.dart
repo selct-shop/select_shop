@@ -102,6 +102,7 @@ class _ListCartSucsess extends StatelessWidget {
 
             return _ProductCart(
               cartItem: cartItems[index],
+              cartModel: cartModel,
             );
           },
         ),

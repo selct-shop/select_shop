@@ -700,6 +700,16 @@ class S {
     );
   }
 
+  /// `comments`
+  String get comments {
+    return Intl.message(
+      'comments',
+      name: 'comments',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `error`
   String get error {
     return Intl.message(

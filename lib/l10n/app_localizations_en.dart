@@ -200,6 +200,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get checkOut => 'checkOut';
 
   @override
+  String get comments => 'comments';
+
+  @override
   String get error => 'error';
 
   @override

@@ -483,6 +483,12 @@ abstract class AppLocalizations {
   /// **'checkOut'**
   String get checkOut;
 
+  /// No description provided for @comments.
+  ///
+  /// In en, this message translates to:
+  /// **'comments'**
+  String get comments;
+
   /// No description provided for @error.
   ///
   /// In en, this message translates to:

@@ -23,6 +23,7 @@ class _ProductCart extends StatelessWidget {
   // final double? productRating, width, height;
   // final Function()? onTapProductWidget, onTapAddOrRemoveFav;
   final CartItem cartItem;
+  final CartModel cartModel ;
   const _ProductCart({
     super.key,
     // required this.isDisscountOrNew,
@@ -43,6 +44,7 @@ class _ProductCart extends StatelessWidget {
     // required this.onTapProductWidget,
     // required this.onTapAddOrRemoveFav,
     required this.cartItem,
+    required this.cartModel,
   });
 
   @override
@@ -59,6 +61,7 @@ class _ProductCart extends StatelessWidget {
                 productId: cartItem.productAttribute.productId,
 
                 cartItem:    cartItem,
+                cartModel: cartModel,
               ));
         },
         child: Container(

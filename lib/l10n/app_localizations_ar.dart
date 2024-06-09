@@ -200,6 +200,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get checkOut => 'اطلب';
 
   @override
+  String get comments => 'التعليقات';
+
+  @override
   String get error => 'خطاء';
 
   @override
