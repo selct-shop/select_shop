@@ -230,6 +230,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get totalPrice => 'total price';
 
   @override
+  String get payWithCart => 'Pay with Card';
+
+  @override
   String get error => 'error';
 
   @override

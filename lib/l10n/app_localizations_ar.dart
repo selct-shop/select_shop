@@ -230,6 +230,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get totalPrice => 'اجمالي السعر';
 
   @override
+  String get payWithCart => 'ادفع بالبطاقة';
+
+  @override
   String get error => 'خطاء';
 
   @override

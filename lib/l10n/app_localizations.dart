@@ -543,6 +543,12 @@ abstract class AppLocalizations {
   /// **'total price'**
   String get totalPrice;
 
+  /// No description provided for @payWithCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay with Card'**
+  String get payWithCart;
+
   /// No description provided for @error.
   ///
   /// In en, this message translates to:

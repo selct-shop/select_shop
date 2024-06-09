@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "otpCodeSended":
             MessageLookupByLibrary.simpleMessage("otp code is sended to"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
+        "payWithCart": MessageLookupByLibrary.simpleMessage("Pay with Card"),
         "paymentMethod": MessageLookupByLibrary.simpleMessage("payment method"),
         "paymentOnRecive":
             MessageLookupByLibrary.simpleMessage("payment on recive"),

@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "otpCodeSended":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز المصادقة إلى"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "payWithCart": MessageLookupByLibrary.simpleMessage("ادفع بالبطاقة"),
         "paymentMethod": MessageLookupByLibrary.simpleMessage("وسيلة الدفع"),
         "paymentOnRecive":
             MessageLookupByLibrary.simpleMessage("الدفع عند الاستلام"),

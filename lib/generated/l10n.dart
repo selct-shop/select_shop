@@ -800,6 +800,16 @@ class S {
     );
   }
 
+  /// `Pay with Card`
+  String get payWithCart {
+    return Intl.message(
+      'Pay with Card',
+      name: 'payWithCart',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `error`
   String get error {
     return Intl.message(
