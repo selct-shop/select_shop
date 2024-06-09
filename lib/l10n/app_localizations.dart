@@ -435,6 +435,54 @@ abstract class AppLocalizations {
   /// **'shop now'**
   String get shopNow;
 
+  /// No description provided for @shipmentAllUAE.
+  ///
+  /// In en, this message translates to:
+  /// **'Shipment for all UAE'**
+  String get shipmentAllUAE;
+
+  /// No description provided for @fastShipment.
+  ///
+  /// In en, this message translates to:
+  /// **'fast shipment'**
+  String get fastShipment;
+
+  /// No description provided for @paymentOnRecive.
+  ///
+  /// In en, this message translates to:
+  /// **'payment on recive'**
+  String get paymentOnRecive;
+
+  /// No description provided for @freeReturn.
+  ///
+  /// In en, this message translates to:
+  /// **'free return'**
+  String get freeReturn;
+
+  /// No description provided for @earnFreePoints.
+  ///
+  /// In en, this message translates to:
+  /// **'earn free ponints'**
+  String get earnFreePoints;
+
+  /// No description provided for @brand.
+  ///
+  /// In en, this message translates to:
+  /// **'brand'**
+  String get brand;
+
+  /// No description provided for @brandDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'brnad details'**
+  String get brandDetails;
+
+  /// No description provided for @checkOut.
+  ///
+  /// In en, this message translates to:
+  /// **'checkOut'**
+  String get checkOut;
+
   /// No description provided for @error.
   ///
   /// In en, this message translates to:

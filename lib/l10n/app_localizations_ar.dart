@@ -176,6 +176,30 @@ class AppLocalizationsAr extends AppLocalizations {
   String get shopNow => 'تسوق الان';
 
   @override
+  String get shipmentAllUAE => 'شحن لجميع انحاء الامارات';
+
+  @override
+  String get fastShipment => 'شحن سريع';
+
+  @override
+  String get paymentOnRecive => 'الدفع عند الاستلام';
+
+  @override
+  String get freeReturn => 'اعاده مجانيه';
+
+  @override
+  String get earnFreePoints => 'احصل علي نقاط, و خصومات';
+
+  @override
+  String get brand => 'البراند';
+
+  @override
+  String get brandDetails => 'تفاصيل البراند';
+
+  @override
+  String get checkOut => 'اطلب';
+
+  @override
   String get error => 'خطاء';
 
   @override

@@ -641,10 +641,10 @@ class S {
   }
 
   /// `payment on recive`
-  String get PaymentOnRecive {
+  String get paymentOnRecive {
     return Intl.message(
       'payment on recive',
-      name: 'PaymentOnRecive',
+      name: 'paymentOnRecive',
       desc: '',
       args: [],
     );

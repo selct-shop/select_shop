@@ -22,8 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "PaymentOnRecive":
-            MessageLookupByLibrary.simpleMessage("payment on recive"),
         "accountSettings":
             MessageLookupByLibrary.simpleMessage("account settings"),
         "addLocation": MessageLookupByLibrary.simpleMessage("add location"),
@@ -76,6 +74,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "otpCodeSended":
             MessageLookupByLibrary.simpleMessage("otp code is sended to"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
+        "paymentOnRecive":
+            MessageLookupByLibrary.simpleMessage("payment on recive"),
         "personalPage": MessageLookupByLibrary.simpleMessage("personal"),
         "phoneNum": MessageLookupByLibrary.simpleMessage("phone number"),
         "products": MessageLookupByLibrary.simpleMessage("products"),

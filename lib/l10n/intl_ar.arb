@@ -5,12 +5,12 @@
     "enterEmailToResetTwo": "كلمة المرور الخاصة بك", 
     "email": "البريد الإلكتروني", 
     "phoneNum": "رقم الهاتف", 
-
     "sendCode": "إرسال الرمز", 
     "backToSignIn": "العودة إلى تسجيل الدخول", 
     "otpCodeSended": "تم إرسال رمز المصادقة إلى", 
     "newPassword": "كلمة المرور الجديده", 
     "password": "كلمة المرور", 
+
     "confirmNewPassword": "تاكيد كلمة المرور", 
     "confirm": "تاكيد", 
     "noDataLikeThis":"no data", 
@@ -23,8 +23,6 @@
     "forgotPassword": "نسيت كلمة المرور؟", 
     "signIn": "تسجيل دخول", 
     "youDontHaveAccount": "ليس لديك حساب؟إنشاء حساب ", 
-
-
 
 
 
@@ -79,13 +77,12 @@
     "shopNow": "تسوق الان",
     "shipmentAllUAE":"شحن لجميع انحاء الامارات", 
     "fastShipment":"شحن سريع", 
-    "PaymentOnRecive":"الدفع عند الاستلام", 
+    "paymentOnRecive":"الدفع عند الاستلام", 
     "freeReturn":"اعاده مجانيه", 
     "earnFreePoints":"احصل علي نقاط, و خصومات", 
     "brand": "البراند",
     "brandDetails": "تفاصيل البراند",
     "checkOut": "اطلب",
-    "error": "خطاء",
 
 
  
@@ -95,7 +92,6 @@
     "checkNetwork": "الرجاء تفحص الانترنت لديك", 
 
     
-
 
 
 

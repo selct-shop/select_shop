@@ -66,6 +66,15 @@ class ProductDetailsGenralScreen extends StatefulWidget {
 class _ProductDetailsGenralScreenState
     extends State<ProductDetailsGenralScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+
+    // print(cartItem.productAttribute.product.id )
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -132,7 +141,8 @@ class _Body extends StatelessWidget {
               ),
               _RatingWidget(
                 // ratingNumber: 3.5,
-                productID: productID!.toDouble(),
+                // productID: productID!.toDouble(),
+                productID: cartItem.productAttribute.product.id.toDouble(),
               ),
               // const SizedBox(
               //   height: 5,
@@ -198,7 +208,7 @@ class _Body extends StatelessWidget {
                 haveDivider: true,
               ),
               _CustomShipmentListTile(
-                discription: S.of(context).PaymentOnRecive,
+                discription: S.of(context).paymentOnRecive,
                 // discription:
                 // "free returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree returnfree return",
                 svgImgName: AppImagesSvg.cashSvg,
@@ -1403,6 +1413,8 @@ class _RatingWidgetState extends State<_RatingWidget> {
   @override
   void initState() {
     // TODO: implement initState
+
+    print("============================================${widget.productID}");
 
     context
         .read<ProdCalcuBloc>()

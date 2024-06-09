@@ -8,6 +8,7 @@ import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
+import 'package:select_shop/main.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/error_screen.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
@@ -32,6 +33,8 @@ class _CartScreenState extends State<CartScreen> {
   @override
   void initState() {
     context.read<CartBloc>().add(CartInitalEvent());
+    // print(
+    // "=================================================$globalCachedUserToken");
     super.initState();
   }
 
@@ -112,7 +115,11 @@ class _ListCartSucsess extends StatelessWidget {
             borderRadius: 10,
             // textColor:  ,
             width: double.infinity,
-            onTap: () => navigateTo(context, CheckOutScreen(cartModel: cartModel,)),
+            onTap: () => navigateTo(
+                context,
+                CheckOutScreen(
+                  cartModel: cartModel,
+                )),
           ),
         ),
         AppConstants.emptySpaceTenPixl,

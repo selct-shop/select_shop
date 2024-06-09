@@ -176,6 +176,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shopNow => 'shop now';
 
   @override
+  String get shipmentAllUAE => 'Shipment for all UAE';
+
+  @override
+  String get fastShipment => 'fast shipment';
+
+  @override
+  String get paymentOnRecive => 'payment on recive';
+
+  @override
+  String get freeReturn => 'free return';
+
+  @override
+  String get earnFreePoints => 'earn free ponints';
+
+  @override
+  String get brand => 'brand';
+
+  @override
+  String get brandDetails => 'brnad details';
+
+  @override
+  String get checkOut => 'checkOut';
+
+  @override
   String get error => 'error';
 
   @override
