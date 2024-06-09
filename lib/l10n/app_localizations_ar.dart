@@ -149,10 +149,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get allCategoris => 'كل التصنيفات ';
 
   @override
+  String get category => 'التصنيف';
+
+  @override
   String get categorys => 'التصنيفات';
 
   @override
-  String get category => 'التصنيف';
+  String get description => 'الوصف';
+
+  @override
+  String get theColor => 'اللون';
 
   @override
   String get quantity => 'الكمية';

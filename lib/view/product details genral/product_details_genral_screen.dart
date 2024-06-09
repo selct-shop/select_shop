@@ -32,7 +32,9 @@ TextStyle _customTitleTextStyle = TextStyle(
 );
 TextStyle _customBodyTextStyle = TextStyle(
   color: AppColors.grey2Color,
-  height: .7,
+  // height: .8,
+  height: 1.2,
+
   // fontWeight: FontWeight.bold,
   fontSize: 16,
 );
@@ -129,15 +131,27 @@ class _Body extends StatelessWidget {
               //   height: 5,
               // ),
 
-              _CategoryDiscriptionRow(
-                catigoryDiscription: "men",
-              ),
+              // _CategoryDiscriptionRow(
+              //   catigoryDiscription: "men",
+              // ),
+
+              // _CategoryDiscriptionRow(
+              //               catigoryDiscription:
+              //                   Localizations.localeOf(context).languageCode == "ar"
+              //                       ? cartItem.productAttribute.product.brand.merchant.buisnessCategory
+              //                       // : theCollectionProduct.categories[0].category.nameEn,
+              //                       : cartItem.productAttribute.product.brand.merchant.buisnessCategory,
+              //             ),
+
               _DiscriptionRow(
                   discription:
-                      "men t-shirt with long slives and high coalas, men t-shirt with long slives and high coalas, "),
+                      Localizations.localeOf(context).languageCode == "ar"
+                          ? cartItem.productAttribute.product.descriptionAr
+                          : cartItem.productAttribute.product.descriptionEn),
 
+if (cartItem.productAttribute.product.productType == "onlyColors"||cartItem.productAttribute.product.productType == "colorsAndProps")
               _ColorRow(
-                  // discription: discription,
+                  theColor: cartItem.productAttribute.color.value ,
                   ),
               _SizeRow(
                 isActive: true,
@@ -1490,7 +1504,7 @@ class _CategoryDiscriptionRow extends StatelessWidget {
 class _DiscriptionRow extends StatelessWidget {
   final String? discription;
 
-  _DiscriptionRow({
+  const _DiscriptionRow({
     super.key,
     required this.discription,
   });
@@ -1498,23 +1512,25 @@ class _DiscriptionRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30,
+      height: 30, // Adjust the height as needed
       width: double.infinity,
       child: Row(
         children: [
           Text(
-            "discription :",
+            "${S.of(context).description}:",
             overflow: TextOverflow.ellipsis,
-            style: _customTitleTextStyle,
+            style: _customBodyTextStyle.copyWith(),
+            maxLines: 1,
           ),
           const SizedBox(
             width: 15,
           ),
           Expanded(
             child: Text(
-              discription!,
+              discription ?? '',
               overflow: TextOverflow.ellipsis,
-              style: _customBodyTextStyle,
+              style: _customBodyTextStyle.copyWith(height: 1.2),
+              maxLines: 1, // Ensure this is set
             ),
           ),
         ],
@@ -1564,12 +1580,22 @@ class _NumberOfStock extends StatelessWidget {
 }
 
 class _ColorRow extends StatelessWidget {
-  // final String? discription;
+  final String? theColor;
 
   _ColorRow({
     super.key,
-    // required this.discription,
+    required this.theColor,
   });
+
+  // Helper function to convert hex color string to Color object
+  Color getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll("#", "");
+    if (hexColor.length == 6) {
+      hexColor = "FF" + hexColor; // Add the alpha value if it's not provided
+    }
+    return Color(int.parse(hexColor, radix: 16));
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -1580,7 +1606,8 @@ class _ColorRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "color :",
+            S.of(context).theColor
+            ,
             overflow: TextOverflow.ellipsis,
             style: _customTitleTextStyle,
           ),
@@ -1589,19 +1616,15 @@ class _ColorRow extends StatelessWidget {
           ),
           Row(
             children: [
-              for (int i = 1; i <= 5; i++)
-                GestureDetector(
-                  onTap: () {
-                    print(i);
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 3),
-                    width: 18,
-                    height: 18,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.yellowAccent,
-                    ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 3),
+                  width: 18,
+                  height: 18,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    // color: Colors.yellowAccent,
+                     color: getColorFromHex(theColor!), // Convert the string to a Color
+                           
                   ),
                 ),
             ],

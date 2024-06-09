@@ -149,10 +149,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allCategoris => 'all catigory ';
 
   @override
+  String get category => 'category';
+
+  @override
   String get categorys => 'categorys';
 
   @override
-  String get category => 'category';
+  String get description => 'description';
+
+  @override
+  String get theColor => 'color';
 
   @override
   String get quantity => 'Quantity';

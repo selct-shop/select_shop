@@ -381,17 +381,29 @@ abstract class AppLocalizations {
   /// **'all catigory '**
   String get allCategoris;
 
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'category'**
+  String get category;
+
   /// No description provided for @categorys.
   ///
   /// In en, this message translates to:
   /// **'categorys'**
   String get categorys;
 
-  /// No description provided for @category.
+  /// No description provided for @description.
   ///
   /// In en, this message translates to:
-  /// **'category'**
-  String get category;
+  /// **'description'**
+  String get description;
+
+  /// No description provided for @theColor.
+  ///
+  /// In en, this message translates to:
+  /// **'color'**
+  String get theColor;
 
   /// No description provided for @quantity.
   ///

@@ -68,8 +68,10 @@
 
 
     "allCategoris": "كل التصنيفات ", 
+    "category": "التصنيف",
     "categorys": "التصنيفات", 
-    "category": "التصنيف", 
+    "description": "الوصف", 
+    "theColor": "اللون", 
     "quantity": "الكمية", 
     "showAll": "عرض الكل",
     "searchYourProduct": "ابحث عن منتجك", 

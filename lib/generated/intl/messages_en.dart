@@ -38,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("confirm new password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("contact us"),
+        "description": MessageLookupByLibrary.simpleMessage("description"),
         "editUser":
             MessageLookupByLibrary.simpleMessage("edit personal profile"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
@@ -90,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "specialproducts":
             MessageLookupByLibrary.simpleMessage("special products"),
         "suppourt": MessageLookupByLibrary.simpleMessage("suppourt"),
+        "theColor": MessageLookupByLibrary.simpleMessage("color"),
         "theDiscaount": MessageLookupByLibrary.simpleMessage("discaount"),
         "theLakta": MessageLookupByLibrary.simpleMessage("lakta"),
         "theNew": MessageLookupByLibrary.simpleMessage("new"),

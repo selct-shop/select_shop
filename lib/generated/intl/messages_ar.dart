@@ -38,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+        "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "editUser": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "enterEmailToResetOne": MessageLookupByLibrary.simpleMessage(
@@ -90,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تسجيل الحساب بنجاح"),
         "specialproducts": MessageLookupByLibrary.simpleMessage("منتجات مميزه"),
         "suppourt": MessageLookupByLibrary.simpleMessage("الدعم"),
+        "theColor": MessageLookupByLibrary.simpleMessage("اللون"),
         "theDiscaount": MessageLookupByLibrary.simpleMessage("خصم"),
         "theLakta": MessageLookupByLibrary.simpleMessage("لقطه"),
         "theNew": MessageLookupByLibrary.simpleMessage("جديد"),

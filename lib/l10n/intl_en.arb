@@ -63,8 +63,10 @@
 
 
     "allCategoris": "all catigory ", 
-    "categorys": "categorys", 
     "category": "category", 
+    "categorys": "categorys", 
+    "description": "description", 
+    "theColor": "color", 
     "quantity": "Quantity", 
     "showAll": "show all",
     "searchYourProduct": "search your product", 

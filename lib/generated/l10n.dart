@@ -530,6 +530,16 @@ class S {
     );
   }
 
+  /// `category`
+  String get category {
+    return Intl.message(
+      'category',
+      name: 'category',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `categorys`
   String get categorys {
     return Intl.message(
@@ -540,11 +550,21 @@ class S {
     );
   }
 
-  /// `category`
-  String get category {
+  /// `description`
+  String get description {
     return Intl.message(
-      'category',
-      name: 'category',
+      'description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `color`
+  String get theColor {
+    return Intl.message(
+      'color',
+      name: 'theColor',
       desc: '',
       args: [],
     );
