@@ -16,11 +16,12 @@ import 'package:select_shop/view/Shared/product_container.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/view/cart/bloc/cart_bloc_bloc.dart';
 import 'package:select_shop/view/cart/model/cart_model.dart';
+import 'package:select_shop/view/cart/widgets/product_card.dart';
 import 'package:select_shop/view/check%20out/check_out_screen.dart';
 import 'package:select_shop/view/product%20details%20genral/product_details_genral_screen.dart';
 import 'package:select_shop/view/products/products_screen.dart';
 
-part 'widgets/product_card.dart';
+// part 'widgets/product_card.dart';
 
 class CartScreen extends StatefulWidget {
   CartScreen({super.key});
@@ -100,7 +101,7 @@ class _ListCartSucsess extends StatelessWidget {
             //   AppConstants.emptySpaceTenPixl,
             // ],)
 
-            return _ProductCart(
+            return ProductCart(
               cartItem: cartItems[index],
               cartModel: cartModel,
             );
