@@ -34,8 +34,6 @@ class _CartScreenState extends State<CartScreen> {
   @override
   void initState() {
     context.read<CartBloc>().add(CartInitalEvent());
-    // print(
-    // "=================================================$globalCachedUserToken");
     super.initState();
   }
 
@@ -82,6 +80,8 @@ class _ListCartSucsess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print(
+    //     "=================================================${cartModel.result.cart.id}");
     List<CartItem> cartItems = cartModel.result.cart.cartItems;
     return Column(
       // mainAxisSize: MainAxisSize.max,

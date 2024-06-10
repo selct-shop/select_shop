@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:select_shop/core/helpers/cache_helper.dart';
 import 'package:select_shop/main.dart';
+import 'package:select_shop/view/check%20out/models/post_order_model.dart';
 
 class DioHelper {
   // static String baseUrl = 'https://crm.specialline.info/api/';
@@ -30,6 +31,8 @@ class DioHelper {
       "/product/categoryProducts/";
   static const String getCartUrl = "/cartMobile/open/";
   static const String postAddToCartUrl = "/cartMobile/add/";
+  static const String postAddOrderUrl = "/orders/add/";
+  static const String getConfirmOrder = "/payment/mobileConfirm/";
 
   static const String getProductsCalculationsUrl = "/review/calculate/";
 
@@ -108,7 +111,7 @@ class DioHelper {
               },
             );
 
-      print('ressssssssssssssssssssssssssssspons: ${response}');
+      // print('ressssssssssssssssssssssssssssspons: $response');
 
       // if (response.statusCode == 200) {
       //   // print('ressssssssssssssssssssssssssssspons: ${response}');
@@ -257,6 +260,50 @@ class DioHelper {
     }
   }
 
+  // #### post add the order to the stage of packging #### //
+  static Future<Response> postAddOrder({
+    required final int cartId,
+    required final OrderAddress orderAddress,
+  }) async {
+    // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ==========");
+    try {
+      final Response response = await _dio!.post(
+        // headers.  ,
+        postAddOrderUrl,
+        data: {
+          "cartId": cartId,
+          "address": orderAddress,
+        },
+      );
+
+      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr $response");
+      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ${globalCachedUserToken}");
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  // #### get confirm payment #### //
+  static Future<Response> getConfirmPayment({
+    required final int orderId,
+    // required final OrderAddress orderAddress ,
+  }) async {
+    // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ==========");
+    try {
+      final Response response = await _dio!.get(
+        // headers.  ,
+        getConfirmOrder + orderId.toString(),
+      );
+
+      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr $response");
+      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ${globalCachedUserToken}");
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
   // #### getProductsCalculations #### //
   static Future<Response> getProductsCalculations(
       {required final String? productID}) async {
@@ -370,7 +417,7 @@ class DioHelper {
 
       // #### //
     };
-    print('data ${data}');
+    print('data $data');
 
     // #### //
 

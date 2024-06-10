@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 // import 'package:cached_network_image/cached_network_image.dart';
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as MaterrialFramwork;
@@ -13,16 +16,22 @@ import 'package:flutter_paytabs_bridge/PaymentSdkConfigurationDetails.dart';
 import 'package:flutter_paytabs_bridge/PaymentSdkLocale.dart';
 import 'package:flutter_paytabs_bridge/flutter_paytabs_bridge.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http_status/http_status.dart';
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
+import 'package:select_shop/core/helpers/dio_helper.dart';
 import 'package:select_shop/core/helpers/user_experience_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/view/cart/model/cart_model.dart';
 import 'package:select_shop/view/cart/widgets/product_card.dart';
+import 'package:select_shop/view/check%20out/models/confirm_payment_response_model.dart';
+import 'package:select_shop/view/check%20out/models/post_order_model.dart';
+import 'package:select_shop/view/check%20out/models/post_order_response_model.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
+import 'package:select_shop/view/home/home_screen.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
 
 part 'handeler.dart';
@@ -211,6 +220,9 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
 
 // }
 
+    print(
+        "===s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s${widget.cartModel.result.cart.id}");
+
     super.initState();
   }
 
@@ -341,8 +353,6 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
           );
           return;
         }
-        // print("ttttttttttttttttttttttttttttttttttttttttttttt");
-        // confirm checkout, or go to payment screen
 
         // if payment method is card
         // navigate to card payment screen
@@ -381,6 +391,12 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
                 // print(transactionDetails);
                 if (transactionDetails["isSuccess"]) {
                   // print("sucssssssssssssssssssssssssesss: $transactionDetails");
+
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    (Route<dynamic> route) => false,
+                  );
 
                   UserExperinceHelper().showCustomDialog(
                     theContext: context,
@@ -569,7 +585,60 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
           });
         }
 
-        payPressed();
+// #### complete the order checkout then payment #### //
+        Response addOrderToCheckoutResponse = await DioHelper.postAddOrder(
+            cartId: widget.cartModel.result.cart.id,
+            orderAddress: OrderAddress(
+              addressOne: "test",
+              cityId: 1,
+              email: "",
+              paymentType: 222,
+              phoneNumber: globalCachedUserPhoneNum ?? "",
+              recievername: globalCachedUserName ?? "",
+            ));
+        if (addOrderToCheckoutResponse.statusCode != null) {
+          if (addOrderToCheckoutResponse
+              .statusCode!.isSuccessfulHttpStatusCode) {
+            if (addOrderToCheckoutResponse
+                .statusCode!.isSuccessfulHttpStatusCode) {
+              PostOrderResponseModel postOrderResponseModel =
+                  PostOrderResponseModel.fromJson(
+                      addOrderToCheckoutResponse.data);
+              // var theResponse = jsonDecode(addOrderToCheckoutResponse.data);
+              if (postOrderResponseModel.message == "Success") {
+                // UserExperinceHelper().showCustomDialog(
+                //   theContext: context,
+                //   dialogTitle: "Success order addddedt",
+                //   confirmButtonTitle: "confirm",
+                //   onConfirm: () => Navigator.of(context).pop(),
+                // );
+
+                Response confirmPaymentResponse =
+                    await DioHelper.getConfirmPayment(
+                        orderId: postOrderResponseModel.result.order.id);
+
+                ConfirmPaymentResponseModel confirmPaymentResponseModel =
+                    ConfirmPaymentResponseModel.fromJson(
+                        confirmPaymentResponse.data);
+
+                if (confirmPaymentResponseModel.message == "SUCCESS") {
+                  // print(
+                  //     "===s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s8945t6983459834598743");
+
+                  payPressed();
+                }
+
+                return;
+              }
+            }
+          } else {
+            return;
+          }
+        } else {
+          return;
+        }
+
+        // payPressed();
 
         // if payment method is cash
         // send the reqest to the api
