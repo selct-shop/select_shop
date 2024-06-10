@@ -209,6 +209,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get location => 'location';
 
   @override
+  String get cartDetails => 'cart details';
+
+  @override
   String get paymentMethod => 'payment method';
 
   @override

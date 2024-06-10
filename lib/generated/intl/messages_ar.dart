@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
         "brand": MessageLookupByLibrary.simpleMessage("البراند"),
         "brandDetails": MessageLookupByLibrary.simpleMessage("تفاصيل البراند"),
+        "cartDetails": MessageLookupByLibrary.simpleMessage("تفاصيل السله"),
         "category": MessageLookupByLibrary.simpleMessage("التصنيف"),
         "categorys": MessageLookupByLibrary.simpleMessage("التصنيفات"),
         "changeLanguage": MessageLookupByLibrary.simpleMessage("تغير اللغه"),

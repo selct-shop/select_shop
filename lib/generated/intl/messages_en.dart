@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "backToSignIn": MessageLookupByLibrary.simpleMessage("back to signin"),
         "brand": MessageLookupByLibrary.simpleMessage("brand"),
         "brandDetails": MessageLookupByLibrary.simpleMessage("brnad details"),
+        "cartDetails": MessageLookupByLibrary.simpleMessage("cart details"),
         "category": MessageLookupByLibrary.simpleMessage("category"),
         "categorys": MessageLookupByLibrary.simpleMessage("categorys"),
         "changeLanguage":

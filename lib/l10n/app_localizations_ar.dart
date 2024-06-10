@@ -209,6 +209,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get location => 'الموقع';
 
   @override
+  String get cartDetails => 'تفاصيل السله';
+
+  @override
   String get paymentMethod => 'وسيلة الدفع';
 
   @override

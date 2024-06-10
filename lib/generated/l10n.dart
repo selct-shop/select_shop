@@ -730,6 +730,16 @@ class S {
     );
   }
 
+  /// `cart details`
+  String get cartDetails {
+    return Intl.message(
+      'cart details',
+      name: 'cartDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `payment method`
   String get paymentMethod {
     return Intl.message(

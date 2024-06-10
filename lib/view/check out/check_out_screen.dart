@@ -130,66 +130,57 @@ class _CartDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     List<CartItem> cartItems = cartModel.result.cart.cartItems;
 
-    return Container(
-      width: double.infinity,
-      height: 200,
-      padding: EdgeInsets.all(
-        15,
-      ),
-      clipBehavior: Clip.hardEdge,
-      decoration: BoxDecoration(
-        color: AppColors.grey2Color.withOpacity(.1),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        // mainAxisSize: MainAxisSize.max,
-        children: [
-          ListView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 15,
-              vertical: 30,
-            ),
-            itemCount: cartItems.length,
-            itemBuilder: (context, index) {
-              // const Column(children: [
-
-              //   AppConstants.emptySpaceTenPixl,
-              //   AppConstants.emptySpaceTenPixl,
-              //   AppConstants.emptySpaceTenPixl,
-              // ],)
-
-              return ProductCart(
-                cartItem: cartItems[index],
-                cartModel: cartModel,
-              );
-            },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          S.of(context).cartDetails,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            color: AppColors.grey2Color,
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+            height: .8,
           ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(
-          //     horizontal: 15,
-          //   ),
-          //   child: AppButton(
-          //     title: S.of(context).checkOut,
-          //     backgroundColor: AppColors.mainColor,
-          //     borderRadius: 10,
-          //     // textColor:  ,
-          //     width: double.infinity,
-          //     onTap: () => navigateTo(
-          //         context,
-          //         CheckOutScreen(
-          //           cartModel: cartModel,
-          //         )),
-          //   ),
-          // ),
-          // AppConstants.emptySpaceTenPixl,
-          // AppConstants.emptySpaceTenPixl,
-          // AppConstants.emptySpaceTenPixl,
-          // AppConstants.emptySpaceTenPixl,
-          // AppConstants.emptySpaceTenPixl,
-          // AppConstants.emptySpaceTenPixl,
-        ],
-      ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          width: double.infinity,
+          height: 280,
+          padding: EdgeInsets.all(
+            15,
+          ),
+          clipBehavior: Clip.hardEdge,
+          decoration: BoxDecoration(
+            color: AppColors.grey2Color.withOpacity(.1),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            // mainAxisSize: MainAxisSize.max,
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  // padding: const EdgeInsets.symmetric(
+                  //   horizontal: 15,
+                  //   vertical: 30,
+                  // ),
+                  itemCount: cartItems.length,
+                  itemBuilder: (context, index) {
+                    return ProductCart(
+                      cartItem: cartItems[index],
+                      cartModel: cartModel,
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -871,7 +862,7 @@ class _EnterYourCoponsRow extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
             color: AppColors.grey2Color,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.bold,
             fontSize: 12,
             height: .8,
           ),

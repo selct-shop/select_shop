@@ -85,6 +85,7 @@
     
     "deliverTo": "delever to",
     "location": "location",
+    "cartDetails": "cart details",
     "paymentMethod": "payment method",
     "doYouHaveCopons": "do you have copons",
     "enterCoponCode": "enter copon code",

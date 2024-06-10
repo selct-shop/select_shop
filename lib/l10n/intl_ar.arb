@@ -89,6 +89,7 @@
     
     "deliverTo": "توصيل الي",
     "location": "الموقع",
+    "cartDetails": "تفاصيل السله",
     "paymentMethod": "وسيلة الدفع",
     "doYouHaveCopons": "هل لديك كوبونات خصم",
     "enterCoponCode": "ادخل رمز الكوبون",

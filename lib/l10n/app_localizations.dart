@@ -501,6 +501,12 @@ abstract class AppLocalizations {
   /// **'location'**
   String get location;
 
+  /// No description provided for @cartDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'cart details'**
+  String get cartDetails;
+
   /// No description provided for @paymentMethod.
   ///
   /// In en, this message translates to:
