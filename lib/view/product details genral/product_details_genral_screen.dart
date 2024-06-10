@@ -71,10 +71,7 @@ class _ProductDetailsGenralScreenState
     extends State<ProductDetailsGenralScreen> {
   @override
   void initState() {
-    // TODO: implement initState
-
     // print(cartItem.productAttribute.product.id )
-
     super.initState();
   }
 
@@ -102,7 +99,7 @@ class _ProductDetailsGenralScreenState
 
 class _Body extends StatelessWidget {
   final int? productID;
-  final CartModel cartModel; 
+  final CartModel cartModel;
 
   final CartItem cartItem;
 
@@ -408,7 +405,9 @@ class _Body extends StatelessWidget {
         ///
         ///
 
-        _AddToCartAndFavRow(cartModel: cartModel,),
+        _AddToCartAndFavRow(
+          cartModel: cartModel,
+        ),
 
         const SizedBox(
           height: 45,
@@ -452,11 +451,10 @@ class _AddToCartAndFavRow extends StatelessWidget {
   // final CollectionProduct theProductModle;
   final CartModel cartModel;
 
-  _AddToCartAndFavRow({
-    super.key,
-    //  required  this.theProductModle,
-    required this.cartModel
-  });
+  _AddToCartAndFavRow(
+      {super.key,
+      //  required  this.theProductModle,
+      required this.cartModel});
 
   @override
   Widget build(BuildContext context) {
@@ -505,11 +503,11 @@ class _AddToCartAndFavRow extends StatelessWidget {
                 ),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(10),
-                   onTap: () => navigateTo(
-                context,
-                CheckOutScreen(
-                  cartModel: cartModel,
-                )),
+                  onTap: () => navigateTo(
+                      context,
+                      CheckOutScreen(
+                        cartModel: cartModel,
+                      )),
                   child: Center(
                     child: Text(
                       S.of(context).checkOut,
@@ -2095,10 +2093,8 @@ class _ProductPicticher extends StatelessWidget {
           //         fit: BoxFit.cover,
           //         AppImages.mainCarouselSliderPng)),
 
-          Expanded(
-            child: _CustomCarsoulSlider(
-              imageCartProductList: imageCartProductList,
-            ),
+          _CustomCarsoulSlider(
+            imageCartProductList: imageCartProductList,
           ),
           Align(
             alignment: Alignment.bottomCenter,
