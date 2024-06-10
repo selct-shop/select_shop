@@ -21,6 +21,7 @@ import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/view/cart/model/cart_model.dart';
+import 'package:select_shop/view/cart/widgets/product_card.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
 
@@ -56,6 +57,9 @@ class CheckOutScreen extends StatelessWidget {
               ),
 
               // user ordered produects, or the products on the cart
+              _CartDetails(
+                cartModel: cartModel,
+              ),
 
               ///
               ///
@@ -110,6 +114,81 @@ class CheckOutScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _CartDetails extends StatelessWidget {
+  final CartModel cartModel;
+  _CartDetails({
+    super.key,
+    required this.cartModel,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    List<CartItem> cartItems = cartModel.result.cart.cartItems;
+
+    return Container(
+      width: double.infinity,
+      height: 200,
+      padding: EdgeInsets.all(
+        15,
+      ),
+      clipBehavior: Clip.hardEdge,
+      decoration: BoxDecoration(
+        color: AppColors.grey2Color.withOpacity(.1),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        // mainAxisSize: MainAxisSize.max,
+        children: [
+          ListView.builder(
+            shrinkWrap: true,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15,
+              vertical: 30,
+            ),
+            itemCount: cartItems.length,
+            itemBuilder: (context, index) {
+              // const Column(children: [
+
+              //   AppConstants.emptySpaceTenPixl,
+              //   AppConstants.emptySpaceTenPixl,
+              //   AppConstants.emptySpaceTenPixl,
+              // ],)
+
+              return ProductCart(
+                cartItem: cartItems[index],
+                cartModel: cartModel,
+              );
+            },
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(
+          //     horizontal: 15,
+          //   ),
+          //   child: AppButton(
+          //     title: S.of(context).checkOut,
+          //     backgroundColor: AppColors.mainColor,
+          //     borderRadius: 10,
+          //     // textColor:  ,
+          //     width: double.infinity,
+          //     onTap: () => navigateTo(
+          //         context,
+          //         CheckOutScreen(
+          //           cartModel: cartModel,
+          //         )),
+          //   ),
+          // ),
+          // AppConstants.emptySpaceTenPixl,
+          // AppConstants.emptySpaceTenPixl,
+          // AppConstants.emptySpaceTenPixl,
+          // AppConstants.emptySpaceTenPixl,
+          // AppConstants.emptySpaceTenPixl,
+          // AppConstants.emptySpaceTenPixl,
+        ],
       ),
     );
   }
@@ -199,7 +278,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
 
       inputsCornerRadius: 10,
       logoImage: AppImages.logoPng,
-      primaryColor: "#79B700",
+      primaryColor: "#EBEBEB",
       buttonFont: "Cairo",
       titleFont: "Cairo",
       primaryFont: "Cairo",
@@ -217,7 +296,7 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
       cartId: widget.cartModel.result.cart.id.toString(),
       cartDescription: "customer",
       merchantName: "Select Shop",
-      screentTitle: S.of(context).payWithCart ,
+      screentTitle: S.of(context).payWithCart,
       iOSThemeConfigurations: theme,
       amount: amount,
       showBillingInfo: true,

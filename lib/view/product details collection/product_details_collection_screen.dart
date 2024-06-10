@@ -2030,76 +2030,159 @@ class _TitleRow extends StatelessWidget {
   }
 }
 
+// class _ProductPicticher extends StatelessWidget {
+//   final List<ProductCollectionImage?>? theListOfProductImages;
+//   const _ProductPicticher({super.key, required this.theListOfProductImages});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
+//       builder: (context, state) {
+//         return SizedBox(
+//           // height: 350,
+//           height: 600,
+
+//           width: double.infinity,
+//           child: Stack(
+//             children: [
+//               // Expanded(
+//               //     child: Image.asset(
+//               //         // key:
+
+//               //         fit: BoxFit.cover,
+//               //         AppImages.mainCarouselSliderPng)),
+
+//               Expanded(
+//                 child: _CustomCarsoulSlider(
+//                   theListOfProductImages: theListOfProductImages,
+//                 ),
+//               ),
+//               Align(
+//                 alignment: Alignment.bottomCenter,
+//                 child: Container(
+//                   height: 30,
+//                   width: double.infinity,
+//                   decoration: BoxDecoration(
+//                     color: Colors.white,
+//                     borderRadius: BorderRadius.only(
+//                         topLeft: Radius.circular(15),
+//                         topRight: Radius.circular(15)),
+//                   ),
+//                   child: BlocBuilder<ActiveProductImageTagCubit,
+//                       ActiveProductImageTagState>(
+//                     builder: (context, state) {
+//                       if (state is ActiveProductImageTagUpdatedState) {
+//                         return Row(
+//                           mainAxisSize: MainAxisSize.max,
+//                           mainAxisAlignment: MainAxisAlignment.center,
+//                           crossAxisAlignment: CrossAxisAlignment.center,
+//                           children: [
+//                             for (int i = 1;
+//                                 i <= theListOfProductImages!.length;
+//                                 i++)
+//                               _SmallTagContainer(
+//                                   // isActive: context
+//                                   //             .read<ActiveProductImageTagCubit>()
+//                                   //             .activeProductImage ==
+//                                   //         i
+//                                   //     ? true
+//                                   //     : false,
+
+//                                   isActive: i == state.theNewImageIndex
+//                                       ? true
+//                                       : false),
+//                           ],
+//                         );
+//                       } else {
+//                         return _SmallTagContainer(
+//                           isActive: true,
+//                         );
+//                       }
+//                     },
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
+
 class _ProductPicticher extends StatelessWidget {
   final List<ProductCollectionImage?>? theListOfProductImages;
-  const _ProductPicticher({super.key, required this.theListOfProductImages});
+  const _ProductPicticher({Key? key, required this.theListOfProductImages});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
       builder: (context, state) {
         return SizedBox(
-          // height: 350,
-          height: 600,
-
+          height: 600, // Adjust height as needed
           width: double.infinity,
-          child: Stack(
+          child: Column(
             children: [
-              // Expanded(
-              //     child: Image.asset(
-              //         // key:
-
-              //         fit: BoxFit.cover,
-              //         AppImages.mainCarouselSliderPng)),
-
               Expanded(
-                child: _CustomCarsoulSlider(
-                  theListOfProductImages: theListOfProductImages,
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 30,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15)),
-                  ),
-                  child: BlocBuilder<ActiveProductImageTagCubit,
-                      ActiveProductImageTagState>(
-                    builder: (context, state) {
-                      if (state is ActiveProductImageTagUpdatedState) {
-                        return Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            for (int i = 1;
-                                i <= theListOfProductImages!.length;
-                                i++)
-                              _SmallTagContainer(
-                                  // isActive: context
-                                  //             .read<ActiveProductImageTagCubit>()
-                                  //             .activeProductImage ==
-                                  //         i
-                                  //     ? true
-                                  //     : false,
-
-                                  isActive: i == state.theNewImageIndex
-                                      ? true
-                                      : false),
-                          ],
+                child: Stack(
+                  children: [
+                    CarouselSlider(
+                      options: CarouselOptions(
+                        viewportFraction: 1,
+                        height: double.infinity,
+                        autoPlay: true,
+                        autoPlayInterval: Duration(seconds: 3),
+                        onPageChanged: (index, reason) {
+                          context
+                              .read<ActiveProductImageTagCubit>()
+                              .changeTheActiveImage(index);
+                        },
+                      ),
+                      items: theListOfProductImages!.map((productImage) {
+                        return Builder(
+                          builder: (
+                            BuildContext context,
+                          ) {
+                            return FramworkImage.Image.network(
+                              productImage!.imageUrl,
+                              fit: BoxFit.cover,
+                            );
+                          },
                         );
-                      } else {
-                        return _SmallTagContainer(
-                          isActive: true,
-                        );
-                      }
-                    },
-                  ),
+                      }).toList(),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Container(
+                        height: 30,
+                        color: Colors.white,
+                        child: BlocBuilder<ActiveProductImageTagCubit,
+                            ActiveProductImageTagState>(
+                          builder: (context, state) {
+                            if (state is ActiveProductImageTagUpdatedState) {
+                              return Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  for (int i = 0;
+                                      i < theListOfProductImages!.length;
+                                      i++)
+                                    _SmallTagContainer(
+                                      isActive: i == state.theNewImageIndex,
+                                    ),
+                                ],
+                              );
+                            } else {
+                              return _SmallTagContainer(
+                                isActive: true,
+                              );
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
@@ -2109,6 +2192,93 @@ class _ProductPicticher extends StatelessWidget {
     );
   }
 }
+
+// class _CustomCarsoulSlider extends StatelessWidget {
+//   final List<ProductCollectionImage?>? theListOfProductImages;
+
+//   const _CustomCarsoulSlider({
+//     super.key,
+//     required this.theListOfProductImages,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Stack(
+//       children: [
+//         Container(
+//           width: double.infinity,
+//           height: double.infinity,
+//           decoration: BoxDecoration(
+//               // borderRadius: BorderRadius.circular(15),
+//               ),
+//           clipBehavior: Clip.hardEdge,
+//           child: CarouselSlider(
+//             options: CarouselOptions(
+//               viewportFraction: 1,
+//               height: double.infinity,
+
+//               // scrollDirection: Axis.vertical,
+//               autoPlay: true,
+//               autoPlayInterval: Duration(seconds: 3),
+
+//               onPageChanged: (index, reason) {
+//                 context
+//                     .read<ActiveProductImageTagCubit>()
+//                     .changeTheActiveImage(index);
+//                 // print(
+//                 //     "neeeeeeeeeeeeeeeeeeeeeeeeeee${context.read<ProductDetailsBloc>().activeProductImage}");
+//               },
+//             ),
+//             items: theListOfProductImages!.map((productImage) {
+//               return Builder(
+//                 builder: (
+//                   BuildContext context,
+//                 ) {
+//                   return FramworkImage.Image(
+//                       height: double.infinity,
+//                       width: double.infinity,
+//                       fit: BoxFit.cover,
+//                       image: NetworkImage(
+//                         productImage!.imageUrl,
+//                       ));
+//                 },
+//               );
+//             }).toList(),
+//           ),
+//         ),
+//         // Positioned(
+//         //   left: 10,
+//         //   top: 46,
+//         //   child: SizedBox(
+//         //     height: 80,
+//         //     // width: 5,
+//         //     child: Column(
+//         //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         //       children: [
+//         //         for (int i = 0; i < 3; i++)
+//         //           AnimatedContainer(
+//         //             duration: Duration(seconds: 1),
+//         //             // width: _currentIndex == i ? 20 : 8.0,
+//         //             width: 5,
+//         //             height: 20,
+//         //             margin: EdgeInsets.symmetric(horizontal: 2.0),
+//         //             decoration: BoxDecoration(
+//         //                 // shape: BoxShape.circle,
+//         //                 // color:
+//         //                 //     context.read<HomeBloc>().currentCarouselSliderIndex ==
+//         //                 //             i
+//         //                 //         ? AppColors.mainColor
+//         //                 //         : Colors.grey,
+//         //                 ),
+//         //           ),
+//         //       ],
+//         //     ),
+//         //   ),
+//         // ),
+//       ],
+//     );
+//   }
+// }
 
 class _CustomCarsoulSlider extends StatelessWidget {
   final List<ProductCollectionImage?>? theListOfProductImages;
@@ -2125,25 +2295,18 @@ class _CustomCarsoulSlider extends StatelessWidget {
         Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
-              // borderRadius: BorderRadius.circular(15),
-              ),
+          decoration: BoxDecoration(),
           clipBehavior: Clip.hardEdge,
           child: CarouselSlider(
             options: CarouselOptions(
               viewportFraction: 1,
               height: double.infinity,
-
-              // scrollDirection: Axis.vertical,
               autoPlay: true,
               autoPlayInterval: Duration(seconds: 3),
-
               onPageChanged: (index, reason) {
                 context
                     .read<ActiveProductImageTagCubit>()
                     .changeTheActiveImage(index);
-                // print(
-                //     "neeeeeeeeeeeeeeeeeeeeeeeeeee${context.read<ProductDetailsBloc>().activeProductImage}");
               },
             ),
             items: theListOfProductImages!.map((productImage) {
@@ -2163,32 +2326,25 @@ class _CustomCarsoulSlider extends StatelessWidget {
             }).toList(),
           ),
         ),
-        // Positioned(
-        //   left: 10,
-        //   top: 46,
-        //   child: SizedBox(
-        //     height: 80,
-        //     // width: 5,
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //       children: [
-        //         for (int i = 0; i < 3; i++)
-        //           AnimatedContainer(
-        //             duration: Duration(seconds: 1),
-        //             // width: _currentIndex == i ? 20 : 8.0,
-        //             width: 5,
-        //             height: 20,
-        //             margin: EdgeInsets.symmetric(horizontal: 2.0),
-        //             decoration: BoxDecoration(
-        //                 // shape: BoxShape.circle,
-        //                 // color:
-        //                 //     context.read<HomeBloc>().currentCarouselSliderIndex ==
-        //                 //             i
-        //                 //         ? AppColors.mainColor
-        //                 //         : Colors.grey,
-        //                 ),
-        //           ),
-        //       ],
+        // Expanded(
+        //   child: Positioned(
+        //     left: 10,
+        //     top: 46,
+        //     child: SizedBox(
+        //       height: 80,
+        //       child: Column(
+        //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //         children: [
+        //           for (int i = 0; i < 3; i++)
+        //             AnimatedContainer(
+        //               duration: Duration(seconds: 1),
+        //               width: _currentIndex == i ? 20 : 8.0,
+        //               height: 20,
+        //               margin: EdgeInsets.symmetric(horizontal: 2.0),
+        //               decoration: BoxDecoration(),
+        //             ),
+        //         ],
+        //       ),
         //     ),
         //   ),
         // ),
