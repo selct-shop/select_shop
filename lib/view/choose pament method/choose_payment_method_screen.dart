@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dash/flutter_dash.dart';
 // import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/check%20out/bloc/check_out_bloc.dart';
 
 Key? cashRadioButtonKey;
 Key? cardRadioButtonKey;
@@ -125,6 +127,7 @@ class _ChoosePaymentMethodScreenState extends State<ChoosePaymentMethodScreen> {
                             onChanged: (value) {
                               // activePaymentType = paymentTypes[value][0];
                               activePaymentType = value!;
+                              context.read<CheckOutBloc>().paymentMethod = 111;
 
                               // print("$value valllllllllllllllllllllllllll");
                               // i should use the bloc instade of set state
@@ -219,8 +222,13 @@ class _ChoosePaymentMethodScreenState extends State<ChoosePaymentMethodScreen> {
                             onChanged: (value) {
                               activePaymentType = value!;
 
-                              print("$value valllllllllllllllllllllllllll");
                               // i should use the bloc instade of set state
+                              context.read<CheckOutBloc>().paymentMethod = 222;
+                              // print(
+                              //     "$value valllllllllllllllllllllllllll${context.read<CheckOutBloc>().paymentMethod}");
+
+                              // print(
+                              //     "val99999999999999999999llllllllllllllllllllllllll");
                               setState(() {});
                             }),
                         const SizedBox(

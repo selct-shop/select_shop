@@ -26,6 +26,7 @@ import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/cart/bloc/cart_bloc_bloc.dart';
 import 'package:select_shop/view/categories/bloc/categories_bloc.dart';
 import 'package:select_shop/view/categories/categories_screen.dart';
+import 'package:select_shop/view/check%20out/bloc/check_out_bloc.dart';
 import 'package:select_shop/view/check%20out/check_out_screen.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
 import 'package:select_shop/view/home/widgets/bottom%20nav%20bar/bloc/bottom_nav_bloc.dart';
@@ -146,6 +147,7 @@ class _MyAppState extends State<MyApp> {
               create: (context) => AddingToCartButtonBloc()),
 
           BlocProvider<ProdCalcuBloc>(create: (context) => ProdCalcuBloc()),
+          BlocProvider<CheckOutBloc>(create: (context) => CheckOutBloc()),
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
           builder: (context, state) {

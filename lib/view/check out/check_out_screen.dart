@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as MaterrialFramwork;
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dash/flutter_dash.dart';
 import 'package:flutter_paytabs_bridge/BaseBillingShippingInfo.dart';
 import 'package:flutter_paytabs_bridge/IOSThemeConfiguration.dart';
@@ -27,6 +28,7 @@ import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/main.dart';
 import 'package:select_shop/view/cart/model/cart_model.dart';
 import 'package:select_shop/view/cart/widgets/product_card.dart';
+import 'package:select_shop/view/check%20out/bloc/check_out_bloc.dart';
 import 'package:select_shop/view/check%20out/models/confirm_payment_response_model.dart';
 import 'package:select_shop/view/check%20out/models/post_order_model.dart';
 import 'package:select_shop/view/check%20out/models/post_order_response_model.dart';
@@ -43,88 +45,88 @@ class CheckOutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            children: [
-              ///
-              ///
-              ///
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              children: [
+                ///
+                ///
+                ///
 
-              const SizedBox(
-                height: 20,
-              ),
-              _UserNameAndDeliverInfo(),
+                const SizedBox(
+                  height: 20,
+                ),
+                _UserNameAndDeliverInfo(),
 
-              ///
-              ///
-              ///
+                ///
+                ///
+                ///
 
-              const SizedBox(
-                height: 20,
-              ),
+                const SizedBox(
+                  height: 20,
+                ),
 
-              // user ordered produects, or the products on the cart
-              _CartDetails(
-                cartModel: cartModel,
-              ),
+                // user ordered produects, or the products on the cart
+                _CartDetails(
+                  cartModel: cartModel,
+                ),
 
-              ///
-              ///
-              ///
+                ///
+                ///
+                ///
 
-              const SizedBox(
-                height: 20,
-              ),
+                const SizedBox(
+                  height: 20,
+                ),
 
-              // enter copones
-              //
-              _EnterYourCoponsRow(),
+                // enter copones
+                //
+                _EnterYourCoponsRow(),
 
-              ///
-              ///
-              ///
+                ///
+                ///
+                ///
 
-              const SizedBox(
-                height: 20,
-              ),
+                const SizedBox(
+                  height: 20,
+                ),
 
-              // check out details
+                // check out details
 
-              _CheckOutDetails(
-                theNewPrice: cartModel.result.cart.total.toString(),
-                theDiscount: "0",
-                deliveryPrice: "20",
-                totalPrice: cartModel.result.cart.total.toString(),
-              ),
+                _CheckOutDetails(
+                  theNewPrice: cartModel.result.cart.total.toString(),
+                  theDiscount: "0",
+                  deliveryPrice: "20",
+                  totalPrice: cartModel.result.cart.total.toString(),
+                ),
 
-              ///
-              ///
-              ///
+                ///
+                ///
+                ///
 
-              const SizedBox(
-                height: 20,
-              ),
+                const SizedBox(
+                  height: 20,
+                ),
 
-              // confirm button
-              _ConfirmButton(
-                // amount: 260.55,
-                cartModel: cartModel,
-              ),
+                // confirm button
+                _ConfirmButton(
+                  // amount: 260.55,
+                  cartModel: cartModel,
+                ),
 
-              ///
-              ///
-              ///
+                ///
+                ///
+                ///
 
-              const SizedBox(
-                height: 30,
-              ),
-            ],
+                const SizedBox(
+                  height: 30,
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
   }
 }
 
@@ -220,8 +222,8 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
 
 // }
 
-    print(
-        "===s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s${widget.cartModel.result.cart.id}");
+    // print(
+    //     "===s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s${widget.cartModel.result.cart.id}");
 
     super.initState();
   }
@@ -334,6 +336,58 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
     return configuration;
   }
 
+  cachPayment() async {
+    // #### if payment method is cach //
+// #### complete the order checkout #### //
+    Response addOrderToCheckoutResponse = await DioHelper.postAddOrder(
+        cartId: widget.cartModel.result.cart.id,
+        orderAddress: OrderAddress(
+          addressOne: "test",
+          cityId: 1,
+          email: "",
+          paymentType: 111,
+          phoneNumber: globalCachedUserPhoneNum ?? "",
+          recievername: globalCachedUserName ?? "",
+        ));
+    if (addOrderToCheckoutResponse.statusCode != null) {
+      if (addOrderToCheckoutResponse.statusCode!.isSuccessfulHttpStatusCode) {
+        if (addOrderToCheckoutResponse.statusCode!.isSuccessfulHttpStatusCode) {
+          PostOrderResponseModel postOrderResponseModel =
+              PostOrderResponseModel.fromJson(addOrderToCheckoutResponse.data);
+          // var theResponse = jsonDecode(addOrderToCheckoutResponse.data);
+          if (postOrderResponseModel.message == "Success") {
+            // UserExperinceHelper().showCustomDialog(
+            //   theContext: context,
+            //   dialogTitle: "Success order addddedt",
+            //   confirmButtonTitle: "confirm",
+            //   onConfirm: () => Navigator.of(context).pop(),
+            // );
+
+            Response confirmPaymentResponse = await DioHelper.getConfirmPayment(
+                orderId: postOrderResponseModel.result.order.id);
+
+            ConfirmPaymentResponseModel confirmPaymentResponseModel =
+                ConfirmPaymentResponseModel.fromJson(
+                    confirmPaymentResponse.data);
+
+            if (confirmPaymentResponseModel.message == "SUCCESS") {
+              // print(
+              //     "===s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s8945t6983459834598743");
+
+              // payPressed();
+            }
+
+            return;
+          }
+        }
+      } else {
+        return;
+      }
+    } else {
+      return;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -353,21 +407,23 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
           );
           return;
         }
+        if (context.read<CheckOutBloc>().paymentMethod == 222) {
+//////////////////////////////////////////////////////////////////////////////////////
 
-        // if payment method is card
-        // navigate to card payment screen
+          // if payment method is card
+          // navigate to card payment screen
 
-        Future<void> payPressed() async {
-          FlutterPaytabsBridge.startCardPayment(
-              generateConfig(
-                // amount: widget.amount
-                amount: theTotal,
-              ), (event) {
-            setState(() {
-              if (event["status"] == "success") {
-                // Handle transaction details here.
+          Future<void> payPressed() async {
+            FlutterPaytabsBridge.startCardPayment(
+                generateConfig(
+                  // amount: widget.amount
+                  amount: theTotal,
+                ), (event) {
+              setState(() {
+                if (event["status"] == "success") {
+                  // Handle transaction details here.
 
-                // print("sucssssssssssssssssssssssssesss: $event");
+                  // print("sucssssssssssssssssssssssssesss: $event");
 
 // // #### #### //
 //                 PaymentResponseHandler handlerAr =
@@ -387,275 +443,148 @@ class _ConfirmButtonState extends State<_ConfirmButton> {
 
 // // #### #### //
 
-                var transactionDetails = event["data"];
-                // print(transactionDetails);
-                if (transactionDetails["isSuccess"]) {
-                  // print("sucssssssssssssssssssssssssesss: $transactionDetails");
+                  var transactionDetails = event["data"];
+                  // print(transactionDetails);
+                  if (transactionDetails["isSuccess"]) {
+                    // print("sucssssssssssssssssssssssssesss: $transactionDetails");
 
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
-                    (Route<dynamic> route) => false,
-                  );
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                      (Route<dynamic> route) => false,
+                    );
 
-                  UserExperinceHelper().showCustomDialog(
-                    theContext: context,
-                    dialogTitle: "Success",
-                    confirmButtonTitle: "confirm",
-                    onConfirm: () => Navigator.of(context).pop(),
-                  );
-
-                  // print("successful transaction");
-                  if (transactionDetails["isPending"]) {
                     UserExperinceHelper().showCustomDialog(
                       theContext: context,
-                      dialogTitle: "isPending",
+                      dialogTitle: "Success",
                       confirmButtonTitle: "confirm",
                       onConfirm: () => Navigator.of(context).pop(),
                     );
-                    // print("transaction pending");
+
+                    // print("successful transaction");
+                    if (transactionDetails["isPending"]) {
+                      UserExperinceHelper().showCustomDialog(
+                        theContext: context,
+                        dialogTitle: "isPending",
+                        confirmButtonTitle: "confirm",
+                        onConfirm: () => Navigator.of(context).pop(),
+                      );
+                      // print("transaction pending");
+                    }
+                  } else {
+                    UserExperinceHelper().showCustomDialog(
+                      theContext: context,
+                      dialogTitle: "failed transaction",
+                      confirmButtonTitle: "confirm",
+                      onConfirm: () => Navigator.of(context).pop(),
+                    );
+
+                    // print("failed transaction");
                   }
-                } else {
+
+                  // print(transactionDetails["isSuccess"]);
+                } else if (event["status"] == "error") {
+                  // print("error");
+                  // Handle error here.
+
                   UserExperinceHelper().showCustomDialog(
                     theContext: context,
-                    dialogTitle: "failed transaction",
+                    dialogTitle: "failed transaction, error",
                     confirmButtonTitle: "confirm",
                     onConfirm: () => Navigator.of(context).pop(),
                   );
+                } else if (event["status"] == "event") {
+                  // print("event");
+                  // Handle events here.
 
-                  // print("failed transaction");
+                  UserExperinceHelper().showCustomDialog(
+                    theContext: context,
+                    dialogTitle: "error",
+                    dialogContent: event.toString(),
+                    confirmButtonTitle: "confirm",
+                    onConfirm: () => Navigator.of(context).pop(),
+                  );
                 }
-
-                // print(transactionDetails["isSuccess"]);
-              } else if (event["status"] == "error") {
-                // print("error");
-                // Handle error here.
-
-                UserExperinceHelper().showCustomDialog(
-                  theContext: context,
-                  dialogTitle: "failed transaction, error",
-                  confirmButtonTitle: "confirm",
-                  onConfirm: () => Navigator.of(context).pop(),
-                );
-              } else if (event["status"] == "event") {
-                // print("event");
-                // Handle events here.
-
-                UserExperinceHelper().showCustomDialog(
-                  theContext: context,
-                  dialogTitle: "error",
-                  dialogContent: event.toString(),
-                  confirmButtonTitle: "confirm",
-                  onConfirm: () => Navigator.of(context).pop(),
-                );
-              }
-
-              // #### #### //
-              // #### #### //
-              // #### #### //
-
-              // void handleError(BuildContext context, String responseStatus,
-              //     String responseCode) {
-              //   String message;
-
-              //   if (responseStatus == 'E') {
-              //     switch (responseCode) {
-              //       case '200':
-              //         message =
-              //             'Unable to complete process, please try again later.';
-              //         break;
-              //       case '201':
-              //         message = 'Data mismatch.';
-              //         break;
-              //       case '400':
-              //         message = 'Unregistered user.';
-              //         break;
-              //       case '401':
-              //         message = 'Verification code mismatch.';
-              //         break;
-              //       case '402':
-              //         message = 'Incorrect identification number.';
-              //         break;
-              //       default:
-              //         message = 'An error occurred, please try again.';
-              //         break;
-              //     }
-              //   } else if (responseStatus == 'F') {
-              //     switch (responseCode) {
-              //       case '500':
-              //         message =
-              //             'Server is under maintenance, please try later.';
-              //         break;
-              //       default:
-              //         message = 'An error occurred, please try again.';
-              //         break;
-              //     }
-              //   } else {
-              //     message = 'Unknown status, please contact support.';
-              //   }
-
-              //   UserExperinceHelper().showCustomDialog(
-              //     theContext: context,
-              //     dialogTitle: "Error",
-              //     confirmButtonTitle: "Retry",
-              //     onConfirm: () {
-              //       Navigator.pop(context);
-              //       // Optionally, implement retry logic here
-              //     },
-              //   );
-
-              //   print(message);
-              // }
-
-              // void handlePaymentEvent(
-              //     Map<String, dynamic> event, BuildContext context) {
-              //   if (event["status"] == "success" ||
-              //       event["status"] == "error" ||
-              //       event["status"] == "event") {
-              //     var transactionDetails = event["data"];
-
-              //     if (event["status"] == "success") {
-              //       if (transactionDetails["isSuccess"]) {
-              //         UserExperinceHelper().showCustomDialog(
-              //           theContext: context,
-              //           dialogTitle: "success",
-              //           confirmButtonTitle: "confirm",
-              // onConfirm: () => Navigator.of(context).pop(),
-              //         );
-
-              //         if (transactionDetails["isPending"]) {
-              //           UserExperinceHelper().showCustomDialog(
-              //             theContext: context,
-              //             dialogTitle: "isPending",
-              //             confirmButtonTitle: "confirm",
-              // onConfirm: () => Navigator.of(context).pop(),
-              //           );
-              //         } else {
-              //           print("successful transaction");
-
-              //           UserExperinceHelper().showCustomDialog(
-              //             theContext: context,
-              //             dialogTitle: "successful",
-              //             confirmButtonTitle: "confirm",
-              // onConfirm: () => Navigator.of(context).pop(),
-              //           );
-              //         }
-              //       } else {
-              //         print("failed transaction");
-              //         handleError(context, transactionDetails["responseStatus"],
-              //             transactionDetails["responseCode"]);
-              //       }
-              //     } else if (event["status"] == "error") {
-              //       print("error");
-              //       handleError(context, transactionDetails["responseStatus"],
-              //           transactionDetails["responseCode"]);
-              //     }
-
-              //     /// other events here
-
-              //     else if (event["status"] == "event") {
-              //       var eventData = event["data"];
-
-              //       // Handle other events based on their types
-              //       switch (eventData["eventType"]) {
-              //         case "notification":
-              //           // Handle notification event
-              //           print(
-              //               "Received notification event: ${eventData["message"]}");
-              //           break;
-              //         case "update":
-              //           // Handle update event
-              //           print("Received update event: ${eventData["version"]}");
-              //           break;
-              //         default:
-              //           // Handle unknown event type
-              //           print(
-              //               "Received unknown event type: ${eventData["eventType"]}");
-              //       }
-              //     }
-              //   }
-              // }
-
-              // handlePaymentEvent(event, context);
-
-              // #### #### //
-              // #### #### //
-              // #### #### //
+              });
             });
-          });
-        }
+          }
 
 // #### complete the order checkout then payment #### //
-        Response addOrderToCheckoutResponse = await DioHelper.postAddOrder(
-            cartId: widget.cartModel.result.cart.id,
-            orderAddress: OrderAddress(
-              addressOne: "test",
-              cityId: 1,
-              email: "",
-              paymentType: 222,
-              phoneNumber: globalCachedUserPhoneNum ?? "",
-              recievername: globalCachedUserName ?? "",
-            ));
-        if (addOrderToCheckoutResponse.statusCode != null) {
-          if (addOrderToCheckoutResponse
-              .statusCode!.isSuccessfulHttpStatusCode) {
+          Response addOrderToCheckoutResponse = await DioHelper.postAddOrder(
+              cartId: widget.cartModel.result.cart.id,
+              orderAddress: OrderAddress(
+                addressOne: "test",
+                cityId: 1,
+                email: "",
+                paymentType: 222,
+                phoneNumber: globalCachedUserPhoneNum ?? "",
+                recievername: globalCachedUserName ?? "",
+              ));
+          if (addOrderToCheckoutResponse.statusCode != null) {
             if (addOrderToCheckoutResponse
                 .statusCode!.isSuccessfulHttpStatusCode) {
-              PostOrderResponseModel postOrderResponseModel =
-                  PostOrderResponseModel.fromJson(
-                      addOrderToCheckoutResponse.data);
-              // var theResponse = jsonDecode(addOrderToCheckoutResponse.data);
-              if (postOrderResponseModel.message == "Success") {
-                // UserExperinceHelper().showCustomDialog(
-                //   theContext: context,
-                //   dialogTitle: "Success order addddedt",
-                //   confirmButtonTitle: "confirm",
-                //   onConfirm: () => Navigator.of(context).pop(),
-                // );
+              if (addOrderToCheckoutResponse
+                  .statusCode!.isSuccessfulHttpStatusCode) {
+                PostOrderResponseModel postOrderResponseModel =
+                    PostOrderResponseModel.fromJson(
+                        addOrderToCheckoutResponse.data);
+                // var theResponse = jsonDecode(addOrderToCheckoutResponse.data);
+                if (postOrderResponseModel.message == "Success") {
+                  // UserExperinceHelper().showCustomDialog(
+                  //   theContext: context,
+                  //   dialogTitle: "Success order addddedt",
+                  //   confirmButtonTitle: "confirm",
+                  //   onConfirm: () => Navigator.of(context).pop(),
+                  // );
 
-                Response confirmPaymentResponse =
-                    await DioHelper.getConfirmPayment(
-                        orderId: postOrderResponseModel.result.order.id);
+                  Response confirmPaymentResponse =
+                      await DioHelper.getConfirmPayment(
+                          orderId: postOrderResponseModel.result.order.id);
 
-                ConfirmPaymentResponseModel confirmPaymentResponseModel =
-                    ConfirmPaymentResponseModel.fromJson(
-                        confirmPaymentResponse.data);
+                  ConfirmPaymentResponseModel confirmPaymentResponseModel =
+                      ConfirmPaymentResponseModel.fromJson(
+                          confirmPaymentResponse.data);
 
-                if (confirmPaymentResponseModel.message == "SUCCESS") {
-                  // print(
-                  //     "===s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s8945t6983459834598743");
+                  if (confirmPaymentResponseModel.message == "SUCCESS") {
+                    // print(
+                    //     "===s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s8945t6983459834598743");
 
-                  payPressed();
+                    payPressed();
+                  }
+
+                  return;
                 }
-
-                return;
               }
+            } else {
+              return;
             }
           } else {
             return;
           }
+
+          // payPressed();
+
+          // if payment method is cash
+          // send the reqest to the api
+
+          // if no paymnet method selected
+          if (
+              // selectPaymentMethod == false
+              true == false
+              // false == false
+              ) {
+            UserExperinceHelper().showCustomDialog(
+              theContext: context,
+              dialogTitle: "Payment Method!!",
+              dialogContent: "please selcet payment method",
+              confirmButtonTitle: "ok",
+              onConfirm: () => Navigator.of(context).pop(),
+            );
+          }
         } else {
-          return;
-        }
-
-        // payPressed();
-
-        // if payment method is cash
-        // send the reqest to the api
-
-        // if no paymnet method selected
-        if (
-            // selectPaymentMethod == false
-            true == false
-            // false == false
-            ) {
-          UserExperinceHelper().showCustomDialog(
-            theContext: context,
-            dialogTitle: "Payment Method!!",
-            dialogContent: "please selcet payment method",
-            confirmButtonTitle: "ok",
-            onConfirm: () => Navigator.of(context).pop(),
-          );
+          print(
+              'Arabic: 999999999999999999999999999999999999999999999999999999999');
+          cachPayment();
         }
       },
       child: Container(
