@@ -11,57 +11,36 @@ part 'prod_calcu_state.dart';
 
 class ProdCalcuBloc extends Bloc<ProdCalcuEvent, ProdCalcuState> {
   ProdCalcuBloc() : super(ProdCalcuInitialState()) {
-    on<ProdCalcuEvent>((event, emit) async{
+    on<ProdCalcuEvent>((event, emit) async {
       // TODO: implement event handler
 
-
-
 // #### get the product calculations #### //
-      if (event is ProdCalcuInitalEvent){
-
-
-
-
-   emit(ProdCalcuLoadingState());
+      if (event is ProdCalcuInitalEvent) {
+        emit(ProdCalcuLoadingState());
         // loadingNewProducts = true;
         // get all the categories
         try {
-          
+          final Response response = await DioHelper.getProductsCalculations(
+              productID: event.productID.toString());
 
-
-final Response response = await DioHelper.getProductsCalculations(productID: event.productID); 
-
-       
-       if(response.statusCode != null ){
-
-
-
-
-
-           if (response.statusCode!.isSuccessfulHttpStatusCode) {
-            // print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
-            ProductCalculationsModel productCalculationsModel =
-                ProductCalculationsModel.fromJson(response.data);
-                
-          
+          if (response.statusCode != null) {
+            if (response.statusCode!.isSuccessfulHttpStatusCode) {
+              print("reeeeeeeeeeeeeeeeeeeeeeeeeeeeeepooo");
+              ProductCalculationsModel productCalculationsModel =
+                  ProductCalculationsModel.fromJson(response.data);
 
               emit(ProdCalcuSucsessState(
-                productCalculationsModel: productCalculationsModel, 
-
+                productCalculationsModel: productCalculationsModel,
               ));
-          
-          } else {
-            emit(ProdCalcuErrorState(
-                errorMessage:
-                    "${response.statusCode} \n ${response.statusMessage}"));
+            } else {
+              emit(ProdCalcuErrorState(
+                  errorMessage:
+                      "${response.statusCode} \n ${response.statusMessage}"));
+            }
           }
-       }
-       
-   
         } catch (exception) {
           emit(ProdCalcuErrorState(errorMessage: "$exception"));
         }
-
       }
     });
   }

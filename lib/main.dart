@@ -82,8 +82,7 @@ void main() async {
   await CacheHelper.init();
   await DioHelper.init();
   await Hive.initFlutter();
-  // var hiveBox =  await Hive.openBox(AppConstants.hiveBox); 
-
+  // var hiveBox =  await Hive.openBox(AppConstants.hiveBox);
 
   //  Hive.registerAdapter(LocalLocationModelAdapter());
   // Hive.registerAdapter(AddressCityModleAdapter()); // Also register AddressCityModle adapter if necessary
@@ -201,11 +200,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    // return Scaffold(
-    //     body: SafeArea(
-    //         child: globalCachedUserToken == null || globalCachedUserToken == ""
-    //             ? const LogInScreen()
-    //             : const HomeScreen()));
+    return Scaffold(
+        body: SafeArea(
+            child: globalCachedUserToken == null || globalCachedUserToken == ""
+                ? const LogInScreen()
+                : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
@@ -218,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(body: SafeArea(child: ChoosePaymentMethodScreen()));
     // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
     // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
-    return const Scaffold(body: SafeArea(child: UserLocationsScreen()));
+    // return const Scaffold(body: SafeArea(child: UserLocationsScreen()));
     // return Scaffold(
     //     body: SafeArea(
     //         child: PaymentScreen(

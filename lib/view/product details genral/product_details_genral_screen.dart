@@ -1421,11 +1421,12 @@ class _RatingWidgetState extends State<_RatingWidget> {
   void initState() {
     // TODO: implement initState
 
-    print("============================================${widget.productID}");
+    // print("============================================${widget.productID}");
 
     context
         .read<ProdCalcuBloc>()
         .add(ProdCalcuInitalEvent(productID: widget.productID));
+
     super.initState();
   }
 
