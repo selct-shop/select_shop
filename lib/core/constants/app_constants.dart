@@ -51,6 +51,11 @@ class AppConstants {
   static const String cachedUserToken = "cachedUserToken";
   static const String cachedUserLang = "cachedUserLang";
 
+
+  static const String cachedUserLocations = "cachedUserLocations";
+  static const String hiveBox = "hivebox";
+
+
   //
   //
 

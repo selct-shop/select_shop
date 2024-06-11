@@ -11,3 +11,9 @@ sealed class UserLocationEvent extends Equatable {
 
 
 class GetAllEmirateEvent extends UserLocationEvent {}
+class GetLocalLocationsEvent extends UserLocationEvent {}
+class AddUserLocationEvent extends UserLocationEvent {
+  final LocalLocationModel localLocationModel; 
+AddUserLocationEvent({ required this.localLocationModel}); 
+
+}

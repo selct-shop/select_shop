@@ -13,6 +13,12 @@ final class LoadingAllEmiratesState extends UserLocationState {}
 
 final class AllEmiratesLoadedState extends UserLocationState {}
 
+final class UserLocationInitalState extends UserLocationState {}
+final class UserLocationLoadingState extends UserLocationState {}
+final class UserLocationSucsessState extends UserLocationState {}
+final class UserLocationErrorState extends UserLocationState {}
+
+
 final class GetAllEmiratesErrorState extends UserLocationState {
   String? errorMessage;
   GetAllEmiratesErrorState({

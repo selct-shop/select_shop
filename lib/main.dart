@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/functions/localization.dart';
 import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/view/Auth/new_password_screen.dart';
@@ -79,6 +81,13 @@ void main() async {
 
   await CacheHelper.init();
   await DioHelper.init();
+  await Hive.initFlutter();
+  // var hiveBox =  await Hive.openBox(AppConstants.hiveBox); 
+
+
+  //  Hive.registerAdapter(LocalLocationModelAdapter());
+  // Hive.registerAdapter(AddressCityModleAdapter()); // Also register AddressCityModle adapter if necessary
+
   // Locale myLocal = await getLocal();
   // HomeBloc;
 
@@ -137,10 +146,7 @@ class _MyAppState extends State<MyApp> {
           BlocProvider<AddingToCartButtonBloc>(
               create: (context) => AddingToCartButtonBloc()),
 
- BlocProvider<ProdCalcuBloc>(
-              create: (context) => ProdCalcuBloc()),
-              
-
+          BlocProvider<ProdCalcuBloc>(create: (context) => ProdCalcuBloc()),
         ],
         child: BlocBuilder<LocalizationBloc, LocalizationState>(
           builder: (context, state) {
@@ -195,11 +201,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    return Scaffold(
-        body: SafeArea(
-            child: globalCachedUserToken == null || globalCachedUserToken == ""
-                ? const LogInScreen()
-                : const HomeScreen()));
+    // return Scaffold(
+    //     body: SafeArea(
+    //         child: globalCachedUserToken == null || globalCachedUserToken == ""
+    //             ? const LogInScreen()
+    //             : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
@@ -212,6 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(body: SafeArea(child: ChoosePaymentMethodScreen()));
     // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
     // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
+    return const Scaffold(body: SafeArea(child: UserLocationsScreen()));
     // return Scaffold(
     //     body: SafeArea(
     //         child: PaymentScreen(

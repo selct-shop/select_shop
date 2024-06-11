@@ -1,8 +1,11 @@
 // ignore_for_file: unnecessary_null_in_if_null_operators
 
+import 'dart:convert';
+
 import 'package:select_shop/core/constants/app_constants.dart';
 import 'package:select_shop/core/constants/app_shared_pref.dart';
 import 'package:select_shop/main.dart';
+import 'package:select_shop/view/user%20location/models/local_location_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
@@ -49,6 +52,47 @@ class CacheHelper {
     if (value is int) return sharedPreferences!.setInt(key, value);
     return sharedPreferences!.setDouble(key, value);
   }
+
+
+//     static Future<void > setLocalLocations({
+//     required List<LocalLocationModel> newLocations ,
+//     // required dynamic value,
+//   }) async {
+
+//      // Method to save a list of LocalLocationModel to shared preferences
+//     List<Map<String, dynamic>>
+//      locationsJsonList = newLocations.map((location) => location.toJson()).toList();
+//     // await prefs.setStringList('locations', locationsJsonList);
+  
+//  sharedPreferences!.setString(AppConstants.cachedUserLocations, locationsJsonList);
+
+    
+//     return sharedPreferences!.setString(AppConstants.cachedUserLocations, newLocation);
+//   }
+
+
+
+// #### new functions to save and get user locations #### //
+
+  // static const String _keyMap = 'myMap';  
+  static Future<bool> saveUserLocations(Map<String, String> map) async {
+    // final prefs = await SharedPreferences.getInstance();
+    return await sharedPreferences!.setString(AppConstants.cachedUserLocations, map.toString());
+  }
+
+  static Future<Map<String, String>> getUserLocations() async {
+    // final prefs = await SharedPreferences.getInstance();
+    final jsonString = sharedPreferences!.getString(AppConstants.cachedUserLocations);
+    if (jsonString == null || jsonString.isEmpty) {
+      return {};
+    } else {
+      final map = Map<String, String>.from(json.decode(jsonString));
+      return map;
+    }
+  }
+
+
+
 
   static dynamic getData({
     required String key,

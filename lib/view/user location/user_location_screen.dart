@@ -4,18 +4,53 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/models/Location%20models/getAllEmaritesModle.dart';
+import 'package:select_shop/view/Shared/app_button.dart';
+import 'package:select_shop/view/user%20location/bloc/user_location_bloc.dart';
 import 'package:select_shop/view/user%20location/create_new_location.dart';
+import 'package:select_shop/view/user%20location/models/local_location_model.dart';
 
 // enum SavedUserLocations<String> {  onn "Ajman", "Ajman", "Ajman" , "Ajman" }
-class UserLocationsScreen extends StatelessWidget {
+class UserLocationsScreen extends StatefulWidget {
   const UserLocationsScreen({super.key});
 
   @override
+  State<UserLocationsScreen> createState() => _UserLocationsScreenState();
+}
+
+class _UserLocationsScreenState extends State<UserLocationsScreen> {
+  @override
+  void initState() {
+    context.read<UserLocationBloc>().add(GetLocalLocationsEvent());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    AddressCityModle newAddressCityModel = AddressCityModle(
+      id: 2,
+      nameEn: "Dubai",
+      nameAr: "دبي",
+      createdAt: DateTime(
+        2024,
+      ),
+      updatedAt: DateTime(2024),
+      isDeleted: false,
+    );
+    LocalLocationModel newLocationModel = LocalLocationModel(
+      addressCityModle: newAddressCityModel,
+      locationTag: "ttest",
+      theAppartment: "ttest",
+      theArea: "ttest",
+      theBuilding: "ttest",
+      thePost: "ttest",
+      theStreet: "ttest",
+    );
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -178,6 +213,26 @@ class UserLocationsScreen extends StatelessWidget {
                 //   ),
                 // ),
               ),
+            ),
+            AppButton(
+              title: "add new location",
+              backgroundColor: Colors.yellow,
+              onTap: () {
+                context.read<UserLocationBloc>().add(
+                    AddUserLocationEvent(localLocationModel: newLocationModel));
+              },
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            AppButton(
+              title: "add new location",
+              backgroundColor: Colors.yellow,
+              onTap: () {
+                context.read<UserLocationBloc>().add(GetLocalLocationsEvent(
+                  
+                ));
+              },
             ),
             const SizedBox(
               height: 24,
