@@ -260,6 +260,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get accountSettings => 'اعدادت الحساب';
 
   @override
+  String get addNewLocation => 'اضافة موقع';
+
+  @override
   String get theArea => 'المنطقة';
 
   @override

@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "accountSettings":
             MessageLookupByLibrary.simpleMessage("اعدادت الحساب"),
         "addLocation": MessageLookupByLibrary.simpleMessage("المواقع"),
+        "addNewLocation": MessageLookupByLibrary.simpleMessage("اضافة موقع"),
         "aed": MessageLookupByLibrary.simpleMessage("درهم"),
         "allCategoris": MessageLookupByLibrary.simpleMessage("كل التصنيفات "),
         "apprtment": MessageLookupByLibrary.simpleMessage("الشقة"),

@@ -9,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
 import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/models/Location%20models/getAllEmaritesModle.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/user%20location/bloc/user_location_bloc.dart';
@@ -173,7 +174,8 @@ class _UserLocationsScreenState extends State<UserLocationsScreen> {
                       width: 20,
                     ),
                     Text(
-                      "add location",
+                                  S.of(context).addLocation
+                      ,
                       style: TextStyle(
                         color: AppColors.mainColor,
                         fontSize: 15,

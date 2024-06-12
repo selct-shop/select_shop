@@ -900,6 +900,16 @@ class S {
     );
   }
 
+  /// `add location`
+  String get addNewLocation {
+    return Intl.message(
+      'add location',
+      name: 'addNewLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `the area`
   String get theArea {
     return Intl.message(

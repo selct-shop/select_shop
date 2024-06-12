@@ -260,6 +260,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get accountSettings => 'account settings';
 
   @override
+  String get addNewLocation => 'add location';
+
+  @override
   String get theArea => 'the area';
 
   @override

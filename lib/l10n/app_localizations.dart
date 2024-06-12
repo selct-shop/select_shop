@@ -603,6 +603,12 @@ abstract class AppLocalizations {
   /// **'account settings'**
   String get accountSettings;
 
+  /// No description provided for @addNewLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'add location'**
+  String get addNewLocation;
+
   /// No description provided for @theArea.
   ///
   /// In en, this message translates to:
