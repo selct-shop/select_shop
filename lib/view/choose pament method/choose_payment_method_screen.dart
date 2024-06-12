@@ -5,8 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dash/flutter_dash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:select_shop/core/constants/app_images.dart';
+import 'package:select_shop/core/functions/nav_func.dart';
 // import 'package:select_shop/core/functions/nav_func.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/view/check%20out/bloc/check_out_bloc.dart';
 
 Key? cashRadioButtonKey;
@@ -311,7 +313,7 @@ class _ChoosePaymentMethodScreenState extends State<ChoosePaymentMethodScreen> {
                   borderRadius: BorderRadius.circular(10),
                   onTap: () {
                     // navigate to add new location
-                    // navigateTo(context, CreateNewLocationScreen());
+                    navigateTo(context, UnderDevScreen());
                     // also i should use the bloc here to set the new vlaue of the radio button
                     // cardRadioButtonKey.
                   },
