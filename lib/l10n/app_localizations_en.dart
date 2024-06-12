@@ -260,5 +260,56 @@ class AppLocalizationsEn extends AppLocalizations {
   String get accountSettings => 'account settings';
 
   @override
+  String get theArea => 'the area';
+
+  @override
+  String get enterTheArea => 'enter the area';
+
+  @override
+  String get emirate => 'Emirate';
+
+  @override
+  String get choseEmairate => 'chose Emairate';
+
+  @override
+  String get building => 'building no';
+
+  @override
+  String get enterBuilding => 'enter building info';
+
+  @override
+  String get theStreet => 'the street';
+
+  @override
+  String get enterTheStreet => 'enter the street';
+
+  @override
+  String get postCode => 'POST code';
+
+  @override
+  String get enterPostCode => 'enter POST code';
+
+  @override
+  String get apprtment => 'appartment';
+
+  @override
+  String get enterApprtment => 'enter appartment no';
+
+  @override
+  String get saveLocationAs => 'save the location as';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get work => 'Work';
+
+  @override
+  String get other => 'Other';
+
+  @override
+  String get saveLocation => 'save location';
+
+  @override
   String get unKnownError => 'unKnown Error !!!';
 }

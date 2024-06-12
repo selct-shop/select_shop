@@ -603,6 +603,108 @@ abstract class AppLocalizations {
   /// **'account settings'**
   String get accountSettings;
 
+  /// No description provided for @theArea.
+  ///
+  /// In en, this message translates to:
+  /// **'the area'**
+  String get theArea;
+
+  /// No description provided for @enterTheArea.
+  ///
+  /// In en, this message translates to:
+  /// **'enter the area'**
+  String get enterTheArea;
+
+  /// No description provided for @emirate.
+  ///
+  /// In en, this message translates to:
+  /// **'Emirate'**
+  String get emirate;
+
+  /// No description provided for @choseEmairate.
+  ///
+  /// In en, this message translates to:
+  /// **'chose Emairate'**
+  String get choseEmairate;
+
+  /// No description provided for @building.
+  ///
+  /// In en, this message translates to:
+  /// **'building no'**
+  String get building;
+
+  /// No description provided for @enterBuilding.
+  ///
+  /// In en, this message translates to:
+  /// **'enter building info'**
+  String get enterBuilding;
+
+  /// No description provided for @theStreet.
+  ///
+  /// In en, this message translates to:
+  /// **'the street'**
+  String get theStreet;
+
+  /// No description provided for @enterTheStreet.
+  ///
+  /// In en, this message translates to:
+  /// **'enter the street'**
+  String get enterTheStreet;
+
+  /// No description provided for @postCode.
+  ///
+  /// In en, this message translates to:
+  /// **'POST code'**
+  String get postCode;
+
+  /// No description provided for @enterPostCode.
+  ///
+  /// In en, this message translates to:
+  /// **'enter POST code'**
+  String get enterPostCode;
+
+  /// No description provided for @apprtment.
+  ///
+  /// In en, this message translates to:
+  /// **'appartment'**
+  String get apprtment;
+
+  /// No description provided for @enterApprtment.
+  ///
+  /// In en, this message translates to:
+  /// **'enter appartment no'**
+  String get enterApprtment;
+
+  /// No description provided for @saveLocationAs.
+  ///
+  /// In en, this message translates to:
+  /// **'save the location as'**
+  String get saveLocationAs;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @work.
+  ///
+  /// In en, this message translates to:
+  /// **'Work'**
+  String get work;
+
+  /// No description provided for @other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
+
+  /// No description provided for @saveLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'save location'**
+  String get saveLocation;
+
   /// No description provided for @unKnownError.
   ///
   /// In en, this message translates to:

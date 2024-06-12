@@ -120,6 +120,29 @@
     "accountSettings":"اعدادت الحساب", 
 
 
+    
+
+    "theArea": "المنطقة",
+    "enterTheArea": "ادخل المنطقة",
+    "emirate": "الإمارة",
+    "choseEmairate": "اختر الإمارة",
+    "building": "رقم المبنى",
+    "enterBuilding": "ادخل معلومات المبنى",
+    "theStreet": "الشارع",
+    "enterTheStreet": "ادخل الشارع",
+    "postCode": "الرمز البريدي",
+    "enterPostCode": "ادخل الرمز البريدي",
+    "apprtment": "الشقة",
+    "enterApprtment": "ادخل رقم الشقة",
+    "saveLocationAs": "احفظ الموقع كـ",
+    "home": "المنزل",
+    "work": "العمل",
+    "other": "أخرى",
+    "saveLocation": "حفظ الموقع", 
+
+
+
+
 
 
 

@@ -900,6 +900,176 @@ class S {
     );
   }
 
+  /// `the area`
+  String get theArea {
+    return Intl.message(
+      'the area',
+      name: 'theArea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `enter the area`
+  String get enterTheArea {
+    return Intl.message(
+      'enter the area',
+      name: 'enterTheArea',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Emirate`
+  String get emirate {
+    return Intl.message(
+      'Emirate',
+      name: 'emirate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `chose Emairate`
+  String get choseEmairate {
+    return Intl.message(
+      'chose Emairate',
+      name: 'choseEmairate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `building no`
+  String get building {
+    return Intl.message(
+      'building no',
+      name: 'building',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `enter building info`
+  String get enterBuilding {
+    return Intl.message(
+      'enter building info',
+      name: 'enterBuilding',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the street`
+  String get theStreet {
+    return Intl.message(
+      'the street',
+      name: 'theStreet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `enter the street`
+  String get enterTheStreet {
+    return Intl.message(
+      'enter the street',
+      name: 'enterTheStreet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `POST code`
+  String get postCode {
+    return Intl.message(
+      'POST code',
+      name: 'postCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `enter POST code`
+  String get enterPostCode {
+    return Intl.message(
+      'enter POST code',
+      name: 'enterPostCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `appartment`
+  String get apprtment {
+    return Intl.message(
+      'appartment',
+      name: 'apprtment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `enter appartment no`
+  String get enterApprtment {
+    return Intl.message(
+      'enter appartment no',
+      name: 'enterApprtment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `save the location as`
+  String get saveLocationAs {
+    return Intl.message(
+      'save the location as',
+      name: 'saveLocationAs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Work`
+  String get work {
+    return Intl.message(
+      'Work',
+      name: 'work',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get other {
+    return Intl.message(
+      'Other',
+      name: 'other',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `save location`
+  String get saveLocation {
+    return Intl.message(
+      'save location',
+      name: 'saveLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `unKnown Error !!!`
   String get unKnownError {
     return Intl.message(

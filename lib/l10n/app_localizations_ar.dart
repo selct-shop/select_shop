@@ -260,5 +260,56 @@ class AppLocalizationsAr extends AppLocalizations {
   String get accountSettings => 'اعدادت الحساب';
 
   @override
+  String get theArea => 'المنطقة';
+
+  @override
+  String get enterTheArea => 'ادخل المنطقة';
+
+  @override
+  String get emirate => 'الإمارة';
+
+  @override
+  String get choseEmairate => 'اختر الإمارة';
+
+  @override
+  String get building => 'رقم المبنى';
+
+  @override
+  String get enterBuilding => 'ادخل معلومات المبنى';
+
+  @override
+  String get theStreet => 'الشارع';
+
+  @override
+  String get enterTheStreet => 'ادخل الشارع';
+
+  @override
+  String get postCode => 'الرمز البريدي';
+
+  @override
+  String get enterPostCode => 'ادخل الرمز البريدي';
+
+  @override
+  String get apprtment => 'الشقة';
+
+  @override
+  String get enterApprtment => 'ادخل رقم الشقة';
+
+  @override
+  String get saveLocationAs => 'احفظ الموقع كـ';
+
+  @override
+  String get home => 'المنزل';
+
+  @override
+  String get work => 'العمل';
+
+  @override
+  String get other => 'أخرى';
+
+  @override
+  String get saveLocation => 'حفظ الموقع';
+
+  @override
   String get unKnownError => 'خطاء غير معروف';
 }

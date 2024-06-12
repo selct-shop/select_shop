@@ -8,6 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:select_shop/core/helpers/user_experience_helper.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
 import 'package:select_shop/models/Location%20models/getAllEmaritesModle.dart';
 import 'package:select_shop/view/Shared/custom_dialog.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
@@ -62,7 +63,7 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                   height: 24,
                 ),
                 Text(
-                  "Location : ",
+                  S.of(context).location + " : ",
                   style: TextStyle(
                     color: AppColors.mainColor,
                     fontSize: 26,
@@ -88,9 +89,9 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
 
                       child: _CustomSelectEmirate(
                         // height: 40,
-                        hintText: "choose the emirate",
+                        hintText: S.of(context).choseEmairate,
                         controller: emirateTextEditingController,
-                        theTitle: "Emirate",
+                        theTitle: S.of(context).emirate,
                         validate: true,
                       ),
                     ),
@@ -100,8 +101,8 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                     Expanded(
                       child: _CustomTextFormField(
                         // area form field
-                        theTitle: "the area",
-                        hintText: "enter the area",
+                        theTitle: S.of(context).theArea,
+                        hintText: S.of(context).enterTheArea,
                         controller: areaTextEditingController,
                         validate: true,
                       ),
@@ -124,8 +125,8 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                     Expanded(
                       child: _CustomTextFormField(
                         // street form field
-                        theTitle: "the Street",
-                        hintText: "enter the street",
+                        theTitle: S.of(context).theStreet,
+                        hintText: S.of(context).enterTheStreet,
                         controller: streetTextEditingController,
                         validate: false,
                       ),
@@ -136,8 +137,8 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                     Expanded(
                       child: _CustomTextFormField(
                         // building form field
-                        theTitle: "Building",
-                        hintText: "enter the building name",
+                        theTitle: S.of(context).building,
+                        hintText: S.of(context).enterBuilding,
                         controller: buildingTextEditingController,
                         validate: false,
                       ),
@@ -160,8 +161,8 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                     Expanded(
                       child: _CustomTextFormField(
                         // apartment form field
-                        theTitle: "Apartment",
-                        hintText: "enter the apartment",
+                        theTitle: S.of(context).apprtment,
+                        hintText: S.of(context).enterApprtment,
                         controller: apartmentTextEditingController,
                         validate: false,
                       ),
@@ -172,8 +173,8 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                     Expanded(
                       child: _CustomTextFormField(
                         // post code form field
-                        theTitle: "POST code",
-                        hintText: "enter the zip code",
+                        theTitle: S.of(context).postCode,
+                        hintText: S.of(context).enterPostCode,
                         controller: zipTextEditingController,
                         validate: false,
                       ),
@@ -207,7 +208,7 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                 ///
 
                 Text(
-                  "save the location as: ",
+                  S.of(context).saveLocationAs,
                   style: TextStyle(
                     color: AppColors.mainColor,
                     fontWeight: FontWeight.w500,
@@ -225,11 +226,11 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                   child: Row(
                     children: [
                       _LocationTagController(
-                        theLocationTitel: "Home",
+                        theLocationTitel: S.of(context).home,
                         isActive: true,
                       ),
                       _LocationTagController(
-                        theLocationTitel: "work",
+                        theLocationTitel: S.of(context).work,
                         isActive: false,
                       ),
                       _AddNewLocationTage(),
@@ -266,8 +267,8 @@ class _CreateNewLocationScreenState extends State<CreateNewLocationScreen> {
                       //   // save the new location
                       // }
                     },
-                    child: const Text(
-                      'Save Location',
+                    child: Text(
+                      S.of(context).saveLocation,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -325,7 +326,7 @@ class _AddNewLocationTage extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              "Other",
+              S.of(context).other,
               style: TextStyle(
                 color: AppColors.mainColor,
                 fontWeight: FontWeight.bold,
@@ -346,7 +347,7 @@ class _AddNewLocationTage extends StatelessWidget {
                   border: InputBorder.none,
                   // focusedBorder: InputBorder.none,
 
-                  hintText: "enter name",
+                  hintText: S.of(context).userName,
 
                   hintStyle: TextStyle(
                     color: AppColors.grey2Color.withOpacity(.2),
@@ -580,7 +581,7 @@ class _CustomSelectEmirate extends StatelessWidget {
                   child: CustomDropdown<String>(
                     // hintText:  context.read<UserLocationBloc>().listOfEmirtates[0].nameEn,
                     hintBuilder: (context, hint) => Text(
-                      "Emairate",
+                      S.of(context).emirate,
                       style: TextStyle(
                           color: AppColors.grey2Color.withOpacity(.2),
                           height: .8),

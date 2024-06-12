@@ -116,6 +116,30 @@
     "accountSettings":"account settings", 
 
 
+    
+
+    "theArea":"the area", 
+    "enterTheArea":"enter the area", 
+    "emirate":"Emirate",
+    "choseEmairate":"chose Emairate",
+    "building":"building no", 
+    "enterBuilding":"enter building info", 
+    "theStreet":"the street", 
+    "enterTheStreet":"enter the street", 
+    "postCode":"POST code",
+    "enterPostCode":"enter POST code",
+    "apprtment":"appartment",
+    "enterApprtment":"enter appartment no",
+    "saveLocationAs":"save the location as", 
+    "home":"Home",
+    "work":"Work", 
+    "other":"Other", 
+    "saveLocation":"save location",
+
+
+
+
+
 
 
 

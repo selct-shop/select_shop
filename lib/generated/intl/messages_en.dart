@@ -27,9 +27,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "addLocation": MessageLookupByLibrary.simpleMessage("add location"),
         "aed": MessageLookupByLibrary.simpleMessage("AED"),
         "allCategoris": MessageLookupByLibrary.simpleMessage("all catigory "),
+        "apprtment": MessageLookupByLibrary.simpleMessage("appartment"),
         "backToSignIn": MessageLookupByLibrary.simpleMessage("back to signin"),
         "brand": MessageLookupByLibrary.simpleMessage("brand"),
         "brandDetails": MessageLookupByLibrary.simpleMessage("brnad details"),
+        "building": MessageLookupByLibrary.simpleMessage("building no"),
         "cartDetails": MessageLookupByLibrary.simpleMessage("cart details"),
         "category": MessageLookupByLibrary.simpleMessage("category"),
         "categorys": MessageLookupByLibrary.simpleMessage("categorys"),
@@ -38,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "checkNetwork":
             MessageLookupByLibrary.simpleMessage("please check your network"),
         "checkOut": MessageLookupByLibrary.simpleMessage("checkOut"),
+        "choseEmairate": MessageLookupByLibrary.simpleMessage("chose Emairate"),
         "comments": MessageLookupByLibrary.simpleMessage("comments"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
         "confirmNewPassword":
@@ -53,12 +56,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "editUser":
             MessageLookupByLibrary.simpleMessage("edit personal profile"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
+        "emirate": MessageLookupByLibrary.simpleMessage("Emirate"),
+        "enterApprtment":
+            MessageLookupByLibrary.simpleMessage("enter appartment no"),
+        "enterBuilding":
+            MessageLookupByLibrary.simpleMessage("enter building info"),
         "enterCoponCode":
             MessageLookupByLibrary.simpleMessage("enter copon code"),
         "enterEmailToResetOne":
             MessageLookupByLibrary.simpleMessage("enter your email to reset"),
         "enterEmailToResetTwo":
             MessageLookupByLibrary.simpleMessage("your password"),
+        "enterPostCode":
+            MessageLookupByLibrary.simpleMessage("enter POST code"),
+        "enterTheArea": MessageLookupByLibrary.simpleMessage("enter the area"),
+        "enterTheStreet":
+            MessageLookupByLibrary.simpleMessage("enter the street"),
         "error": MessageLookupByLibrary.simpleMessage("error"),
         "fastShipment": MessageLookupByLibrary.simpleMessage("fast shipment"),
         "favourts": MessageLookupByLibrary.simpleMessage("favourts"),
@@ -66,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("forgot password?"),
         "freeReturn": MessageLookupByLibrary.simpleMessage("free return"),
         "helpCenter": MessageLookupByLibrary.simpleMessage("help center"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "homePage": MessageLookupByLibrary.simpleMessage("home"),
         "limitedOffers": MessageLookupByLibrary.simpleMessage("limited offers"),
         "location": MessageLookupByLibrary.simpleMessage("location"),
@@ -80,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("notifications settings"),
         "orByUsing": MessageLookupByLibrary.simpleMessage("or by using"),
         "orders": MessageLookupByLibrary.simpleMessage("orders"),
+        "other": MessageLookupByLibrary.simpleMessage("Other"),
         "otpCodeSended":
             MessageLookupByLibrary.simpleMessage("otp code is sended to"),
         "password": MessageLookupByLibrary.simpleMessage("password"),
@@ -89,10 +104,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("payment on recive"),
         "personalPage": MessageLookupByLibrary.simpleMessage("personal"),
         "phoneNum": MessageLookupByLibrary.simpleMessage("phone number"),
+        "postCode": MessageLookupByLibrary.simpleMessage("POST code"),
         "price": MessageLookupByLibrary.simpleMessage("price"),
         "products": MessageLookupByLibrary.simpleMessage("products"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("reset password"),
+        "saveLocation": MessageLookupByLibrary.simpleMessage("save location"),
+        "saveLocationAs":
+            MessageLookupByLibrary.simpleMessage("save the location as"),
         "search": MessageLookupByLibrary.simpleMessage("search"),
         "searchYourProduct":
             MessageLookupByLibrary.simpleMessage("search your product"),
@@ -115,10 +134,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("special products"),
         "suppourt": MessageLookupByLibrary.simpleMessage("suppourt"),
         "taxes": MessageLookupByLibrary.simpleMessage("taxes"),
+        "theArea": MessageLookupByLibrary.simpleMessage("the area"),
         "theColor": MessageLookupByLibrary.simpleMessage("color"),
         "theDiscaount": MessageLookupByLibrary.simpleMessage("discaount"),
         "theLakta": MessageLookupByLibrary.simpleMessage("lakta"),
         "theNew": MessageLookupByLibrary.simpleMessage("new"),
+        "theStreet": MessageLookupByLibrary.simpleMessage("the street"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("best seller"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("total price"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("trad marks"),
@@ -131,6 +152,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "userName": MessageLookupByLibrary.simpleMessage("name"),
         "welcomeToSelectShop":
             MessageLookupByLibrary.simpleMessage("welcome to select shop"),
+        "work": MessageLookupByLibrary.simpleMessage("Work"),
         "youDontHaveAccount": MessageLookupByLibrary.simpleMessage(
             "you have don\'t have account? create one"),
         "youHaveAccount":

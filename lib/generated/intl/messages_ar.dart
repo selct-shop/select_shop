@@ -27,10 +27,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "addLocation": MessageLookupByLibrary.simpleMessage("المواقع"),
         "aed": MessageLookupByLibrary.simpleMessage("درهم"),
         "allCategoris": MessageLookupByLibrary.simpleMessage("كل التصنيفات "),
+        "apprtment": MessageLookupByLibrary.simpleMessage("الشقة"),
         "backToSignIn":
             MessageLookupByLibrary.simpleMessage("العودة إلى تسجيل الدخول"),
         "brand": MessageLookupByLibrary.simpleMessage("البراند"),
         "brandDetails": MessageLookupByLibrary.simpleMessage("تفاصيل البراند"),
+        "building": MessageLookupByLibrary.simpleMessage("رقم المبنى"),
         "cartDetails": MessageLookupByLibrary.simpleMessage("تفاصيل السله"),
         "category": MessageLookupByLibrary.simpleMessage("التصنيف"),
         "categorys": MessageLookupByLibrary.simpleMessage("التصنيفات"),
@@ -38,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "checkNetwork":
             MessageLookupByLibrary.simpleMessage("الرجاء تفحص الانترنت لديك"),
         "checkOut": MessageLookupByLibrary.simpleMessage("اطلب"),
+        "choseEmairate": MessageLookupByLibrary.simpleMessage("اختر الإمارة"),
         "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
         "confirm": MessageLookupByLibrary.simpleMessage("تاكيد"),
         "confirmNewPassword":
@@ -52,12 +55,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("احصل علي نقاط, و خصومات"),
         "editUser": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "emirate": MessageLookupByLibrary.simpleMessage("الإمارة"),
+        "enterApprtment":
+            MessageLookupByLibrary.simpleMessage("ادخل رقم الشقة"),
+        "enterBuilding":
+            MessageLookupByLibrary.simpleMessage("ادخل معلومات المبنى"),
         "enterCoponCode":
             MessageLookupByLibrary.simpleMessage("ادخل رمز الكوبون"),
         "enterEmailToResetOne": MessageLookupByLibrary.simpleMessage(
             "أدخل بريدك الإلكتروني لإعادة تعيين"),
         "enterEmailToResetTwo":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الخاصة بك"),
+        "enterPostCode":
+            MessageLookupByLibrary.simpleMessage("ادخل الرمز البريدي"),
+        "enterTheArea": MessageLookupByLibrary.simpleMessage("ادخل المنطقة"),
+        "enterTheStreet": MessageLookupByLibrary.simpleMessage("ادخل الشارع"),
         "error": MessageLookupByLibrary.simpleMessage("خطاء"),
         "fastShipment": MessageLookupByLibrary.simpleMessage("شحن سريع"),
         "favourts": MessageLookupByLibrary.simpleMessage("المفضله"),
@@ -65,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
         "freeReturn": MessageLookupByLibrary.simpleMessage("اعاده مجانيه"),
         "helpCenter": MessageLookupByLibrary.simpleMessage("مركز المساعده"),
+        "home": MessageLookupByLibrary.simpleMessage("المنزل"),
         "homePage": MessageLookupByLibrary.simpleMessage("الرئسيه"),
         "limitedOffers":
             MessageLookupByLibrary.simpleMessage("العروض المحدودة"),
@@ -80,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اعدادات الاشعارات"),
         "orByUsing": MessageLookupByLibrary.simpleMessage("أو بإستخدام"),
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
+        "other": MessageLookupByLibrary.simpleMessage("أخرى"),
         "otpCodeSended":
             MessageLookupByLibrary.simpleMessage("تم إرسال رمز المصادقة إلى"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
@@ -89,11 +103,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الدفع عند الاستلام"),
         "personalPage": MessageLookupByLibrary.simpleMessage("المستخدم"),
         "phoneNum": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "postCode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
         "price": MessageLookupByLibrary.simpleMessage("السعر"),
         "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
+        "saveLocation": MessageLookupByLibrary.simpleMessage("حفظ الموقع"),
+        "saveLocationAs":
+            MessageLookupByLibrary.simpleMessage("احفظ الموقع كـ"),
         "search": MessageLookupByLibrary.simpleMessage("ابحث"),
         "searchYourProduct":
             MessageLookupByLibrary.simpleMessage("ابحث عن منتجك"),
@@ -115,10 +133,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "specialproducts": MessageLookupByLibrary.simpleMessage("منتجات مميزه"),
         "suppourt": MessageLookupByLibrary.simpleMessage("الدعم"),
         "taxes": MessageLookupByLibrary.simpleMessage("الضريبه"),
+        "theArea": MessageLookupByLibrary.simpleMessage("المنطقة"),
         "theColor": MessageLookupByLibrary.simpleMessage("اللون"),
         "theDiscaount": MessageLookupByLibrary.simpleMessage("خصم"),
         "theLakta": MessageLookupByLibrary.simpleMessage("لقطه"),
         "theNew": MessageLookupByLibrary.simpleMessage("جديد"),
+        "theStreet": MessageLookupByLibrary.simpleMessage("الشارع"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("الافضل مبيعا"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("اجمالي السعر"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("العلامات التجاريه"),
@@ -130,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "userName": MessageLookupByLibrary.simpleMessage("الاسم"),
         "welcomeToSelectShop": MessageLookupByLibrary.simpleMessage(
             "مرحباً بك في متجر سيليكت شوب"),
+        "work": MessageLookupByLibrary.simpleMessage("العمل"),
         "youDontHaveAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟إنشاء حساب "),
         "youHaveAccount":
