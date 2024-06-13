@@ -514,6 +514,116 @@ class _CustomTextFormField extends StatelessWidget {
   }
 }
 
+// class _CustomSelectEmirate extends StatelessWidget {
+//   final double? height, width;
+//   final String hintText, theTitle;
+//   final TextEditingController controller;
+//   final bool validate;
+
+//   const _CustomSelectEmirate({
+//     super.key,
+//     this.height,
+//     this.width,
+//     required this.hintText,
+//     required this.controller,
+//     required this.validate,
+//     required this.theTitle,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocBuilder<UserLocationBloc, UserLocationState>(
+//       builder: (context, state) {
+//         if (state is LoadingAllEmiratesState) {
+//           return Center(
+//             child: CircularProgressIndicator(
+//               color: AppColors.mainColor,
+//             ),
+//           );
+//         } else if (state is AllEmiratesLoadedState) {
+//           return Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               Padding(
+//                 padding: const EdgeInsets.symmetric(
+//                   horizontal: 10,
+//                 ),
+//                 child: Text(
+//                   theTitle,
+//                   style: TextStyle(
+//                     color: AppColors.mainColor,
+//                     fontSize: 15,
+//                     fontWeight: FontWeight.w500,
+//                     height: .8,
+//                     // overflow: TextOverflow.ellipsis,
+//                   ),
+//                 ),
+//               ),
+//               const SizedBox(
+//                 height: 10,
+//               ),
+//               Container(
+//                 height: height,
+//                 // height: 40,
+//                 width: width ?? double.infinity,
+//                 padding: EdgeInsets.symmetric(
+//                   horizontal: 15,
+//                 ),
+//                 // alignment: Alignment.center,
+//                 decoration: BoxDecoration(
+//                   border: Border.all(
+//                     color: AppColors.grey2Color.withOpacity(.4),
+//                   ),
+//                   borderRadius: BorderRadius.circular(10),
+//                 ),
+
+//                 child: Center(
+//                   child: CustomDropdown<String>(
+//                     // hintText:  context.read<UserLocationBloc>().listOfEmirtates[0].nameEn,
+//                     hintBuilder: (context, hint) => Text(
+//                       S.of(context).emirate,
+//                       style: TextStyle(
+//                           color: AppColors.grey2Color.withOpacity(.2),
+//                           height: .8),
+//                     ),
+//                     items:
+//                         context.read<UserLocationBloc>().listOfEmirtatesNames,
+//                     // initialItem:
+//                     //     context.read<UserLocationBloc>().listOfEmirtatesNames [0],
+//                     closedHeaderPadding: EdgeInsets.only(
+//                       bottom: 5,
+//                     ),
+
+//                     maxlines: 1,
+//                     decoration: CustomDropdownDecoration(
+//                       listItemStyle:
+//                           TextStyle(color: AppColors.grey2Color, height: .8),
+//                       closedSuffixIcon: Icon(
+//                         Icons.arrow_forward_ios_rounded,
+//                         color: AppColors.mainColor,
+//                         size: 20,
+//                       ),
+//                       expandedSuffixIcon: Icon(
+//                         Icons.arrow_back_ios_rounded,
+//                         color: AppColors.mainColor,
+//                         size: 20,
+//                       ),
+//                     ),
+//                     onChanged: (value) {
+//                       // log('changing value to: $value');
+//                     },
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           );
+//         } else
+//           return const SizedBox();
+//       },
+//     );
+//   }
+// }
+
 class _CustomSelectEmirate extends StatelessWidget {
   final double? height, width;
   final String hintText, theTitle;
@@ -555,7 +665,6 @@ class _CustomSelectEmirate extends StatelessWidget {
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
                     height: .8,
-                    // overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ),
@@ -564,23 +673,19 @@ class _CustomSelectEmirate extends StatelessWidget {
               ),
               Container(
                 height: height,
-                // height: 40,
                 width: width ?? double.infinity,
                 padding: EdgeInsets.symmetric(
                   horizontal: 15,
                 ),
-                // alignment: Alignment.center,
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: AppColors.grey2Color.withOpacity(.4),
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
-
                 child: Center(
                   child: CustomDropdown<String>(
-                    // hintText:  context.read<UserLocationBloc>().listOfEmirtates[0].nameEn,
-                    hintBuilder: (context, hint) => Text(
+                    hintBuilder: (context, hint, isExpanded) => Text(
                       S.of(context).emirate,
                       style: TextStyle(
                           color: AppColors.grey2Color.withOpacity(.2),
@@ -588,12 +693,9 @@ class _CustomSelectEmirate extends StatelessWidget {
                     ),
                     items:
                         context.read<UserLocationBloc>().listOfEmirtatesNames,
-                    // initialItem:
-                    //     context.read<UserLocationBloc>().listOfEmirtatesNames [0],
                     closedHeaderPadding: EdgeInsets.only(
                       bottom: 5,
                     ),
-
                     maxlines: 1,
                     decoration: CustomDropdownDecoration(
                       listItemStyle:
@@ -610,19 +712,21 @@ class _CustomSelectEmirate extends StatelessWidget {
                       ),
                     ),
                     onChanged: (value) {
-                      // log('changing value to: $value');
+                      // Handle value change
                     },
                   ),
                 ),
               ),
             ],
           );
-        } else
+        } else {
           return const SizedBox();
+        }
       },
     );
   }
 }
+
 
 // const SizedBox(
 //   height: 10,
