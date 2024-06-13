@@ -144,6 +144,23 @@
 
 
 
+    "trackOrder": "تتبع الطلب",
+    "orderStage": "مرحلة الطلب : ",
+    "orderPlaced": "تم تقديم الطلب",
+    "orderPlacedMessage": "تم تقديم طلبك",
+    "processing": "جاري المعالجة",
+    "processingMessage": "طلبك ينتظر التأكيد",
+    "orderConfirmed": "تم تأكيد الطلب",
+    "orderConfirmedMessage": "تم تأكيد طلبك",
+    "shipped": "تم الشحن",
+    "shippedMessage": "تم شحن طلبك",
+    "onTheWay": "في الطريق",
+    "onTheWayMessage": "مندوب التوصيل في الطريق لتسليم طلبك",
+    "delivered": "تم التسليم",
+
+
+
+
 
 
 

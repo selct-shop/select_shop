@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "deliverTo": MessageLookupByLibrary.simpleMessage("توصيل الي"),
+        "delivered": MessageLookupByLibrary.simpleMessage("تم التسليم"),
         "deliveryPrice": MessageLookupByLibrary.simpleMessage("رسوم التوصيل"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "doYouHaveCopons":
@@ -92,7 +93,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "noDataLikeThis": MessageLookupByLibrary.simpleMessage("no data"),
         "notificationSettings":
             MessageLookupByLibrary.simpleMessage("اعدادات الاشعارات"),
+        "onTheWay": MessageLookupByLibrary.simpleMessage("في الطريق"),
+        "onTheWayMessage": MessageLookupByLibrary.simpleMessage(
+            "مندوب التوصيل في الطريق لتسليم طلبك"),
         "orByUsing": MessageLookupByLibrary.simpleMessage("أو بإستخدام"),
+        "orderConfirmed":
+            MessageLookupByLibrary.simpleMessage("تم تأكيد الطلب"),
+        "orderConfirmedMessage":
+            MessageLookupByLibrary.simpleMessage("تم تأكيد طلبك"),
+        "orderPlaced": MessageLookupByLibrary.simpleMessage("تم تقديم الطلب"),
+        "orderPlacedMessage":
+            MessageLookupByLibrary.simpleMessage("تم تقديم طلبك"),
+        "orderStage": MessageLookupByLibrary.simpleMessage("مرحلة الطلب : "),
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
         "other": MessageLookupByLibrary.simpleMessage("أخرى"),
         "otpCodeSended":
@@ -106,6 +118,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNum": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "postCode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
         "price": MessageLookupByLibrary.simpleMessage("السعر"),
+        "processing": MessageLookupByLibrary.simpleMessage("جاري المعالجة"),
+        "processingMessage":
+            MessageLookupByLibrary.simpleMessage("طلبك ينتظر التأكيد"),
         "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "resetPassword":
@@ -120,6 +135,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
         "shipmentAllUAE":
             MessageLookupByLibrary.simpleMessage("شحن لجميع انحاء الامارات"),
+        "shipped": MessageLookupByLibrary.simpleMessage("تم الشحن"),
+        "shippedMessage": MessageLookupByLibrary.simpleMessage("تم شحن طلبك"),
         "shopNow": MessageLookupByLibrary.simpleMessage("تسوق الان"),
         "showAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "show_all": MessageLookupByLibrary.simpleMessage("عرض الكل"),
@@ -142,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "theStreet": MessageLookupByLibrary.simpleMessage("الشارع"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("الافضل مبيعا"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("اجمالي السعر"),
+        "trackOrder": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("العلامات التجاريه"),
         "unKnownError": MessageLookupByLibrary.simpleMessage("خطاء غير معروف"),
         "userAgrement": MessageLookupByLibrary.simpleMessage(

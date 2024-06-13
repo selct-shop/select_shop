@@ -3,95 +3,111 @@
 import 'package:another_stepper/another_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-// import 'package:order_tracker_zen/order_tracker_zen.dart';
 import 'package:select_shop/core/theme/colors.dart';
+import 'package:select_shop/generated/l10n.dart';
+import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/product_container.dart';
 
 // Key _titleKey = Key();
-List<StepperData> stepperData = [
-  StepperData(
-      title: StepperText(
-        "Order Placed",
-        textStyle: const TextStyle(
-          color: Colors.grey,
-        ),
-      ),
-      subtitle: StepperText("Your order has been placed"),
-      iconWidget: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: const BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-      )),
-  StepperData(
-      title: StepperText("Preparing"),
-      subtitle: StepperText("Your order is being prepared"),
-      iconWidget: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: const BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-        child: const Icon(Icons.looks_two, color: Colors.white),
-      )),
-  StepperData(
-      title: StepperText("On the way"),
-      subtitle: StepperText(
-          "Our delivery executive is on the way to deliver your item"),
-      iconWidget: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: const BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-        child: const Icon(Icons.looks_3, color: Colors.white),
-      )),
-  StepperData(
-      title: StepperText(
-        "Order Placed",
-        textStyle: const TextStyle(
-          color: Colors.grey,
-        ),
-      ),
-      subtitle: StepperText("Your order has been placed"),
-      iconWidget: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: const BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-      )),
-  StepperData(
-      title: StepperText(
-        "Order Placed",
-        textStyle: const TextStyle(
-          color: Colors.grey,
-        ),
-      ),
-      subtitle: StepperText("Your order has been placed"),
-      iconWidget: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: const BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-      )),
-  StepperData(
-      title: StepperText("Delivered",
-          textStyle: const TextStyle(color: Colors.grey)),
-      iconWidget: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: const BoxDecoration(
-            color: Colors.redAccent,
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-      )),
-];
 
-class TrackOrderScreen extends StatelessWidget {
+class TrackOrderScreen extends StatefulWidget {
   const TrackOrderScreen({super.key});
 
   @override
+  State<TrackOrderScreen> createState() => _TrackOrderScreenState();
+}
+
+class _TrackOrderScreenState extends State<TrackOrderScreen> {
+  @override
   Widget build(BuildContext context) {
+    List<StepperData> stepperData = [
+      StepperData(
+          title: StepperText(
+            S.of(context).orderPlaced,
+            textStyle: const TextStyle(
+              color: Colors.grey,
+            ),
+          ),
+          subtitle: StepperText(S.of(context).orderPlacedMessage),
+          iconWidget: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: const BoxDecoration(
+              color: AppColors.mainColor,
+              borderRadius: BorderRadius.all(Radius.circular(30)),
+            ),
+            child: const Icon(Icons.confirmation_number_rounded,
+                color: Colors.white),
+          )),
+      StepperData(
+          title: StepperText(
+            S.of(context).processing,
+            textStyle: const TextStyle(
+              color: Colors.grey,
+            ),
+          ),
+          subtitle: StepperText(S.of(context).processingMessage),
+          iconWidget: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: const BoxDecoration(
+                color: AppColors.mainColor,
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            child: const Icon(Icons.precision_manufacturing_rounded,
+                color: Colors.white),
+          )),
+      StepperData(
+          title: StepperText(
+            S.of(context).orderConfirmed,
+            textStyle: const TextStyle(
+              color: Colors.grey,
+            ),
+          ),
+          subtitle: StepperText(S.of(context).orderConfirmedMessage),
+          iconWidget: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: const BoxDecoration(
+                color: AppColors.mainColor,
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            child: const Icon(Icons.production_quantity_limits_rounded,
+                color: Colors.white),
+          )),
+      StepperData(
+          title: StepperText(S.of(context).shipped),
+          subtitle: StepperText(S.of(context).shippedMessage),
+          iconWidget: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: const BoxDecoration(
+                color: AppColors.mainColor,
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            child: const Icon(Icons.check_box_rounded, color: Colors.white),
+          )),
+      StepperData(
+          title: StepperText(S.of(context).onTheWay),
+          subtitle: StepperText(S.of(context).onTheWayMessage),
+          iconWidget: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: const BoxDecoration(
+                color: AppColors.greyColor,
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            child:
+                const Icon(Icons.local_shipping_rounded, color: Colors.white),
+          )),
+      StepperData(
+          title: StepperText(S.of(context).delivered,
+              textStyle: const TextStyle(color: Colors.grey)),
+          iconWidget: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: const BoxDecoration(
+                color: AppColors.greyColor,
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            child: const Icon(Icons.done_rounded, color: Colors.white),
+          )),
+    ];
+
     return Scaffold(
       body: SafeArea(
           child: Scaffold(
         body: ListView(
+          shrinkWrap: true,
           children: [
             ///
             ///
@@ -104,7 +120,7 @@ class TrackOrderScreen extends StatelessWidget {
               width: 30,
             ),
             Text(
-              "Track Order",
+              S.of(context).trackOrder,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.mainColor,
@@ -149,8 +165,6 @@ class TrackOrderScreen extends StatelessWidget {
                     newPrice: '299',
                     productNetworkImage: null,
                     productRating: 4.5,
-                    // width: ,
-                    // height: null,
                     onTapProductWidget: () {},
                     onTapAddOrRemoveFav: () {},
                   ),
@@ -158,30 +172,6 @@ class TrackOrderScreen extends StatelessWidget {
                     height: 15,
                     width: 15,
                   ),
-
-                  ////
-                  ///
-                  ///
-                  ///
-                  ///
-                  ///
-                  ///
-                  Expanded(
-                    child: Container(
-                      // height: double.infinity,
-                      // width: double.infinity,
-                      // the maps container
-
-                      // height: 315,
-
-                      // width: double.infinity,
-
-                      decoration: BoxDecoration(
-                        color: AppColors.grey2Color,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),
@@ -206,8 +196,7 @@ class TrackOrderScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-// key:  ,
-                    "order stage : ",
+                    S.of(context).orderStage,
                     style: TextStyle(
                       color: AppColors.mainColor,
                       fontWeight: FontWeight.bold,
@@ -216,10 +205,6 @@ class TrackOrderScreen extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  // Divider(
-                  //   color: AppColors.grey2Color.withOpacity(.2),
-                  //   endIndent: 15,
-                  // ),
                 ],
               ),
             ),
@@ -230,8 +215,6 @@ class TrackOrderScreen extends StatelessWidget {
             ///
             ///
             ///
-            ///
-
             const SizedBox(
               height: 15,
               width: 15,
@@ -250,7 +233,7 @@ class TrackOrderScreen extends StatelessWidget {
                 inActiveBarColor: AppColors.greyColor,
                 inverted: true,
                 verticalGap: 30,
-                activeIndex: 1,
+                activeIndex: 3,
                 barThickness: 3,
               ),
             ),
@@ -261,12 +244,18 @@ class TrackOrderScreen extends StatelessWidget {
             ///
             ///
             ///
-            ///
-
             const SizedBox(
               height: 15,
               width: 15,
             ),
+
+            AppButton(
+              title: "set state",
+              backgroundColor: AppColors.mainColor,
+              onTap: () {
+                setState(() {});
+              },
+            )
           ],
         ),
       )),

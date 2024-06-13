@@ -1080,6 +1080,136 @@ class S {
     );
   }
 
+  /// `Track Order`
+  String get trackOrder {
+    return Intl.message(
+      'Track Order',
+      name: 'trackOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `order stage : `
+  String get orderStage {
+    return Intl.message(
+      'order stage : ',
+      name: 'orderStage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Placed`
+  String get orderPlaced {
+    return Intl.message(
+      'Order Placed',
+      name: 'orderPlaced',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order has been placed`
+  String get orderPlacedMessage {
+    return Intl.message(
+      'Your order has been placed',
+      name: 'orderPlacedMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Processing`
+  String get processing {
+    return Intl.message(
+      'Processing',
+      name: 'processing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order is waiting for confirmation`
+  String get processingMessage {
+    return Intl.message(
+      'Your order is waiting for confirmation',
+      name: 'processingMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order confirmed`
+  String get orderConfirmed {
+    return Intl.message(
+      'Order confirmed',
+      name: 'orderConfirmed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order has confirmed`
+  String get orderConfirmedMessage {
+    return Intl.message(
+      'Your order has confirmed',
+      name: 'orderConfirmedMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shipped`
+  String get shipped {
+    return Intl.message(
+      'Shipped',
+      name: 'shipped',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order is Shipped`
+  String get shippedMessage {
+    return Intl.message(
+      'Your order is Shipped',
+      name: 'shippedMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `On the way`
+  String get onTheWay {
+    return Intl.message(
+      'On the way',
+      name: 'onTheWay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Our delivery executive is on the way to deliver your item`
+  String get onTheWayMessage {
+    return Intl.message(
+      'Our delivery executive is on the way to deliver your item',
+      name: 'onTheWayMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivered`
+  String get delivered {
+    return Intl.message(
+      'Delivered',
+      name: 'delivered',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `unKnown Error !!!`
   String get unKnownError {
     return Intl.message(

@@ -711,6 +711,84 @@ abstract class AppLocalizations {
   /// **'save location'**
   String get saveLocation;
 
+  /// No description provided for @trackOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Track Order'**
+  String get trackOrder;
+
+  /// No description provided for @orderStage.
+  ///
+  /// In en, this message translates to:
+  /// **'order stage : '**
+  String get orderStage;
+
+  /// No description provided for @orderPlaced.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Placed'**
+  String get orderPlaced;
+
+  /// No description provided for @orderPlacedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order has been placed'**
+  String get orderPlacedMessage;
+
+  /// No description provided for @processing.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing'**
+  String get processing;
+
+  /// No description provided for @processingMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order is waiting for confirmation'**
+  String get processingMessage;
+
+  /// No description provided for @orderConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Order confirmed'**
+  String get orderConfirmed;
+
+  /// No description provided for @orderConfirmedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order has confirmed'**
+  String get orderConfirmedMessage;
+
+  /// No description provided for @shipped.
+  ///
+  /// In en, this message translates to:
+  /// **'Shipped'**
+  String get shipped;
+
+  /// No description provided for @shippedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order is Shipped'**
+  String get shippedMessage;
+
+  /// No description provided for @onTheWay.
+  ///
+  /// In en, this message translates to:
+  /// **'On the way'**
+  String get onTheWay;
+
+  /// No description provided for @onTheWayMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Our delivery executive is on the way to deliver your item'**
+  String get onTheWayMessage;
+
+  /// No description provided for @delivered.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered'**
+  String get delivered;
+
   /// No description provided for @unKnownError.
   ///
   /// In en, this message translates to:

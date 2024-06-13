@@ -314,5 +314,44 @@ class AppLocalizationsAr extends AppLocalizations {
   String get saveLocation => 'حفظ الموقع';
 
   @override
+  String get trackOrder => 'تتبع الطلب';
+
+  @override
+  String get orderStage => 'مرحلة الطلب : ';
+
+  @override
+  String get orderPlaced => 'تم تقديم الطلب';
+
+  @override
+  String get orderPlacedMessage => 'تم تقديم طلبك';
+
+  @override
+  String get processing => 'جاري المعالجة';
+
+  @override
+  String get processingMessage => 'طلبك ينتظر التأكيد';
+
+  @override
+  String get orderConfirmed => 'تم تأكيد الطلب';
+
+  @override
+  String get orderConfirmedMessage => 'تم تأكيد طلبك';
+
+  @override
+  String get shipped => 'تم الشحن';
+
+  @override
+  String get shippedMessage => 'تم شحن طلبك';
+
+  @override
+  String get onTheWay => 'في الطريق';
+
+  @override
+  String get onTheWayMessage => 'مندوب التوصيل في الطريق لتسليم طلبك';
+
+  @override
+  String get delivered => 'تم التسليم';
+
+  @override
   String get unKnownError => 'خطاء غير معروف';
 }

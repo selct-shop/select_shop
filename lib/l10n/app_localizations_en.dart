@@ -314,5 +314,44 @@ class AppLocalizationsEn extends AppLocalizations {
   String get saveLocation => 'save location';
 
   @override
+  String get trackOrder => 'Track Order';
+
+  @override
+  String get orderStage => 'order stage : ';
+
+  @override
+  String get orderPlaced => 'Order Placed';
+
+  @override
+  String get orderPlacedMessage => 'Your order has been placed';
+
+  @override
+  String get processing => 'Processing';
+
+  @override
+  String get processingMessage => 'Your order is waiting for confirmation';
+
+  @override
+  String get orderConfirmed => 'Order confirmed';
+
+  @override
+  String get orderConfirmedMessage => 'Your order has confirmed';
+
+  @override
+  String get shipped => 'Shipped';
+
+  @override
+  String get shippedMessage => 'Your order is Shipped';
+
+  @override
+  String get onTheWay => 'On the way';
+
+  @override
+  String get onTheWayMessage => 'Our delivery executive is on the way to deliver your item';
+
+  @override
+  String get delivered => 'Delivered';
+
+  @override
   String get unKnownError => 'unKnown Error !!!';
 }

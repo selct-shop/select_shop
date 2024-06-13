@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("confirm new password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("contact us"),
         "deliverTo": MessageLookupByLibrary.simpleMessage("delever to"),
+        "delivered": MessageLookupByLibrary.simpleMessage("Delivered"),
         "deliveryPrice": MessageLookupByLibrary.simpleMessage("delevery price"),
         "description": MessageLookupByLibrary.simpleMessage("description"),
         "doYouHaveCopons":
@@ -93,7 +94,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("no data like this"),
         "notificationSettings":
             MessageLookupByLibrary.simpleMessage("notifications settings"),
+        "onTheWay": MessageLookupByLibrary.simpleMessage("On the way"),
+        "onTheWayMessage": MessageLookupByLibrary.simpleMessage(
+            "Our delivery executive is on the way to deliver your item"),
         "orByUsing": MessageLookupByLibrary.simpleMessage("or by using"),
+        "orderConfirmed":
+            MessageLookupByLibrary.simpleMessage("Order confirmed"),
+        "orderConfirmedMessage":
+            MessageLookupByLibrary.simpleMessage("Your order has confirmed"),
+        "orderPlaced": MessageLookupByLibrary.simpleMessage("Order Placed"),
+        "orderPlacedMessage":
+            MessageLookupByLibrary.simpleMessage("Your order has been placed"),
+        "orderStage": MessageLookupByLibrary.simpleMessage("order stage : "),
         "orders": MessageLookupByLibrary.simpleMessage("orders"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "otpCodeSended":
@@ -107,6 +119,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneNum": MessageLookupByLibrary.simpleMessage("phone number"),
         "postCode": MessageLookupByLibrary.simpleMessage("POST code"),
         "price": MessageLookupByLibrary.simpleMessage("price"),
+        "processing": MessageLookupByLibrary.simpleMessage("Processing"),
+        "processingMessage": MessageLookupByLibrary.simpleMessage(
+            "Your order is waiting for confirmation"),
         "products": MessageLookupByLibrary.simpleMessage("products"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("reset password"),
@@ -120,6 +135,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendCode": MessageLookupByLibrary.simpleMessage("send code"),
         "shipmentAllUAE":
             MessageLookupByLibrary.simpleMessage("Shipment for all UAE"),
+        "shipped": MessageLookupByLibrary.simpleMessage("Shipped"),
+        "shippedMessage":
+            MessageLookupByLibrary.simpleMessage("Your order is Shipped"),
         "shopNow": MessageLookupByLibrary.simpleMessage("shop now"),
         "showAll": MessageLookupByLibrary.simpleMessage("show all"),
         "show_all": MessageLookupByLibrary.simpleMessage("show all"),
@@ -143,6 +161,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "theStreet": MessageLookupByLibrary.simpleMessage("the street"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("best seller"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("total price"),
+        "trackOrder": MessageLookupByLibrary.simpleMessage("Track Order"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("trad marks"),
         "unKnownError":
             MessageLookupByLibrary.simpleMessage("unKnown Error !!!"),

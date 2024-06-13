@@ -140,6 +140,23 @@
 
 
 
+    "trackOrder": "Track Order",
+    "orderStage": "order stage : ",
+    "orderPlaced": "Order Placed",
+    "orderPlacedMessage": "Your order has been placed",
+    "processing": "Processing",
+    "processingMessage": "Your order is waiting for confirmation",
+    "orderConfirmed": "Order confirmed",
+    "orderConfirmedMessage": "Your order has confirmed",
+    "shipped": "Shipped",
+    "shippedMessage": "Your order is Shipped",
+    "onTheWay": "On the way",
+    "onTheWayMessage": "Our delivery executive is on the way to deliver your item",
+    "delivered": "Delivered",
+
+
+
+
 
 
 
