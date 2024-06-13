@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:another_stepper/another_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 // import 'package:order_tracker_zen/order_tracker_zen.dart';
@@ -7,6 +8,80 @@ import 'package:select_shop/core/theme/colors.dart';
 import 'package:select_shop/view/Shared/product_container.dart';
 
 // Key _titleKey = Key();
+List<StepperData> stepperData = [
+  StepperData(
+      title: StepperText(
+        "Order Placed",
+        textStyle: const TextStyle(
+          color: Colors.grey,
+        ),
+      ),
+      subtitle: StepperText("Your order has been placed"),
+      iconWidget: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: const BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.all(Radius.circular(30))),
+      )),
+  StepperData(
+      title: StepperText("Preparing"),
+      subtitle: StepperText("Your order is being prepared"),
+      iconWidget: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: const BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.all(Radius.circular(30))),
+        child: const Icon(Icons.looks_two, color: Colors.white),
+      )),
+  StepperData(
+      title: StepperText("On the way"),
+      subtitle: StepperText(
+          "Our delivery executive is on the way to deliver your item"),
+      iconWidget: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: const BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.all(Radius.circular(30))),
+        child: const Icon(Icons.looks_3, color: Colors.white),
+      )),
+  StepperData(
+      title: StepperText(
+        "Order Placed",
+        textStyle: const TextStyle(
+          color: Colors.grey,
+        ),
+      ),
+      subtitle: StepperText("Your order has been placed"),
+      iconWidget: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: const BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.all(Radius.circular(30))),
+      )),
+  StepperData(
+      title: StepperText(
+        "Order Placed",
+        textStyle: const TextStyle(
+          color: Colors.grey,
+        ),
+      ),
+      subtitle: StepperText("Your order has been placed"),
+      iconWidget: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: const BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.all(Radius.circular(30))),
+      )),
+  StepperData(
+      title: StepperText("Delivered",
+          textStyle: const TextStyle(color: Colors.grey)),
+      iconWidget: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: const BoxDecoration(
+            color: Colors.redAccent,
+            borderRadius: BorderRadius.all(Radius.circular(30))),
+      )),
+];
 
 class TrackOrderScreen extends StatelessWidget {
   const TrackOrderScreen({super.key});
@@ -25,8 +100,8 @@ class TrackOrderScreen extends StatelessWidget {
             ///
             ///
             const SizedBox(
-              height: 30, 
-              width: 30, 
+              height: 30,
+              width: 30,
             ),
             Text(
               "Track Order",
@@ -93,6 +168,8 @@ class TrackOrderScreen extends StatelessWidget {
                   ///
                   Expanded(
                     child: Container(
+                      // height: double.infinity,
+                      // width: double.infinity,
                       // the maps container
 
                       // height: 315,
@@ -153,51 +230,33 @@ class TrackOrderScreen extends StatelessWidget {
             ///
             ///
             ///
-            // const SizedBox(
-            //   height: 15,
-            //   width: 15,
-            // ),
+            ///
 
-            // OrderTrackerZen(
-            //   tracker_data: [
-            //     TrackerData(
-            //       title: "Order Place",
-            //       date: "Sat, 8 Apr '22",
-            //       tracker_details: [
-            //         TrackerDetails(
-            //           title: "Your order was placed on Zenzzen",
-            //           datetime: "Sat, 8 Apr '22 - 17:17",
-            //         ),
-            //         TrackerDetails(
-            //           title: "Zenzzen Arranged A Callback Request",
-            //           datetime: "Sat, 8 Apr '22 - 17:42",
-            //         ),
-            //       ],
-            //     ),
-            //     TrackerData(
-            //       title: "Order Shipped",
-            //       date: "Sat, 8 Apr '22",
-            //       tracker_details: [
-            //         TrackerDetails(
-            //           title: "Your order was shipped with MailDeli",
-            //           datetime: "Sat, 8 Apr '22 - 17:50",
-            //         ),
-            //       ],
-            //     ),
-            //     TrackerData(
-            //       title: "Order Delivered",
-            //       date: "Sat,8 Apr '22",
+            const SizedBox(
+              height: 15,
+              width: 15,
+            ),
 
-            //       tracker_details: [
-            //         TrackerDetails(
-            //           title: "You received your order, by MailDeli",
-            //           datetime: "Sat, 8 Apr '22 - 17:51",
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+              ),
+              child: AnotherStepper(
+                stepperList: stepperData,
+                stepperDirection: Axis.vertical,
+                iconWidth: 40,
+                iconHeight: 40,
+                activeBarColor: AppColors.mainColor,
+                inActiveBarColor: AppColors.greyColor,
+                inverted: true,
+                verticalGap: 30,
+                activeIndex: 1,
+                barThickness: 3,
+              ),
+            ),
 
-            //         ),
-            //       ],
-            //     ),
-            //   ],
-            // ),
+            ///
+            ///
             ///
             ///
             ///

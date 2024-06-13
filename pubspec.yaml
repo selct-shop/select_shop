@@ -73,11 +73,11 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   animated_custom_dropdown: ^3.0.0
   loader_overlay: ^4.0.0
-  #this packge is not cool, i tryed all of its aspect put nothis is cool about it
-  # btw i conseder it as bad packge
+  # order_tracker_zen this packge is not cool, i tryed all of its aspect put nothis is cool about it
+  # order_tracker_zen btw i conseder it as bad packge
   # order_tracker_zen: ^1.0.0+4
-
-  enhance_stepper: ^1.0.1
+  # enhance_stepper: ^1.0.1
+  another_stepper: ^1.2.2
 
   #### splash screen ####
   flutter_native_splash: ^2.4.0
