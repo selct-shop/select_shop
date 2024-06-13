@@ -7,4 +7,9 @@ sealed class CheckOutState extends Equatable {
   List<Object> get props => [];
 }
 
-final class CheckOutInitial extends CheckOutState {}
+final class CheckOutInitialState extends CheckOutState {}
+final class CheckOutReloadState extends CheckOutState {}
+final class CheckOutSucsessState extends CheckOutState {
+  final int paymentMethod;
+  CheckOutSucsessState({required this.paymentMethod}); 
+}

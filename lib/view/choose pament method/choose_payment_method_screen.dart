@@ -40,6 +40,18 @@ class ChoosePaymentMethodScreen extends StatefulWidget {
 
 class _ChoosePaymentMethodScreenState extends State<ChoosePaymentMethodScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+
+    // set the payment method to 2
+    context
+        .read<CheckOutBloc>()
+        .add(ChangePaymentMethodEvent(paymentMethod: 222));
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -135,6 +147,15 @@ class _ChoosePaymentMethodScreenState extends State<ChoosePaymentMethodScreen> {
                                   activePaymentType = value!;
                                   context.read<CheckOutBloc>().paymentMethod =
                                       111;
+                                  context.read<CheckOutBloc>().add(
+                                      ChangePaymentMethodEvent(
+                                          paymentMethod: 111));
+
+                                  // context.read<CheckOutBloc>().add(ChangePaymentMethodEvent(paymentMethod: 111));
+
+                                  // context.read<CheckOutBloc>().add(
+                                  //     ChangePaymentMethodEvent(
+                                  //         paymentMethod: 222));
 
                                   // print("$value valllllllllllllllllllllllllll");
                                   // i should use the bloc instade of set state
@@ -254,8 +275,15 @@ class _ChoosePaymentMethodScreenState extends State<ChoosePaymentMethodScreen> {
                                   activePaymentType = value!;
 
                                   // i should use the bloc instade of set state
+                                  // context.read<CheckOutBloc>().paymentMethod =
+                                  //     222;
                                   context.read<CheckOutBloc>().paymentMethod =
                                       222;
+
+                                  context.read<CheckOutBloc>().add(
+                                      ChangePaymentMethodEvent(
+                                          paymentMethod: 222));
+
                                   // print(
                                   //     "$value valllllllllllllllllllllllllll${context.read<CheckOutBloc>().paymentMethod}");
 

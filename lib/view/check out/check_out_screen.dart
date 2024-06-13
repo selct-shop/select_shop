@@ -45,88 +45,88 @@ class CheckOutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Column(
-              children: [
-                ///
-                ///
-                ///
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            children: [
+              ///
+              ///
+              ///
 
-                const SizedBox(
-                  height: 20,
-                ),
-                _UserNameAndDeliverInfo(),
+              const SizedBox(
+                height: 20,
+              ),
+              _UserNameAndDeliverInfo(),
 
-                ///
-                ///
-                ///
+              ///
+              ///
+              ///
 
-                const SizedBox(
-                  height: 20,
-                ),
+              const SizedBox(
+                height: 20,
+              ),
 
-                // user ordered produects, or the products on the cart
-                _CartDetails(
-                  cartModel: cartModel,
-                ),
+              // user ordered produects, or the products on the cart
+              _CartDetails(
+                cartModel: cartModel,
+              ),
 
-                ///
-                ///
-                ///
+              ///
+              ///
+              ///
 
-                const SizedBox(
-                  height: 20,
-                ),
+              const SizedBox(
+                height: 20,
+              ),
 
-                // enter copones
-                //
-                _EnterYourCoponsRow(),
+              // enter copones
+              //
+              _EnterYourCoponsRow(),
 
-                ///
-                ///
-                ///
+              ///
+              ///
+              ///
 
-                const SizedBox(
-                  height: 20,
-                ),
+              const SizedBox(
+                height: 20,
+              ),
 
-                // check out details
+              // check out details
 
-                _CheckOutDetails(
-                  theNewPrice: cartModel.result.cart.total.toString(),
-                  theDiscount: "0",
-                  deliveryPrice: "20",
-                  totalPrice: cartModel.result.cart.total.toString(),
-                ),
+              _CheckOutDetails(
+                theNewPrice: cartModel.result.cart.total.toString(),
+                theDiscount: "0",
+                deliveryPrice: "20",
+                totalPrice: cartModel.result.cart.total.toString(),
+              ),
 
-                ///
-                ///
-                ///
+              ///
+              ///
+              ///
 
-                const SizedBox(
-                  height: 20,
-                ),
+              const SizedBox(
+                height: 20,
+              ),
 
-                // confirm button
-                _ConfirmButton(
-                  // amount: 260.55,
-                  cartModel: cartModel,
-                ),
+              // confirm button
+              _ConfirmButton(
+                // amount: 260.55,
+                cartModel: cartModel,
+              ),
 
-                ///
-                ///
-                ///
+              ///
+              ///
+              ///
 
-                const SizedBox(
-                  height: 30,
-                ),
-              ],
-            ),
+              const SizedBox(
+                height: 30,
+              ),
+            ],
           ),
         ),
-      );
+      ),
+    );
   }
 }
 
@@ -1233,27 +1233,71 @@ class _UserNameAndDeliverInfo extends StatelessWidget {
                                       children: [
                                         Directionality(
                                           textDirection: TextDirection.ltr,
-                                          child: Row(
-                                            children: [
-                                              // Spacer(),
-                                              Text(
-                                                "XXXX XXXX XXXX ",
-                                                style: TextStyle(
-                                                    color: AppColors.grey2Color,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 15,
-                                                    height: .8),
-                                              ),
+                                          child: BlocBuilder<CheckOutBloc,
+                                              CheckOutState>(
+                                            builder: (context, state) {
+                                              return Row(
+                                                children: [
+                                                  // Spacer(),
+                                                  // context
+                                                  //             .read<
+                                                  //                 CheckOutBloc>()
+                                                  //             .paymentMethod ==
+                                                  //         222
 
-                                              Text(
-                                                "3478",
-                                                style: TextStyle(
-                                                    color: AppColors.grey2Color,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 15,
-                                                    height: .8),
-                                              ),
-                                            ],
+                                                  (state is CheckOutSucsessState && state.paymentMethod == 222 )
+                                                      ? Text(
+                                                          "XXXX XXXX XXXX ",
+                                                          style: TextStyle(
+                                                              color: AppColors
+                                                                  .grey2Color,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 15,
+                                                              height: .8),
+                                                        )
+                                                      : const SizedBox(),
+
+                                                  // context.read<CheckOutBloc>().paymentMethod ==
+                                                  //         222
+
+                                                   (state is CheckOutSucsessState && state.paymentMethod == 222 )
+                                                      ? Text("3478",
+                                                          style: TextStyle(
+                                                              color: AppColors
+                                                                  .grey2Color,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 15,
+                                                              height: .8))
+                                                      : const SizedBox(),
+
+                                                  // context
+                                                  //             .read<
+                                                  //                 CheckOutBloc>()
+                                                  //             .paymentMethod ==
+                                                  //         111
+                                                        
+                                                         (state is CheckOutSucsessState && state.paymentMethod == 111 )
+                                                      ? Text(
+                                                          S
+                                                              .of(context)
+                                                              .paymentOnRecive,
+                                                          style: TextStyle(
+                                                              color: AppColors
+                                                                  .grey2Color,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 15,
+                                                              height: .8),
+                                                        )
+                                                      : const SizedBox(),
+                                                ],
+                                              );
+                                            },
                                           ),
                                         ),
                                         Spacer(),
