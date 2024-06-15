@@ -1210,6 +1210,46 @@ class S {
     );
   }
 
+  /// `Created at`
+  String get created_at {
+    return Intl.message(
+      'Created at',
+      name: 'created_at',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stats`
+  String get stats {
+    return Intl.message(
+      'Stats',
+      name: 'stats',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message(
+      'Total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `unKnown Error !!!`
   String get unKnownError {
     return Intl.message(

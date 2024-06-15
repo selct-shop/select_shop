@@ -18,6 +18,7 @@ import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
+import 'package:select_shop/view/track%20order/track_order_screen.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -58,17 +59,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         height: 75,
                         clipBehavior: Clip.hardEdge,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: AppColors.mainColor,
-                            ),
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    AppConstants.cachedRandomeNetworkImage), ), 
-                            // image: const DecorationImage(
-                            //     image: AssetImage(AppImages.tempPersonPng),
-                            //     fit: BoxFit.cover),
-                            ),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: AppColors.mainColor,
+                          ),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                AppConstants.cachedRandomeNetworkImage),
+                          ),
+                          // image: const DecorationImage(
+                          //     image: AssetImage(AppImages.tempPersonPng),
+                          //     fit: BoxFit.cover),
+                        ),
                       ),
                       const SizedBox(
                         width: 30,
@@ -234,6 +236,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         // navigate to edit language screen
                         navigateTo(context,
                             ChoseLanguageScreen(commingFromSettings: true));
+                      },
+                    ),
+                    _CustomSettingListTile(
+                      theTitle: S.of(context).trackOrder,
+                      theSvgPictuer: AppImagesSvg.truckSvg,
+                      hasADivier: true,
+                      onTap: () {
+                        // navigate to edit language screen
+                        navigateTo(context, TrackOrderScreen());
                       },
                     ),
                     _CustomSettingListTile(

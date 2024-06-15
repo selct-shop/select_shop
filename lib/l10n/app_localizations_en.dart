@@ -353,5 +353,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get delivered => 'Delivered';
 
   @override
+  String get created_at => 'Created at';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get stats => 'Stats';
+
+  @override
+  String get total => 'Total';
+
+  @override
   String get unKnownError => 'unKnown Error !!!';
 }

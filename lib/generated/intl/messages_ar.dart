@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+        "created_at": MessageLookupByLibrary.simpleMessage("تم الإنشاء في"),
         "deliverTo": MessageLookupByLibrary.simpleMessage("توصيل الي"),
         "delivered": MessageLookupByLibrary.simpleMessage("تم التسليم"),
         "deliveryPrice": MessageLookupByLibrary.simpleMessage("رسوم التوصيل"),
@@ -88,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("السعر من الأعلى للأقل "),
         "most_wanted": MessageLookupByLibrary.simpleMessage("الاكثر طلبا"),
         "mycart": MessageLookupByLibrary.simpleMessage("عربتي"),
+        "name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "newPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديده"),
         "noDataLikeThis": MessageLookupByLibrary.simpleMessage("no data"),
@@ -149,6 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUpSuccess":
             MessageLookupByLibrary.simpleMessage("تم تسجيل الحساب بنجاح"),
         "specialproducts": MessageLookupByLibrary.simpleMessage("منتجات مميزه"),
+        "stats": MessageLookupByLibrary.simpleMessage("إحصائيات"),
         "suppourt": MessageLookupByLibrary.simpleMessage("الدعم"),
         "taxes": MessageLookupByLibrary.simpleMessage("الضريبه"),
         "theArea": MessageLookupByLibrary.simpleMessage("المنطقة"),
@@ -158,6 +161,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "theNew": MessageLookupByLibrary.simpleMessage("جديد"),
         "theStreet": MessageLookupByLibrary.simpleMessage("الشارع"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("الافضل مبيعا"),
+        "total": MessageLookupByLibrary.simpleMessage("المجموع"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("اجمالي السعر"),
         "trackOrder": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("العلامات التجاريه"),

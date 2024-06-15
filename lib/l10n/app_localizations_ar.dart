@@ -353,5 +353,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get delivered => 'تم التسليم';
 
   @override
+  String get created_at => 'تم الإنشاء في';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get stats => 'إحصائيات';
+
+  @override
+  String get total => 'المجموع';
+
+  @override
   String get unKnownError => 'خطاء غير معروف';
 }

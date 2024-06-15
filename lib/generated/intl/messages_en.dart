@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("confirm new password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("contact us"),
+        "created_at": MessageLookupByLibrary.simpleMessage("Created at"),
         "deliverTo": MessageLookupByLibrary.simpleMessage("delever to"),
         "delivered": MessageLookupByLibrary.simpleMessage("Delivered"),
         "deliveryPrice": MessageLookupByLibrary.simpleMessage("delevery price"),
@@ -89,6 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("low to hight price"),
         "most_wanted": MessageLookupByLibrary.simpleMessage("most wanted"),
         "mycart": MessageLookupByLibrary.simpleMessage("my cart"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "newPassword": MessageLookupByLibrary.simpleMessage("new password"),
         "noDataLikeThis":
             MessageLookupByLibrary.simpleMessage("no data like this"),
@@ -151,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("hopes you good experence"),
         "specialproducts":
             MessageLookupByLibrary.simpleMessage("special products"),
+        "stats": MessageLookupByLibrary.simpleMessage("Stats"),
         "suppourt": MessageLookupByLibrary.simpleMessage("suppourt"),
         "taxes": MessageLookupByLibrary.simpleMessage("taxes"),
         "theArea": MessageLookupByLibrary.simpleMessage("the area"),
@@ -160,6 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "theNew": MessageLookupByLibrary.simpleMessage("new"),
         "theStreet": MessageLookupByLibrary.simpleMessage("the street"),
         "thebestSeller": MessageLookupByLibrary.simpleMessage("best seller"),
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
         "totalPrice": MessageLookupByLibrary.simpleMessage("total price"),
         "trackOrder": MessageLookupByLibrary.simpleMessage("Track Order"),
         "tradeMark": MessageLookupByLibrary.simpleMessage("trad marks"),

@@ -6,3 +6,7 @@ sealed class TrackOrderEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class TrackOrderInitalEvent extends TrackOrderEvent {
+  
+}
