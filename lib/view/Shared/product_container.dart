@@ -239,23 +239,19 @@ class _PriceAndBrandRow extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          // width: 35,
-                          // height: 10,
-                          child: Expanded(
-                            child: Center(
-                              child: Text(
-                                // old product price
-
-                                "$oldPrice AED",
-                                // overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    height: .9,
-                                    decoration: TextDecoration.lineThrough,
-                                    fontSize: 9,
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.greyColor),
-                              ),
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              // old product price
+                        
+                              "$oldPrice AED",
+                              // overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  height: .9,
+                                  decoration: TextDecoration.lineThrough,
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.greyColor),
                             ),
                           ),
                         ),
@@ -263,23 +259,19 @@ class _PriceAndBrandRow extends StatelessWidget {
                         //
                         //
 
-                        SizedBox(
-                          // width: 35,
-                          // height: 25,
-                          child: Expanded(
-                            child: Center(
-                              child: Text(
-                                // AED
-
-                                "AED",
-                                // overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    height: .8,
-                                    overflow: TextOverflow.ellipsis,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                    color: AppColors.mainColor),
-                              ),
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              // AED
+                        
+                              "AED",
+                              // overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  height: .8,
+                                  overflow: TextOverflow.ellipsis,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: AppColors.mainColor),
                             ),
                           ),
                         ),
@@ -327,16 +319,14 @@ class _PriceAndBrandRow extends StatelessWidget {
             // brand name
             height: double.infinity,
             width: 55,
-            child: Expanded(
-              child: Center(
-                child: Text(
-                  bandName ?? "",
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: AppColors.mainColor),
-                ),
+            child: Center(
+              child: Text(
+                bandName ?? "",
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: AppColors.mainColor),
               ),
             ),
           ),
@@ -374,8 +364,8 @@ class _NameAndRatingRow extends StatelessWidget {
               children: [
                 Flexible(
                   flex: 4,
-                  child: SizedBox(
-                    height: 18,
+                  // child: SizedBox(
+                  //   height: 18,
                     // width: 90,
                     child: Expanded(
                       child: Text(
@@ -389,7 +379,7 @@ class _NameAndRatingRow extends StatelessWidget {
                         productName ?? " ",
                       ),
                     ),
-                  ),
+                  // ),
                 ),
 
                 // Spacer(),
