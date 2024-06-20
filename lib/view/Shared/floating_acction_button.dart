@@ -32,7 +32,7 @@ class CustomFloatingAcctionButton extends StatelessWidget {
 
           context.read<DrawerBloc>().activeDrawerPage = 6;
         },
-        backgroundColor: AppColors.main2Color,
+        backgroundColor: AppColors.mainColor,
         child: Transform.rotate(
             angle: -(math.pi / 4),
             child: SvgPicture.asset(
