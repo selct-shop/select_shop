@@ -17,6 +17,7 @@ import 'package:select_shop/view/Auth/signup_screen.dart';
 import 'package:select_shop/view/Shared/app_button.dart';
 import 'package:select_shop/view/Shared/loading_screen.dart';
 import 'package:select_shop/view/Shared/under_develop_screen.dart';
+import 'package:select_shop/view/edit%20user%20profile/edit_user_profile_screen.dart';
 import 'package:select_shop/view/language/chose_language_screen.dart';
 import 'package:select_shop/view/track%20order/track_order_screen.dart';
 import 'package:select_shop/view/user%20location/user_location_screen.dart';
@@ -216,7 +217,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       hasADivier: true,
                       onTap: () {
                         // navigate to edit personal details
-                        navigateTo(context, UnderDevScreen());
+                        navigateTo(context, EditUserProfileScreen());
                       },
                     ),
                     _CustomSettingListTile(
