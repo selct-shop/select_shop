@@ -29,6 +29,7 @@ import 'package:select_shop/view/categories/categories_screen.dart';
 import 'package:select_shop/view/check%20out/bloc/check_out_bloc.dart';
 import 'package:select_shop/view/check%20out/check_out_screen.dart';
 import 'package:select_shop/view/choose%20pament%20method/choose_payment_method_screen.dart';
+import 'package:select_shop/view/edit%20user%20profile/edit_user_profile_screen.dart';
 import 'package:select_shop/view/home/widgets/bottom%20nav%20bar/bloc/bottom_nav_bloc.dart';
 import 'package:select_shop/view/home/widgets/drawer/bloc/drawer_bloc.dart';
 import 'package:select_shop/view/home/widgets/prodcts%20best%20seller/bloc/product_bestseller_bloc.dart';
@@ -204,11 +205,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 // AppLocalizations appLocalizationsOfContext =  AppLocalizations.of(context)!;
 
-    return Scaffold(
-        body: SafeArea(
-            child: globalCachedUserToken == null || globalCachedUserToken == ""
-                ? const LogInScreen()
-                : const HomeScreen()));
+    // return Scaffold(
+    //     body: SafeArea(
+    //         child: globalCachedUserToken == null || globalCachedUserToken == ""
+    //             ? const LogInScreen()
+    //             : const HomeScreen()));
     // return const Scaffold(body: SafeArea(child: SignupScreen()));
     // return const Scaffold(body: SafeArea(child: LogInScreen()));
     // return const Scaffold(
@@ -220,7 +221,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // return const Scaffold(body: SafeArea(child: CheckOutScreen()));
     // return const Scaffold(body: SafeArea(child: ChoosePaymentMethodScreen()));
     // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
-    // return const Scaffold(body: SafeArea(child: TrackOrderScreen()));
+    return const Scaffold(body: SafeArea(child: EditUserProfileScreen()));
     // return const Scaffold(body: SafeArea(child: UserLocationsScreen()));
     // return Scaffold(
     //     body: SafeArea(

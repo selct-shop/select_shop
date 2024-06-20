@@ -1250,6 +1250,56 @@ class S {
     );
   }
 
+  /// `Mobile Number`
+  String get mobileNumber {
+    return Intl.message(
+      'Mobile Number',
+      name: 'mobileNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get fullName {
+    return Intl.message(
+      'Full Name',
+      name: 'fullName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message(
+      'Address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile Picture`
+  String get profilePicture {
+    return Intl.message(
+      'Profile Picture',
+      name: 'profilePicture',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Profile Picture`
+  String get changeProfilePicture {
+    return Intl.message(
+      'Change Profile Picture',
+      name: 'changeProfilePicture',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `unKnown Error !!!`
   String get unKnownError {
     return Intl.message(

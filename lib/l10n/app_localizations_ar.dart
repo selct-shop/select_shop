@@ -365,5 +365,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get total => 'المجموع';
 
   @override
+  String get mobileNumber => 'رقم الموبايل';
+
+  @override
+  String get fullName => 'الاسم الكامل';
+
+  @override
+  String get address => 'العنوان';
+
+  @override
+  String get profilePicture => 'صورة البروفايل';
+
+  @override
+  String get changeProfilePicture => 'تغيير صورة البروفايل';
+
+  @override
   String get unKnownError => 'خطاء غير معروف';
 }

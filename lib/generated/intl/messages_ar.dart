@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اعدادت الحساب"),
         "addLocation": MessageLookupByLibrary.simpleMessage("المواقع"),
         "addNewLocation": MessageLookupByLibrary.simpleMessage("اضافة موقع"),
+        "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "aed": MessageLookupByLibrary.simpleMessage("درهم"),
         "allCategoris": MessageLookupByLibrary.simpleMessage("كل التصنيفات "),
         "apprtment": MessageLookupByLibrary.simpleMessage("الشقة"),
@@ -38,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "category": MessageLookupByLibrary.simpleMessage("التصنيف"),
         "categorys": MessageLookupByLibrary.simpleMessage("التصنيفات"),
         "changeLanguage": MessageLookupByLibrary.simpleMessage("تغير اللغه"),
+        "changeProfilePicture":
+            MessageLookupByLibrary.simpleMessage("تغيير صورة البروفايل"),
         "checkNetwork":
             MessageLookupByLibrary.simpleMessage("الرجاء تفحص الانترنت لديك"),
         "checkOut": MessageLookupByLibrary.simpleMessage("اطلب"),
@@ -79,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
         "freeReturn": MessageLookupByLibrary.simpleMessage("اعاده مجانيه"),
+        "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "helpCenter": MessageLookupByLibrary.simpleMessage("مركز المساعده"),
         "home": MessageLookupByLibrary.simpleMessage("المنزل"),
         "homePage": MessageLookupByLibrary.simpleMessage("الرئسيه"),
@@ -87,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "location": MessageLookupByLibrary.simpleMessage("الموقع"),
         "lowToHighPrice":
             MessageLookupByLibrary.simpleMessage("السعر من الأعلى للأقل "),
+        "mobileNumber": MessageLookupByLibrary.simpleMessage("رقم الموبايل"),
         "most_wanted": MessageLookupByLibrary.simpleMessage("الاكثر طلبا"),
         "mycart": MessageLookupByLibrary.simpleMessage("عربتي"),
         "name": MessageLookupByLibrary.simpleMessage("الاسم"),
@@ -124,6 +129,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "processingMessage":
             MessageLookupByLibrary.simpleMessage("طلبك ينتظر التأكيد"),
         "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
+        "profilePicture":
+            MessageLookupByLibrary.simpleMessage("صورة البروفايل"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),

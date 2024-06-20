@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("account settings"),
         "addLocation": MessageLookupByLibrary.simpleMessage("add location"),
         "addNewLocation": MessageLookupByLibrary.simpleMessage("add location"),
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
         "aed": MessageLookupByLibrary.simpleMessage("AED"),
         "allCategoris": MessageLookupByLibrary.simpleMessage("all catigory "),
         "apprtment": MessageLookupByLibrary.simpleMessage("appartment"),
@@ -38,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "categorys": MessageLookupByLibrary.simpleMessage("categorys"),
         "changeLanguage":
             MessageLookupByLibrary.simpleMessage("change language"),
+        "changeProfilePicture":
+            MessageLookupByLibrary.simpleMessage("Change Profile Picture"),
         "checkNetwork":
             MessageLookupByLibrary.simpleMessage("please check your network"),
         "checkOut": MessageLookupByLibrary.simpleMessage("checkOut"),
@@ -81,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("forgot password?"),
         "freeReturn": MessageLookupByLibrary.simpleMessage("free return"),
+        "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "helpCenter": MessageLookupByLibrary.simpleMessage("help center"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "homePage": MessageLookupByLibrary.simpleMessage("home"),
@@ -88,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "location": MessageLookupByLibrary.simpleMessage("location"),
         "lowToHighPrice":
             MessageLookupByLibrary.simpleMessage("low to hight price"),
+        "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile Number"),
         "most_wanted": MessageLookupByLibrary.simpleMessage("most wanted"),
         "mycart": MessageLookupByLibrary.simpleMessage("my cart"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
@@ -125,6 +130,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "processingMessage": MessageLookupByLibrary.simpleMessage(
             "Your order is waiting for confirmation"),
         "products": MessageLookupByLibrary.simpleMessage("products"),
+        "profilePicture":
+            MessageLookupByLibrary.simpleMessage("Profile Picture"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("reset password"),
         "saveLocation": MessageLookupByLibrary.simpleMessage("save location"),

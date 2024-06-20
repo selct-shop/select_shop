@@ -365,5 +365,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get total => 'Total';
 
   @override
+  String get mobileNumber => 'Mobile Number';
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get profilePicture => 'Profile Picture';
+
+  @override
+  String get changeProfilePicture => 'Change Profile Picture';
+
+  @override
   String get unKnownError => 'unKnown Error !!!';
 }
