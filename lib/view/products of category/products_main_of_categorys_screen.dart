@@ -54,7 +54,7 @@ class _ProductsOfCategoryScreenState extends State<ProductsOfCategoryScreen> {
     //     "mainiininnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn = ${context.read<ProductOfMainCategoryBloc>().productsOfACategoryResultList.first!.productAttributes.first.id}");
 
     // print(
-    //     "mainiininnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn = ${globalCachedUserToken}");
+    //     "attttttttttttttttttttttttttttttttttttttttttttt id = ${context.read<ProductOfMainCategoryBloc>().productsOfACategoryResultList.first!.productAttributes.first.id}");
 
     context.read<SupCategoriesOfMainCategoryBloc>().add(
         SubCategoriesOfMainCateInitalEvent(mainCatID: widget.mainCategoryId));
@@ -463,6 +463,21 @@ class _TheBody extends StatelessWidget {
                 //     ],
                 //   ),
                 // ),
+
+                AppButton(
+                  title: "id",
+                  backgroundColor: AppColors.mainColor,
+                  textColor: Colors.white,
+                  onTap: () {
+                    print(
+                        "attttttttttttttttttttttttttttttttttttttttttttt id = ${context.read<ProductOfMainCategoryBloc>().productsOfACategoryResultList.first!.productAttributes.first.id}");
+
+                    print(
+                        "attttttttttttttttttttttttttttttttttttttttttttt id = ${globalCachedUserToken}");
+
+                    DioHelper.postAddToUserCart(productAttributeId: 1);
+                  },
+                )
               ],
             ),
           );
@@ -789,7 +804,7 @@ class _ProductCard extends StatelessWidget {
                               ),
                             )
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

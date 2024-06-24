@@ -9,7 +9,7 @@ class DioHelper {
   // static String baseUrl = 'http://74.208.189.16:3000';
 
   // static const String baseUrl = "https://6374-217-165-246-246.ngrok-free.app";
-  // static const String baseUrl = "10.255.254.24";
+  // static const String baseUrl = "10.255.254,131:3000";
   static String baseUrl = 'https://api.select-shop.ae';
   // static const String? userToken = globalUserToken ;
 

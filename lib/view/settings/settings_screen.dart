@@ -123,6 +123,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         borderRadius: BorderRadius.circular(10),
                         onTap: () {
                           // ontap edit user data
+                          navigateTo(context, EditUserProfileScreen());
                         },
                         child: Container(
                           width: 40,
