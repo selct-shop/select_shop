@@ -19,9 +19,9 @@ class SearchContainer extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                blurRadius: 5,
-                offset: Offset(3, 4),
-                color: AppColors.mainGreyColor.withOpacity(.2))
+                blurRadius: 1,
+                offset: Offset(1, 1),
+                color: AppColors.grey2Color.withOpacity(.1), ), 
           ],
           borderRadius: BorderRadius.circular(6)),
       child: Row(
@@ -53,16 +53,16 @@ class SearchContainer extends StatelessWidget {
               ),
             ),
           ),
-    
+
           // ##### this FormBuilder is casuing problems ##### //
-    
+
           // FormBuilder(
           //   child: FormBuilderTextField(
           //     name: "Search",
           //     // style: _customLocalTextStyle,
-    
+
           //     // controller: TextEditingController?,
-    
+
           //     decoration: InputDecoration(
           //       hintText: "Search...",
           //       // hintStyle: _customLocalTextStyle,
@@ -73,15 +73,15 @@ class SearchContainer extends StatelessWidget {
           //     ),
           //   ),
           // )
-    
+
           // #####  ##### //
-    
+
           //                       SearchBar(
           //                         hintText: "Search...",
-    
+
           // // textStyle: TextStyle(color: ),
           //                       ),
-    
+
           // AnimSearchBar(
           //   width: 400,
           //   textController: _searchTextEditingController,
@@ -92,14 +92,14 @@ class SearchContainer extends StatelessWidget {
           //   },
           //   onSubmitted: (value) {},
           // ),
-    
+
           // FormField(builder: (context) {
           //   return Text('search');
           // },
           // ),
           //
           //
-    
+
           const SizedBox(
             width: 10,
           ),
@@ -108,7 +108,7 @@ class SearchContainer extends StatelessWidget {
             color: AppColors.mainGreyColor.withOpacity(.3),
             size: 26,
           ),
-    
+
           Text(
               style: _customLocalTextStyle.copyWith(
                   fontSize: 18,
