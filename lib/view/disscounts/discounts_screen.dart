@@ -39,7 +39,7 @@ class DiscountsScreen extends StatelessWidget {
               ),
               for (int i = 0; i < 10; i++)
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: _DiscountWidget(
                     discount: "20 +%",
                     discountDetails: "discount details, and more and more",
