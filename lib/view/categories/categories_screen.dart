@@ -36,6 +36,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   // ignore: must_call_super
   initState() {
     context.read<CategoriesBloc>().add(GetMainCategoriesEvent());
+    print("gloooooooooooooooooooobal  ${globalCachedUserToken}");
   }
 
   @override

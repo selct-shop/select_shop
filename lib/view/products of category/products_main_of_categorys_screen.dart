@@ -50,6 +50,11 @@ class _ProductsOfCategoryScreenState extends State<ProductsOfCategoryScreen> {
     // TODO: implement initState
     // context.read<ProductOfMainCategoryBloc>().add(ProductsOfCategoryInitalEvent(
     //     theMainCategoryID: widget.mainCategoryId));
+    // print(
+    //     "mainiininnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn = ${context.read<ProductOfMainCategoryBloc>().productsOfACategoryResultList.first!.productAttributes.first.id}");
+
+    // print(
+    //     "mainiininnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn = ${globalCachedUserToken}");
 
     context.read<SupCategoriesOfMainCategoryBloc>().add(
         SubCategoriesOfMainCateInitalEvent(mainCatID: widget.mainCategoryId));
@@ -703,6 +708,9 @@ class _ProductCard extends StatelessWidget {
 
         // ),
         // );
+        DioHelper.postAddToUserCart(
+            productAttributeId: theCategoryProduct.productAttributes.first.id);
+        print("dooooooooooooooonene");
       },
       // borderRadius: BorderRadius.circular(
       //   10,

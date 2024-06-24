@@ -253,7 +253,7 @@ class DioHelper {
       );
 
       // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr $response");
-      // print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ${globalCachedUserToken}");
+      print("rrrrrrrrrrrrrrrrrrerererererrrrrrrr ");
       return response;
     } catch (e) {
       throw Exception(e);
