@@ -388,7 +388,7 @@ class DioHelper {
   //     // 'lang': lang,
   //     'Content-Type': 'application/json',
   //     'Authorization':
-  //         'key=AAAAy3Sqo9E:APA91bFbbLLRvru8cqq7u4FfMJ55XHIJpVgbACWMk0gdaZ1vgHt4jYTtvAEsxuQ12ZrqWEBblteCb5DmoQsPe3y3rCfZEVddHiqkGLWkoVD-4G30NHCHl-Djb-GklIQmx45n_9d5htOI',
+  //         'key=${firebase key}',
   //   };
   //   print('data => $data');
   //   // print('url->$url\n data->$data');
