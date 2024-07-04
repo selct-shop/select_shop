@@ -24,40 +24,26 @@ class AppImages {
 
   static const facebookPng = "assets/images/facebook.png";
   static const googlePng = "assets/images/google.png";
-
-
-
 }
 
-
-class AppImagesSvg{
-
-
-
-
-
+class AppImagesSvg {
   //   ####   //
   //  SVG Images  //
-
 
   static const homeSvg = "assets/svg images/home_svg.svg";
   static const productsSvg = "assets/svg images/products.svg";
   static const tradeMarkSvg = "assets/svg images/tradeMark.svg";
   static const specialproductsSvg = "assets/svg images/specialproducts.svg";
   static const favourtsStorkSvg = "assets/svg images/favourts_stork.svg";
-  static const mycartSvg  = "assets/svg images/mycart.svg";
+  static const mycartSvg = "assets/svg images/mycart.svg";
   static const ordersSvg = "assets/svg images/orders.svg";
   static const personalPageSvg = "assets/svg images/personalPage.svg";
   static const suppourtSvg = "assets/svg images/suppourt.svg";
   static const contactUsSvg = "assets/svg images/contactUs.svg";
   static const signOutSvg = "assets/svg images/signOut.svg";
 
-
-
   //   ####   //
   //  SVG Images  //
-
-
 
   static const locationFilledSvg = "assets/svg images/location.svg";
   static const menuSvg = "assets/svg images/menu.svg";
@@ -71,30 +57,25 @@ class AppImagesSvg{
   // static const locationFilled = "assets/svg images/location_filled.svg";
   // static const locationFilled = "assets/svg images/location_filled.svg";
 
-  static const noDataSvg  = "assets/svg images/no_data.svg";
-  static const underDevSvg  = "assets/svg images/under_dev.svg";
-  static const errorSvg  = "assets/svg images/error.svg";
-  static const visaBlueSvg  = "assets/svg images/visa_blue.svg";
-  static const visaRedSvg  = "assets/svg images/visa_red.svg";
-  static const timeSvg  = "assets/svg images/time.svg";
-  static const editUserSvg  = "assets/svg images/edit_user.svg";
-  static const loacationOnMapSvg  = "assets/svg images/location_on_map.svg";
-  static const langSvg  = "assets/svg images/lang.svg";
-  static const notificationSvg  = "assets/svg images/notification.svg";
-  static const backPageSvg  = "assets/svg images/back_page.svg";
-  static const phoneCallSvg  = "assets/svg images/phone_call.svg";
+  static const noDataSvg = "assets/svg images/no_data.svg";
+  static const underDevSvg = "assets/svg images/under_dev.svg";
+  static const errorSvg = "assets/svg images/error.svg";
+  static const visaBlueSvg = "assets/svg images/visa_blue.svg";
+  static const visaRedSvg = "assets/svg images/visa_red.svg";
+  static const timeSvg = "assets/svg images/time.svg";
+  static const editUserSvg = "assets/svg images/edit_user.svg";
+  static const loacationOnMapSvg = "assets/svg images/location_on_map.svg";
+  static const langSvg = "assets/svg images/lang.svg";
+  static const notificationSvg = "assets/svg images/notification.svg";
+  static const backPageSvg = "assets/svg images/back_page.svg";
+  static const phoneCallSvg = "assets/svg images/phone_call.svg";
 
-
-  
-
-  
-  static const giftSvg   = "assets/svg images/gift.svg";
-  static const cashSvg   = "assets/svg images/cash.svg";
-  static const creditSvg   = "assets/svg images/credit.svg";
-  static const creditWithDetailsSvg   = "assets/svg images/credit_with_details.svg";
-  static const returnSvg   = "assets/svg images/return.svg";
-  static const truckSvg  = "assets/svg images/truck.svg";
-  static const siesorSvg  = "assets/svg images/siesor.svg";
-
-
+  static const giftSvg = "assets/svg images/gift.svg";
+  static const cashSvg = "assets/svg images/cash.svg";
+  static const creditSvg = "assets/svg images/credit.svg";
+  static const creditWithDetailsSvg =
+      "assets/svg images/credit_with_details.svg";
+  static const returnSvg = "assets/svg images/return.svg";
+  static const truckSvg = "assets/svg images/truck.svg";
+  static const siesorSvg = "assets/svg images/siesor.svg";
 }
